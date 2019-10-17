@@ -1,0 +1,116 @@
+/* pages/cartSubpackage/pages/address/address.wxss */
+
+.address {
+  min-height: calc(99.12vh);
+}
+.address .hintBox {
+  width: 690rpx;
+  margin: 0 auto;
+  padding-top: 30rpx;
+}
+.address .hintBox .hint {
+  background: #DAEFF0;
+  padding: 20rpx 30rpx;
+  line-height: 50rpx;
+}
+.address .addressInfo {
+  width: 690rpx;
+  margin: 0 auto;
+  padding-top: 30rpx;
+}
+.address .addressInfo .headBox {
+  padding: 20rpx 30rpx;
+}
+.address .addressInfo .headBox .storeIcon {
+  width: 10%;
+}
+.address .addressInfo .headBox .storeIcon image {
+  width: 38rpx;
+  height: 38rpx;
+}
+.address .addressInfo .headBox .storeInfo {
+  width: 90%;
+}
+.address .addressInfo .headBox .storeInfo .name {
+  font-family: 'PingFang-Medium';
+}
+.address .addressInfo .footBox .storePhone {
+  width: 10%;
+}
+.address .addressInfo .footBox .storePhone image {
+  width: 34rpx;
+  height: 44rpx;
+}
+.address .adsList .list-item .name_phone {
+  font-family: 'PingFang-Medium';
+}
+.address .adsList .list-item .leftCont {
+  font-family: 'PingFang-Medium';
+}
+.address .adsList .list-item .leftCont image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.address .adsList .list-item .rightCont {
+  margin-top: 6rpx;
+}
+.address .adsList .list-item .rightCont image {
+  width: 26rpx;
+  height: 26rpx;
+}
+.address .adsList .list-item.list-item:last-child {
+  margin-bottom: 0;
+}
+.address .add_ads {
+  font-family: 'PingFang-Medium';
+  width: 92%;
+  margin: 0 auto;
+  margin-top: 60rpx;
+  border-radius: 45rpx;
+}
+.address .add_ads image {
+  width: 26rpx;
+  height: 26rpx;
+}
+.address .modalContent {
+  padding: 40rpx;
+  background: url('../../assets/images/user/ewmBg.png');
+  width: 100%;
+  height: 300rpx;
+}
+.address .modalContent .modalTop image {
+  width: 28rpx;
+  height: 28rpx;
+}
+.address .modalContent .loginBtn {
+  margin-top: 50rpx;
+  justify-content: space-around;
+}
+.address .modalContent .loginBtn p {
+  padding: 20rpx 40rpx;
+  border-radius: 10rpx;
+  background-color: #1ccfcf;
+  color: #fff;
+}
+.address .modalContent .loginBtn .look {
+  background-color: #99a1a1;
+}
+.address .noAd {
+  text-align: center;
+}
+.address .noAd image {
+  margin: auto;
+  margin-bottom: 50rpx;
+  height: 200rpx;
+}
+.address .outAds .outSide {
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+.address .outAds .rightCont {
+  margin-top: 6rpx;
+}
+.address .outAds .rightCont image {
+  width: 26rpx;
+  height: 26rpx;
+}

@@ -1,0 +1,195 @@
+/* pages/tabBar/category/category.wxss */
+.headSearch input{
+     padding-left:65rpx;
+     width:690rpx;
+     box-sizing:border-box;
+}
+.headSearch image{
+     top:50%;
+     left:50%;
+     transform: translate(-50%,-50%);
+     width:44rpx;
+     height:44rpx;
+}
+.headbox{
+  /* position:fixed; */
+  width:10%;
+}
+.category {
+  /* position: fixed; */
+  /* top:0;
+  left:0; */
+  overflow:scroll;
+  overflow-y: hidden;
+}
+.fixed {
+  position: fixed;
+  top:110rpx;
+}
+/* 头部 */
+.searchBox {
+  width: 80rpx;
+  height: 80rpx;
+  background: #1ccfcf;
+  border-radius: 50%;
+  line-height:80rpx;
+  text-align: center;
+  box-shadow: 0rpx 2rpx 10rpx 0 #c6d3d3;
+}
+.topList {
+  /* margin-left:100rpx; */
+  width:100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  flex-wrap: nowrap;
+  overflow:scroll;
+}
+.topListItem {
+  width:100%;
+}
+.topListItem > view{
+  width: 140rpx;
+  height:60rpx;
+  line-height:60rpx;
+}
+.BannerBox {
+  width: 100%;
+}
+.BannerImg{
+  width: 690rpx;
+  height: 180rpx;
+  border-radius: 20rpx;
+}
+.active{
+     color:#1CCFCF;
+     font-weight: 700;
+     font-size: 32rpx;
+}
+/* 内容 */
+.proListContent{
+  /* width: 330rpx; */
+}
+.proListContent .proListContentItems .proImg {
+  width: 330rpx;
+  height: 330rpx;
+}
+.proListContent .proListContentItems .title{
+  width: 330rpx;
+}
+.titleName {
+  width: 300rpx;
+  text-align: left;
+}
+.proListContentItems {
+  width: 330rpx;
+  padding:0 15rpx;
+  box-sizing: content-box;
+}
+.joinCart {
+  bottom: 0;
+  right: 30rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+.proNullImg {
+  width: 334rpx;
+  height: 304rpx;
+}
+.good_box {
+  width: 60rpx;
+  height: 60rpx;
+  position: fixed;
+  border-radius: 50%;
+  overflow: hidden;
+  left: 50%;
+  top: 50%;
+  z-index: 99;
+  border: 1px solid rgba(187, 49, 40, 0.61);
+  background: rgba(230, 15, 15, 0.966);
+}
+.good_box image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.contentBox{
+     position:fixed;
+     top:90rpx;
+     /* bottom:0rpx; */
+     left:0;
+     /* z-index:99; */
+     width:100%;
+     height:calc(100% - 90rpx);
+     /* border-top:1rpx solid #f2f2f2; */
+}
+.contentBox .tabList .fixed{
+     position:fixed;
+     width:146rpx;
+     height:30rpx;
+     background:#fff;
+     z-index:11;
+}
+.contentBox .tabList .fixed1{
+     bottom:0;
+}
+.tabList{
+     width:210rpx;
+     height:100%;
+     border-right:2rpx solid #f8f8f8;
+     box-sizing:border-box;
+}
+.tabList .list-item{
+     width:146rpx;
+     height:47rpx;
+     line-height:47rpx;
+     border-radius:20rpx;
+}
+.tabList .list-item.active{
+     color:#fff;
+     background:#1CCFCF;
+}
+.contentBox .rightContent .fixed{
+     position:fixed;
+     width:540rpx;
+     height:30rpx;
+     background:#fff;
+     z-index:11;
+}
+.contentBox .rightContent .fixed1{
+     bottom:0;
+}
+.rightContent{
+     width:calc(100% - 210rpx);
+     height:100%;
+     box-sizing:border-box;
+}
+.rightContent .typeBanner,
+.rightContent .typeBanner image{
+     width:500rpx;
+     height:168rpx;
+}
+.rightContent .rightProList{
+     padding:32rpx 0;
+}
+.rightContent .rightProList .list-items{
+     width:330rpx;
+}
+.rightContent .rightProList .list-items:nth-child(3n){
+     /* margin-right:0; */
+}
+.rightContent .rightProList .proImg,
+.rightContent .rightProList .proImg image{
+    width:330rpxrpx;
+    height:230rpx;
+}
+.rightProList .proNullStyle{
+     height:304rpx;
+}
+.rightProList .proNullStyle image{
+     width:335rpx;
+     height:304rpx;
+}
+scroll-view{
+  height:90%;
+}

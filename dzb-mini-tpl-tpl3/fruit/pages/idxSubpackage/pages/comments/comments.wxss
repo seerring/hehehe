@@ -1,0 +1,43 @@
+/* pages/idxSubpackage/pages/comments/comments.wxss */
+.commentType{
+    height:200rpx;
+}
+.commentType .comData{
+    padding-top:40rpx;
+}
+.commentType .lvList image{
+    width:30rpx;
+    height:30rpx;
+}
+.commentType .list-item{
+    padding:0 15rpx;
+    border:2rpx solid #999;
+    border-radius:4rpx;
+}
+.commentType .list-item:last-child{
+    margin-right:0;
+}
+.comList .head{
+    padding:32rpx 30rpx 0 30rpx;
+}
+.comList .head .avatar{
+    width:62rpx;
+    height:62rpx;
+}
+.comList .head .lv{
+    width:27rpx;
+    height:27rpx;
+}
+.comList .comImg image{
+    width:130rpx;
+    height:130rpx;
+}
+.comList .list-item:last-child{
+    border:none;
+}
+
+.active{
+    font-size:30rpx;
+    color:#1ccfcf;
+    border:2rpx solid #1ccfcf!important;
+}

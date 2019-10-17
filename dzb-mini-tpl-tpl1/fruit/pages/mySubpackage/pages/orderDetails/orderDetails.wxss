@@ -1,0 +1,119 @@
+/* pages/mySubpackage/pages/orderDetails/orderDetails.wxss */
+.orderBgImg,
+.orderBgImg .bg{
+     width:100%;
+     height:220rpx;
+}
+.orderBgImg .status{
+     top:30rpx;
+     left:46rpx;
+}
+.orderBgImg .status image{
+     width:40rpx;
+     height:40rpx;
+}
+.orderBgImg .status .speak{
+     margin-top:5rpx;
+     margin-left:60rpx;
+}
+.orderBgImg .address{
+     top:calc(100% - 85rpx);
+     left:30rpx;
+     width:690rpx;
+     height:170rpx;
+     border-radius:10rpx;
+}
+.orderBgImg .address .userInfo{
+     margin-top:50rpx;
+}
+.orderBgImg .address .uname{
+     margin-right:50rpx;
+}
+.orderBgImg .address .phone{
+     margin-top:5rpx;
+}
+.orderBgImg .address image{
+     margin:0 30rpx 0 25rpx;
+     width:25rpx;
+     height:33rpx;
+}
+.orderBgImg .address .userAds{
+     margin-left:75rpx;
+}
+.proDes .prodetails{
+     padding:30rpx 30rpx 30rpx 30rpx;
+}
+.proDes .prodetails:first-child{
+    margin-top: 115rpx;
+}
+.proDes .proImg{
+     width:162rpx;
+     height:162rpx;
+}
+.proDes .rightCont{
+     width:498rpx;
+}
+.proDes .rightCont .desc{
+     width:300rpx;
+     word-wrap:break-word;
+}
+.proDes .rightCont .applySale{
+     right:0;
+     top:15rpx;
+     line-height:38rpx;
+     width:120rpx;
+     border:1rpx solid #1ccfcf;
+     border-radius:4rpx;
+     box-sizing:border-box;
+}
+.orderInfo .kf image{
+     width:34rpx;
+     height:30rpx;
+}
+.orderInfoList{
+     padding:30rpx 30rpx 60rpx 30rpx;
+     margin-bottom:160rpx;
+}
+.btnBox{
+     position:fixed;
+     bottom:0;
+     width:690rpx;
+}
+.btnBox button{
+     width:168rpx;
+     height:56rpx;
+     line-height:56rpx;
+     border-radius:28rpx;
+}
+.btnBox .btn1{
+     border:1rpx solid #1ccfcf;
+}
+.btnBox .btn2{
+     border:1rpx solid #999;
+}
+
+.orderModal-1{
+     position:fixed;
+     width:650rpx;
+     left:50rpx;
+     top:calc(50% - 220rpx);
+     border-radius:10rpx;
+}
+.orderModal-1 .content{
+     padding:80rpx 0 130rpx 0;
+}
+.orderModal-1 .btn{
+     height:98rpx;
+     line-height:98rpx;
+}
+.orderModal-1 .btn button{
+     width:50%;
+     height:98rpx;
+     line-height:98rpx;
+}
+.orderModal-1 .btn .btn1{
+     border-radius:0 0 0 10rpx;
+}
+.orderModal-1 .btn .btn2{
+     border-radius:0 0 10rpx 0;
+}

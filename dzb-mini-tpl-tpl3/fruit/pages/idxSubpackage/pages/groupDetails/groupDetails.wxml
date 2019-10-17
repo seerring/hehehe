@@ -1,0 +1,196 @@
+<!--pages/idxSubpackage//pages/groupDetails/groupDetails.wxml-->
+<!-- <text>pages/idxSubpackage//pages/groupDetails/groupDetails.wxml</text> -->
+
+<view class="container">
+    <!--商品详情-->
+    <view class="mainImgBox">
+        <view class="indexSwiper relative">
+            <swiper indicator-dots="true" indicator-color="#fff" indicator-active-color="#000" circular="true" bindchange="indexSwiperChange" class="swiperBox">
+                <block wx:for="{{swiperList}}" wx:key="item">
+                    <swiper-item>
+                        <view wx:if="{{index==0&&proDes.video}}" class="video relative">
+                            <video wx:if="{{showVideo}}" id="myVd" src="{{proDes.video}}" controls="true" poster="{{item[0]}}"></video>
+                            <image class="poster" wx:if="{{!showVideo}}" src="{{swiperList[1]}}"></image>
+                            <image wx:if="{{isPlay}}" src="../../images/video-play.png" bindtap="playVd"></image>
+                        </view>
+                        <image class="banner_img" wx:else mode='scaleToFill' src="{{item}}"></image>
+                    </swiper-item>
+                </block>
+            </swiper>
+            <view class="absolute bottomBox flex flex-ac">
+                <view class="qh_time ft-28 color-fff line-h50 h50 text-center">预计取货：{{proDes.takeTime}}</view>
+                <view class="absolute dots ft-24 color-fff" wx:if="{{swiperList.length > 0}}">
+                    <image class="block" src="/images/indicator-dots.png"></image>
+                    <text class="absolute text-center inline-block">{{indexSwiper+1}} / {{swiperList.length}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <!--商品信息-->
+    <!-- <view class="pro_desc1 pd30 bg-fff bd-bt-f4f4f4">
+        <view class="title ft-28 line-h40"> -->
+            <!-- <text class="h30 line-h30 bg-fc5920 ft-20 color-fff pd-lr10 bd-rd8">特卖</text> -->
+            <!-- <span class="h30 line-h30 bg-fc5920 color-fff pd-lr10 bd-rd8">{{proDes.quorum}}人团</span>
+            <span class='color-333'> {{proDes.product_name}}</span>
+        </view> -->
+    <view class="pro_desc1 pd30 bg-fff bd-bt-f4f4f4">
+        <view class="title ft-28 line-h40">
+            <span wx:if="{{proDes.quorum}}" class="h30 line-h30 bg-fc5920 color-fff pd-lr10 bd-rd8">
+            {{proDes.quorum}}人团</span>
+            <span wx:else class="h30 line-h30 bg-fc5920 color-fff pd-lr10 bd-rd8">特卖</span>
+            <span class='color-333'> {{proDes.product_name}}</span>
+        </view>
+        <view class="pro_xl_kc ft-26 mg-tp20 flex flex-ac">
+            <text class="mg-rt10 dian inline-block bd-rd50"></text>
+            <text class="mg-rt20 color-333">销量</text>
+            <text class="mg-rt50 color-666">{{proDes.ordercount}}</text>
+            <text class="mg-rt10 mg-lt20 dian inline-block bd-rd50"></text>
+            <text class="mg-rt20 color-333">库存</text>
+            <text class="color-666">{{proDes.total}}</text>
+        </view>
+        <view class="mg-tp30 pro_price ft-22 clearfix">
+          <view class="pull-left">
+            <text class="color-fc5920 nowprice">￥<text class="ft-30">{{proDes.present_price}}</text></text>
+            <text class="ft-26 color-999 line-through">￥{{proDes.original_price}}</text>
+          </view>
+          <view class="rightCont pull-right">
+            <view class="ft-24 end_time flex flex-ac" wx:if="{{timeObj.countDown > 0}}">距结束：
+              <text class="bg-1ccfcf times bd-rd8 color-fff h35 line-h35 text-center">{{timeObj.hourStr}}</text>
+              <text class="dian">:</text>
+              <text class="bg-1ccfcf times bd-rd8 color-fff h35 line-h35 text-center">{{timeObj.minStr}}</text>
+              <text class="dian">:</text>
+              <text class="bg-1ccfcf times bd-rd8 color-fff h35 line-h35 text-center">{{timeObj.secStr}}</text>
+            </view>
+            <view class="ft-24 end_time flex flex-ac mg-tp10" wx:else>距结束：
+              <text class="bg-999 times bd-rd8 color-fff h35 line-h35 text-center">00</text>
+              <text class="dian">:</text>
+              <text class="bg-999 times bd-rd8 color-fff h35 line-h35 text-center">00</text>
+              <text class="dian">:</text>
+              <text class="bg-999 times bd-rd8 color-fff h35 line-h35 text-center">00</text>
+            </view>
+          </view>
+      </view>
+        
+    </view>
+    <!--数量-->
+    <view class="limitNum h100 bg-fff pd-lr30 clearfix">
+        <view class="ft-28 color-333 line-h100 pull-left">数量</view>
+        <view class="ft-28 color-666 line-h100 pull-left"><text class="ft-26 color-999 mg-lt10">每个用户限购{{proDes.limit}}份</text></view>
+        <view class="chooseNum pull-right flex flex-jc flex-ac bd-rd8 mg-tp25">
+            <view class="ft-34 color-999 text-center" bindtap="reduce">-</view>
+            <view class="ft-28 color-333 text-center">{{buyNum}}</view>
+            <view class="ft-34 color-fc5920 text-center" bindtap="add">+</view>
+        </view>
+    </view>
+    <!--参团人数-->
+    <view class="joinGroupNum bg-fff mg-tp10 bd-bt-f4f4f4">
+      <view class="h35 line-h35 pd-lt15 title ft-30 color-333">门店范围内参团人数</view>
+      <view class="flex flex-ac joined mg-tp20">
+        <image class="block mg-rt10 bd-rd50" wx:for="{{avatarList}}" wx:key="item" wx:if="{{item != '' && item != null}}" src="{{item}}" ></image>
+        <image class="block mg-rt10 bd-rd50" wx:for="{{avatarList}}" wx:key="item" wx:if="{{item == '' || item == null}}" src="../../images/default.png" ></image>
+        <image class="block mg-rt10 bd-rd50" wx:for="{{groupNum}}" wx:key="item" wx:if="{{index < 6}}" src="../../images/groupNum.png" ></image>
+        <view class="mg-lt20 ft-24 color-333" wx:if="{{groupNum > 0}}">还差<text class="color-fc5920">{{proDes.group_num}}人</text>成团</view>
+        <view class="mg-lt20 ft-24 color-333" v-wx:if="{{groupNum == 0}}">总共<text class="color-fc5920">{{proDes.quorum}}人</text>成团</view>
+      </view>
+    </view>
+    <!--拼团流程-->
+    <view class="group_progress bg-fff bd-bt-f4f4f4">
+      <view class="h35 line-h35 pd-lt15 title ft-30 color-333">拼团流程</view>
+      <view class="flex flex-ac progress ft-24 color-333 mg-tp20">
+        <view wx:for="{{progress}}" wx:key="item" class="list-item relative">
+          <view class="progress_des text-center">
+            <image class="block" src="{{item.img}}"></image>
+            <view class="mg-tp20">{{item.name}}</view>
+          </view>
+          <image class="block absolute" wx:if="{{index != 4}}" src="../../images/groupSort.png" ></image>
+        </view>
+      </view>
+      <view class="groupHint flex mg-tp50">
+        <view class="leftCont color-fc5920 ft-26">提示：</view>
+        <view class="ft-24 color-666">
+          <view>1、拼团成功与否以活动页面倒计时为准。</view>
+          <view class="mg-tp20">2、拼团结束并成功的订单不可取消。</view>
+          <view class="mg-tp20">3、拼团失败，已扣款金额原路返还。</view>
+          <view class="mg-tp20">4、本活动不支持配送，需到店核销自提。</view>
+        </view>
+      </view>
+    </view>
+    <!--核销商品门店-->
+    <view class="he_goods bg-fff bd-bt-f4f4f4 mg-tp10 pd30">
+        <view class="h35 line-h35 pd-lt15 title ft-30 color-333">核销商品门店</view>
+        <view class="storeInfo flex flex-ac mg-tp40">
+            <view class="storeImg">
+                <image class="block bd-rd50" src="{{proDes.img}}"></image>
+            </view>
+            <view class="storeName">
+                <view class="ft-28 color-333">
+                    <b>{{proDes.name}}</b>
+                </view>
+                <view class="flex flex-ac ft-24 mg-tp15">
+                    <view class="ads">
+                        <image class="block" src="../../images/address_icon.png"></image>
+                    </view>
+                    <view class="color-333 ads_text one-line-ellipsis">{{proDes.address}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="h100 line-h100 flex flex-ac pd-lr30 storeAdvantage bg-fff">
+        <view class="list-item flex flex-ac flex-jc" wx:if="{{ask.slogan1}}">
+            <image class="block" src="../../images/advantage.png"></image>
+            <view class="ft-24 color-333 rightCont">{{ask.slogan1}}</view>
+        </view>
+        <view class="list-item flex flex-ac flex-jc" wx:if="{{ask.slogan2}}">
+            <image class="block" src="../../images/advantage.png"></image>
+            <view class="ft-24 color-333 rightCont">{{ask.slogan2}}</view>
+        </view>
+        <view class="list-item flex flex-ac flex-jc" wx:if="{{ask.slogan3}}">
+            <image class="block" src="../../images/advantage.png"></image>
+            <view class="ft-24 color-333 rightCont">{{ask.slogan3}}</view>
+        </view>
+    </view>
+    <!--商品信息-->
+    <view class="mg-tp10 bg-fff proInfo">
+        <view class="h35 line-h35 pd-lt15 title ft-30 color-333">商品信息</view>
+        <view class="mg-tp40 bg-fff">
+            <view class="mg-tp20 ft-28 color-333">
+                <text class="color-666">重量：</text>{{attribute[0]}}</view>
+            <view class="mg-tp20 ft-28 color-333">
+                <text class="color-666">产地：</text>{{attribute[1]}}</view>
+            <view class="mg-tp20 ft-28 color-333">
+                <text class="color-666">储存：</text>{{attribute[2]}}</view>
+        </view>
+        <view class="proContent mg-tp40 ft26">
+            <block wx:for="{{proDes.product_mini_content}}" wx:key="item">
+                <image mode='widthFix' src="{{item}}"></image>
+            </block>
+        </view>
+    </view>
+
+    <!--底部-->
+    <view class="h100 line-h100 bg-fff footFixed">
+        <view class="toIndex pull-left bg-fff">
+            <navigator class="h100 flex flex-vc flex-hc" hover-class='none' open-type='switchTab' url="/pages/tabBar/index/index">
+                <image src='../../images/toIndex.png'></image>
+            </navigator>
+        </view>
+        <view class="kf pull-left h100 flex flex-vc flex-hc relative bg-fff">
+            <button class="absolute kfBtn" open-type="share" bindtap="onShareAppMessage">
+                <!-- <contact-button></contact-button>
+                    <contact-button></contact-button> -->
+                <image src='../../images/shareBtn.png'></image>
+            </button>
+            <image src='../../images/shareBtn.png'></image>
+        </view>
+        <view class="cart pull-left relative bg-fff">
+            <navigator class="h100 flex flex-vc flex-hc" hover-class='none' open-type='switchTab' url='/pages/tabBar/shopCart/shopCart'>
+                <image src='../../images/cart.png'></image>
+                <view wx:if="{{cartList.length>0}}" class="absolute cartNum color-fff text-center ft-20">{{cartList.length}}</view>
+            </navigator>
+        </view>
+        <view class="joinGroup bg-1ccfcf line-h100 text-center ft-32 color-fff" bindtap='payMent'  wx:if="{{proDes.group_status == 1}}">我要参团</view>
+        <view class="joinGroup bg-ccc line-h100 text-center ft-32 color-fff"  wx:elif="proDes.group_status == 2">已参团</view>
+        <view class="joinGroup bg-ccc line-h100 text-center ft-32 color-fff"  wx:else>已结束</view>
+    </view>
+</view>

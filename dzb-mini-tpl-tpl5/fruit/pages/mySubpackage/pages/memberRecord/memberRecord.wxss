@@ -1,0 +1,56 @@
+/* pages/mySubpackage/pages/memberRecord/memberRecord.wxss */
+
+.memberRecord{
+		min-height:calc(100vh - 8.8rpx);
+}
+.payList  .list view view {
+  height: 160rpx;
+}
+
+.payList .list .list-item view .leftCont{
+	  width:70%;
+}
+.payList .list .list-item view .rightCont{
+	  width:30%;
+}
+   
+.loadMore{
+    padding-bottom:2rpx;
+}
+.loadMore  image{
+    width:6rpx;
+    margin: 0 auto;
+}
+
+.leftCont view p{
+  align-self: flex-start;
+
+}            
+
+.styleNull{
+			padding-top:27rpx;
+      }
+.styleNull	image{
+				margin:0 auto;
+				width:25.3rpx;
+				height:17.7rpx;
+			}
+.leftCont view{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.rightCont view{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.leftCont view p{
+  display: block;
+}
+.rightCont view p{
+  display: block;
+}

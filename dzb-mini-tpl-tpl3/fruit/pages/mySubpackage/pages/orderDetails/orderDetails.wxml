@@ -1,0 +1,199 @@
+<!--pages/mySubpackage/pages/orderDetails/orderDetails.wxml-->
+<include src="../../../common/header.wxml" />
+<view class="container">
+    <!--订单详情-->
+    <!--头部信息-->
+    <view class="orderBgImg relative">
+        <image class="bg absolute" src='../../images/orderDetailBg.png'></image>
+        <!--待付款-->
+        <view class="absolute status" wx:if="{{orderStatus == '待付款' }}">
+            <view class="flex flex-vc">
+                <image class="mg-rt15" src="../../images/order-icon1.png"></image>
+                <text class="inline-block ft-32 color-fff">待付款</text>
+            </view>
+            <view class="ft-28 color-fff speak">宝贝数量有限，赶快去付款吧！</view>
+        </view>
+        <!--待发货-->
+        <view class="absolute status" wx:if="{{orderStatus == '待发货' }}">
+            <view class="flex flex-vc">
+                <image class="mg-rt15" src="../../images/order-icon2.png"></image>
+                <text class="inline-block ft-32 color-fff">待发货</text>
+            </view>
+            <view class="ft-28 color-fff speak">您的订单已付款，请耐心等待卖家发货。</view>
+        </view>
+        <!--已发货-->
+        <view class="absolute status" wx:if="{{orderStatus == '待收货' }}">
+            <view class="flex flex-vc">
+                <image class="mg-rt15" src="../../images/order-icon3.png"></image>
+                <text class="inline-block ft-32 color-fff">已发货</text>
+            </view>
+            <view class="ft-28 color-fff speak">您的宝贝已经在路上了，准备好接收快递哦~</view>
+        </view>
+        <!--交易成功-->
+        <view class="absolute status" wx:if="{{orderStatus == '已完成' }}">
+            <view class="flex flex-vc">
+                <image class="mg-rt15" src="../../images/order-icon4.png"></image>
+                <text class="inline-block ft-32 color-fff">交易成功</text>
+            </view>
+            <view class="ft-28 color-fff speak">感谢您对**平台的信任，欢迎下次光临~</view>
+        </view>
+        <!--交易关闭-->
+        <view class="absolute status" wx:if="{{orderStatus == '已取消' }}">
+            <view class="flex flex-vc">
+                <image class="mg-rt15" src="../../images/order-icon5.png"></image>
+                <text class="inline-block ft-32 color-fff">交易关闭</text>
+            </view>
+            <view class="ft-28 color-fff speak">已取消订单</view>
+        </view>
+
+        <view class="absolute address bg-fff">
+            <view class="clearfix userInfo">
+                <image class="pull-left" src='../../images/address-icon.png'></image>
+                <text class="pull-left ft-30 color-333 uname">{{orderinfo.address_name}}</text>
+                <text class="pull-left ft-26 color-333 phone">{{orderinfo.address_phone}}</text>
+            </view>
+            <view class="mg-tp20 userAds ft-26 color-999">{{orderinfo.address_info}}</view>
+        </view>
+    </view>
+    <!--商品信息-->
+    <view class="proDes bg-fff">
+        <block wx:for="{{orderinfo.order_info}}" wx:for-item="pro">
+            <view class="clearfix prodetails border2">
+                <image mode="aspectFit" class="pull-left proImg mg-rt30" src="https://admin.saas.kissneck.com/b2c-admin/public/uploads/{{pro.images}}"></image>
+                <view class="rightCont pull-left">
+                    <view class="clearfix">
+                        <view class="pull-left desc overflow-ellipsis2 ft-28 color-333 line-h40">
+                            {{pro.proName}}
+                        </view>
+                        <view class="pull-right ft-28 color-333">￥{{pro.fprice}}</view>
+                    </view>
+                    <view class="clearfix mg-tp10">
+                        <view class="pull-left ft-26 color-999">{{pro.color}} {{pro.size}}</view>
+                        <view class="pull-right ft-28 color-999">×{{pro.proNum}}</view>
+                    </view>
+                    <view class="clearfix relative" wx:if="{{orderStatus == '已完成' }}">
+                        <navigator hover-class='none' url='../saleService/saleService?orderid={{orderinfo.id}}'>
+                            <view class="pull-right absolute h40 color-ff5400 ft-24 text-center applySale">申请售后</view>
+                        </navigator>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <view class="h80 line-h80 claerfix border2 pd-lr30">
+            <view class="pull-left ft-28 color-666">运费</view>
+            <view class="pull-right ft-28 color-666">￥{{orderinfo.fee_price}}</view>
+        </view>
+        <view class="clearfix h90 line-h90 pd-lr30">
+            <view class="pull-right ft-26 color-333">共{{orderinfo.procount}}件
+                <text class="mg-lt20">合计：</text>
+                <text class="mg-lt30 ft-30 color-ff5400">￥{{orderinfo.price}}</text>
+            </view>
+        </view>
+    </view>
+    <!--订单信息-->
+    <view class="orderInfo h90 line-h90 mg-tp20 pd-lr30 clearfix bg-fff border2">
+        <view class="pull-left ft-30 color-333">订单信息</view>
+        <view class="pull-right kf flex flex-vc">
+            <image class="mg-rt10" src='../../images/kf-icon.png'></image>
+            <text class="ft-20 color-333">联系商家</text>
+        </view>
+    </view>
+    <!--待付款-->
+    <view wx:if="{{orderStatus == '待付款' }}">
+        <view class="orderInfoList bg-fff">
+            <view class="list-item ft-28 color-333">订单编号：{{orderinfo.order_num}}</view>
+            <view class="list-item mg-tp20 ft-28 color-333">下单时间：{{orderinfo.create_time}}</view>
+        </view>
+        <view class="bg-fff btnBox clearfix pd30">
+            <button bindtap='toPayment' hover-class='none' class="ft-28 pull-right btn1 text-center bg-fff color-ff5400">付款</button>
+            <button hover-class='none' bindtap='qxOrder' class="ft-28 pull-right btn2 mg-rt25 text-center bg-fff color-999">取消订单</button>
+        </view>
+    </view>
+    <!--待发货-->
+    <view wx:if="{{orderStatus == '待发货' }}">
+        <view class="orderInfoList bg-fff">
+            <view class="list-item ft-28 color-333">订单编号：{{orderinfo.order_num}}</view>
+            <view class="list-item mg-tp20 ft-28 color-333">交易流水号：{{orderinfo.paynumber}}</view>
+            <view class="list-item mg-tp20 ft-28 color-333">下单时间：{{orderinfo.create_time}}</view>
+            <view class="list-item mg-tp20 ft-28 color-333">付款时间：{{orderinfo.paytime}}</view>
+        </view>
+    </view>
+    <!--已发货-->
+    <view wx:if="{{orderStatus == '待收货' }}">
+        <view class="orderInfoList bg-fff">
+            <view class="list-item ft-28 color-333">订单编号：{{orderinfo.order_num}}</view>
+            <view class="list-item mg-tp20 ft-28 color-333">交易流水号：{{orderinfo.paynumber}}</view>
+            <view class="list-item mg-tp20 ft-28 color-333">下单时间：{{orderinfo.create_time}}</view>
+            <view class="list-item mg-tp20 ft-28 color-333">付款时间：{{orderinfo.paytime}}</view>
+            <view class="list-item mg-tp20 ft-28 color-333">发货时间：{{orderinfo.shiptime}}</view>
+        </view>
+        <view class="bg-fff btnBox clearfix pd30">
+            <button bindtap='confirmOrder' data-id="{{orderinfo.id}}" hover-class='none' class="ft-28 pull-right btn1 text-center bg-fff color-ff5400">确认收货</button>
+            <navigator hover-class='none' class="inline-block pull-right" url='../logistics/logistics?orderid={{orderinfo.id}}'>
+                <button hover-class='none' class="ft-28 pull-right btn2 mg-rt25 text-center bg-fff color-999">查看物流</button>
+            </navigator>
+        </view>
+    </view>
+    <!--交易成功-->
+    <view wx:if="{{orderStatus == '已完成'}}">
+        <view class="orderInfoList bg-fff">
+            <view class="list-item ft-28 color-333">订单编号：{{orderinfo.order_num}}</view>
+            <view class="list-item mg-tp20 ft-28 color-333">交易流水号：{{orderinfo.paynumber}}</view>
+            <view class="list-item mg-tp20 ft-28 color-333">下单时间：{{orderinfo.create_time}}</view>
+            <view class="list-item mg-tp20 ft-28 color-333">付款时间：{{orderinfo.paytime}}</view>
+            <view class="list-item mg-tp20 ft-28 color-333">发货时间：{{orderinfo.shiptime}}</view>
+            <view class="list-item mg-tp20 ft-28 color-333">收货时间：{{orderinfo.receivingtime}}</view>
+        </view>
+        <view class="bg-fff btnBox clearfix pd30">
+            <navigator hover-class='none' class="inline-block pull-right" url='../comments/comments?orderid={{orderinfo.id}}'>
+                <button hover-class='none' class="ft-28 pull-right btn1 text-center bg-fff color-ff5400">去评价</button>
+            </navigator>
+            <navigator hover-class='none' class="inline-block pull-right" url='../logistics/logistics?orderid={{orderinfo.id}}'>
+                <button hover-class='none' class="ft-28 pull-right btn2 mg-rt25 text-center bg-fff color-999">查看物流</button>
+            </navigator>
+        </view>
+    </view>
+    <!--交易关闭-->
+    <view wx:if="{{orderStatus == '已取消'}}">
+        <view class="orderInfoList bg-fff">
+            <view class="list-item ft-28 color-333">订单编号：{{orderinfo.order_num}}</view>
+            <view class="list-item mg-tp20 ft-28 color-333">下单时间：{{orderinfo.create_time}}</view>
+        </view>
+        <view class="bg-fff btnBox clearfix pd30">
+            <button hover-class='none' class="ft-28 pull-right btn2 mg-rt25 text-center bg-fff color-999">删除订单</button>
+        </view>
+    </view>
+</view>
+
+<!--取消订单弹窗-->
+<view class="maskLayer" wx:if="{{isShowModal1}}">
+    <view class="orderModal-1 bg-fff">
+        <view class="content text-center ft-34 color-333 border2">确定要取消订单吗？</view>
+        <view class="btn">
+            <button class="btn1 bg-fff color-333 ft-32 text-center inline-block" bindtap='comOrder'>确定</button>
+            <button class="btn2 inline-block bg-ff5400 text-center color-fff ft-32" bindtap='cancleOrder'>取消</button>
+        </view>
+    </view>
+</view>
+
+<!--删除订单弹窗-->
+<view class="maskLayer" wx:if="{{isShowModal2}}">
+    <view class="orderModal-1 bg-fff">
+        <view class="content text-center ft-34 color-333 border2">您确定要删除订单吗？</view>
+        <view class="btn">
+            <button class="btn1 bg-ff5400 color-fff ft-32 text-center inline-block" bindtap='delSubmitOrder'>确定</button>
+            <button class="btn2 inline-block bg-fff text-center color-333 ft-32" bindtap='cancleOrder'>取消</button>
+        </view>
+    </view>
+</view>
+
+<!--确认订单弹窗-->
+<view class="maskLayer" wx:if="{{isShowModal3}}">
+    <view class="orderModal-1 bg-fff">
+        <view class="content text-center ft-34 color-333 border2">请确定您已收到货？</view>
+        <view class="btn">
+            <button class="btn1 bg-ff5400 color-fff ft-32 text-center inline-block" bindtap='confirmSubmitOrder'>确定</button>
+            <button class="btn2 inline-block bg-fff text-center color-333 ft-32" bindtap='cancleOrder'>取消</button>
+        </view>
+    </view>
+</view>

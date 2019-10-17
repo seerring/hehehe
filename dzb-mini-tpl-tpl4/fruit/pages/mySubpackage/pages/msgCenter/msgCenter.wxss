@@ -1,0 +1,13 @@
+/* pages/mySubpackage/pages/msgCenter/msgCenter.wxss */
+.system image.icon1{
+     width:37rpx;
+     height:35rpx;
+}
+.system image.icon2{
+     width:16rpx;
+     height:30rpx;
+}
+.system .msg{
+     width:40rpx;
+     border-radius:50%;
+}

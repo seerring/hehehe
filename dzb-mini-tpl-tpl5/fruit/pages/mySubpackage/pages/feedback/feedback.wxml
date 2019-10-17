@@ -1,0 +1,56 @@
+<!--pages/mySubpackage/pages/feedback/feedback.wxml-->
+<view class="container">
+     <!--我要反馈-->
+     <view class="myFeedback mg-tp10 bg-fff">
+          <view class="mg-tp20 inline-block ft-28 color-333">我要反馈</view>
+          <view class="feedbackList clearfix">
+               <view class="list-item pull-left mg-rt30 mg-tp20 h40 ft-24 color-999 text-center {{index == curIndex ? 'active' :''}}" wx:for='{{feedbackList}}' wx:key="item" bindtap='feedbackType' data-index="{{index}}">{{item.title}}</view>
+          </view>
+     </view>
+     <!--描述问题-->
+     <view class="mg-tp20 bg-fff pd-lr30">
+          <view class="ft-22 color-ff5400 mg-tp20 mg-bt20 inline-block">*<text class="ft-28 color-333 mg-lt10 mg-rt10">描述问题</text>(不少于10个字)</view>
+          <view class="textarea inline-block mg-bt20 relative">
+               <textarea class="ft-24 color-333" bindinput='getLentgh' maxlength='300' placeholder='我在浏览购物商品时,遇到了...的问题' placeholder-class='ft-24 color-999'>
+               </textarea>
+               <view class="absolute length ft-24 color-999">{{len}}/300</view>
+          </view>
+     </view>
+     <!--上传图片-->
+     <view class="bg-fff pd-lr30 mg-tp20">
+          <view class="mg-tp20 mg-bt20 inline-block ft-28 color-333">上传图片<text class="ft-22 color-999 mg-lt10">(最多上传3张)</text></view>
+          <view class="clearfix pd-bt30">
+               <view class="pull-left lists" wx:if="{{imgLists.length > 0}}">
+                    <view class="relative inline-block mg-rt30" wx:for="{{imgLists}}" wx:key="item">
+                         <image class="absolute delete" data-index="{{index}}" bindtap='clickDel' src='/pages/common/images/deleteImg.png' ></image>
+                         <image class="radius8" src='{{item}}'></image>
+                    </view>
+               </view>
+               <view class="imgList pull-left" >
+                    <view class="upload radius8 text-center" bindtap='addImg' wx:if="{{imgLists.length < 3}}">
+                         <image class="uploadImg mg-tp40" src="../../images/icon-upload.png"></image>
+                         <view class="ft-20 color-999">添加图片</view>
+                    </view>
+               </view>
+          </view>
+     </view>
+     <!--联系方式-->
+     <view class="contactWay bg-fff mg-tp20">
+          <view class="ft-28 color-333 mg-bt20">联系方式</view>
+          <input type='text' class="ft-24 color-333 h60 line-h60 border-ccc pd-lt20" placeholder='手机号/微信号/邮箱等填写其一即可' placeholder-class='ft-24 color-999'></input>
+     </view>
+     <!--提交-->
+     <view wx:if="{{submitWait}}" class="submitBtn ft-32 h90 line-h90 mg-lt30 mg-tp40 radius8 bg-ff5400 color-fff text-center" bindtap='submitBtn'>提交</view>
+     <view wx:else class="submitBtn ft-32 h90 line-h90 mg-lt30 mg-tp40 radius8 bg-ccc color-fff text-center">提交</view>
+
+     <!--弹窗-->
+     <cover-view class="maskLayer" wx:if="{{isShowModal}}">
+          <cover-view class="modalBox bg-fff radius8" animation="{{animationData}}">
+               <cover-view class="content text-center">
+                    <cover-view class="ft-28 color-333">感谢您的反馈~</cover-view>
+                    <cover-view class="ft-28 color-333 mg-tp10">我们会尽快处理并通知您</cover-view>
+               </cover-view>
+               <cover-view class="btn text-center ft-30" bindtap='cancleModal'>知道了</cover-view>
+          </cover-view>
+     </cover-view>
+</view>

@@ -1,0 +1,97 @@
+/* pages/mySubpackage/pages/order/order.wxss */
+.tabList .list-item{
+     width:150rpx;
+     box-sizing:border-box;
+}
+.tabList .list-item .active{
+     height:96rpx;
+     color:#1ccfcf;
+     border-bottom:4rpx solid #1ccfcf;
+     box-sizing:border-box;
+}
+.lists .list-item:first-child{
+     margin-top:0;
+}
+/* .lists .list-item:last-child{
+     padding-bottom:30rpx;
+} */
+.proDes .proImg{
+     /* padding:35rpx 0 70rpx 0; */
+}
+.proDes .proImg,
+.proDes .proImg image{
+     width:170rpx;
+     height:170rpx;
+}
+.proDes .rightCont{
+     width:490rpx;
+     margin-top:35rpx;
+}
+.proDes .rightCont .desc{
+     width:300rpx;
+     word-wrap:break-word;
+}
+.btnBox button,
+.btnBox navigator{
+     width:150rpx;
+     height:56rpx;
+     line-height:56rpx;
+     border-radius:28rpx;
+}
+.btnBox .btn1{
+     border:1rpx solid #1ccfcf;
+}
+.btnBox .btn2{
+     border:1rpx solid #999;
+}
+.orderModal-1{
+     position:fixed;
+     width:650rpx;
+     left:50rpx;
+     top:calc(50% - 220rpx);
+     border-radius:10rpx;
+}
+.orderModal-1 .content{
+     padding:80rpx 0 130rpx 0;
+}
+.orderModal-1 .btn{
+     height:98rpx;
+     line-height:98rpx;
+}
+.orderModal-1 .btn button{
+     width:50%;
+     height:98rpx;
+     line-height:98rpx;
+}
+.orderModal-1 .btn .btn1{
+     border-radius:0 0 0 10rpx;
+}
+.orderModal-1 .btn .btn2{
+     border-radius:0 0 10rpx 0;
+}
+.orderNull{
+     margin-top:100rpx;
+}
+.orderNull .orderStyle image{
+     width:335rpx;
+     height:304rpx;
+}
+.orderNull .orderStyle .hint{
+     margin-top:60rpx;
+}
+
+.btnBox {
+  font-family: 'PingFang-Medium';
+  line-height: 56rpx;
+  margin-right:20rpx;
+}
+.btnBox .qxOrder {
+  width: 150rpx;
+  border: 2rpx solid #999;
+  border-radius: 30rpx;
+}
+.btnBox .payment {
+  width: 150rpx;
+  border: 2rpx solid #1CCFCF;
+  border-radius: 30rpx;
+}

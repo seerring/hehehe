@@ -1,0 +1,51 @@
+<!--pages/mySubpackage/pages/myCenter/myCenter.wxml-->
+<view class="container">
+     <!--头像-->
+     <view class="head bg-fff pd-lr30 clearfix">
+          <view class="pull-left ft-28 color-333">头像</view>
+          <view class="rightCont pull-right flex flex-vc mg-tp25" bindtap='uploadWay'>
+               <image class="defHead mg-rt30 old" src="{{defavatar}}" wx:if="{{isdefavatar}}"></image>
+               <image class="defHead mg-rt30" src="{{newavatar}}" wx:else></image>
+               <image class="icon-right" src="../../../common/images/icon-right.png"></image>
+          </view>
+     </view>
+     <!--昵称-->
+     <view class="name h100 line-h100 pd-lr30 bg-fff clearfix">
+          <view class="pull-left ft-28 color-333">昵称</view>
+          <!-- <view class="pull-right ft-28 color-ccc">小爱购物</view>    -->
+          <input class="pull-right overflow-ellipsis ft-28 color-333 h100 line-h100 text-right" placeholder='请填写昵称' placeholder-class='ft-28 color-ccc text-right' bindinput='nameVal' value="{{name}}" maxlength="10"/>
+     </view>
+     <!--性别-->
+     <view class="gender h100 line-h100 bg-fff pd-lr30 clearfix">
+          <view class="ft-28 color-333 pull-left">性别</view>
+          <view class="pull-right h100">
+               <radio-group class="h100" bindchange="radioChange">
+                    <radio value='男' class="mg-rt20 h100" color="#1ccfcf" checked="{{sex == '男'}}"></radio><text class="inline-block ft-28 color-666">男</text>
+                    <radio value='女' class="mg-rt20 h100" color="#1ccfcf" checked="{{sex == '女'}}"></radio><text class="inline-block ft-28 color-666">女</text>
+               </radio-group>
+          </view>
+     </view>
+     <!--手机-->
+     <view class="mobile mg-tp20 h100 line-h100 pd-lr30 bg-fff clearfix">
+          <view class="pull-left ft-28 color-333">手机</view>
+          <text class="ft-28 color-666 mg-rt10" class="inline-block pull-right ft-28 color-333 h100 line-h100" wx:if="{{mobile}}">{{mobile}}</text>
+          <navigator hover-class='none' class="inline-block pull-right" url='../bindMobile/bindMobile' wx:else>
+               <view class="flex flex-vc">
+                    <text class="ft-28 color-666 mg-rt10">未绑定</text>
+                    <image class="icon-right" src="../../../common/images/icon-right.png"></image>
+               </view>
+          </navigator>
+
+     </view>
+     <!--保存-->
+     <view class="saveBtn bg-ff5400 h90 line-h90 text-center ft-32 color-fff" bindtap='saveBtn'>保存</view>
+</view>
+
+<!--底部弹窗-->
+<view class="maskLayer" wx:if="{{isShowModal}}">
+     <view class="contentModal" animation="{{animationData}}">
+          <view class="h90 line-h90 color-ff5400 ft-30 bg-fff text-center border2" bindtap='cameraUpload'>拍照</view>
+          <view class="h90 line-h90 color-333 ft-30 bg-fff text-center" bindtap='photoUpload'>从手机相册选择</view>
+          <view class="h90 line-h90 mg-tp20 color-333 ft-30 bg-fff text-center" bindtap='cancleModal'>取消</view>
+     </view>
+</view>

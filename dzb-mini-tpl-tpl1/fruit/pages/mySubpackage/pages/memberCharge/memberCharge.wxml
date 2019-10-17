@@ -1,0 +1,148 @@
+<!--pages/mySubpackage/pages/memberCharge/memberCharge.wxml-->
+<!-- <text>pages/mySubpackage/pages/memberCharge/memberCharge.wxml</text> -->
+
+<view class="memberCharge bg-fff">
+  <view class="memberBgBox flex flex-ac">
+    <view class="flex flex-ac contentBox mg-tp20">
+      <view class="headBox">
+        <image class="block" src="{{memberList.avatar}}"></image>
+      </view>
+      <view class="memberUser">
+        <view class="uname overflow-ellipsis">{{memberList.nickname}}</view>
+        <view class="ft-26 date mg-tp20" wx:if="{{memberList.level}}">{{memberList.title}}：{{memberList.member_end_time}}到期</view>
+        <view class="ft-26 date mg-tp20" wx:else>{{memberList.title}}</view>
+        <view class="mg-tp20">
+          <navigator url="../memberRecord/memberRecord" class="flex flex-ac record">
+            <image class="block mg-rt10" src="../../images/prompt-golden.png" alt="" />
+            <p class="ft-28">会员购买记录</p>
+          </navigator>
+        </view>
+      </view>
+      <view class="memberLv flex flex-je">
+        <view wx:if="{{memberList.level}}">
+          <image class="block" src="{{memberList.img}}"></image>
+          <view class="text ft-24 mg-tp10">{{memberList.title}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="memberType bg-fff pd-tp30">
+    <view class="pd-lr30">
+      <view class="title ft-32 color-333 bold pd-lt10">选择会员类型</view>
+    </view>
+    <view class="memberList mg-tp20">
+      <view class="list pd-lr30 flex" style="width:{{wLenth}}">
+        <!-- <view class="list pd-lr30 flex"> -->
+        <view class="{{curIndex == index ? 'activeBg list-item bd-rd8 mg-rt15' : 'list-item bd-rd8 mg-rt15'}}" wx:for="{{vipList}}" bindtap='buyMemberType' data-index="{{index}}" data-id="{{item.id}}" data-price="{{item.current_price}}">
+          <view class="header flex flex-ac pd-lt10">
+            <image wx:if="{{item.current_price}}" class="block" src="../../images/members-label.png"></image>
+            <view class="{{item.current_price ? 'ft-28 color-333 mg-lt20' : 'mg-lt45 ft-28 color-333 mg-lt20'}}">{{item.title}}</view>
+          </view>
+          <view class="ft-28 color-333 text-center">{{item.time}}个月</view>
+          <view class="price ft-34 mg-tp20 text-center" wx:if="{{item.current_price}}">
+            <text class="color-fc5920 mg-rt5">￥{{item.current_price}}</text>
+            <text class="ft-20 color-333 line-through">￥{{item.original_price}}</text>
+          </view>
+          <view class="price ft-34 mg-tp20 text-center" wx:else>
+            <text class="color-fc5920">￥{{item.original_price}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="buyBtn flex flex-ac flex-jc" bindtap='payMentBtn'>
+      <view class="color-333 ft-32">立即购买</view>
+    </view>
+  </view>
+  <view class="btbt20"></view>
+  <view class="privilege pd-bt50">
+    <view class="headBox flex">
+      <view class="title ft-32 color-333 bold pd-lt10 text-left">会员权益</view>
+      <view class="explain ft-26 color-333 bold pd-lt10 flex flex-je">
+        <navigator hover-class='none' url='../memberExplain/memberExplain' class="flex flex-ac">
+          <view class="mg-rt10">会员说明</view>
+          <image class="block" src="../../images/prompt-golden.png"></image>
+        </navigator>
+      </view>
+    </view>
+    <view class="tabListBox bd-rd10">
+      <view class="tabList flex">
+        <view class="{{curIndex2 == index ? 'activeBg2 list-item ft-28 color-999 bg-f4f4f4 h80 line-h80 text-center' : 'list-item ft-28 color-999 bg-f4f4f4 h80 line-h80 text-center'}}" wx:for="{{tabList}}" bindtap='tabFun' data-lev="{{item.level}}" data-index="{{index}}">{{item.name}}</view>
+      </view>
+      <view class="privilegeList flex pd-bt50">
+        <view class="list-item pd-tp40" wx:for="{{privilegeList}}">
+          <image class="block" src="{{item.vip_img}}"></image>
+          <view class="ft-26 color-666 text-center mg-tp10">{{item.discount_title}}</view>
+        </view>
+      </view>
+      <view class="monthGift pd-lr30">
+        <view class="ft-28 color-333 title text-center"> ----------每月大礼包---------- </view>
+        <view class="monthGiftList mg-tp30 pd-bt35 flex">
+          <view class="{{item.status != 1  ? 'list-item mg-tp20' : 'activeBg3 list-item mg-tp20'}}" wx:for="{{monthGiftList}}">
+            <view class="content ft-20 flex flex-ac">
+              <view class="leftCont color-fff">
+                <view class="price">
+                  <text class="ft-26 bold inline-block">￥</text>
+                  <text class="price2 inline-block">{{item.coupon_price}}</text>
+                </view>
+                <view class="ft-20">满{{item.coupon_condition}}元使用</view>
+              </view>
+              <view class="rightCont flex flex-ac flex-jc getCoupons">
+                <view disabled="{{item.status != 1 ? true : false}}" class="{{item.status != 1  ? 'ft-20 color-999 bold noclick' : 'activeBg3 ft-20 color-999 bold'}}" bindtap='getCoupons' data-id="{{item.id}}">
+                  <text wx:if="{{item.status == 2 ? true : false}}">已领取</text>
+                  <text wx:else>立即领取</text>
+
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--支付方式-->
+  <view class="black_cover" wx:if="{{isCloseModal2}}">
+    <view class="myCover" bindtap="closeModal"></view>
+    <view class="payList bg-fff">
+      <view class="clearfix head h100 line-h100 pd-lr30 bd-bt-f4f4f4">
+        <view class="pull-left ft-28 color-333">选择支付方式</view>
+        <image class="block pull-right" bindtap="closeModal" src="../../images/closeModal.png"></image>
+      </view>
+      <view class="list pd-lr30">
+        <view class="list-item bd-bt-f4f4f4 pd-tb30 clearfix  flex flex-ac" wx:for="{{payList}}" wx:key="item" bindtap="choosePay" data-index="{{index}}">
+          <view class="leftCont flex flex-ac pull-left" style="margin-right:auto">
+            <image class="block mg-rt20" src="{{item.img}}" alt="" />
+            <view class="ft-28 color-333">{{item.name}}</view>
+          </view>
+          <view class="rightCont pull-right" wx:if="{{curIndex3 == index}}">
+            <image class="block" src="../../images/payWay.png"></image>
+          </view>
+        </view>
+      </view>
+      <button open-type="getUserInfo" bindgetphonenumber="wxLogin" bindgetuserinfo='wxLogin' class="h100 line-h100 payment bg-1ccfcf text-center ft-28 color-fff">去支付</button>
+    </view>
+  </view>
+  <!--钱包支付-->
+  <view class="black_cover" wx:if="{{isShowModal}}">
+    <view class="payList bg-fff">
+      <view class="clearfix head h100 line-h100 pd-lr30 bd-bt-f4f4f4 relative">
+        <view class="pull-left ft-32 color-333 text-center width-full">请输入支付密码</view>
+        <image class="block pull-right absolute" bindtap='closeModal' src="../../images/closeModal.png"></image>
+      </view>
+      <view class="list2 pd-lr30">
+        <view class="pd-tb30 ft-28 color-333 text-center">{{payInfo.name}}</view>
+        <view class="color-333 bold price text-center">￥{{payInfo.price}}</view>
+        <view class="passwordBox bd-bt-eee">
+          <view class="h60 line-h60 flex flex-ac">
+            <view class="leftCont color-333 ft-32">密码</view>
+            <view class="rightCont flex flex-ac">
+              <input bindinput="inputValue" type="password" v-model="password" maxlength="16" class="ft-36" />
+            </view>
+          </view>
+        </view>
+        <view class="h80 line-h80 payment bg-1ccfcf text-center ft-32 color-fff block bd-rd8" :disabled="disabled" bindtap='payment2'>立即支付</view>
+        <view class="mg-tp30 color-666 ft-28 text-center pd-bt40">支付密码为手机号登录密码</view>
+      </view>
+    </view>
+  </view>
+
+</view>

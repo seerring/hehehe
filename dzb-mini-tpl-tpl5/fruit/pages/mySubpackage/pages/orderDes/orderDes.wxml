@@ -1,0 +1,268 @@
+<!--pages/mySubpackage/pages/orderDes/orderDes.wxml-->
+<!-- <text>pages/mySubpackage/pages/orderDes/orderDes.wxml</text> -->
+
+<view class="orderDes bg-f4f4f4">
+  <view class="headBox relative">
+    <view class="absolute bd-rd10 hx_status bg-fff flex flex-ac" wx:if="{{orderDes.status == 1}}">
+      <view class="leftCont">
+        <image class="block" src="../../images/waitPayment.jpg" ></image>
+      </view>
+      <view class="rightCont">
+        <view class="ft-32 color-333 status">订单待付款</view>
+        <view class="ft-26 color-333 mg-tp10 line-h40">商品数量有限，赶快去付款吧！</view>
+        <view class="btn ft-28 color-1ccfcf text-center flex flex-je pd-tp20" bindtap='payWay'> 
+          <text class="h50 inline-block">付款</text>
+        </view>
+      </view>
+    </view>
+    <view class="absolute bd-rd10 hx_status bg-fff flex flex-ac" wx:if="{{orderDes.type == 1 && orderDes.status == 2}}">
+      <view class="leftCont">
+        <image class="block" src="../../images/order_wait.jpg"></image>
+      </view>
+      <view class="rightCont">
+        <view class="ft-32 color-333 status">等待商家配送</view>
+        <view class="ft-26 color-333 mg-tp10 line-h40">您的订单已付款，请耐心等待商家配送。</view>
+        <view class="btn ft-28 color-1ccfcf text-center flex flex-je pd-tp20">
+          <text class="qxOrder color-999 mg-rt30 h50 inline-block" bindtap='refund'>退款</text>
+          <text class="h50 inline-block" bindtap='hint_ps'>提醒配送</text>
+        </view>
+      </view>
+    </view>
+    <view class="absolute bd-rd10 hx_status bg-fff flex flex-ac" wx:if="{{(orderDes.type == 1 && orderDes.status == 3) || (orderDes.type == 1 && orderDes.status == 7)}}">
+      <view class="leftCont">
+        <image class="block" src="../../images/order_ps.jpg" ></image>
+      </view>
+      <view class="rightCont">
+        <view class="ft-32 color-333 status">商品配送中</view>
+        <view class="ft-26 color-333 mg-tp10 line-h40">商品正在配送中，请保持电话畅通~</view>
+        <view class="btn ft-28 color-1ccfcf text-center flex flex-je pd-tp20">
+          <text class="h50 inline-block" bindtap='comReceipt'>确认收货</text>
+        </view>
+      </view>
+    </view>
+    <view class="absolute bd-rd10 hx_status bg-fff flex flex-ac" wx:if="{{orderDes.type == 2 && orderDes.status == 3}}">
+      <view class="leftCont">
+        <image class="block" src="../../images/order_ps.jpg" alt="" />
+      </view>
+      <view class="rightCont">
+        <view class="ft-32 color-333 status">等待到店核销</view>
+        <view class="ft-26 color-333 mg-tp10 line-h40">感谢您对我们的信任，欢迎下次光临~</view>
+        <view class="btn ft-28 color-1ccfcf text-center flex flex-je pd-tp20">
+          <text class="h50 inline-block" bindtap='buyAgain'>再次购买</text>
+        </view>
+      </view>
+    </view>
+    <view class="absolute bd-rd10 hx_status bg-fff flex flex-ac" wx:if="{{orderDes.type == 1 && orderDes.status == 4}}">
+      <view class="leftCont">
+        <image class="block" src="../../images/order_com.jpg"></image>
+      </view>
+      <view class="rightCont">
+        <view class="ft-32 color-333 status">配送成功</view>
+        <view class="ft-26 color-333 mg-tp10 line-h40">感谢您对我们的信任，欢迎下次光临~</view>
+        <view class="btn ft-28 color-1ccfcf text-center flex flex-je pd-tp20">
+                      <text class="h50 inline-block" bindtap='buyAgain'>再次购买</text>
+        </view>
+      </view>
+    </view>
+    <view class="absolute bd-rd10 hx_status bg-fff flex flex-ac" wx:if="{{orderDes.type == 2 && orderDes.status == 4}}">
+      <view class="leftCont">
+        <image class="block" src="../../images/order_com.jpg"></image>
+      </view>
+      <view class="rightCont">
+        <view class="ft-32 color-333 status">到店核销成功</view>
+        <view class="ft-26 color-333 mg-tp10 line-h40">感谢您对我们的信任，欢迎下次光临~</view>
+        <view class="btn ft-28 color-1ccfcf text-center flex flex-je pd-tp20">
+          <text class="h50 inline-block" bindtap='buyAgain'>再次购买</text>
+        </view>
+      </view>
+    </view>
+    <view class="absolute bd-rd10 hx_status bg-fff flex flex-ac" wx:if="{{orderDes.status == 6}}">
+      <view class="leftCont">
+        <image class="block" src="../../images/order_close.jpg" ></image>
+      </view>
+      <view class="rightCont">
+        <view class="ft-32 color-333 status">交易关闭</view>
+        <view class="ft-26 color-333 mg-tp10 line-h40">已取消订单</view>
+        <view class="btn ft-28 color-1ccfcf text-center flex flex-je pd-tp20">
+          <text class="h50 inline-block" bindtap='buyAgain' >重新购买</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="proDes bg-fff mg-tp30">
+    <view class="list-item" wx:for="{{orderDes.order_info}}">
+      <navigator class="block" hover-class='none' url="../../../idxSubpackage/pages/proDetails/proDetails?id={{item.id}}" wx:if="{{item.shop_type == 1}}">
+        <view class="flex flex-ac proInfo bd-bt-f4f4f4">
+          <view class="leftCont">
+            <image class="block bd-rd8" src="{{item.product_images}}"></image>
+          </view>
+          <view class="rightCont">
+            <view class="ft-28 color-333 mult_line-ellipsis line-h35">{{item.product_name}}</view>
+            <view class="clearfix mg-tp30">
+              <view class="ft-28 color-333 pull-left">
+                单价：<text class="ft-24">￥</text><text>{{item.product_fact_price}}</text>
+              </view>
+              <view class="pull-right ft-24 color-999 line-h35">×{{item.num}}</view>
+            </view>
+          </view>
+        </view>
+      </navigator>
+      <view class="refundBox mg-tp10 flex flex-je" wx:if="{{item.shop_type == 1 && orderDes.status == 4}}">
+      <!-- <navigator class="color-1ccfcf ft-24 refund bd-rd5" hover-class='none' url='../refund/refund?id={{item.id}}'>退款/协商</navigator> -->
+        <text class="color-1ccfcf ft-24 refund bd-rd5" bindtap='refund'>退款/协商</text>
+      </view>
+      <navigator class="block" hover-class='none' url="../../../idxSubpackage/pages/specialDes/specialDes?id={{item.id}}" wx:if="{{item.shop_type == 2}}">
+        <view class="flex flex-ac proInfo bd-bt-f4f4f4">
+          <view class="leftCont">
+            <image class="block bd-rd8" src="{{item.product_images}}"></image>
+          </view>
+          <view class="rightCont">
+            <view class="ft-28 color-333 mult_line-ellipsis line-h35">{{item.product_name}}</view>
+            <view class="clearfix mg-tp30">
+              <view class="ft-28 color-333 pull-left">
+                单价：<text class="ft-24">￥</text><text>{{item.product_fact_price}}</text>
+              </view>
+              <view class="pull-right ft-24 color-999 line-h35">×{{item.num}}</view>
+            </view>
+          </view>
+        </view>
+      </navigator>
+      <view class="refundBox mg-tp10 flex flex-je" wx:if="{{item.shop_type == 2 && orderDes.type == 1 && orderDes.status == 4}}">
+        <!-- <navigator class="color-1ccfcf ft-24 refund bd-rd5" hover-class='none' url='../refund/refund?id={{item.id}}'>退款/协商</navigator> -->
+        <text class="color-1ccfcf ft-24 refund bd-rd5" bindtap='refund' >退款/协商</text>
+      </view>
+    </view>
+    
+    <view class="totalPrice h90 flex flex-ac flex-je pd-lr30">
+      <view class="color-1ccfcf inline-block ft-24 disPrice bd-rd5 mg-rt30" wx:if="{{orderDes.coupon_price}}">已优惠￥{{orderDes.coupon_price}}</view>
+      <view class="ft-26 color-333 mg-rt30">共{{orderDes.order_info[0].totalSum}}件</view>
+      <view class="ft-26 color-333">实付总额：<text class="price color-fc5920">￥{{orderDes.order_info[0].totalPrice}}</text></view>
+    </view>
+  </view>
+  <view class="hx_info bg-fff mg-tp20" wx:if="{{orderDes.type == 1}}">
+    <view class="pd-lr30 h90 flex flex-ac bd-bt-f4f4f4">
+      <view class="title h30 line-h30 pd-lt10 ft-28">配送信息</view>
+    </view>
+    <view class="pd30">
+      <view class="clearfix">
+        <view class="color-666 ft-26 pull-left">配送服务</view>
+        <view class="color-333 ft-26 pull-right">{{orderDes.name}}自主配送</view>
+      </view>
+      <view class="clearfix mg-tp20">
+        <view class="color-666 ft-26 pull-left">配送时间</view>
+        <view class="color-333 ft-26 pull-right">{{period_time}}</view>
+      </view>
+      <view class="clearfix mg-tp20">
+        <view class="color-666 ft-26 pull-left">配送地址</view>
+        <view class="color-333 ft-26 pull-right">{{address_info.l_name}}-{{address_info.l_phone}}</view>
+      </view>
+      <view class="clearfix mg-tp20">
+        <view class="color-333 ft-26 text-right">{{address_info.l_province}}{{address_info.l_city}}{{address_info.l_district}}{{address_info.l_address}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="hx_info bg-fff mg-tp20" wx:else>
+    <view class="pd-lr30 h90 flex flex-ac bd-bt-f4f4f4">
+      <view class="title h30 line-h30 pd-lt10 ft-28">核销商家</view>
+    </view>
+    <view class="pd30">
+      <view class="clearfix">
+        <view class="color-666 ft-26 pull-left">核销商家</view>
+        <view class="color-333 ft-26 pull-right">{{orderDes.name}}</view>
+      </view>
+      <view class="clearfix mg-tp20">
+        <view class="color-333 ft-26 text-right">{{orderDes.store_address}}</view>
+      </view>
+      <view class="clearfix mg-tp20">
+        <view class="color-666 ft-26 pull-left">核销时间</view>
+        <view class="color-333 ft-26 pull-right">{{orderDes.receivingtime}}</view>
+      </view>
+      <view class="clearfix mg-tp20">
+        <view class="color-666 ft-26 pull-left">预留手机</view>
+        <view class="color-333 ft-26 pull-right">{{orderDes.address_info}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="hx_info bg-fff mg-tp20 ft-28" wx:if="{{orderDes.type == 1}}">
+    <view class="pd-lr30 h90 flex flex-ac bd-bt-f4f4f4">
+      <view class="title h30 line-h30 pd-lt10 ft-28">订单信息</view>
+    </view>
+    <view class="pd30">
+      <view class="clearfix">
+        <view class="color-666 ft-26 pull-left">订单编号</view>
+        <view class="color-333 ft-26 pull-right">{{orderDes.order_num}}</view>
+      </view>
+      <view class="clearfix mg-tp20" wx:if="{{orderDes.status == 2||orderDes.status == 3||orderDes.status == 4}}">
+        <view class="color-666 ft-26 pull-left">交易流水号</view>
+        <view class="color-333 ft-26 pull-right">{{orderDes.paynumber}}</view>
+      </view>
+      <view class="clearfix mg-tp20">
+        <view class="color-666 ft-26 pull-left">下单时间</view>
+        <view class="color-333 ft-26 pull-right">{{orderDes.create_time}}</view>
+      </view>
+      <view class="clearfix mg-tp20" wx:if="{{orderDes.status == 2||orderDes.status == 3||orderDes.status == 4}}">
+        <view class="color-666 ft-26 pull-left">付款时间</view>
+        <view class="color-333 ft-26 pull-right">{{orderDes.paytime}}</view>
+      </view>
+      <view class="clearfix mg-tp20" wx:if="{{orderDes.status == 3||orderDes.status == 4}}">
+        <view class="color-666 ft-26 pull-left">接单时间</view>
+        <view class="color-333 ft-26 pull-right">{{orderDes.shiptime}}</view>
+      </view>
+      <view class="clearfix mg-tp20" wx:if="{{orderDes.status == 4}}">
+        <view class="color-666 ft-26 pull-left">收货时间</view>
+        <view class="color-333 ft-26 pull-right">{{orderDes.receivingtime}}</view>
+      </view>
+      <view class="clearfix mg-tp20">
+        <view class="color-666 ft-26 pull-left">备注</view>
+        <view class="color-333 ft-26 pull-right">{{orderDes.note}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="hx_info bg-fff mg-tp20 ft-28" wx:else>
+    <view class="pd-lr30 h90 flex flex-ac bd-bt-f4f4f4">
+      <view class="title h30 line-h30 pd-lt10 ft-28">订单信息</view>
+    </view>
+    <view class="pd30">
+      <view class="clearfix">
+        <view class="color-666 ft-26 pull-left">订单编号</view>
+        <view class="color-333 ft-26 pull-right">{{orderDes.order_num}}</view>
+      </view>
+      <view class="clearfix mg-tp20" wx:if="{{orderDes.status == 2||orderDes.status == 3||orderDes.status == 4}}">
+        <view class="color-666 ft-26 pull-left">交易流水号</view>
+        <view class="color-333 ft-26 pull-right">{{orderDes.paynumber}}</view>
+      </view>
+      <view class="clearfix mg-tp20">
+        <view class="color-666 ft-26 pull-left">下单时间</view>
+        <view class="color-333 ft-26 pull-right">{{orderDes.create_time}}</view>
+      </view>
+      <view class="clearfix mg-tp20" wx:if="{{orderDes.status == 2||orderDes.status == 3||orderDes.status == 4}}">
+        <view class="color-666 ft-26 pull-left">付款时间</view>
+        <view class="color-333 ft-26 pull-right">{{orderDes.paytime}}</view>
+      </view>
+      <view class="clearfix mg-tp20">
+        <view class="color-666 ft-26 pull-left">备注</view>
+        <view class="color-333 ft-26 pull-right">{{orderDes.note}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="black_cover" wx:if="{{isCloseModal2}}">
+    <view class="payList bg-fff">
+      <view class="clearfix head h100 line-h100 pd-lr30 bd-bt-f4f4f4">
+          <p class="pull-left ft-28 color-333">选择支付方式</p>
+          <image class="block pull-right" bindtap='closeModal' src="../../images/closeModal.png" ></image>
+        </view>
+        <view class="list pd-lr30">
+          <view class="list-item bd-bt-f4f4f4 pd-tb30 clearfix" wx:for="{{ payList}}" bindtap='choosePay' data-index="index" >
+            <view class="leftCont flex flex-ac pull-left">
+              <image class="block mg-rt20" :src="item.img"></image>
+              <p class="ft-28 color-333">{{item.name}}</p>
+            </view>
+            <view class="rightCont pull-right" wx:if="{{curIndex == index}}">
+              <image class="block" src="../../images/payWay.png"></image>
+            </view>
+          </view>
+        </view>
+        <view class="h100 line-h100 payment bg-1ccfcf text-center ft-28 color-fff" bindtap='payment' data-curIndex="curIndex" >去支付</view>
+    </view>
+  </view> -->
+</view>	

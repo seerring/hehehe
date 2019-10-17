@@ -1,0 +1,58 @@
+<!--pages/idxSubpackage/pages/login/login.wxml-->
+<include src="../../../common/header.wxml" />
+<view class="container">
+    <!--登录-->
+    <view class="mainImg text-center">
+        <navigator open-type='reLaunch' url="/pages/tabBar/index/index">
+            <image src='{{logoimg}}'></image>
+        </navigator>
+    </view>
+    <!--使用验证码-->
+    <view class="formBox">
+        <form class="form" bindsubmit='submitFun' data-id='1' wx:if="{{isUseCodeLogin}}">
+            <view class="border2 relative">
+                <input bindinput='inpVal' name='mobile' class="phone h100 line-h100 ft-28 color-333" maxlength='11' placeholder='请输入手机号' placeholder-class='ft-28 color-999' value="{{phoneVal}}"></input>
+                <image class="rightDel absolute" wx:if="{{phoneVal}}" bindtap='delFun' src='/images/iconDel.png'></image>
+            </view>
+            <view class="border2 clearfix">
+                <input name='code' class="getCode pull-left h100 line-h100 ft-28 color-333" placeholder='请输入验证码' placeholder-class='ft-28 color-999'></input>
+                <button class="codeBtn pull-right mg-tp20 color-999 ft-26" disabled='{{isClick}}' bindtap='getCode'>{{time}}</button>
+            </view>
+            <view class="loginWay color-666 ft-30" bindtap='changeWay'>使用密码验证登录</view>
+            <button class="color-fff text-center radius8 h90 line-h90 ft-32 loginBtn" form-type='submit'>登录</button>
+        </form>
+        <form class="form" bindsubmit='submitFun' data-id='2' wx:else>
+            <view class="border2 relative">
+                <input type="number" bindinput='inpVal' name='mobile' class="phone h100 line-h100 ft-28 {{phoneVal.length != 11?'color-fc5920':'color-333'}}" maxlength='11' placeholder='请输入手机号' placeholder-class='ft-28 color-999' value="{{phoneVal}}"></input>
+                <image class="rightDel absolute" wx:if="{{phoneVal}}" bindtap='delFun' src='/images/iconDel.png'></image>
+            </view>
+            <view class="border2 clearfix relative">
+                <input name='password' password='{{isShowPassword}}' class="getCode pull-left h100 line-h100 ft-28 color-333" placeholder='请输入密码' placeholder-class='ft-28 color-999'></input>
+                <image class="passwordIcon1 absolute" wx:if="{{isShowPassword}}" bindtap='showPassword' src='/images/passwordHide.png'></image>
+                <image class="passwordIcon2 absolute" bindtap='showPassword' wx:else src='/images/passwordShow.png'></image>
+            </view>
+            <!-- <view class="loginWay color-666 ft-30" bindtap='changeWay2'>使用短信验证登录</view> -->
+            <button class="color-fff text-center radius8 h90 line-h90 ft-32 loginBtn mg-tp40" form-type='submit'>登录</button>
+        </form>
+        <view class="register mg-tp25">
+            <view class="ft-24 leftText pull-left">
+                <navigator hover-class='none' url='../forgetPassword/forgetPassword'>忘记密码</navigator>
+            </view>
+            <view class="ft-24 leftText pull-right">
+                <navigator hover-class='none' url='../register/register'>新用户注册</navigator>
+            </view>
+        </view>
+    </view>
+    <view class="otherLogin">
+        <view class="title flex flex-vc">
+            <view class="leftLine"></view>
+            <view class="text ft-26 color-999">微信快捷登录</view>
+            <view class="rightLine"></view>
+        </view>
+        <view class="wxLogo text-center">
+            <button open-type="getUserInfo" bindgetphonenumber="wxLogin" bindgetuserinfo='wxLogin' class='wechat'>
+                <image src='/images/wechat-green.png'></image>
+            </button>
+        </view>
+    </view>
+</view>

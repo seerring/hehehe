@@ -1,0 +1,32 @@
+<!--pages/mySubpackage/pages/payDetails/payDetails.wxml-->
+<view class="container">
+     <view class="list">
+          <view class="list-item border2 pd-lr30 bg-fff" wx:for="{{list}}" wx:key="item">
+               <view class="clearfix pd-tp30">
+                    <view class="pull-left ft-28 color-333">{{item.type}}</view>
+                    <view class="pull-right ft-24 color-999">{{item.date}}</view>
+               </view>
+               <view class="clearfix mg-tp15">
+                    <view class="pull-left ft-26 color-666">余额：{{item.balance}}</view>
+                    <view class="pull-right ft-26 color-999">{{item.payMoney}}</view>
+               </view>
+          </view>
+     </view>
+     <image class="query_time" bindtap='queryDate' src='../../images/queryPayTime.png'></image>
+     <view  wx:if="{{isShow}}" class="maskLayer">
+          <view class="picker-view bg-fff">
+               <view class="clearfix h100 line-h100 border2 pd-lr30">
+                    <view class="pull-left cancle ft-32 color-999" bindtap='cancle'>取消</view>
+                    <view class="pull-right complete ft-32" bindtap='complete'>完成</view>
+               </view>
+               <picker-view indicator-class="h100">
+                    <picker-view-column class="text-center ft-32 line-h100">
+                         <view wx:for="{{years}}" wx:key="item">{{item}}年</view>
+                    </picker-view-column>
+                    <picker-view-column class="text-center ft-32 line-h100">
+                         <view wx:for="{{months}}" wx:key="item">{{item}}月</view>
+                    </picker-view-column>
+               </picker-view>
+          </view>
+     </view>
+</view>

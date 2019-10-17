@@ -1,0 +1,32 @@
+<!--pages/mySubpackage/pages/withdraw/withdraw.wxml-->
+<include src="../../../common/header.wxml" />
+<view class="container">
+     <!--提现-->
+     <form bindsubmit="formSubmit" report-submit="true">
+     <view class="head">
+          <view class="text text-center ft-28 color-999">可提现金额</view>
+          <view class="money text-center mg-tp30 color-333">{{canDrawMoney}}</view>
+     </view>
+     <view class="withdrawAmount ft-28 color-333">提现金额</view>
+     <view class="inputMoney">
+          <view class="border2 mg-tp40 pd-bt20 flex flex-vc">
+               <view class="text color-333 inline-block mg-rt20">￥</view>
+               <input name="cash" type='number' value='{{allWithdraw}}' class="inline-block ft-32 color-333" placeholder='请输入提现金额' placeholder-class='ft-28 color-ccc'></input>
+          </view>
+     </view>
+      <view class="mg-tp30 clearfix wxChat">
+          <view class="pull-left ft-26 color-999">提现至</view>
+          <view class="pull-right withdrawWay flex flex-vc">
+               <image class="mg-rt10" src='../../images/weChat.png' ></image>
+               <view class="ft-26 color-333">微信钱包</view>
+          </view>
+     </view>
+     <button wx:if="{{status == 1}}" class="withdrawBtn mg-lt30 bg-ff5400 text-center color-fff ft-32 radius8 h90 line-h90" form-type="submit">
+     立即提现
+     </button>
+     <button bindtap='cashinfo' wx:if="{{status == 2}}" class="withdrawBtn mg-lt30 bg-ff5400 text-center color-fff ft-32 radius8 h90 line-h90">
+     提现申请中
+     </button>
+     <view class="mg-tp40 ft-28 color-ff5400 text-right pd-lr30" bindtap='allWithdraw'>全部提现</view>
+    </form>
+</view>

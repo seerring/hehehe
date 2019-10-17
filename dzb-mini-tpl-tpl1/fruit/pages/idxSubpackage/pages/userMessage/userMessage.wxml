@@ -1,0 +1,119 @@
+<!--pages/idxSubpackage//pages/userMessage/userMessage.wxml-->
+<!-- <text>pages/idxSubpackage//pages/userMessage/userMessage.wxml</text> -->
+
+<view class="userMessage bg-f4f4f4">
+		<view class="list" wx:if="{{msgList.length > 0}}">
+			<view class="list-item ft-20" wx:for="{{msgList}}" wx:key="item" bindtap="readMsg" data-id="{{item.id}}" data-orderstatus="{{item.order_status}}" data-orderid="{{item.order_id}}" data-ordertype="{{item.order_type}}">
+				<view wx:if="{{item.order_status==7||item.order_status==9||item.order_status==10}}"><view>
+						<view class="text-center">
+							<view class="date inline-block pd-lr10 h40 line-h40 bd-rd4 color-fff">{{item.createTime}}</view>
+						</view>
+						<view class="msgType bd-rd10 mg-tp30 bg-fff pd30">
+							<view class="msgTitle">
+								<view class="title ft-28" wx:if="{{item.order_status==7}}">您有一条订单已拒绝</view>
+								<view class="title ft-28" wx:if="{{item.order_status==9}}">您有一条订单已退款</view>
+								<view class="title ft-28" wx:if="{{item.order_status==10}}">您有一条订单退款中</view>
+								<view class="cont2 flex flex-je flex-ac ft-24" wx:if="{{item.read == 1}}">
+                    <text class="dian inline-block bd-rd50 bg-fc5920"></text>
+                    未读消息
+                </view>
+							</view>
+							
+							<view class="flex pd-tp20">
+								<view class="leftCont">
+									<image src="{{item.content}}"></image>
+								</view>
+								<view class="rightCont flex flex-as line-h40 ft-24">
+									{{item.title}}
+								</view>
+							</view>
+						</view>
+                    </view>
+					<!-- </router-link> -->
+				</view>
+				<view wx:else>
+          <view wx:if="{{item.order_type==1||item.order_type==2}}">
+						<view class="text-center">
+							<view class="date inline-block pd-lr10 h40 line-h40 bd-rd4 color-fff">{{item.createTime}}</view>
+						</view>
+						<view class="msgType bd-rd10 mg-tp30 bg-fff pd30">
+                <view class="msgTitle">
+                    <view class="title ft-28" wx:if="{{item.order_status==1&&item.order_type==1}}">您有一条订单待付款</view>
+                    <view class="title ft-28" wx:if="{{item.order_status==2&&item.order_type==1}}">您有一条订单待配送</view>
+                    <view class="title ft-28" wx:if="{{item.order_status==3&&item.order_type==1}}">您的订单正在配送中</view>
+                    <view class="title ft-28" wx:if="{{item.order_status==4&&item.order_type==1}}">您有一条订单已完成</view>
+                    <view class="title ft-28" wx:if="{{item.order_status==1&&item.order_type==2}}">您有一条订单待付款</view>
+                    <view class="title ft-28" wx:if="{{item.order_status==3&&item.order_type==2}}">您有一条订单待核销</view>
+                    <view class="title ft-28" wx:if="{{item.order_status==4&&item.order_type==2}}">您有一条订单已核销</view>
+                    <view class="title ft-28" wx:if="{{item.order_status==9}}">您有一条订单已退款</view>
+                    <view class="title ft-28" wx:if="{{item.order_status==10}}">您有一条订单退款中</view>
+                    <view class="cont2 flex flex-je flex-ac ft-24" wx:if="{{item.read == 1}}">
+                        <text class="dian inline-block bd-rd50 bg-fc5920"></text>
+                        未读消息
+                    </view>
+                </view>
+							<view class="flex pd-tp20">
+								<view class="leftCont">
+									<image src="{{item.content}}"></image>
+								</view>
+								<view class="rightCont flex flex-as line-h40 ft-24">
+									{{item.title}}
+								</view>
+							</view>
+						</view>
+                    </view>
+					<!-- </router-link> -->
+                    <view  wx:if="{{item.order_type==3}}">
+                        <!-- <navigator class="block" hover-class='none' url="../../idxSubpackage/pages/groupOrderDes/groupOrderDes?id={{item.order_id}}"> -->
+                            <view class="text-center">
+                                <view class="date inline-block pd-lr10 h40 line-h40 bd-rd4 color-fff">{{item.createTime}}</view>
+                            </view>
+                            <view class="msgType bd-rd10 mg-tp30 bg-fff pd30">
+                            	<view class="msgTitle">
+                            		<view class="title ft-28" wx:if="{{item.order_status==1&&item.order_type==3}}">您有一条订单待付款</view>
+	                                <view class="title ft-28" wx:if="{{item.order_status==2&&item.order_type==3}}">您有一条订单待成团</view>
+	                                <view class="title ft-28" wx:if="{{item.order_status==3&&item.order_type==3}}">您有一条订单拼团成功，别忘了到店核销哦！</view>
+	                                <view class="title ft-28" wx:if="{{item.order_status==4&&item.order_type==3}}">您有一条订单已核销</view>
+	                                <view class="title ft-28" wx:if="{{item.order_status==8&&item.order_type==3}}">您有一条订单拼团失败</view>
+	                                <view class="title ft-28" wx:if="{{item.order_status==9}}">您有一条订单已退款</view>
+	                                <view class="title ft-28" wx:if="{{item.order_status==10}}">您有一条订单退款中</view>
+	                                <view class="cont2 flex flex-je flex-ac ft-24" wx:if="{{item.read == 1}}">
+                                    	<text class="dian inline-block bd-rd50 bg-fc5920"></text>
+                                   		未读消息
+                                	</view>
+                            	</view>
+                                
+                                <view class="flex pd-tp20">
+                                    <view class="leftCont">
+                                        <image src="{{item.content}}"></image>
+                                    </view>
+                                    <view class="rightCont flex flex-as line-h40 ft-24">
+                                        {{item.title}}
+                                    </view>
+                                </view>
+                            </view>
+                        <!-- </navigator> -->
+                    </view>
+				</view>
+			</view>
+			<view wx:if="{{isLoadMore && msgList.length > 4}}">
+    			<group>
+			      	<cell wx:for="{{types}}" wx:key="item">
+			       		<spinner :type="type"></spinner>
+			       		<view class="ft-26 color-666  text-center mg-bt20">正在加载更多</view>
+			      	</cell>
+			    </group>
+    		</view>
+			<view class="loadMore text-center" wx:else>
+	            <image class="block" src="../../images/icon2.png"></image>
+	            <view class="ft-20 mg-tp20 color-999">没有更多了，看看其他的吧~</view>
+	        </view>
+		</view>
+		<!--没有更多-->
+    <view wx:else>
+      <view class="styleNull">
+        <image class="block" src="../../images/orderNull.png"></image>
+        <view class="text-center ft-28 color-999 mg-tp30">暂无消息~</view>
+      </view>
+    </view>
+</view>

@@ -1,0 +1,21 @@
+<!--pages/mySubpackage/pages/bindMobile/bindMobile.wxml-->
+<include src="../../../common/header.wxml" />
+<view class="container">
+     <view class="formBox">
+          <form class="inline-block" bindsubmit='formSubmit'>
+               <!--手机号-->
+               <input type="number" name='mobile' bindinput='inpVal' placeholder='请输入手机号码' maxlength='11' placeholder-class='ft-28 color-ccc' class="height ft-28 color-333 h100 line-h100" value="{{phoneVal}}"></input>
+               <!--获取验证码-->
+               <view class="clearfix h100 line-h100">
+                    <input type="number" name='code' placeholder='请输入验证码' placeholder-class='ft-28 color-ccc' class="height ft-28 color-333 pull-left h100 line-h100"></input>
+                    <button class="getCode pull-right ft-24 radius8 text-center color-666 bg-fff" bindtap='getCode'  disabled="{{isClick}}">{{time}}</button>
+               </view>
+               <!--输入密码-->
+               <input type="password" name='password' placeholder='请输入密码' placeholder-class='ft-28 color-ccc' class="height ft-28 color-333 h100 line-h100"></input>
+               <!--确认密码-->
+               <input type="password" name='password2' placeholder='请确认密码' placeholder-class='ft-28 color-ccc' class="height ft-28 color-333 h100 line-h100"></input>
+               <!--提交按钮-->
+               <button class="confirmBtn bg-ff5400 h90 line-h90 radius8 ft-32 color-fff text-center" form-type='submit'>保存</button>
+          </form>
+     </view>
+</view>

@@ -1,0 +1,2 @@
+<!--pages/mySubpackage/pages/communicate/communicate.wxml-->
+<web-view src="https://saas.kissneck.com/ms/#/storeMiniService/{{sid}}/{{uid}}"></web-view>

@@ -1,0 +1,111 @@
+<!--pages/mySubpackage/pages/refun/refun.wxml-->
+<!-- <text>pages/mySubpackage/pages/refun/refun.wxml</text> -->
+
+<view class="refund bg-f4f4f4">
+  <view class="proDes bg-fff">
+    <view wx:for="{{proDes}}">
+      <view class="flex flex-ac proInfo bd-bt-f4f4f4">
+          <view class="leftCont">
+              <image class="block bd-rd8" src="{{item.product_images}}"></image>
+          </view>
+          <view class="rightCont">
+              <view class="ft-28 color-333 mult_line-ellipsis line-h35">{{item.product_name}}</view>
+              <view class="clearfix mg-tp30">
+                  <view class="ft-28 color-333 pull-left">
+                      单价：<text class="ft-24">￥</text><text>{{item.product_fact_price}}</text>
+                  </view>
+                  <view class="pull-right ft-24 color-999 line-h35">×{{item.num}}</view>
+              </view>
+          </view>
+      </view>
+      </view>
+      <view class="totalPrice flex flex-ac flex-je pd30">
+          <!--<p class="color-1ccfcf inline-block ft-24 disPrice bd-rd5 mg-rt30">已优惠￥20</p>-->
+          <view class="ft-26 color-333 mg-rt30">共{{proDes.length}}件</view>
+          <view class="ft-26 color-333">实付总额：<text class="price color-fc5920">￥{{totalPrice}}</text></view>
+      </view>
+  </view>
+  <view class="reason mg-tp20 h90 line-h90 bd-bt-f4f4f4 bg-fff pd-lr30 clearfix" bindtap='refundReason' >
+    <view class="leftCont pull-left flex flex-ac">
+      <text class="color-fc5920 ft-24">*</text>
+      <view class="color-333 ft-28">退款原因</view>
+    </view>
+    <view class="rightCont pull-right flex flex-ac h90 line-h90">
+      <view class="ft-28 color-333 mg-rt10">{{reason}}</view>
+      <image class="block" src="../../images/right_arrow.png"></image>
+    </view>
+  </view>
+  <view class="reason h90 line-h90 bd-bt-f4f4f4 bg-fff pd-lr30 clearfix">
+    <view class="leftCont pull-left color-333 ft-28">退款金额</view>
+    <view class="rightCont pull-right color-333 ft-28">￥{{totalPrice}}</view>
+  </view>
+  <view class="describe bg-fff mg-tp20 pd-lr30 bd-bt-f4f4f4">
+    <view class="pd-tb20 flex flex-vc">
+      <text class="ft-28 color-333">退款原因描述</text>
+    </view>
+    <view class="userAdviceBox pd30 bg-f4f4f4 ft-28 color-333">
+      <!-- <input placeholder="请在此描述退款的原因"  bindblur="inputValue"></input> -->
+      <textarea class="ft-26 color-333 radius8" maxlength='200' bindinput='maxSize' placeholder='请在此处描述退款的原因' placeholder-class='ft-26 color-999'></textarea>
+      <!-- <x-textarea :max='300' placeholder='请在此描述退款的原因' v-model='message'></x-textarea> -->
+    </view>
+  </view>
+  <!-- <view class="uploadImg bg-fff">
+    <view class="pd-tp20 pd-bt25 flex flex-ac">
+      <text class="ft-28 color-333 mg-rt15">上传凭证</text>
+      <text class="ft-22 color-999">(最多上传3张)</text>
+    </view>
+    <view class="list flex flex-ac">
+      <view class="list-item inline-block bd-rd4 mg-rt20 relative" wx:for="{{detailImg}}">
+        <image class="block" src="{{item}}"></image>
+        <image class="delete block" src="../../images/deleteImg.png" alt="" bindtap='deleteImg'  data-index='{{index}}' ></image>
+      </view>
+      <input type="file" accept="image/png, image/jpeg, image/gif, image/jpg" name="uploadImg" id="uploadImg" bindtap='uploadImg'  data-index='{{index}}'      change="uploadImg($event)" />
+      <view class="addImg bd-rd4" wx:if="detailImg.length < 3">
+        <label for="uploadImg" class="flex flex-jc"> 
+          <image src="../../images/addImg.png" class="upload_img mg-tp30"></image>
+          <text class="ft-24 color-999 block mg-tp10">添加图片</text>
+        </label>
+      </view>
+      <view class="addImg bd-rd4" wx:if="detailImg.length == 3">
+        <view bindtap='imgs' class="flex flex-jc"> 
+          <image src="../../images/addImg.png" class="upload_img mg-tp30" ></image>
+          <text class="ft-24 color-999 block mg-tp10">添加图片</text>
+        </view>
+      </view>
+    </view>
+  </view> -->
+ <!--上传凭证-->
+  <view class="bg-fff uploadImg pd-lr30">
+      <view class="title ft-28 color-333">上传凭证<text class="ft-26 mg-lt30 color-999">(最多上传3张)</text></view>
+      <view class="clearfix pd-bt30">
+          <view class="pull-left lists"  wx:if="{{imgLists.length > 0}}">
+              <view class="relative inline-block mg-rt30" wx:for="{{imgLists}}" wx:key="item">
+                    <image class="absolute delete" data-index="{{index}}" bindtap='clickDel' src='/pages/common/images/deleteImg.png' ></image>
+                    <image class="radius8" src='{{item}}'></image>
+              </view>
+          </view>
+          <view class="imgList pull-left" wx:if="{{imgLists.length < 3}}">
+              <view class="upload radius8 text-center" bindtap='addImg'>
+                    <image class="uploadImg1 mg-tp40" src="../../images/icon-upload.png"></image>
+                    <view class="ft-20 color-999">添加图片</view>
+              </view>
+          </view>
+      </view>
+  </view>
+  <!--提交按钮-->
+  <button class="submitBtn h100 line-h100 bg-ff5400 text-center color-fff ft-32" bindtap='submit'>提交</button>
+  <!-- <x-button text="提交" bindtap='submit'></x-button> -->
+  
+  <view class="black_cover" wx:if="{{isShowModal}}">
+    <view class="holder" bindtouchstart="closeModal_time"></view>
+      <view class="reasonBox bg-fff">
+      <view class="ft-32 h100 line-h100 color-333 title pd-lr30 bd-bt-f4f4f4">
+        <p class="pull-left">退款原因</p>
+        <image class="block pull-right" bindtap='closeModal' src="../../images/closeModal.png"></image>
+      </view>
+      <view class="list">
+        <view class="list-item pd-lr30 bd-bt-f4f4f4 h90 line-h90 ft-28" wx:for="{{reasonList}}" bindtap='chooseReason'  data-index='{{index}}' >{{item}}</view>
+      </view>
+    </view>
+  </view>
+</view>

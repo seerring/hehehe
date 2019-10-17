@@ -1,0 +1,49 @@
+<!--pages/mySubpackage/pages/saleService/saleService.wxml-->
+<include src="../../../common/header.wxml" />
+<view class="container">
+    <!--选择售后类型-->
+    <!--商品信息-->
+    <view class="proInfo clearfix bg-fff">
+        <view class="pull-left leftCont mg-rt30">
+            <image src='/images/goodsImg1.png'></image>
+        </view>
+        <view class="pull-right rightCont">
+            <view class="ft-28 color-333 overflow-ellipsis">丝柔扎染男女家居北欧风拖鞋丝柔扎染男女家居北欧风拖鞋</view>
+            <view class="mg-tp20 ft-26 color-999">扎染粉丝</view>
+            <view class="mg-tp40 clearfix">
+                <view class="pull-left ft-26 color-333">实付总额：<text class="ft-30">￥50.00</text></view>
+                <view class="pull-right ft-28 color-999">×1</view>
+            </view>
+        </view>
+    </view>
+    <!--退货退款-->
+    <navigator class="mg-tp20 border2" hover-class='none' url='../refundDetails/refundDetails?name=退货退款'>
+        <view class="returnRefund bg-fff clearfix">
+            <view class="pull-left">
+                <view class="text1">
+                    <image src='../../images/icon-refund2.png'></image>
+                    <text class="ft-28 color-333 mg-lt20">退货退款</text>
+                </view>
+                <view class="mg-tp20 ft-26 color-999">已收到货，需要退还已收到的货物</view>
+            </view>
+            <view class="pull-right rightCont mg-tp20">
+                <image src='/pages/common/images/icon-right.png'></image>
+            </view>
+        </view>
+    </navigator>
+    <!--仅退款-->
+    <navigator hover-class='none' url='../refundDetails/refundDetails?name=仅退款'>
+        <view class="returnRefund bg-fff clearfix">
+            <view class="pull-left">
+                <view class="text1">
+                    <image src='../../images/icon-refund1.png'></image>
+                    <text class="ft-28 color-333 mg-lt20">仅退款</text>
+                </view>
+                <view class="mg-tp20 ft-26 color-999">未收到货，或与商家协商同意仅退款</view>
+            </view>
+            <view class="pull-right rightCont mg-tp20">
+                <image src='/pages/common/images/icon-right.png'></image>
+            </view>
+        </view>
+    </navigator>
+</view>

@@ -1,0 +1,43 @@
+/* pages/mySubpackage/pages/getMemberCard/getMemberCard.wxss */
+page{
+     height:100%;
+     background:#fff;
+}
+.formBox{
+     padding:0 100rpx;
+}
+.formBox .name{
+     margin-top:50rpx;
+}
+.formBox .name .rightCont{
+     width:430rpx;
+     height:58rpx;
+     border-radius:8rpx;
+     border:1rpx solid #ccc;
+}
+.formBox .name input{
+     width:430rpx;
+     box-sizing:border-box;
+     height:58rpx;
+     border:1rpx solid #ccc;
+     border-radius:8rpx;
+}
+.formBox .form .name:nth-child(3) input{
+     width:255rpx;
+     box-sizing:border-box;
+     height:58rpx;
+     border:none;
+}
+.formBox .name .getCode{
+     width:140rpx;
+     right:10rpx;
+     top:10rpx;
+}
+.formBox .form .submit{
+     margin-top:180rpx;
+     width:100%;
+     background:#1ccfcf;
+}
+.hint{
+     margin-top:100rpx;
+}

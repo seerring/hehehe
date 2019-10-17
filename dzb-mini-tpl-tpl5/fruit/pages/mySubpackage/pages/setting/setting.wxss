@@ -1,0 +1,19 @@
+/* pages/mySubpackage/pages/setting/setting.wxss */
+.wx-switch-input{
+     width:82rpx !important;
+     height:40rpx !important;
+}
+.wx-switch-input::before{
+     width:80rpx !important;
+     height:37rpx !important;
+     background:#ccc!important;
+}
+.wx-switch-input::after{
+     width:42rpx !important;
+     height:37rpx !important;
+}
+.exitLogin{
+     position:fixed;
+     bottom:0;
+     width:100%;
+}

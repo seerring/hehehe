@@ -1,0 +1,235 @@
+/* pages/tabBar/category/category.wxss */
+.headSearch input {
+  padding-left: 290rpx;
+  width: 690rpx;
+  box-sizing: border-box;
+}
+
+.headSearch image {
+  top: 18rpx;
+  left: 256rpx;
+  width: 44rpx;
+  height: 44rpx;
+}
+.mg-tp8 {
+  margin-top:8rpx;
+}
+.mg-bt8{
+  margin-bottom:8rpx;
+}
+.headbox {
+  position: fixed;
+  height: 120rpx;
+}
+
+.contentBox {
+  position: fixed;
+  top: 120rpx;
+  /* bottom:0rpx; */
+  left: 0;
+  /* z-index:99; */
+  width: 100%;
+  height: calc(100% - 90rpx);
+  background-color: #f4f4f4;
+}
+
+.contentBox .tabList .fixed {
+  position: fixed;
+  width: 146rpx;
+  height: 30rpx;
+  background: #fff;
+  z-index: 11;
+}
+
+.contentBox .tabList .fixed1 {
+  bottom: 0;
+}
+
+.tabList {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.select_box .list-item {
+  width: 146rpx;
+  height: 47rpx;
+  line-height: 47rpx;
+  border-radius: 20rpx;
+}
+
+.select_box .list-item.active {
+  color: #fff;
+  background: #1ccfcf;
+  font-weight: 700;
+}
+.activeRight {
+  color:#1ccfcf;
+}
+/* 下拉框 */
+.select{
+  width: 234rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: rgba(28, 207, 207, 0.3);
+}
+/* 下拉列表的修饰图 */
+.selectImg{
+  width: 28rpx;
+  height: 28rpx;
+  margin-left: 20rpx;
+  margin-top: 30rpx;
+}
+/* 下拉列表的选项框 */
+.select_box {
+  top: 88rpx;
+  width: 234rpx;
+  box-shadow: 4rpx 12rpx 20rpx -2rpx rgba(142, 142, 142, 4);
+  overflow: hidden;
+  /* animation: myfirst 0.5s; */
+  background-color: #fff;
+  left: 0;
+}
+
+/* 下拉动画 */
+/* 
+@keyframes myfirst {
+  from {
+    height: 0rpx;
+  }
+
+  to {
+    height: 100%;
+  }
+} */
+
+.contentBox .rightContent .fixed {
+  position: fixed;
+  width: 540rpx;
+  height: 30rpx;
+  background: #fff;
+  z-index: 11;
+}
+
+.contentBox .rightContent .fixed1 {
+  bottom: 0;
+}
+
+.rightContent {
+  width: 100%;
+  height: 90%;
+  box-sizing: border-box;
+  margin-top: 108rpx;
+}
+
+.rightContent .typeBanner, .rightContent .typeBanner image {
+  width: 690rpx;
+  height: 180rpx;
+  border-radius: 20rpx;
+}
+
+.rightContent .rightProList {
+  padding: 32rpx 0;
+}
+
+.rightContent .rightProList .list-items {
+  width: 690rpx;
+  height: 220rpx;
+  line-height: 220rpx;
+  border-radius: 10rpx;
+  background-color: #fefefe;
+  margin-bottom: 2rpx;
+}
+
+.rightContent .rightProList .list-items:nth-child(3n) {
+  /* margin-right:0; */
+}
+/* 列表文字部分 */
+.rightIntro{
+  width: 490rpx;
+  height: 180rpx;
+}
+.rightContent .rightProList .proImg, .rightContent .rightProList .proImg image {
+  width: 180rpx;
+  height: 180rpx;
+  background-color: #fefefe;
+  border: 1rpx solid #e5e5e5;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+}
+.title{
+  width: 450rpx;
+}
+.joinCart{
+  right: 40rpx;
+  bottom: 37rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+.good_box {
+  width: 60rpx;
+  height: 60rpx;
+  position: fixed;
+  border-radius: 50%;
+  overflow: hidden;
+  left: 50%;
+  top: 50%;
+  z-index: 99;
+  border: 1px solid rgba(187, 49, 40, 0.61);
+  background: rgba(230, 15, 15, 0.966);
+}
+.rightProList .proNullStyle {
+  height: 304rpx;
+}
+
+.rightProList .proNullStyle image {
+  width: 335rpx;
+  height: 304rpx;
+}
+
+/* 筛选搜索列表的样式 */
+.searchTabList{
+  width: 516rpx;
+  top: 0;
+  left: 234rpx;
+  z-index: 10000;
+}
+.searchTabList .searchList-item {
+  margin-left: 39rpx;
+}
+
+.searchTabList .searchList-item:first-child{
+   margin-left: 26rpx;
+}
+.searchTabList .searchList-item:last-child{
+     padding-right:0rpx;
+}
+
+.searchTabList .searchList-item:last-child text {
+      margin-right: 10rpx;
+}
+
+.searchTabList .searchList-item image {
+      width: 17rpx;
+      height: 26rpx;
+}
+.searchTabList .arrowBox .sx-arrow-down{
+     border-top:10rpx solid #999; 
+     border-left:10rpx solid  transparent; 
+     border-right:10rpx solid transparent;
+     width:0rpx;
+     height:0rpx; 
+}
+.sx-arrow-down1{
+     border-bottom:10rpx solid #1ccfcf !important;
+}
+.searchTabList .arrowBox .sx-arrow-up{
+     border-bottom:10rpx solid #999; 
+     border-left:10rpx solid  transparent; 
+     border-right:10rpx solid transparent;
+     width:0rpx;
+     height:0rpx;
+}
+.sx-arrow-up1{
+     border-top:10rpx solid #1ccfcf !important;
+}

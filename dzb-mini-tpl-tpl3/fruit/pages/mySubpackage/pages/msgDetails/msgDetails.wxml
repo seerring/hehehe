@@ -1,0 +1,13 @@
+<!--pages/mySubpackage/pages/msgDetails/msgDetails.wxml-->
+<view class="container">
+     <!--消息详情列表-->
+     <view class="pd-lr30">
+          <view class="msgList">
+               <view class="list-item inline-block bg-fff radius8 pd-lr30 mg-tp20" wx:for='{{msgList}}' wx:key="item">
+                    <view class="ft-28 color-333 mg-tp20">{{item.title}}</view>
+                    <view class="ft-24 color-666 mg-tp20 overflow-ellipsis2">{{item.content}}</view>
+                    <view class="msgDate ft-20 color-999 mg-tp20">{{item.date}}</view> 
+               </view>
+          </view>
+     </view>
+</view>

@@ -1,0 +1,39 @@
+<!--pages/mySubpackage/pages/paymentDes/paymentDes.wxml-->
+<!-- <text>pages/mySubpackage/pages/paymentDes/paymentDes.wxml</text> -->
+
+<view class="paymentDes bg-f4f4f4">
+  <view class="headBox bg-fff">
+    <view class="bd-bt-eee">
+      <image class="block bd-rd50" src="{{getDes.store_logo}}"></image>
+      <view class="ft-30 color-333 bold text-center mg-tp20">{{getDes.store_name}}</view>
+      <view class="money color-333 bold text-center" wx:if="{{getDes.type == 1}}">{{getDes.amount}}</view>
+      <view class="money color-333 bold text-center" wx:else>-{{getDes.amount}}</view>
+    </view>
+  </view>
+  <view class="paymentInfo bg-fff">
+    <view class="ft-30 list-item flex flex-ac">
+      <view class="color-666 cont1">当前状态</view>
+      <view class="color-333 cont2">{{getDes.status}}</view>
+    </view>
+    <view class="ft-30 list-item flex flex-ac">
+      <view class="color-666 cont1">商品</view>
+      <view class="color-333 cont2">{{getDes.note}}</view>
+    </view>
+    <view class="ft-30 list-item flex flex-ac">
+      <view class="color-666 cont1">付款时间</view>
+      <view class="color-333 cont2">{{getDes.create_time}}</view>
+    </view>
+    <view class="ft-30 list-item flex flex-ac">
+      <view class="color-666 cont1">付款方式</view>
+      <view class="color-333 cont2">{{getDes.pay_way}}</view>
+    </view>
+    <view class="ft-30 list-item flex flex-ac">
+      <view class="color-666 cont1">订单编号</view>
+      <view class="color-333 cont2">{{getDes.order_number}}</view>
+    </view>
+    <view class="ft-30 list-item flex flex-as">
+      <view class="color-666 cont1">交易流水号</view>
+      <view class="color-333 cont2">{{getDes.pay_number}}</view>
+    </view>
+  </view>
+</view>

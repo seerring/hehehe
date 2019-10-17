@@ -1,0 +1,72 @@
+/* pages/mySubpackage/pages/refundList/refundList.wxss */
+
+.refundList {
+  min-height: calc(99.12vh);
+}
+.refundList .refundLists {
+  border-top: 20rpx solid #F4F4F4;
+  width: 690rpx;
+  margin: 0 auto;
+  padding-bottom: 50rpx;
+}
+.refundList .refundLists .list-item.list-item:first-child {
+  margin-top: 0;
+}
+.refundList .refundLists .list-item .orderStatus {
+  font-family: 'PingFang-Medium';
+}
+.refundList .refundLists .list-item .orderStatus .leftCont image {
+  width: 41rpx;
+  height: 41rpx;
+}
+.refundList .refundLists .list-item .proDes .leftCont {
+  width: 30%;
+}
+.refundList .refundLists .list-item .proDes .leftCont image {
+  width: 168rpx;
+  height: 168rpx;
+}
+.refundList .refundLists .list-item .proDes .rightCont {
+  width: 70%;
+}
+.refundList .refundLists .list-item .footBox {
+  width: 100%;
+}
+.refundList .refundLists .list-item .footBox .rightCont {
+  width: 100%;
+}
+.refundList .refundLists .list-item .footBox .rightCont .disPrice {
+  font-family: 'PingFang-Medium';
+  padding: 5rpx 10rpx;
+  background: #E3F8F9;
+}
+.refundList .refundLists .list-item .footBox .rightCont p:last-child {
+  font-family: 'PingFang-Medium';
+}
+.refundList .refundLists .list-item .btnBox {
+  font-family: 'PingFang-Medium';
+  line-height: 56rpx;
+}
+.refundList .refundLists .list-item .btnBox .qxOrder {
+  width: 150rpx;
+  border: 2rpx solid #999;
+  border-radius: 30rpx;
+}
+.refundList .refundLists .list-item .btnBox .payment {
+  width: 150rpx;
+  border: 2rpx solid #1CCFCF;
+  border-radius: 30rpx;
+}
+.refundList .nullStyle {
+  padding-top:200rpx;
+}
+.refundList .nullStyle image {
+  margin: 0 auto;
+  width: 253rpx;
+  height: 177rpx;
+}
+.refundList .loadMore image {
+  width: 60rpx;
+  height:60rpx;
+  margin: auto;
+}

@@ -1,0 +1,295 @@
+<include src="../../../common/header.wxml" />
+<view class="subOrder bg-f4f4f4">
+    <!-- <tab v-model="index01" prevent-default  custom-bar-width="32%" active-color="#1CCFCF">
+      <tab-item selected>送货上门</tab-item>
+        <tab-item>进店取货</tab-item>
+    </tab> -->
+    <view class="tabBox">
+        <text bindtap="buyStyle" class="{{isSelect?'selected':''}}" data-index="{{0}}">送货上门</text>
+        <text bindtap="buyStyle" class="{{isSelect?'':'selected'}}" data-index="{{1}}">进店取货</text>
+    </view>
+    <view class="scrollHeight">
+        <view class="addAddress bg-fff bd-rd10" wx:if="{{index01 == 0}}">
+            <view class="addBox block " wx:if="{{addressList}}" bindtap="shooseAds">
+                <view class="leftCont flex flex-ac">
+                    <view class="left">
+                        <image class="block" src="../../images/nearStore.png"></image>
+                    </view>
+                    <view class="right ft-28">
+                        <view class="clearfix">
+                            <view class="pull-left">{{addressList.l_name}}</view>
+                            <view class="pull-right">{{addressList.l_phone}}</view>
+                        </view>
+                        <view class="ft-24 color-999 mg-tp20 one-line-ellipsis">
+                            {{addressList.l_province}}{{addressList.l_city}}{{addressList.l_district}}{{addressList.l_address}}
+                        </view>
+                    </view>
+                </view>
+                <view class="rightCont flex flex-ac">
+                    <image class="block mg-tp5" src="../../images/right_arrow.png"></image>
+                </view>
+            </view>
+            <view class="block clearfix" bindtap="shooseAds" wx:else>
+                <view class="pull-left leftCont flex flex-ac">
+                    <view class="left">
+                        <image class="block mg-rt20" src="../../images/nearStore.png"></image>
+                    </view>
+                    <view class="right">
+                        <view class="ft-28 color-333">没有符合的配送地址，请添加</view>
+                    </view>
+                </view>
+                <view class="pull-right rightCont flex flex-je">
+                    <image class="block mg-tp5" src="../../images/right_arrow.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="takeStore bg-fff pd30 bd-rd10" wx:else>
+            <view class="headBox pd-bt30 flex flex-ac bd-bt-f4f4f4">
+                <view class="storeIcon">
+                    <image class="block" src="../../images/storeIcon.png"></image>
+                </view>
+                <view class="storeInfo">
+                    <view class="name color-333 ft-28">{{addressInfo.name}}</view>
+                    <view class="address ft-24 color-999 mg-tp15 one-line-ellipsis">{{addressInfo.area}}{{addressInfo.address}}</view>
+                </view>
+            </view>
+            <view class="footBox pd-tp15 flex flex-ac">
+                <view class="storePhone">
+                    <image class="block" src="../../images/istorePhone.png"></image>
+                </view>
+                <view class="ft-28 color-333">核销号码：{{addressInfo.address_phone}}</view>
+            </view>
+        </view>
+        <view class="dateTime bg-fff bd-rd10 pd-lr30 flex" bindtap="chooseTime" wx:if="{{index01 == 0}}">
+            <view class="ft-28 color-333 leftCont flex flex-js">送货时间</view>
+            <view class="rightCont flex flex-je">
+                <span class="ft-28 color-999 mg-rt30" wx:if="{{!timeIdx2}}">{{addressInfo.day_name}} {{addressInfo.period_time[0]}}</span>
+                <span class="ft-28 color-999 mg-rt30" wx:else>{{addressInfo.day_name}} {{confirmedTime}}</span>
+                <image class="newArrow mg-tp5" src="../../images/right_arrow.png"></image>
+            </view>
+        </view>
+        <view class="proDes bg-fff pd-lr30 bd-rd10">
+            <view class="orderStatus bd-bt-f4f4f4 pd-tb20 clearfix">
+                <view class="leftCont flex flex-ac pull-left">
+                    <image class="block mg-rt20 bd-rd50" src="{{addressInfo.logo}}"></image>
+                    <view class="ft-28 color-333">{{addressInfo.name}}</view>
+                </view>
+            </view>
+            <view class="prolist">
+                <view class="list-item pd-tb30 bd-bt-f4f4f4" wx:for="{{proList}}" wx:key="item">
+                    <navigator hover-class='none' class="flex flex-as width-full" url="{name:'proDetails',params:{id:item.id}}" wx:if="{{item.shop_type == 1}}">
+                        <view class="leftCont">
+                            <view wx:if="{{type==1}}">
+                                <image wx:if="{{item.video}}" class="block bd-rd8" src="{{item.product_images[1]}}"></image>
+                                <image wx:else class="block bd-rd8" src="{{item.product_images[0]}}"></image>
+                            </view>
+                            <image wx:if="{{type==2}}" class="block bd-rd8" src="{{item.product_images[1]}}"></image>
+                            <image wx:if="{{type==3}}" class="block bd-rd8" src="{{item.product_images}}"></image>
+                        </view>
+                        <view class="rightCont mg-tp15">
+                            <view class="ft-28 color-333 mult_line-ellipsis line-h35">{{item.product_name}}</view>
+                            <view class="clearfix mg-tp30">
+                                <view class="ft-28 color-333 pull-left">
+                                    单价：
+                                    <text class="ft-24">￥</text>
+                                    <text wx:if="{{item.present_price}}">{{item.present_price}}</text>
+                                    <text wx:else>{{item.price}}</text>
+                                </view>
+                                <view class="pull-right ft-24 color-999 line-h35" wx:if="{{item.buyNum}}">×{{item.buyNum}}</view>
+                                <view class="pull-right ft-24 color-999 line-h35" wx:else>×{{item.num}}</view>
+                            </view>
+                        </view>
+                    </navigator>
+                    <navigator hover-class='none' class="flex flex-as width-full" url="{name:'specialDes',params:{id:item.id}}" wx:if="{{item.shop_type == 2}}">
+                        <view class="leftCont">
+                            <image wx:if="{{item.video}}" class="block bd-rd8" src="{{item.product_images[1]}}"></image>
+                            <image wx:else class="block bd-rd8" src="{{item.product_images[0]}}"></image>
+                        </view>
+                        <view class="rightCont mg-tp15">
+                            <view class="ft-28 color-333 mult_line-ellipsis line-h35">{{item.product_name}}</view>
+                            <view class="clearfix mg-tp30">
+                                <view class="ft-28 color-333 pull-left">
+                                    单价：
+                                    <text class="ft-24">￥</text>
+                                    <text wx:if="{{item.present_price}}">{{item.present_price}}</text>
+                                    <text wx:else>{{item.price}}</text>
+                                </view>
+                                <view class="pull-right ft-24 color-999 line-h35" wx:if="{{item.buyNum}}">×{{item.buyNum}}</view>
+                                <view class="pull-right ft-24 color-999 line-h35" wx:else>×{{item.num}}</view>
+                            </view>
+                        </view>
+                    </navigator>
+                </view>
+            </view>
+            <view class="footBox ft-24 pd-tb30">
+                <view class="rightCont text-right flex flex-ac flex-je">
+                    <view class="color-333 ft-28 mg-rt35">共{{proList[0].totalSum}}件</view>
+                    <view class="color-333 ft-28">商品总额：</view>
+                    <view class="color-fc5920 ft-28">￥{{proList[0].totalPrice}}</view>
+                </view>
+            </view>
+            <view class="coupons pd-tb20 clearfix">
+                <view class="ft-28 color-333 pull-left">优惠券</view>
+                <view class="pull-right rightCont flex flex-ac">
+                    <view class="color-333 ft-28 mg-rt20" bindtap="chooseCoupon" wx:if="{{disPrice}}">-￥{{disPrice}}</view>
+                    <view wx:else>
+                        <view class="color-999 ft-28 mg-rt20" bindtap="chooseCoupon" wx:if="{{couponList.count > 0}}">有
+                            <text class="color-1ccfcf">{{couponList.count}}</text> 张可用优惠券</view>
+                        <view class="color-999 ft-28 mg-rt20" wx:else>无可用</view>
+                    </view>
+
+                    <image class="block" src="../../images/right_arrow.png"></image>
+                </view>
+            </view>
+            <view class="coupons pd-tb20 clearfix">
+                <view class="ft-28 color-333 pull-left">会员卡</view>
+                <view class="pull-right rightCont flex flex-ac">
+                    <view>
+                        <view class="color-999 ft-28 mg-rt20" wx:if="{{addressInfo.discount}}">
+                            商品享受<text class="color-1ccfcf"> {{addressInfo.discount}}</text>折扣优惠</view>
+                        <view class="color-999 ft-28 mg-rt20" wx:else>暂无折扣</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="remark pd-lr30 bg-fff h90 line-h90 bd-rd10 flex flex-ac" id="remark">
+            <view class="ft-28 color-333">备注</view>
+            <view class="rightCont2">
+                <group>
+                    <input class="color-ccc ft-28" placeholder="请输入备注或留言，45字以内" bindinput="inputValue2" maxlength="45"></input>
+                </group>
+            </view>
+        </view>
+        <view class="agreement flex flex-ac">
+            <image class="block mg-rt10" bindtap="agreement" wx:if="{{!isSure}}" src="../../images/checked_false.png"></image>
+            <image class="block mg-rt10" bindtap="agreement" wx:else src="../../images/checked.png"></image>
+            <navigator hover-class='none' url="{name:'privacyAgree',params:{type:5}}">
+                <view class="color-999 ft-24">我已同意
+                    <text class="color-1ccfcf">《用户购买协议》</text>
+                </view>
+            </navigator>
+        </view>
+    </view>
+
+    <view class="fixdBtn">
+        <view class="hint ft-24 color-1ccfcf h50 line-h50 text-center" wx:if="{{index01 == 0 && isAddress == false}}">商家规定：满{{addressInfo.amount}}元才能送货上门哦！</view>
+        <view class="hint ft-24 color-1ccfcf h50 line-h50 text-center" wx:elif="{{index01 == 1}}">温馨提示：请于{{addressInfo.takeTime}}之前到店核销商品</view>
+        <view class="bottom">
+        <view class="h90 bg-fff flex flex-ac clearfix">
+            <view class="leftCont flex flex-ac pd-lt30">
+                <view class="ft-28 color-333 mg-rt20" wx:if="{{disPrice}}">合计：
+                    <text class="color-fc5920">￥{{dis_totalPrice}}</text>
+                </view>
+                <view class="ft-28 color-333 mg-rt20" wx:else>合计：
+                    <text class="color-fc5920">￥{{totalPrice}}</text>
+                </view>
+                <view class="yh_price inline-block ft-24 color-1ccfcf bd-rd5" wx:if="{{disPrice}}">已优惠￥{{disPrice}}</view>
+            </view>
+            <view class="rightCont flex flex-je line-h90">
+                <view wx:if="{{index01 == 0}}" class="{{isAddress?'toPay payMent text-center color-fff':'payMent text-center color-fff'}}" bindtap="payOn">去支付</view>
+                <!--<button open-type="getUserInfo" bindgetphonenumber="wxLogin" bindgetuserinfo='wxLogin' wx:if="{{index01 == 0}}" class="myBtn ft-32 {{isAddress?'toPay payMent text-center color-fff':'payMent text-center color-fff'}}"><span>去支付</span></button>-->
+                <view class="ft-32 payMent payment2 text-center color-fff" wx:if="{{index01 == 1}}" bindtap="payOn" data-type="1">去支付</view>
+            </view>
+        </view>
+        </view>
+    </view>
+    <view class="black_cover" wx:if="{{isCloseModal}}">
+        <view class="holder2" bindtap="closeModal"></view>
+        <view class="couponList bg-fff">
+            <view class="clearfix head h100 line-h100 pd-lr30 bd-bt-f4f4f4">
+                <view class="pull-left ft-28 color-333">优惠券</view>
+                <image class="block pull-right" bindtap="closeModal" src="../../images/closeModal.png"></image>
+            </view>
+            <view class="list pd30">
+                <view class="list-item mg-bt20 relative" bindtap="checkedCoupon" data-index="{{index}}" wx:for="{{couponList.list}}" wx:key="item">
+                    <image class="couponBg absolute" src="../../images/couponBg_1.png"></image>
+                    <view class="topBox flex flex-ac">
+                        <view class="price ft-30 text-center">￥
+                            <text>{{item.coupon_price}}</text>
+                        </view>
+                        <view class="discount pd-lt30">
+                            <view class="flex flex-ac">
+                                <view class="ft-24 color-fff bg-1ccfcf mg-rt20">优惠券</view>
+                                <view class="ft-28 color-333">{{item.name}}</view>
+                            </view>
+                            <view class="ft-28 disNum mg-tp30 color-666">
+                                <text class="mg-rt20">全场满</text>
+                                <text class="color-1ccfcf">{{item.coupon_condition}}减{{item.coupon_price}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="fotBox flex flex-ac pd-lt30">
+                        <view class="ft-24 color-333">有效期：{{item.coupon_start_time}}至{{item.coupon_left_time}}</view>
+                    </view>
+                    <image class="block absolute" wx:if="{{couponIndex == index}}" src="../../images/chooseCoupon.png"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 支付方式 -->
+    <view class="black_cover" wx:if="{{isCloseModal2}}">
+        <view class="holder2" bindtap="closeModal"></view>
+        <view class="payList bg-fff">
+            <view class="clearfix head h100 line-h100 pd-lr30 bd-bt-f4f4f4">
+                <view class="pull-left ft-28 color-333">选择支付方式</view>
+                <image class="block pull-right" bindtap="closeModal" src="../../images/closeModal.png"></image>
+            </view>
+            <view class="list pd-lr30">
+                <view class="list-item bd-bt-f4f4f4 pd-tb30 clearfix  flex flex-ac" wx:for="{{payList}}" wx:key="item" bindtap="choosePay" data-index="{{index}}">
+                    <view class="leftCont flex flex-ac pull-left" style="margin-right:auto">
+                        <image class="block mg-rt20" src="{{item.img}}" alt="" />
+                        <view class="ft-28 color-333">{{item.name}}</view>
+                    </view>
+                    <view class="rightCont pull-right" wx:if="{{curIndex == index}}">
+                        <image class="block" src="../../images/payWay.png"></image>
+                    </view>
+                </view>
+            </view>
+            <button open-type="getUserInfo" bindgetphonenumber="wxLogin" bindgetuserinfo='wxLogin' class="h100 line-h100 payment bg-1ccfcf text-center ft-28 color-fff">去支付</button>
+            <!-- <view class="h100 line-h100 payment bg-1ccfcf text-center ft-32 color-fff" bindtap="payWay" data-index="{{index}}">去支付</view> -->
+        </view>
+    </view>
+
+    <!-- 选择时间框 -->
+    <view class="black_cover" wx:if="{{isShowModal}}">
+        <view class="holder" bindtap="closeModal_time"></view>
+        <view class="ModalBox bg-fff bd-rd10">
+            <view class="headcontent h90 line-h90 relative">
+                <p class="ft-32 color-333 bold">请选择送达时间</p>
+                <image class="block absolute" src="../../images/closeModal.png" bindtap="closeModal_time" alt=""></image>
+            </view>
+            <view class="screenBox ft-28 color-333 flex">
+                <view class="leftCont flex flex-ac">
+                    <p class="text-center width-full">{{addressInfo.day_name}}</p>
+                </view>
+                <view class="rightCont flex flex-ac">
+                    <p class="text-center pd-bt25 width-full {{timeIdx==index? 'active':''}}" wx:for="{{addressInfo.period_time}}" bindtap="comfirmTime" data-index="{{index}}">{{item}}</p>
+                </view>
+            </view>
+            <button action-type="button" class="footBtn width-full text-center h90 line-h90" bindtap="comBtn_tt">确定</button>
+        </view>
+    </view>
+    <!--钱包支付-->
+    <view class="black_cover" wx:if="{{isShowModal2}}">
+        <view class="payList bg-fff">
+            <view class="clearfix head h100 line-h100 pd-lr30 bd-bt-f4f4f4 relative">
+                <view class="pull-left ft-32 color-333 text-center width-full">请输入支付密码</view>
+                <image class="block pull-right absolute" bindtap='walletCloseModal' src="../../images/closeModal.png"></image>
+            </view>
+            <view class="list2 pd-lr30">
+                <view class="pd-tb30 ft-28 color-333 text-center">{{payInfo.name}}</view>
+                <view class="color-333 bold price text-center">￥{{payInfo.price}}</view>
+                <view class="passwordBox bd-bt-eee">
+                    <view class="h60 line-h60 flex flex-ac">
+                        <view class="leftCont color-333 ft-32">密码</view>
+                        <view class="rightCont flex flex-ac">
+                            <input bindinput="inputValue" type="password" v-model="password" maxlength="16" class="ft-36" />
+                        </view>
+                    </view>
+                </view>
+                <view class="h80 line-h80 payment bg-1ccfcf text-center ft-32 color-fff block bd-rd8" bindtap='payment2'>立即支付</view>
+                <view class="mg-tp30 color-666 ft-28 text-center pd-bt40">支付密码为手机号登录密码</view>
+            </view>
+        </view>
+    </view>
+</view>

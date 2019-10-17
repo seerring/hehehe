@@ -1,0 +1,58 @@
+/* pages/mySubpackage/pages/address/address.wxss */
+.addAds{
+     height:302rpx;
+     margin:190rpx 0 60rpx 0;
+}
+.addAds image{
+     width:335rpx;
+     height:302rpx;
+}
+.addAdsBtn{
+     margin-top:50rpx;
+     width:259rpx;
+     height:81rpx;
+     line-height:81rpx;
+     border-radius:4rpx;
+}
+.formBox form input{
+     height:110rpx;
+     line-height:110rpx;
+     box-sizing:border-box;
+}
+.formBox form .area{
+     height:110rpx;
+     line-height:110rpx;
+     box-sizing:border-box;
+}
+.formBox form .area view{
+     width:650rpx;
+}
+.formBox form .area image{
+     margin-top:39rpx;
+     width:16rpx;
+     height:30rpx;
+}
+.formBox form .submit{
+     position:fixed;
+     bottom:0;
+     width:100%;
+}
+.adsList .list-item{
+     margin:20rpx 30rpx 0rpx 30rpx;
+     padding:30rpx 30rpx 0 30rpx;
+}
+.adsList .list-item .delete{
+     width:26rpx;
+     height:26rpx;
+}
+.addNewAds{
+     position:fixed;
+     width:100%;
+     bottom:0;
+}
+.holder{
+  height:200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

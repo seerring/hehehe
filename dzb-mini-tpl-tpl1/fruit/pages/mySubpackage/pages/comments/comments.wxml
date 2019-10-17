@@ -1,0 +1,56 @@
+<!--pages/mySubpackage/pages/comments/comments.wxml-->
+<include src="../../../common/header.wxml" />
+<view class="container">
+    <form bindsubmit="bindFormSubmit">
+        <!--商品描述-->
+        <view class="proDesc pd30 bg-fff flex flex-vc border2">
+            <image mode="aspectFit" class="radius8" src='https://admin.saas.kissneck.com/b2c-admin/public/uploads/{{image}}'></image>
+            <view class="inline-block ft-28 color-333 mg-rt30">描述相符</view>
+            <view class="comgrade mg-rt30">
+                <image wx:for="{{list1}}" data-index="{{index}}" bindtap='productComm' wx:key="item" src='{{item.image}}'></image>                  
+            </view>
+            <!-- <view class="ft-26 color-999">非常好</view> -->
+        </view>
+        <!--商品评价-->
+        <view class="comments pd30 bg-fff">
+            <textarea class="ft-26 color-333" placeholder='快告诉小伙伴宝贝有多好吧，大家都等着你的使用心得呢' placeholder-class='ft-26 color-999' name="comment_content">
+            </textarea>
+        </view>
+        <!--上传图片-->
+        <view class="bg-fff pd-lr30 imageLists">
+            <view class="clearfix">
+                <view class="pull-left lists" wx:if="{{imgLists.length > 0}}">
+                    <view class="relative inline-block mg-rt30" wx:for="{{imgLists}}" wx:key="item">
+                        <image class="absolute delete" data-index="{{index}}" bindtap='clickDel' src='/pages/common/images/deleteImg.png'></image>
+                        <image class="radius8" src='{{item}}'></image>
+                    </view>
+                </view>
+                <view class="imgList pull-left" wx:if="{{imgLists.length < 3}}">
+                    <view class="upload radius8 text-center" bindtap='addImg'>
+                        <image class="uploadImg mg-tp40" src="../../images/icon-upload.png"></image>
+                        <view class="ft-20 color-999">添加图片</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!--店铺评分-->
+        <view class="mg-tp20 bg-fff storeRatings">
+            <view class="flex flex-vc h90 icon pd-lr30 border2">
+                <image src="../../images/icon-store.png"></image>
+                <view class="ft-28 color-333">店铺评分</view>
+            </view>
+            <view class="logisticsSer flex flex-vc pd-lr30">
+                <view class="ft-28 color-333">物流服务</view>
+                <image wx:for="{{list2}}" data-index="{{index}}" bindtap='logistics' wx:key="item" src='{{item.image}}'></image>
+            </view>
+            <view class="logisticsSer serAttitude flex flex-vc pd-lr30">
+                <view class="ft-28 color-333">服务态度</view>
+                <image wx:for="{{list3}}" data-index="{{index}}" bindtap='attitude' wx:key="item" src='{{item.image}}'></image>
+            </view>
+        </view>
+        <!--保存-->
+        <view class="pd-lr30 saveBtn">
+            <button form-type="submit" class="bg-ff5400 color-fff text-center ft-32 h90 line-h90 radius8">提交</button>
+        </view>
+    </form>
+</view>

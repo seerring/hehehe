@@ -1,0 +1,48 @@
+<!--pages/mySubpackage/pages/memberSys/memberSys.wxml-->
+<view class="container">
+     <!--会员等级-->
+     <view class="grade ft-26 color-333">会员等级从低到高为普卡、银卡、金卡、白金卡。</view>
+     <view class="tableBox pd-lr30">
+          <view class="border-eee list">
+               <view class="h60 line-h60 flex flex-vc list-item bg-eee">
+                    <view class="ft-30 color-333 text-center">会员等级</view>
+                    <view class="ft-30 color-333 text-center">首次获取条件</view>
+                    <view class="ft-30 color-333 text-center">续卡条件</view>
+               </view>
+               <view class="h80 line-h80 flex flex-vc list-item bd-bteee">
+                    <view class="ft-26 color-333 text-center">普卡</view>
+                    <view class="ft-26 color-333 text-center">领取获得</view>
+                    <view class="ft-26 color-333 text-center">年消费>0元</view>
+               </view>
+               <view class="h80 line-h80 flex flex-vc list-item bd-bteee">
+                    <view class="ft-26 color-333 text-center">银卡</view>
+                    <view class="ft-26 color-333 text-center">年消费>300元</view>
+                    <view class="ft-26 color-333 text-center">年消费>0元</view>
+               </view>
+               <view class="h80 line-h80 flex flex-vc list-item bd-bteee">
+                    <view class="ft-26 color-333 text-center">金卡</view>
+                    <view class="ft-26 color-333 text-center">年消费>1000元</view>
+                    <view class="ft-26 color-333 text-center">年消费>1000元</view>
+               </view>
+               <view class="h80 line-h80 flex flex-vc list-item">
+                    <view class="ft-26 color-333 text-center">白金卡</view>
+                    <view class="ft-26 color-333 text-center">年消费>2000元</view>
+                    <view class="ft-26 color-333 text-center">年消费>2000元</view>
+               </view>
+          </view>
+     </view>
+     <!--会员说明-->
+     <view class="pd-lr30 memberExp">
+          <view class="text-center mg-tp15">
+               <view class="inline-block title ft-32 color-333 bg-eee">会员制度</view>
+          </view>
+          <view class="list">
+               <view class="list-item mg-tp30" wx:for="{{list}}" wx:key="item">
+                    <view class="list-item-title ft-28 color-333">{{index+1}}、{{item.title}}</view>
+                    <view class="mg-tp30 ft-26 color-666">{{item.content}}</view>
+               </view>
+          </view>
+          <!--其他疑问-->
+          <view class="ft-28 color-333 other">以上如有疑问，可联系商城客服为您解答！</view>
+     </view>
+</view>

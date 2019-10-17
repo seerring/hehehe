@@ -1,0 +1,50 @@
+<!--pages/mySubpackage/pages/systemUpdate/systemUpdate.wxml-->
+<!-- <text>pages/mySubpackage/pages/systemUpdate/systemUpdate.wxml</text> -->
+
+<view class="container">
+     <!--关于-->
+     <view class="content bg-fff "  wx:for="{{systemList}}" wx:key="item">
+        <view class="pd-tp30 pd-bt30 border2">
+            <view class="flex flex-jsb flex-vc">
+                  <view class="ft-32">{{item.title}}</view>
+                  <view class="ft-28 color-999">{{item.createTime}}</view>
+              </view>
+              <view class="ft-28 color-999 mg-tp18">{{item.content}}</view>
+        </view>
+     </view>
+     <!-- <view class="content bg-fff " hover-class='none' url='../systemUpdate/systemUpdate'>
+        <view class="pd-tp30 pd-bt30 border2">
+            <view class="flex flex-jsb flex-vc">
+                  <view class="ft-32">关于</view>
+                  <view class="ft-28 color-999">08月30日</view>
+              </view>
+              <view class="ft-28 color-999 mg-tp18">优化及时聊天页面，可发送图片</view>
+        </view>
+     </view>
+     <view class="content bg-fff " hover-class='none' url='../systemUpdate/systemUpdate'>
+        <view class="pd-tp30 pd-bt30 border2">
+            <view class="flex flex-jsb flex-vc">
+                  <view class="ft-32">店掌宝1.0更新</view>
+                  <view class="ft-28 color-999">08月30日</view>
+              </view>
+              <view class="ft-28 color-999 mg-tp18">优化及时聊天页面，可发送图片</view>
+        </view>
+     </view> -->
+     <!--清除缓存-->
+     <!-- <view class="h100 line-h100 bg-fff pd-lr30 border2">
+          <view class="pull-left ft-28 color-333">清除缓存</view>
+          <view class="pull-right ft-24 color-999">50MB</view>
+     </view> -->
+     <!--推送消息设置-->
+     <!-- <view class="h100 line-h100 bg-fff pd-lr30 border2">
+          <view class="pull-left ft-28 color-333">推送消息设置</view>
+          <view class="pull-right ft-24 color-999 flex flex-vc">
+               <switch class="inline-block" color='#1ccfcf'></switch>
+          </view>
+     </view> -->
+     <!--退出登录-->
+     <view class="h90 line-h90 text-center ft-32 color-999 exitLogin">Copyright@2010-2019</view>
+     <view class="h90 line-h90 text-center ft-32 color-999 exitLogin1">可待Kissneck.com版权所有</view>
+     <!-- <button class="h90 line-h90 text-center ft-32 color-fff bg-ff5400 exitLogin" bindtap='logout'>退出登录</button> -->
+</view>
+

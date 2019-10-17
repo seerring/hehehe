@@ -1,0 +1,64 @@
+<!--pages/mySubpackage/pages/address/address.wxml-->
+<include src="../../../common/header.wxml" />
+<view class="container">
+     <view class="" wx:if="{{adsList.length > 0 && addAds != 2}}">
+          <!--地址列表-->
+          <view class="adsList">
+               <view class="list-item bg-fff" wx:for="{{adsList}}" wx:key="item">
+                    <view bindtap='backOrder' data-id="{{item.id}}">
+                         <view class="clearfix mg-bt20">
+                              <view class="pull-left ft-30 color-333">{{item.l_name}}</view>
+                              <view class="pull-right ft-30 color-333">{{item.l_phone}}</view>
+                         </view>
+                         <view class="ft-28 ads border2 color-666 pd-bt30">{{item.l_province}}{{item.l_city}}{{item.l_district}}{{item.l_address}}</view>
+                    </view>
+                    <view class="h90 line-h90 clearfix">
+                         <view class="pull-left flex flex-vc">
+                              <radio-group bindchange='radioChange'>
+                                   <label class="radio">
+                                        <radio color='#1ccfcf' value='{{item.id}}' checked="{{item.checked}}"></radio>
+                                   </label>
+                              </radio-group>
+                             <text class="inline-block ft-26 color-333">默认地址</text>
+                         </view>
+                         <view class="pull-right flex flex-vc" bindtap='deleteAds' data-idx='{{index}}' data-index='{{item.id}}'>
+                              <image class="delete mg-rt20" src='../../images/icon-delete.png'></image>
+                              <text class="inline-block ft-26 color-333">删除</text>
+                         </view>
+                    </view>
+               </view>
+          </view>
+          <view class="addNewAds text-center h90 line-h90 inline-block ft-32 color-fff bg-ff5400" bindtap='addAddress'>+添加地址</view>
+     </view>
+     <view wx:else>
+          <!--添加地址-->
+          <view wx:if="{{addAds == 1}}">
+               <view class="addAds text-center">
+                    <image src="../../images/addressNull.png"></image>
+               </view>
+               <view class="ft-30 color-666 text-center">您暂无地址快添加吧~</view>
+               <view class="text-center">
+                    <view class="addAdsBtn inline-block ft-30 color-fff bg-ff5400" bindtap='addAddress'>+添加地址</view>
+               </view>
+          </view>
+          <view wx:if="{{addAds == 2}}">
+               <!--填写地址信息-->
+               <view class="formBox bg-fff">
+                    <form bindsubmit='submitBtn'>
+                         <input type='text' bindinput="inputValue" class="ft-28 border2 pd-lr30 color-333" name='name' placeholder='收件人姓名(请使用真实姓名)' placeholder-class='ft-28 color-999'></input>
+                         <input type='number' maxlength='11' class="ft-28 border2 pd-lr30 color-333" name='mobile' placeholder='手机号' placeholder-class='ft-28 color-999'></input>
+                         <picker mode='region' bindchange='bindRegionChange' name='area' class="clearfix area border2 pd-lr30">
+                              <view class="pull-left ft-28 color-999" wx:if="{{area.length == ''}}">所在地区</view>
+                              <view class="pull-left ft-28 color-999" wx:else>{{area}}</view>
+                              <image class="pull-right inline-block" src='../../../common/images/icon-right.png'></image>
+                         </picker>
+                         <input type='text' class="ft-28 border2 pd-lr30 color-333" name='areaDetail' placeholder='街道、小区门牌等详细地址' placeholder-class='ft-28 color-999'></input>
+                         <button form-type='submit' class="bg-ff5400 h90 line-h90 text-center ft-32 color-fff submit" >保存</button>
+                    </form>
+               </view>
+          </view>
+     </view>
+     <view class="holder">
+     <view class="ft-20 mg-tp20 mg-bt50 color-999">没有更多了，看看其他的吧~</view>
+     </view>
+</view>

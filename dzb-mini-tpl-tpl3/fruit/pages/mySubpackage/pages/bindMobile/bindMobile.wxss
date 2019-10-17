@@ -1,0 +1,31 @@
+/* pages/mySubpackage/pages/bindMobile/bindMobile.wxss */
+page{
+     background:#fff;
+}
+.formBox{
+     margin:104rpx 100rpx 0 100rpx;
+}
+.formBox form{
+     width:100%;
+}
+.formBox form .height{
+     padding:20rpx 0 30rpx 10rpx;
+     border-bottom:1rpx solid #ccc;
+}
+.formBox form .clearfix{
+     border-bottom:1rpx solid #ccc;
+}
+.formBox form .clearfix .height{
+     border:none;
+}
+.formBox form .clearfix .getCode{
+     margin-top:30rpx;
+     width:140rpx;
+     height:50rpx;
+     line-height:48rpx;
+     border:1rpx solid #ccc;
+}
+.formBox form .confirmBtn{
+     margin-top:80rpx;
+     width:550rpx;
+}

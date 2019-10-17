@@ -1,0 +1,70 @@
+/* pages/mySubpackage/pages/comments/comments.wxss */
+.proDesc{
+     height:165rpx;
+     box-sizing:border-box;
+}
+.proDesc image{
+     margin-right:26rpx;
+     width:105rpx;
+     height:105rpx;
+}
+.proDesc .comgrade image{
+     width:30rpx;
+     height:30rpx;
+}
+.comments{
+     height:180rpx;
+     box-sizing:border-box;
+}
+.comments textarea{
+     width:690rpx;
+     height:120rpx;
+}
+.imageLists{
+     height:180rpx;
+}
+.imageLists .lists{
+     height:130rpx;
+}
+.imageLists .lists image{
+     width:130rpx;
+     height:130rpx;
+}
+.imageLists .imgList .upload{
+     width:130rpx;
+     height:130rpx;
+     border:1rpx dashed #ccc;
+}
+.imageLists .lists .delete {
+     width:24rpx;
+     height:24rpx;
+     right:0;
+     top:-24rpx;
+}
+.imgList .uploadImg{
+     width:42rpx;
+     height:32rpx;
+}
+.storeRatings .icon image{
+     margin-right:26rpx;
+     width:35rpx;
+     height:35rpx;
+}
+.logisticsSer{
+     margin:35rpx 0 50rpx 0;
+}
+.logisticsSer image{
+     width:30rpx;
+     height:30rpx;
+     margin-left:50rpx;
+}
+.serAttitude{
+     padding-bottom:40rpx;
+}
+.saveBtn{
+     margin-top:87rpx;
+     width:690rpx;
+}
+.hide {
+    display: none;
+}

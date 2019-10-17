@@ -1,0 +1,130 @@
+/* pages/mySubpackage/pages/refun/refun.wxss */
+.refund {
+  min-height: calc(99.12vh);
+}
+.refund .proDes .proInfo {
+  padding: 30rpx 30rpx 40rpx 30rpx;
+}
+.refund .proDes .proInfo .leftCont {
+  width: 30%;
+}
+.refund .proDes .proInfo .leftCont image {
+  width: 168rpx;
+  height: 168rpx;
+}
+.refund .proDes .proInfo .rightCont {
+  width: 70%;
+}
+.refund .proDes .totalPrice .price {
+  font-family: 'PingFang-Medium';
+}
+.refund .proDes .totalPrice .disPrice {
+  font-family: 'PingFang-Medium';
+  padding: 5rpx 10rpx;
+  background: #E3F8F9;
+}
+.refund .reason .rightCont image {
+  width: 16rpx;
+  height: 30rpx;
+}
+.refund .describe {
+  padding: 0 30rpx 30rpx 30rpx;
+}
+.refund .describe .userAdviceBox {
+  width: 100%;
+  height: 180rpx;
+  box-sizing: border-box;
+}
+.userAdviceBox textarea{
+  width:630rpx;
+  height:115rpx;
+}
+.refund .uploadImg {
+  padding: 0 30rpx 20rpx 30rpx;
+}
+.refund .uploadImg .list .list-item {
+  width: 130rpx;
+  height: 130rpx;
+  border: 1rpx dashed #ccc;
+}
+.refund .uploadImg .list .list-item image {
+  width: 100%;
+  height: 100%;
+}
+.refund .uploadImg .list .list-item .delete {
+  position: absolute;
+  top: -12rpx;
+  right: -12rpx;
+  width: 24rpx;
+  height: 24rpx;
+}
+.refund .uploadImg .list .addImg {
+  width: 130rpx;
+  height: 130rpx;
+  border: 1rpx dashed #ccc;
+}
+.refund .uploadImg .list .addImg .upload_img {
+  width: 42rpx;
+  height: 32rpx;
+}
+.refund .uploadImg .list #uploadImg {
+  position: absolute;
+  display: none;
+}
+.refund .reasonBox {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  z-index: 5000;
+}
+.refund .reasonBox .title image {
+  margin-top: 36rpx;
+  width: 28rpx;
+  height: 28rpx;
+}
+
+.uploadImg{
+    margin-bottom:150rpx;
+}
+.uploadImg .title{
+    padding:30rpx 0 25rpx 0;
+}
+.uploadImg .lists{
+     height:130rpx;
+}
+.uploadImg .lists .delete {
+     width:24rpx;
+     height:24rpx;
+     right:-15rpx;
+     top:-20rpx;
+}
+.uploadImg .lists image{
+     width:130rpx;
+     height:130rpx;
+}
+.uploadImg .imgList .upload{
+     width:130rpx;
+     height:130rpx;
+     border:1rpx dashed #ccc;
+}
+.uploadImg .imgList .uploadImg1{
+     width:42rpx;
+     height:32rpx;
+}
+.submitBtn{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    border-radius:0;
+}
+
+.holder{
+  z-index:5000;
+  height:100%;
+  background: rgba(0, 0, 0, 0.301)!important;
+}
+.holder2{
+  z-index:5000;
+  height:100%;
+  background: rgba(0, 0, 0, 0.301)!important;
+}

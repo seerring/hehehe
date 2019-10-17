@@ -1,0 +1,94 @@
+<!--pages/tabBar/shopCart/shopCart.wxml-->
+<include src="/pages/common/header.wxml" />
+<view class="container">
+     <view wx:if="{{shopCartList.length > 0}}" style="padding-bottom:100rpx;">
+          <!--全选-->
+          <view class="topCheckAll h90 line-h90 bg-fff" bindtap='selectAll'> 
+               <checkbox class="mg-lt30" wx:if="{{selectAllStatus}}" checked='{{selectAllStatus}}'></checkbox>
+               <checkbox class="mg-lt30" wx:else></checkbox>
+               <view class="text ft-30 color-333 inline-block bold line-h90">{{shopinfo.shopname}}</view>
+          </view>
+          <!--商品列表-->
+          <view class="goodsList bg-fff">
+               <view class="list-item pd-lr30 flex flex-vc flex-hc border2" wx:for="{{shopCartList}}" wx:key="item">
+                    <checkbox  wx:if="{{item.selected}}" bindtap='selectList' checked='{{item.selected}}' class="mg-rt30" data-index="{{index}}"></checkbox>
+                    <checkbox wx:else class="mg-rt30" bindtap='selectList' data-index="{{index}}"></checkbox>
+                    <view class="inline-block pd-tb30 proDesc clearfix">
+                         <navigator hover-class='none'url="../../idxSubpackage/pages/proDetails/proDetails?id={{item.pid}}" >
+                              <view class="proImg mg-rt25 pull-left">
+                                  <image mode="aspectFit" src="{{item.product_images}}"></image>
+                              </view> 
+                         </navigator>
+                         <view class="pull-right rightCont">
+                              <view class="ft-28 color-333 overflow-ellipsis2">{{item.product_name}}</view>
+                              <view class="clearfix mg-tp10">
+                                   <view class="ft-26 color-999 pull-left">销量：{{item.ordercount}}</view>
+                                   <image bindtap='deleteList' data-index="{{index}}" class="delete mg-rt10 pull-right" src="/images/icon-delete.png"></image>
+                              </view>
+                              <view class="buyCount mg-tp25 clearfix">
+                                  <view class="ft-20 color-fc5920 pull-left " style="font-weight:700;">
+                                  ￥
+                                  <text class="ft-30 color-fc5920 pd-rt10 bold">{{item.price}}</text>
+                              </view>
+                                   <view class="pull-right chooseBox ">
+                                        <text class="inline-block text-center ft-34 color-999 pull-left" data-index="{{index}}" bindtap='minusCount' data-index="{{index}}">-</text>
+                                        <text class="inline-block text-center ft-26 color-333 pull-left">{{item.num}}</text>
+                                        <text class="inline-block text-center ft-34 color-999 pull-left" bindtap='addCount' data-index="{{index}}">+</text>
+                                   </view>
+                              </view>
+                         </view>
+                    </view>
+               </view>
+          </view>
+          <!--为你推荐-->
+          <!-- <view class="forRecommend mg-tp20">
+               <view class="head text-center">
+                    <image class="mg-rt20" src="/images/decorateImg1.png"></image>
+                    <text class="ft-32 color-333 bold">为你推荐</text>
+                    <image class="mg-lt20" src="/images/decorateImg2.png"></image>
+               </view>
+               <view class="pd-lr30">
+                    <view class="recomLists clearfix">
+                         <view class="list-item bg-fff pull-left mg-tp10 radius8" wx:for="{{recommendList}}" wx:key="item">
+                              <view class="recomImg relative">
+                                   <image class="radius8" src="{{item.images}}"></image>
+                                   <view class="absolute backLove ft-22 color-fff pd-lt20" wx:if="{{item.id == 21}}">回头客最爱</view>
+                              </view>
+                              <view class="overflow-ellipsis proDesc mg-tp20 ft-28 color-333">{{item.proName}}</view>
+                              <view class="joinCart mg-tp15 clearfix">
+                                   <view class="ft-28 color-ff5400 pull-left">￥{{item.price}}</view>
+                                   <image class="pull-right mg-rt25" src="/images/joinCart.png"></image>
+                              </view>
+                         </view>
+                    </view>
+               </view>
+               <!--没有更多了
+               <view class="ft-22 color-999 h100 line-h100 text-center">没有更多了</view>
+          </view> -->
+          <!--去结算-->
+          <view class="h100 line-h100 toOrder bg-fff">
+               <view class="pull-left" bindtap='selectAll'>
+                    <checkbox class="mg-lt30 mg-rt20" wx:if="{{selectAllStatus}}" checked='{{selectAllStatus}}'></checkbox>
+                    <checkbox class="mg-lt30 mg-rt20" wx:else></checkbox>
+                    <text class="ft-30 color-333">全选</text>
+               </view>
+               <view class="pull-right">
+                    <view class="ft-30 color-333 mg-rt25 inline-block">合计：</view>
+                    <view class="mg-rt20 ft-26 color-ff5400 inline-block">￥<text class="ft-34">{{totalPrice}}</text></view>
+                    <view class="color-fff ft-32 payBtn text-center inline-block {{toOrder ? 'active' : ''}}" bindtap='toOrderPage'>去结算</view>
+               </view>
+          </view>
+     </view>
+     <!--购物车为空的样式-->
+     <view wx:else>
+          <view class="nullStyle text-center">
+               <image src="/images/shopCart-null.png"></image>
+          </view>
+          <view class="null-title ft-30 color-666 text-center">亲，你的购物车空空如也~</view>
+          <view class="flex flex-hc null-title">
+               <view class="toIndex bg-ff5400 ft-32 color-fff text-center h80 line-h80" style='border-radius:100rpx;'>
+                    <navigator hover-class='none' open-type='reLaunch' url='../index/index?oid={{oid}}'>去逛逛</navigator>
+               </view>
+          </view>
+     </view>
+</view>

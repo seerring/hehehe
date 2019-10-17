@@ -1,0 +1,11 @@
+/* pages/mySubpackage/pages/msgDetails/msgDetails.wxss */
+.msgList{
+     width:690rpx;
+}
+.msgList .list-item{
+     height:200rpx;
+     box-shadow:0 0 4rpx rgba(255,84,0,.2);
+}
+.msgList .list-item .msgDate{
+     text-align:right;
+}

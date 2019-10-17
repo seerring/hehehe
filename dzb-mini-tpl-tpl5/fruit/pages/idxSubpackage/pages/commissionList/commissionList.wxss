@@ -1,0 +1,68 @@
+/* pages/idxSubpackage/pages/limitTime/limitTime.wxss */
+.tabList .list{
+    white-space:nowrap;
+    background:#fef5f0;
+}
+.tabList .list .list-item{
+    width:167rpx;
+}
+.endTime text{
+     width:37rpx;
+     height:37rpx;
+     line-height:37rpx;
+     background:#333;
+     border-radius:50%;
+}
+.proLists{
+    border-top:1rpx solid #eeeeee;
+}
+.proLists .list-item{
+    height:280rpx;
+}
+.proLists .list-item .leftCont,
+.proLists .list-item .leftCont image{
+    width:230rpx;
+    height:230rpx;
+}
+.proLists .list-item .rightCont{
+    width:430rpx;
+}
+.proLists .list-item .rightCont .look{
+    width:120rpx;
+    line-height:48rpx;
+    border:1rpx solid #1ccfcf;
+    border-radius:25rpx;
+    box-sizing:border-box;
+}
+.proLists .list-item .rightCont .look2{
+    background:#fdddcd;
+}
+.proLists .list-item .rightCont .remind{
+    border:none;
+}
+.proLists .list-item .rightCont .progressText{
+    top:3rpx;
+    left:14rpx;
+}
+progress{
+    width:138rpx;
+    border:1rpx solid #fdddcd;
+    border-radius:16rpx;
+}
+.backTop{
+     position:fixed;
+     right:30rpx;
+     bottom:66rpx;
+}
+.backTop,
+.backTop image{
+     width:54rpx;
+     height:54rpx;
+}
+
+.active{
+    font-weight:bold;
+    font-size:30rpx!important;
+    color:#fff!important;
+    background:#1ccfcf;
+}

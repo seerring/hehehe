@@ -1,0 +1,109 @@
+
+
+.curLocation {
+  /* min-height: calc(99.12vh); */
+}
+.curLocation .changeCity {
+  padding-bottom: 30rpx;
+  margin-bottom: 20rpx;
+}
+.curLocation .changeCity .desc {
+  padding: 40rpx 30rpx 0rpx 30rpx;
+}
+/* .curLocation .weui-cells {
+  margin-top: 20rpx;
+  padding: 10rpx 30rpx;
+} */
+.picker {
+  /* font-size: 32rpx; */
+  width: 100%;
+}
+/* .width input {
+  width: 100%;
+  padding: 10rpx 30rpx;
+  border-top: 1px solid #f4f4f4;
+} */
+.address_now{
+  padding: 18rpx 30rpx;
+  border-top: 1px solid #f4f4f4;
+  border-bottom: 1px solid #f4f4f4;
+}
+.curLocation .weui-cells .weui-cell {
+  padding: 10rpx 30rpx;
+}
+.curLocation .weui-cells .weui-input {
+  font-size: 25rpx;
+}
+.curLocation .weui-cells .weui-input::placeholder {
+  font-size: 25rpx;
+}
+.curLocation .address1 {
+  text-align: left;
+}
+.curLocation .address1 .weui-cells {
+  font-size: 25rpx;
+  margin-top: 40rpx;
+  padding: 30rpx 30rpx;
+  border-top: 1px solid #f4f4f4;
+}
+.curLocation .address1 .weui-cells image {
+  width: 22rpx;
+  height:22rpx;
+  margin-top:4rpx;
+}
+.curLocation .address1 .weui-cells .weui-cell {
+  padding: 20rpx 30rpx;
+}
+.curLocation .address1 .weui-cells .vux-popup-picker-select {
+  text-align: left!important;
+}
+.curLocation .address1 .weui-cells .vux-popup-picker-placeholder {
+  font-size: 25rpx;
+}
+.curLocation .address1 .leftCont {
+  width: 100%;
+}
+.curLocation .address1 .leftCont .width {
+  width: 100%;
+}
+.curLocation .address1 .rightCont {
+  top: 35rpx;
+  right: 0;
+}
+.curLocation .address1 .rightCont image {
+  width: 16rpx;
+  height: 30rpx;
+}
+.curLocation .curAds .desc {
+  padding: 20rpx 30rpx 20rpx 30rpx;
+}
+.curLocation .curAds .address {
+  padding: 20rpx 30rpx 20rpx 30rpx;
+  border-top: solid #f4f4f4;
+}
+.curLocation .curAds .address view {
+  font-family: 'PingFang-Medium';
+  width: 30%;
+}
+.curLocation .curAds .address view image {
+  width: 38rpx;
+  height: 38rpx;
+}
+.curLocation .curAds .address .place {
+  width: 70%;
+  line-height: 50rpx;
+}
+.curLocation .nearAds .desc {
+  padding: 60rpx 30rpx 30rpx 30rpx;
+}
+.curLocation .nearAds .list .list-item {
+  font-family: 'PingFang-Medium';
+}
+.selectIcon{
+     position:absolute;
+     top:34rpx;
+     right:30rpx;
+     /* width:100rpx;
+     height:70rpx; */
+     z-index:99;
+}

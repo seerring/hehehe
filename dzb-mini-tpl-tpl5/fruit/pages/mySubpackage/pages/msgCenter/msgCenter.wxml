@@ -1,0 +1,16 @@
+<!--pages/mySubpackage/pages/msgCenter/msgCenter.wxml-->
+<view class="container">
+     <!--消息列表-->
+     <navigator hover-class='none' url='../msgDetails/msgDetails?name={{item.name}}&id={{item.id}}' wx:for="{{msgList}}" wx:key="item">
+          <view class="system h100 line-h100 clearfix bg-fff border2 pd-lr30">
+               <view class="pull-left flex flex-vc">
+                    <image class="icon1 mg-rt20" src='{{item.icon}}'></image>
+                    <text class="ft-28 color-333 inline-block">{{item.name}}</text>
+               </view>
+               <view class="pull-right flex flex-vc mg-tp30">
+                    <text class="msg inline-block mg-rt20 text-center h40 line-h40 ft-28 color-fff bg-ff5400">{{item.msgNumber}}</text>
+                    <image class="icon2" src='../../../common/images/icon-right.png'></image>
+               </view>
+          </view>
+     </navigator>
+</view>

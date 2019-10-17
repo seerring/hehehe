@@ -1,0 +1,60 @@
+/* pages/idxSubpackage//pages/userMessage/userMessage.wxss */
+
+.userMessage {
+  min-height: calc(99.12vh);
+}
+.userMessage .list .list-item {
+  padding: 40rpx 30rpx;
+}
+.userMessage .list .list-item .date {
+  background: rgba(0, 0, 0, 0.3);
+}
+.userMessage .list .list-item .msgType {
+  width: 690rpx;
+}
+.userMessage .list .list-item .msgType .title {
+  font-family: 'PingFang-Medium';
+  width: 70%;
+  line-height: 50rpx;
+}
+.userMessage .list .list-item .msgType .leftCont {
+  width: 30%;
+}
+.userMessage .list .list-item .msgType .leftCont image {
+  width: 168rpx;
+  height: 168rpx;
+}
+.userMessage .list .list-item .msgType .rightCont {
+  width: 70%;
+}
+.userMessage .list .loadMore {
+  padding: 30rpx 0 20rpx 0;
+}
+.userMessage .list .loadMore image {
+  width: 100rpx;
+  height:70rpx;
+  margin: 0rem auto;
+}
+.userMessage .styleNull {
+  padding-top: 270rpx;
+}
+.userMessage .styleNull image {
+  margin: 0 auto;
+  width: 253rpx;
+  height: 177rpx;
+}
+.userMessage .msgTitle {
+  display: flex;
+  justify-content: space-between;
+}
+.userMessage .msgTitle .title {
+  flex-basis: 60%;
+}
+.userMessage .cont2 {
+  flex-basis: 30%;
+}
+.userMessage .cont2 .dian {
+  margin-right: 5rpx;
+  width: 12rpx;
+  height: 12rpx;
+}

@@ -1,0 +1,68 @@
+<!--pages/mySubpackage/pages/memberCard/memberCard.wxml-->
+<view class="container">
+     <!--头部信息-->
+     <view class="memberBg relative">
+          <image src='../../images/memberBgColor.png'></image>
+          <view class="memberInfo absolute radius8">
+               <view class="avatar clearfix mg-tp20 mg-lt20">
+                    <image class="pull-left" src='/images/userAvatar.png'></image>
+                    <view class="pull-left mg-lt20">
+                         <view class="ft-22 color-fff">卡号：12345678910</view>
+                         <view class="ft-28 color-fff">商城vip</view>
+                    </view>
+               </view>
+               <view class="money clearfix mg-tp10 mg-lt30 mg-rt30">
+                    <view class="pull-left ft-22">年消费：30.5元</view>
+                    <view class="pull-right ft-28 color-fff">无<text class="ft-26 inline-block">折扣</text></view>
+               </view>
+               <view class="clearfix validDate mg-tp15 mg-lt30 mg-rt30">
+                    <view class="pull-left ft-22 color-fff">
+                         等级有效期：2020/12/31
+                    </view>
+                    <view class="pull-right commonCard ft-22 color-fff">普卡</view>
+               </view>
+          </view>
+     </view>
+     <!--图片-->
+     <view class="memberImg1 pd-lr30">
+          <image src='../../images/memberImg1.png'></image>
+     </view>
+     <!--升级提示-->
+     <view class="bg-fff upgradePrompt">
+          <view class="title flex flex-vc flex-hc">
+               <view class="line"></view>
+               <view class="ft-30 color-333 mg-lt10 mg-rt10">升级提示</view>
+               <view class="line"></view>
+          </view>
+          <view class="list">
+               <view class="list-item mg-tp30 clearfix" wx:for="{{cardType}}" wx:key="item">
+                    <view class="cardType pull-left">
+                         <image src='{{item.image}}'></image>
+                    </view>
+                    <view class="pull-left bg-eee text relative radius8">
+                         <view class="border absolute"></view>
+                         <view class="ft-22 color-666 mg-lt10">{{item.text}}</view>
+                    </view>
+               </view>
+          </view>
+     </view>
+     <!--会员制度-->
+     <navigator hover-class='none' url='../memberSys/memberSys'>
+          <view class="memberSys bg-fff mg-tp20 pd-lr30 h100 line-h100 border2 clearfix">
+               <view class="leftCont flex flex-vc pull-left">
+                    <image class="mg-rt20" src='../../images/memberSys.png'></image>
+                    <text class="ft-28 inline-block color-333">会员制度</text>
+               </view>
+               <image class="rightCont mg-tp40 pull-right" src='../../../common/images/icon-right.png'></image>
+          </view>
+     </navigator>
+     <!--会员手机号-->
+     <view class="memberSys bg-fff pd-lr30 h100 line-h100">
+          <view class="leftCont flex flex-vc pull-left">
+               <image class="mg-rt20" src='../../images/memberMobile.png'></image>
+               <text class="ft-28 inline-block color-333">会员手机号</text>
+          </view>
+          <!-- <image class="rightCont mg-tp40 pull-right" src='../../../common/images/icon-right.png'></image> -->
+          <view class="pull-right ft-28 color-999">12345678910</view>
+     </view>
+</view>

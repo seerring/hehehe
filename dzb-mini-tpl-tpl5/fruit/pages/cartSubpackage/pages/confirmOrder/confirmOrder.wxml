@@ -1,0 +1,125 @@
+<!--pages/cartSubpackage/pages/confirmOrder/confirmOrder.wxml-->
+<include src="../../../common/header.wxml" />
+<view class="container">
+    <!--添加地址-->
+    <view class="addAds bg-fff relative">
+        <view class="clearfix pd-lr30">
+            <view class="leftCont pull-left mg-tp40" wx:if="{{nullAds}}">
+               <navigator hover-class='none' url='../../../mySubpackage/pages/address/address'>
+                    <view class="clearfix">
+                         <view class="pull-left ft-28 color-333">{{addressInfo.l_name}}</view>
+                         <view class="pull-right ft-28 color-333">{{addressInfo.l_phone}}</view>
+                    </view>
+                    <view class="ft-26 mg-tp10 color-666 overflow-ellipsis">{{addressInfo.l_province}} {{addressInfo.l_city}} {{addressInfo.l_district}} {{addressInfo.l_address}}</view>
+               </navigator>
+            </view>
+            <view wx:else class="leftCont pull-left styleAds ft-28 color-666">
+                <navigator hover-class='none' url='../../../mySubpackage/pages/address/address'>
+                    没有地址信息，请点击后添加地址
+                </navigator>
+            </view>
+            <view class="pull-right rightCont">
+                <image src="../../../common/images/icon-right.png"></image>
+            </view>
+        </view>
+        <image class="bgNav absolute" src='../../../common/images/bgNavigator.png'></image>
+    </view>
+    <!--商品信息-->
+    <view class="mg-tp20 bg-fff">
+        <view class="proInfo clearfix" wx:for="{{orderList}}" wx:key="item">
+            <view class="pull-left leftCont mg-rt30">
+                <image mode="aspectFit" src="{{item.product_images}}"></image>
+            </view>
+            <view class="pull-left rightCont">
+                <view class="ft-28 color-333 bold overflow-ellipsis">{{item.product_name}}</view>
+                <!-- <view class="ft-26 color-999 mg-tp20">{{item.content}}</view> -->
+                <view class="clearfix proNum">
+                    <view class="pull-left ft-24 color-333">￥{{item.price}}</view>
+                    <view class="pull-right ft-30 color-999">×{{item.num}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!--优惠卡-->
+    <view wx:if="{{checkCoupon}}" class="yhCard mg-tp20 bg-fff clearfix h90 line-h90 pd-lr30 border2" bindtap='couponList'>
+        <view class="ft-28 color-333 pull-left">优惠券</view>
+        <view class="pull-right h90">
+            <text class="ft-28 color-333 mg-rt15" wx:if="{{lessAmount == ''}}">选择优惠券</text>
+            <text class="ft-28 color-333 mg-rt15" wx:else>{{lessAmount}} 元</text>
+            <image class="arrow-r" src='../../../common/images/icon-right.png'></image>
+        </view>
+    </view>
+    <!--会员卡-->
+    <!-- <view class="yhCard bg-fff clearfix h90 line-h90 pd-lr30">
+        <view class="ft-28 color-333 pull-left">会员卡</view>
+        <view class="pull-right h90">
+            <text class="ft-28 color-333 mg-rt15">9折</text>
+            <image class="arrow-r" src='../../../common/images/icon-right.png'></image>
+        </view>
+    </view> -->
+    <!--商品金额-->
+    <view class="yhCard bg-fff clearfix h90 line-h90 pd-lr30 mg-tp20 border2">
+        <view class="ft-28 color-333 pull-left">商品金额</view>
+        <view class="pull-right h90">
+            <text class="ft-28 color-ff5400">￥{{totalPrice}}</text>
+        </view>
+    </view>
+    <!--商品运费-->
+    <view class="yhCard bg-fff clearfix h90 line-h90 pd-lr30 border2">
+        <view class="ft-28 color-333 pull-left">商品运费</view>
+        <view class="pull-right h90">
+            <text class="ft-28 color-ff5400">￥{{freight}}</text>
+        </view>
+    </view>
+    <!--买家留言-->
+    <view class="yhCard message bg-fff clearfix h90 line-h90 pd-lr30 border2">
+        <view class="ft-28 color-333 pull-left">买家留言</view>
+        <view class="pull-left h90">
+            <input class="h90 line-h90 ft-26 color-333 pd-lt30" bindinput='getVal' placeholder='请输入备注或留言，45字以内' placeholder-class='h90 line-h90 ft-26 color-999'></input>
+        </view>
+    </view>
+    <!--平台协议-->
+    <!-- <view class="flex argee flex-vc mg-tp30 h60 line-h60 pd-lr30">
+        <checkbox checked disabled></checkbox>
+        <view class="ft-26 color-ff5400"><text class="mg-lt10 mg-rt10 color-333">我已同意</text>《**平台服务协议》</view>
+    </view> -->
+
+    <!--支付-->
+    <view class="payMent h100 line-h100 bg-fff">
+        <view class="clearfix">
+            <view class="pull-left">
+                <view class="ft-30 color-333 mg-lt30">合计：<text class="mg-lt20 color-ff5400 bold">￥{{newtotalPrice}}</text></view>
+            </view>
+            <view class="pull-right">
+                <button hover-class='none' class="bg-ff5400 h100 line-h100 btn color-fff text-center ft-32" bindtap='toPayment'>去支付</button>
+            </view>
+        </view>
+    </view>
+</view>
+
+<!--优惠券弹窗-->
+<view class="maskLayer" wx:if="{{isShowCoupon}}">
+     <view class="contentBox bg-fff">
+          <view class="title clearfix border2">
+               <view class="ft-32 color-333 pull-left">优惠券</view>
+               <image class="pull-right" src='../../../common/images/close.png' bindtap='closeModal'></image>    
+          </view>
+          <view class="couponBox">
+               <scroll-view scroll-y class="list pd-lr30">
+                    <view class="list-item mg-tp20 relative" wx:for="{{couponList}}" wx:key="item" data-index="{{index}}" bindtap='checkedCoupon' data-id="{{item.id}}" >
+                         <image class="absolute" src="/pages/common/images/couponBg.png"></image>
+                         <view class="coor-333 bold absolute ft-26 disMoney">￥<text>{{item.coupon_price}}</text></view>
+                         <view class="discout absolute">
+                              <view class="type ft-24 color-fff text-center inline-block">优惠券</view>
+                              <view class="ft-26 color-333 mg-lt20 inline-block">{{item.name}}</view>
+                         </view>
+                         <view class="dixian absolute">
+                              <view class="ft-26 color-333 inline-block"><text class="mg-lt10">全场满{{item.coupon_condition}}减{{item.coupon_price}}</text></view>
+                         </view>
+                         <view class="vaildDate absolute ft-24 color-333">有效期：{{item.coupon_start_time}}至{{item.coupon_left_time}}</view>
+                         <image class="checked absolute" wx:if="{{curIndex == index}}" src="../../images/couponChecked.png"></image>
+                    </view>
+               </scroll-view>   
+          </view>
+     </view>
+</view>

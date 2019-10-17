@@ -1,0 +1,36 @@
+<!--pages/cartSubpackage/pages/addAds/addAds.wxml-->
+<!-- <text>pages/cartSubpackage/pages/addAds/addAds.wxml</text> -->
+<view class="addAds">
+  <form bindsubmit='submitFun'>
+      <view class="address_now">
+          <input class="color-999 ft-30" placeholder="收件人姓名(请使用真实姓名)" ></input>
+      </view>
+      <view class="address_now">
+          <input class="color-999 ft-30" placeholder="手机号码" ></input>
+      </view>
+      <view class="address flex flex-ac relative">
+        <view class="leftCont flex flex-js">
+          <group class="width">
+            <picker mode="region" bindchange="bindRegionChange" name="storeArea" custom-item="{{customItem}}" class=" weui-cells relative"> 
+                <view class="picker color-999 ft-30 mg-tp5" wx:if="{{!region}}">
+                  所在地区
+                </view>
+                <view class="picker color-999 ft-30" wx:else>
+                    {{region}}
+                </view>
+                <view class="selectIcon">
+                  <image class="block" image src="../../images/icon-right.png"></image>
+                </view>
+              </picker>
+          </group>
+        </view>
+        <view class="rightCont absolute flex flex-je pd-rt30">
+          <image class="block" src="../../images/right_arrow.png" ></image>
+        </view>
+      </view>
+      <view class="address_now">
+          <input class="color-999 ft-30" placeholder="街道、小区门牌等详细地址" ></input>
+      </view>
+      <button class="color-fff text-center radius8 h90 line-h90 ft-32 btn" form-type='submit'>保存</button>
+  </form>
+</view>

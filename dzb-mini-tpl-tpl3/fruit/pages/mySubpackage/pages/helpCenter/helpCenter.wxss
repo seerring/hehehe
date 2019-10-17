@@ -1,0 +1,71 @@
+/* pages/mySubpackage/pages/helpCenter/helpCenter.wxss */
+.head-img image{
+     width:133rpx;
+     height:133rpx;
+}
+.head-img .box{
+     width:320rpx;
+     left:215rpx;
+     display: flex;
+     justify-content: center;
+}
+.head-img .box .box1{
+     width:290rpx;
+     left:15rpx;
+     border:1rpx solid rgba(153,153,153,.3);
+     box-sizing:border-box;
+}
+.head-img .box .box2{
+     width:320rpx;
+     left:0rpx;
+     top:10rpx; 
+     border:1rpx solid rgba(153,153,153,.3);
+     box-sizing:border-box;
+}
+.head-img .box text{
+     line-height:85rpx;
+}
+.advService .title,
+.hotIssue .title{
+     border-left:6rpx solid #FBA981;
+     height:30rpx;
+     line-height:30rpx;
+}
+.advService .lists .list-item{
+     width:250rpx;
+     height:130rpx;
+     border-right:2rpx solid #eee;
+     box-sizing:border-box;
+}
+.advService .lists .list-item:last-child{
+     border-right:none;
+}
+.advService .lists .list-item image{
+    margin-top: 20rpx;
+    width: 70rpx;
+    height: 60rpx;
+}
+.hotIssue{
+     margin-bottom:180rpx;
+}
+.hotIssue .lists .list-item{
+     padding:0 30rpx;
+}
+.hotIssue .lists .list-item image{
+     width:25rpx;
+     height:25rpx;
+}
+.contactkf{
+     position:fixed;
+     bottom:0rpx;
+     width:100%;
+}
+.contactkf image {
+  display: inline-block;
+  width:40rpx;
+  height:40rpx;
+}
+
+/* .list-item .clearfix{
+  border-bottom: 2rpx solid #eee;
+} */

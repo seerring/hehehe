@@ -1,0 +1,36 @@
+/* pages/mySubpackage/pages/refundAfterSale/refundAfterSale.wxss */
+.lists .list-item:first-child{
+    margin-top:0;
+}
+.lists .status{
+    padding:35rpx 30rpx 30rpx 30rpx;
+}
+.proInfo .leftCont,
+.proInfo .leftCont image{
+    width:160rpx;
+    height:160rpx;
+}
+.proInfo .rightCont{
+    width:500rpx;
+}
+.proInfo .rightCont .proDesc{
+    width:400rpx;
+}
+.lookDetails{
+    height:110rpx;
+    line-height:110rpx;
+}
+.lookDetails .leftCont image{
+    width:30rpx;
+    height:30rpx;
+}
+.lookDetails .rightCont{
+    margin-top:27rpx;
+}
+.lookDetails .rightCont .goDetails{
+    width:168rpx;
+    height:56rpx;
+    line-height:54rpx;
+    border:1rpx solid #1ccfcf;
+    border-radius:4rpx;
+}

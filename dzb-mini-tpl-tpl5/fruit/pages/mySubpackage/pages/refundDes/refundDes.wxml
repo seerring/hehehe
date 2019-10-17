@@ -1,0 +1,119 @@
+<!--pages/mySubpackage/pages/refundDes/refundDes.wxml-->
+<view class="refundDes bg-f4f4f4">
+  <view class="headBox relative">
+    <view class="absolute pd30 bd-rd10 hx_status bg-fff flex flex-ac">
+      <view class="rightCont">
+        <view class="ft-32 color-333 status" wx:if="{{orderDes.status == 7}}">已拒绝</view>
+        <view class="ft-32 color-333 status" wx:if="{{orderDes.status == 9}}">退款成功</view>
+        <view class="ft-32 color-333 status" wx:if="{{orderDes.status == 10}}">退款中</view>
+        <view class="date ft-24 color-999 mg-tp10 pd-bt20 bd-bt-f4f4f4">{{orderDes.returnTime}}</view>
+        <view class="ft-26 color-333 h90 line-h90 color-333 bd-bt-f4f4f4">因商家超时未处理，交易支持退款</view>
+        <view class="ft-26 color-333 h90 line-h90 color-333 bd-bt-f4f4f4">
+          退款总金额：<text class="color-fc5920 refundPrice">￥{{orderDes.order_info[0].totalPrice}}</text>
+        </view>
+        <view class="btn ft-28 color-999 pd-tp30">
+          注：退款时钱会按原路返回
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="proDes bg-fff">
+    <view class="list-item" wx:for="{{orderDes.order_info}}">
+      <router-link class="block" :to="{name:'proDetails',params:{id:item.id}}" wx:if="{{item.shop_type == 1}}">
+        <view class="flex flex-ac proInfo bd-bt-f4f4f4">
+          <view class="leftCont">
+            <image class="block" src="{{item.product_images}}"></image>
+          </view>
+          <view class="rightCont">
+            <view class="ft-28 color-333 mult_line-ellipsis line-h35">{{item.product_name}}</view>
+            <view class="clearfix mg-tp30">
+              <view class="ft-28 color-333 pull-left">
+                单价：<text class="ft-24">￥</text><text>{{item.product_fact_price}}</text>
+              </view>
+              <view class="pull-right ft-24 color-999 line-h35">×{{item.num}}</view>
+            </view>
+          </view>
+        </view>
+      </router-link>
+      <router-link class="block" :to="{name:'specialDes',params:{id:item.id}}" wx:if="{{item.shop_type == 2}}">
+        <view class="flex flex-ac proInfo bd-bt-f4f4f4">
+          <view class="leftCont">
+            <image class="block" src="{{item.product_images}}"></image>
+          </view>
+          <view class="rightCont">
+            <view class="ft-28 color-333 mult_line-ellipsis line-h35">{{item.product_name}}</view>
+            <view class="clearfix mg-tp30">
+              <view class="ft-28 color-333 pull-left">
+                单价：<text class="ft-24">￥</text><text>{{item.product_fact_price}}</text>
+              </view>
+              <view class="pull-right ft-24 color-999 line-h35">×{{item.num}}</view>
+            </view>
+          </view>
+        </view>
+      </router-link>
+      <router-link class="block" :to="{name:'groupDetails',params:{id:item.id}}" wx:if="{{item.shop_type == 3}}">
+        <view class="flex flex-ac proInfo bd-bt-f4f4f4">
+          <view class="leftCont">
+            <image class="block" src="{{item.product_images}}"></image>
+          </view>
+          <view class="rightCont">
+            <view class="ft-28 color-333 mult_line-ellipsis line-h35">{{item.product_name}}</view>
+            <view class="clearfix mg-tp30">
+              <view class="ft-28 color-333 pull-left">
+                单价：<text class="ft-24">￥</text><text>{{item.product_fact_price}}</text>
+              </view>
+              <view class="pull-right ft-24 color-999 line-h35">×{{item.num}}</view>
+            </view>
+          </view>
+        </view>
+      </router-link>
+    </view>
+    <view class="totalPrice flex flex-ac flex-je pd30">
+      <view class="color-1ccfcf inline-block ft-24 disPrice bd-rd5 mg-rt30" wx:if="{{orderDes.coupon_price}}">已优惠￥{{orderDes.coupon_price}}</view>
+      <view class="ft-26 color-333 mg-rt30">共{{orderDes.order_info[0].totalSum}}件</view>
+      <view class="ft-26 color-333">实付总额：<text class="price color-fc5920">{{orderDes.order_info[0].totalPrice}}</text></view>
+    </view>
+  </view>
+  <view class="hx_info bg-fff mg-tp20 mg-bt20 ft-28">
+    <view class="pd-lr30 h90 flex flex-ac bd-bt-f4f4f4">
+      <view class="title h30 line-h30 pd-lt10 ft-28">退款信息</view>
+    </view>
+    <view class="pd30">
+      <view class="clearfix">
+        <view class="color-999 ft-26 pull-left">退款类型</view>
+        <view class="color-333 ft-26 pull-right" wx:if="{{orderDes.type == 1}}">普通订单</view>
+        <view class="color-333 ft-26 pull-right" wx:if="{{orderDes.type == 2}}">核销订单</view>
+        <view class="color-333 ft-26 pull-right" wx:if="{{orderDes.type == 3}}">拼团核销订单</view>
+      </view>
+      <view class="clearfix mg-tp20">
+        <view class="color-999 ft-26 pull-left">退款原因</view>
+        <view class="color-333 ft-26 pull-right">{{orderDes.proof_cause}}</view>
+      </view>
+      <view class="clearfix mg-tp20">
+        <view class="color-999 ft-26 pull-left">退款金额</view>
+        <view class="color-333 ft-26 pull-right">￥{{orderDes.order_info[0].totalPrice}}</view>
+      </view>
+      <view class="clearfix mg-tp20">
+        <view class="color-999 ft-26 pull-left">申请时间</view>
+        <view class="color-333 ft-26 pull-right">{{orderDes.returnTime}}</view>
+      </view>
+      <view class="clearfix mg-tp20">
+        <view class="color-999 ft-26 pull-left">退款编号</view>
+        <view wx:if="{{orderDes.refundnumber == null}}" class="color-333 ft-26 pull-right"></view>
+        <view wx:else class="color-333 ft-26 pull-right">{{orderDes.refundnumber}}</view>
+      </view>
+      <view class="clearfix mg-tp20">
+        <view class="color-999 ft-26 pull-left">退款描述</view>
+        <view class="color-333 ft-26 pull-right">{{orderDes.proof_content}}</view>
+      </view>
+      <view class="uploadImg bg-fff mg-tp20">
+        <view class="ft-26 color-999">上传凭证</view>
+        <view class="list mg-tp20 flex flex-ac">
+          <view class="list-item inline-block bd-rd4 mg-rt20 relative" wx:for="{{list}}">
+            <image class="block bd-rd8" src="{{item}}" bindtap="enlarge" data-index="{{index}}"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

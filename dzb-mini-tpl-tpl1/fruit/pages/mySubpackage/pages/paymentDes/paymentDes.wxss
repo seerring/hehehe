@@ -1,0 +1,36 @@
+/* pages/mySubpackage/pages/paymentDes/paymentDes.wxss */
+
+.paymentDes {
+  min-height: calc(99.12vh);
+}
+.paymentDes .headBox > view {
+  margin: 0 auto;
+  width: 92%;
+  padding: 50rpx 0 60rpx 0;
+}
+.paymentDes .headBox > view image {
+  margin: 0 auto;
+  width: 156rpx;
+  height: 156rpx;
+}
+.paymentDes .headBox > view .money {
+  margin-top: 50rpx;
+  font-size: 60rpx;
+}
+.paymentDes .paymentInfo {
+  padding: 40rpx 60rpx;
+}
+.paymentDes .paymentInfo .list-item {
+  margin-top: 30rpx;
+  font-family: 'PingFang-Medium';
+}
+.paymentDes .paymentInfo .list-item .cont1 {
+  width: 30%;
+}
+.paymentDes .paymentInfo .list-item .cont2 {
+  width: 70%;
+  word-break: break-all;
+}
+.paymentDes .paymentInfo .list-item:nth-child(1) {
+  margin-top: 0;
+}

@@ -1,0 +1,518 @@
+<!--pages/tabBar/my/my.wxml-->
+<include src="../../common/header.wxml" />
+<view class="container relative flex flex-hc">
+  <!--头像 vip背景 立即查看按钮 资金等头部信息-->
+  <view class="topInfo">
+
+    <!-- 用户头像名称信息 -->
+    <view class="head absolute flex flex-direction-row">
+      <!-- 头像 -->
+      <view class=" infoImg">
+        <navigator class="" wx:if="{{uid}}" hover-class='none' url='../../mySubpackage/pages/myCenter/myCenter'>
+          <image wx:if="{{userinfo.avatar}}" class="avatar" src="{{userinfo.avatar}}"></image>
+          <image class="avatar" src="/images/defHead.png" wx:else></image>
+        </navigator>
+        <view class="" wx:else bindtap="showAddCartWarn">
+          <image class="avatar" src="/images/defHead.png"></image>
+        </view>
+      </view>
+      <!-- 名字 -->
+      <view class=" mg-lt30 mg-tp20 infoName">
+        <view style="width:300rpx" wx:if="{{nickname}}">
+          <view class="  ft-34 color-fff  overflow-ellipsis" style="width:300rpx">{{nickname}}</view>
+          <view wx:if="{{userinfo.title == '您还不是VIP会员'}}" class="ft-family-Medium ft-20 vipIdentifier flex flex-jc flex-ac mg-tp16">普通用户</view>
+          <view wx:else class="ft-family-Medium ft-20 vipIdentifier flex flex-jc flex-ac mg-tp16">{{userinfo.title}}</view>
+        </view>
+        <navigator wx:else class=" ft-30 color-fff  overflow-ellipsis loginRegisterText" url='../../common/pages/login/login'>登录/注册</navigator>
+      </view>
+
+    </view>
+    <!-- 资金 -->
+    <view class="myBalance  absolute">
+      <view class="list flex flex-ac flex-hc pd-tb30 ">
+        <!-- 余额 -->
+        <view class="list-item flex flex-hc">
+          <image class="listBgImg" src="/images/user/yellow.png"></image>
+          <view class="text-center width-full z-index1">
+            <!-- <view wx:if="{{uid}}" class="ft-36 color-333">￥{{userinfo.wallet_amount}}</view>
+            <view wx:else class="ft-36 color-333">￥0.00</view> -->
+            <navigator wx:if="{{uid}}" hover-class='none' url='../../mySubpackage/pages/wallet/wallet'>
+              <view class="ft-36 color-fff bold mg-tp22 one-line-ellipsis" style="width:200rpx">
+                <text class="ft-26">￥</text> {{userinfo.wallet_amount}}</view>
+              <view class="ft-26 color-fff mg-tp10">余额</view>
+            </navigator>
+            <view wx:else bindtap="showAddCartWarn">
+              <view class="ft-36 color-fff bold mg-tp22">
+                <text class="ft-26">￥</text>0.00</view>
+              <view class="ft-26 color-fff mg-tp10">余额</view>
+            </view>
+          </view>
+        </view>
+
+        <!-- 优惠券 -->
+        <view class="list-item flex flex-hc mg-lt30">
+          <image class="listBgImg" src="/images/user/red.png"></image>
+          <view class="text-center width-full z-index1">
+            <navigator wx:if="{{uid}}" hover-class='none' url='../../mySubpackage/pages/disCoupon/disCoupon'>
+              <view class="ft-36 color-fff mg-tp22 bold">{{coupon_count}}</view>
+              <view class="ft-26 color-fff mg-tp10">优惠券</view>
+            </navigator>
+            <view wx:else bindtap="showAddCartWarn">
+              <view class="ft-36 color-fff mg-tp22 bold">0</view>
+              <view class="ft-26 color-fff mg-tp10">优惠券</view>
+            </view>
+            <!-- <view wx:if="{{uid}}" class="ft-36 color-333">{{userinfo.wallet_amount}}</view>
+            <view wx:else class="ft-36 color-333">0</view>
+            <view class="ft-26 color-333 mg-tp20">优惠券</view> -->
+          </view>
+        </view>
+
+        <!-- 核销码 -->
+        <view class="list-item flex flex-hc mg-lt30" bindtap='recommend'>
+          <image class="listBgImg" src="/images/user/green.png"></image>
+          <view class="text-center width-full z-index1">
+            <image class="block hxImg mg-tp20" src="/images/user/code-white.png"></image>
+            <view class="ft-26 color-fff mg-tp10">核销码</view>
+            <!-- <view wx:if="{{uid}}" class="ft-36 color-333">￥{{userinfo.wallet_amount}}</view>
+            <view wx:else class="ft-36 color-333">￥0.00</view>
+            <view class="ft-26 color-333 mg-tp20">余额</view> -->
+          </view>
+        </view>
+      </view>
+    </view>
+
+
+  </view>
+
+  <!--当前店铺-->
+  <view class="h32 line-h32  pd-lr30  shopTitle absolute ">
+    <view flex flex-jc mapIcon style="display:flex; align-items:center;">
+      <image style="width:24rpx;height:32rpx;" src="/images/user/shop-location.png"></image>
+    </view>
+    <view class="ft-28 color-333  storeNameTitle one-line-ellipsis width-400">附近店铺：{{myStore}}</view>
+    <view class="ft-24 color-999  flex flex-vc">
+      <navigator wx:if="{{uid}}" hover-class='none' url='../../idxSubpackage/pages/changeStore/changeStore'>
+        <text class="absolute top0 right0 " style="top:0; right:30rpx;">切换门店 ></text>
+        <!-- <image class="" src="../../common/images/icon-right.png"></image> -->
+      </navigator>
+      <view wx:else bindtap="showAddCartWarn">
+        <text class="absolute top0 right0 ft-24 color-666 ft-family-Medium" style="top:0; right:30rpx;">切换门店 ></text>
+        <!-- <image src="../../common/images/icon-right.png"></image> -->
+      </view>
+    </view>
+  </view>
+  <!-- vip背景图 -->
+  <image class=" vipBg absolute" src="/images/user/vip.png"></image>
+  <!-- 会员立即查看按钮 -->
+  <view class="block lookMember absolute" bindtap='lookMember'></view>
+
+
+  <!--查看全部订单-->
+  <view class="h100 line-h100 allOrder pd-lr30 bg-fff width-690">
+    <view class="ft-30 color-333 pull-left orderTitle flex flex-vc ">
+      <image class="mg-rt20" src="/images/user/order.png" style="height:44rpx; width:44rpx;"></image>
+      我的订单
+    </view>
+    <view class="ft-24 color-999 pull-right flex flex-vc">
+      <navigator wx:if="{{uid}}" hover-class='none' url='../../mySubpackage/pages/order/order?name=全部订单'>
+        <text class="mg-rt10 ft-28">全部订单</text>
+        <image src="../../common/images/icon-right.png"></image>
+      </navigator>
+      <view wx:else bindtap="showAddCartWarn">
+        <text class="mg-rt10 ft-28">全部订单</text>
+        <image src="../../common/images/icon-right.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <!--订单信息-->
+  <view class="orderInfo bg-fff width-690">
+    <view class="list pd-lt20 flex flex-vc relative">
+      <navigator wx:if="{{uid}}" class="inline-block relative" hover-class='none' url='../../mySubpackage/pages/order/order?name=待付款'>
+        <view class="list-item inline-block">
+
+          <view class="icon1 inline-block">
+            <text class="bg-fc5920 bd-rd15 ft-20 color-fff pd-lr10 h30 line-h30 radioButton" wx:if="{{orderList_1}}">{{orderList_1}}</text>
+            <image src="/images/user/order_status1.png"></image>
+          </view>
+          <view class="ft-26 color-666">待付款</view>
+        </view>
+      </navigator>
+      <view wx:else bindtap="showAddCartWarn" class="inline-block relative flex_1">
+        <view class="list-item inline-block">
+          <view class="icon1 inline-block">
+            <image src="/images/user/order_status1.png"></image>
+          </view>
+          <view class="ft-26 color-666">待付款</view>
+        </view>
+      </view>
+      <navigator wx:if="{{uid}}" class="inline-block relative" hover-class='none' url='../../mySubpackage/pages/order/order?name=待配送'>
+        <view class="list-item inline-block">
+          <view class="icon1 inline-block">
+            <text class="bg-fc5920 bd-rd15 ft-20 color-fff pd-lr10 h30 line-h30 radioButton" wx:if="{{orderList_2}}">{{orderList_2}}</text>
+            <image src="/images/user/order_status2.png"></image>
+          </view>
+          <view class="ft-26 color-666">待配送</view>
+        </view>
+      </navigator>
+      <view wx:else bindtap="showAddCartWarn" class="inline-block relative flex_1">
+        <view class="list-item inline-block">
+          <view class="icon1 inline-block">
+            <image src="/images/user/order_status2.png"></image>
+          </view>
+          <view class="ft-26 color-666">待配送</view>
+        </view>
+      </view>
+      <navigator wx:if="{{uid}}" class="inline-block relative" hover-class='none' url='../../mySubpackage/pages/order/order?name=配送中'>
+        <view class="list-item inline-block">
+          <view class="icon1 inline-block">
+            <text class="bg-fc5920 bd-rd15 ft-20 color-fff pd-lr10 h30 line-h30 radioButton" wx:if="{{orderList_3}}">{{orderList_3}}</text>
+            <image src="/images/user/order_status3.png"></image>
+          </view>
+          <view class="ft-26 color-666">配送中</view>
+        </view>
+      </navigator>
+      <view wx:else bindtap="showAddCartWarn" class="inline-block relative flex_1">
+        <view class="list-item inline-block">
+          <view class="icon1 inline-block">
+            <image src="/images/user/order_status3.png"></image>
+          </view>
+          <view class="ft-26 color-666">配送中</view>
+        </view>
+      </view>
+      <!-- <navigator class="inline-block" hover-class='none' url='../../mySubpackage/pages/order/order?name=待评价'>
+                    <view class="list-item inline-block">
+                         <view class="icon1 inline-block">
+                              <image src="/images/iconfont4.png"></image>
+                         </view>
+                         <view class="ft-26 color-666">待评价</view>
+                    </view>
+               </navigator> -->
+      <!-- ../../mySubpackage/pages/refundAfterSale/refundAfterSale -->
+      <navigator wx:if="{{uid}}" class="inline-block relative" hover-class='none' url='../../mySubpackage/pages/refundList/refundList'>
+        <view class="list-item inline-block">
+          <view class="icon1 inline-block">
+            <text class="bg-fc5920 bd-rd15 ft-20 color-fff pd-lr10 h30 line-h30 radioButton" wx:if="{{orderList_4}}">{{orderList_4}}</text>
+            <image src="/images/user/order_status4.png"></image>
+          </view>
+          <view class="ft-26 color-666">退款/协商</view>
+        </view>
+      </navigator>
+      <view wx:else bindtap="showAddCartWarn" class="inline-block relative flex_1">
+        <view class="list-item inline-block">
+          <view class="icon1 inline-block">
+            <image src="/images/user/order_status4.png"></image>
+          </view>
+          <view class="ft-26 color-666">退款/协商</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 核销订单 -->
+  <view class="h100 line-h100 allOrder cancelOrder pd-lr30 mg-tp20 bg-fff width-690 radius10 relative">
+    <navigator class="naviFull" wx:if="{{uid}}" hover-class='none' url='../../mySubpackage/pages/verGoods/verGoods'>
+      <view class="ft-30 color-333 pull-left orderTitle flex flex-vc ">
+        <text class="bg-fc5920 bd-rd15 ft-20 color-fff pd-lr10 h30 line-h30 radioButton1" wx:if="{{orderList_5}}">{{orderList_5}}</text>
+        <image class="mg-rt20" src="/images/user/store_hx.png" style="height:44rpx; width:44rpx;"></image>
+        到店核销订单
+      </view>
+      <view class="ft-24 color-999 h100 line-h100 pull-right flex flex-vc">
+        <image src="../../common/images/icon-right.png"></image>
+      </view>
+    </navigator>
+    <view wx:else bindtap="showAddCartWarn">
+      <view class="ft-30 color-333 pull-left orderTitle flex flex-vc ">
+        <image class="mg-rt20" src="/images/user/store_hx.png" style="height:44rpx; width:44rpx;"></image>
+        到店核销订单
+      </view>
+      <view class="ft-24 color-999 h100 line-h100 pull-right flex flex-vc">
+        <image src="../../common/images/icon-right.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 申请分销 -->
+  <view class="h100 line-h100 allOrder cancelOrder pd-lr30 mg-tp20 bg-fff width-690 radius10 relative">
+    <navigator class="naviFull" wx:if="{{uid}}" hover-class='none' url='../../mySubpackage/pages/verGoods/verGoods'>
+      <view class="ft-30 color-333 pull-left orderTitle flex flex-vc ">
+        <image class="mg-rt20" src="/images/user/tool2.png" style="height:44rpx; width:44rpx;"></image>
+        申请分销
+      </view>
+      <view class="ft-24 color-999 h100 line-h100 pull-right flex flex-vc">
+        <image src="../../common/images/icon-right.png"></image>
+      </view>
+    </navigator>
+    <view wx:else bindtap="showAddCartWarn">
+      <view class="ft-30 color-333 pull-left orderTitle flex flex-vc ">
+        <image class="mg-rt20" src="/images/user/tool2.png" style="height:44rpx; width:44rpx;"></image>
+        申请分销
+      </view>
+      <view class="ft-24 color-999 h100 line-h100 pull-right flex flex-vc">
+        <image src="../../common/images/icon-right.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 常用地址 -->
+  <view class="h100 line-h100 allOrder cancelOrder pd-lr30 mg-tp20 bg-fff width-690 ">
+    <navigator class="naviFull" wx:if="{{uid}}" hover-class='none' url='../../mySubpackage/pages/address/address'>
+      <view class="ft-30 color-333 pull-left orderTitle flex flex-vc">
+        <image src="/images/user/address.png" class="mg-rt20" style="height:44rpx; width:44rpx;"></image>
+        常用地址
+      </view>
+      <view class="ft-24 color-999 h100 line-h100 pull-right flex flex-vc">
+        <image src="../../common/images/icon-right.png"></image>
+      </view>
+    </navigator>
+    <view wx:else bindtap="showAddCartWarn">
+      <view class="ft-30 color-333 pull-left orderTitle flex flex-vc">
+        <image src="/images/user/address.png" class="mg-rt20" style="height:44rpx; width:44rpx;"></image>
+        常用地址
+      </view>
+      <view class="ft-24 color-999 h100 line-h100 pull-right flex flex-vc">
+        <image src="../../common/images/icon-right.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 消息 -->
+  <view class="h100 line-h100 allOrder  pd-lr30  bg-fff width-690 sameItem relative">
+    <navigator class="naviFull" wx:if="{{uid}}" hover-class='none' url='../../idxSubpackage/pages/userMessage/userMessage'>
+      <view class="ft-30 color-333 pull-left orderTitle flex flex-vc">
+        <text class="bg-fc5920 bd-rd15 ft-20 color-fff pd-lr10 h30 line-h30 radioButton1" wx:if="{{msgNum}}">{{msgNum}}</text>
+        <image src="/images/user/tool4.png" class="mg-rt20" style="height:44rpx; width:44rpx;"></image>
+        消息
+      </view>
+
+      <view class="ft-24 color-999 h100 line-h100 pull-right flex flex-vc">
+        <image src="../../common/images/icon-right.png"></image>
+      </view>
+    </navigator>
+    <view wx:else bindtap="showAddCartWarn">
+      <view class="ft-30 color-333 pull-left orderTitle flex flex-vc">
+        <image src="/images/user/tool4.png" class="mg-rt20" style="height:44rpx; width:44rpx;"></image>
+        消息
+      </view>
+      <view class="ft-24 color-999 h100 line-h100 pull-right flex flex-vc">
+        <image src="../../common/images/icon-right.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 门店客服 -->
+  <view class="h100 line-h100 allOrder  pd-lr30  bg-fff width-690 sameItem" bindtap='toService'>
+    <!-- <button open-type="contact" bindcontact="handleContact"> -->
+    <view class="ft-30 color-333 pull-left orderTitle flex flex-vc">
+      <image src="/images/user/store_kf.png" class="mg-rt20" style="height:44rpx; width:44rpx;"></image>
+      门店客服
+    </view>
+    <view class="ft-24 color-999 h100 line-h100 pull-right flex flex-vc">
+      <image src="../../common/images/icon-right.png"></image>
+    </view>
+    <!-- </button> -->
+  </view>
+
+  <!-- 帮助中心 -->
+  <view class="h100 line-h100 allOrder  pd-lr30  bg-fff width-690 sameItem">
+    <navigator class="naviFull" wx:if="{{uid}}" hover-class='none' url='../../mySubpackage/pages/helpCenter/helpCenter'>
+      <view class="ft-30 color-333 pull-left orderTitle flex flex-vc">
+        <image src="/images/user/help.png" class="mg-rt20" style="height:44rpx; width:44rpx;"></image>
+        帮助中心
+      </view>
+      <view class="ft-24 color-999 h100 line-h100 pull-right flex flex-vc">
+        <image src="../../common/images/icon-right.png"></image>
+      </view>
+    </navigator>
+    <view wx:else bindtap="showAddCartWarn">
+      <view class="ft-30 color-333 pull-left orderTitle flex flex-vc">
+        <image src="/images/user/help.png" class="mg-rt20" style="height:44rpx; width:44rpx;"></image>
+        帮助中心
+      </view>
+      <view class="ft-24 color-999 h100 line-h100 pull-right flex flex-vc">
+        <image src="../../common/images/icon-right.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 设置 -->
+  <view class="h100 line-h100 allOrder sameItem pd-lr30 setItem  bg-fff width-690 " style="margin-bottom:10rpx">
+    <navigator class="naviFull" wx:if="{{uid}}" hover-class='none' url='../../mySubpackage/pages/setting/setting'>
+      <view class="ft-30 color-333 pull-left orderTitle flex flex-vc">
+        <image src="/images/user/tool7.png" class="mg-rt20" style="height:44rpx; width:44rpx;"></image>
+        设置
+      </view>
+      <view class="ft-24 color-999 h100 line-h100 pull-right flex flex-vc">
+        <image src="../../common/images/icon-right.png"></image>
+      </view>
+    </navigator>
+    <view wx:else bindtap="showAddCartWarn">
+      <view class="ft-30 color-333 pull-left orderTitle flex flex-vc">
+        <image src="/images/user/tool7.png" class="mg-rt20" style="height:44rpx; width:44rpx;"></image>
+        设置
+      </view>
+      <view class="ft-24 color-999 h100 line-h100 pull-right flex flex-vc">
+        <image src="../../common/images/icon-right.png"></image>
+      </view>
+    </view>
+  </view>
+
+
+  <!--常用工具-->
+  <!-- <view class="mg-tp20 bg-fff comtools pd-lr30">
+    <view class="list2">
+      <view class="list2-item inline-block relative">
+        <navigator wx:if="{{uid}}" hover-class='none' url='../../mySubpackage/pages/verGoods/verGoods'>
+          <view class="icon1 inline-block">
+            <text class="bg-fc5920 bd-rd15 ft-20 color-fff pd-lr10 h30 line-h30 radioButton1" wx:if="{{orderList_5}}">{{orderList_5}}</text>
+            <image src="/images/user/store_hx.png"></image>
+          </view>
+          <view class="ft-26 color-666">核销订单</view>
+        </navigator>
+        <view wx:else bindtap="showAddCartWarn">
+          <view class="icon1 inline-block">
+            <image src="/images/user/store_hx.png"></image>
+          </view>
+          <view class="ft-26 color-666">核销订单</view>
+        </view>
+      </view>
+
+      <view class="list2-item inline-block" bindtap='recommend'>
+        <view class="icon1 inline-block">
+          <image src="/images/user/tool2.png"></image>
+        </view>
+        <view class="ft-26 color-666">申请分销</view>
+      </view>
+
+      <view class="list2-item inline-block mg-tp40">
+        <navigator wx:if="{{uid}}" hover-class='none' url='../../mySubpackage/pages/address/address'>
+          <view class="icon1 inline-block">
+            <image src="/images/user/address.png"></image>
+          </view>
+          <view class="ft-26 color-666">常用地址</view>
+        </navigator>
+        <view wx:else bindtap="showAddCartWarn">
+          <view class="icon1 inline-block">
+            <image src="/images/user/address.png"></image>
+          </view>
+          <view class="ft-26 color-666">常用地址</view>
+        </view>
+      </view>
+     
+      <view class="list2-item inline-block mg-tp40 relative">
+        <navigator wx:if="{{uid}}" hover-class='none' url='../../idxSubpackage/pages/userMessage/userMessage'>
+          <view class="icon1 inline-block">
+            <text class="bg-fc5920 bd-rd15 ft-20 color-fff pd-lr10 h30 line-h30 radioButton1" wx:if="{{msgNum}}">{{msgNum}}</text>
+            <image src="/images/user/tool4.png"></image>
+
+          </view>
+          <view class="ft-26 color-666">消息</view>
+        </navigator>
+        <view wx:else bindtap="showAddCartWarn">
+          <view class="icon1 inline-block">
+            <image src="/images/user/tool4.png"></image>
+          </view>
+          <view class="ft-26 color-666">消息</view>
+        </view>
+      </view>
+
+
+
+      <view class="list2-item inline-block mg-tp40" bindtap='toService'>
+        <view class="icon1 inline-block">
+          <image src="/images/user/store_kf.png"></image>
+        </view>
+        <view class="ft-26 color-666">门店客服</view>
+      </view>
+
+      <view class="list2-item inline-block mg-tp40">
+        <navigator wx:if="{{uid}}" hover-class='none' url='../../mySubpackage/pages/helpCenter/helpCenter'>
+          <view class="icon1 inline-block">
+            <image src="/images/user/help.png"></image>
+          </view>
+          <view class="ft-26 color-666">帮助中心</view>
+        </navigator>
+        <view wx:else bindtap="showAddCartWarn">
+          <view class="icon1 inline-block">
+            <image src="/images/user/help.png"></image>
+          </view>
+          <view class="ft-26 color-666">帮助中心</view>
+        </view>
+      </view>
+
+      <view class="list2-item inline-block mg-tp40">
+        <navigator wx:if="{{uid}}" hover-class='none' url='../../mySubpackage/pages/setting/setting'>
+          <view class="icon1 inline-block">
+            <image src="/images/user/tool7.png"></image>
+          </view>
+          <view class="ft-26 color-666">设置</view>
+        </navigator>
+        <view wx:else bindtap="showAddCartWarn">
+          <view class="icon1 inline-block">
+            <image src="/images/user/tool7.png"></image>
+          </view>
+          <view class="ft-26 color-666">设置</view>
+        </view>
+
+      </view>
+    </view>
+  </view> -->
+</view>
+
+
+<!--核销二维码-->
+<view class="maskLayer" wx:if="{{isShowModal}}">
+  <view class="contentBox bg-fff" animation="{{animationData}}">
+    <view class="relative head">
+      <view class="ft-32 color-333 text-center">我的核销码</view>
+      <view class="closeModal absolute" bindtap='closeModal'>
+        <image src='/pages/common/images/close.png'></image>
+      </view>
+    </view>
+    <view class="disBox pd-lr30">
+      <view class="list-item mg-tp20 relative">
+        <image class="absolute" src="{{ewm}}"></image>
+
+      </view>
+    </view>
+    <view class="shareReward">
+      <view class="ft-24 text-center color-666">请在提货时向店长出示专属二维码</view>
+    </view>
+    <view class="toShare mg-lt30 ft-32 bg-ff5400 color-fff h90 line-h90 text-center radius8" bindtap='reFresh'>点击刷新</view>
+
+  </view>
+</view>
+
+
+<!--推荐有奖弹窗-->
+<!-- <view class="maskLayer" wx:if="{{isShowModal}}">
+     <view class="contentBox bg-fff" animation="{{animationData}}">
+          <view class="relative head">
+               <view class="ft-32 color-333 text-center">邀请好友一起淘</view>
+               <view class="closeModal absolute" bindtap='closeModal'>
+                    <image src='/pages/common/images/close.png'></image>
+               </view>
+          </view>
+          <view class="disBox pd-lr30">
+               <view class="list-item mg-tp20 relative">
+                    <image class="absolute" src="/pages/common/images/couponBg.png"></image>
+                    <view class="coor-333 bold absolute ft-26 disMoney">￥<text>15</text></view>
+                    <view class="discout absolute">
+                         <view class="type ft-24 color-fff text-center inline-block">优惠券</view>
+                         <view class="ft-26 color-333 mg-lt20 inline-block">全场商品可享受</view>
+                    </view>
+                    <view class="dixian absolute">
+                         <view class="ft-26 color-333 inline-block">满15元购物直接抵现</view>
+                    </view>
+                    <view class="vaildDate absolute ft-24 color-333">有限期：2018.11.11至2018.11.26</view>
+               </view>
+          </view>
+          <view class="shareReward">
+               <view class="ft-24 text-center color-666">分享您得<text class="forCash">15元抵现券</text>好友下单完成交易</view>
+          </view>
+          <view class="toShare mg-lt30 ft-32 bg-ff5400 color-fff h90 line-h90 text-center radius8">去分享吧</view>
+          <navigator hover-class='none' url='../../mySubpackage/pages/InviteRules/InviteRules'>
+               <view class="ft-24 color-999 text-center mg-tp40">查看邀请规则></view>
+          </navigator>   
+     </view>
+</view> -->

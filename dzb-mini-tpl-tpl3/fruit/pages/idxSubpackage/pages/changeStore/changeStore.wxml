@@ -1,0 +1,47 @@
+<!--indexPackage/pages/changeStore/changeStore.wxml-->
+<!-- <text>indexPackage/pages/changeStore/changeStore.wxml</text> -->
+<include src="/components/common/loading.wxml" />
+
+<view class="changeStore bg-f4f4f4">
+  <view class="storeList">
+      <view class="list-item bg-fff mg-tp20" wx:for="{{storeList}}" wx:key="item">
+      <!-- <router-link class="block" :to="{name:'index',params:{clickId:item.id}}"> -->
+        <view class="storeName bd-bt-f4f4f4 flex flex-ac" bindtap="changeStr" data-index="{{index}}">
+            <image wx:if="{{item.isClick}}" class="selectSt" src="../../images/selectStore.png"></image>
+          <view class="leftCont">
+            <view class="name flex flex-ac">
+              <image class="block mg-rt10" src="../../images/nearStore.png" ></image>
+              <view class="ft-30 color-333">{{item.name}}</view>
+            </view>
+            <view class="address ft-26 color-999 mg-tp20 one-line-ellipsis">{{item.location}}</view>
+          </view>
+          <view class="rightCont flex flex-ac flex-je">
+            <image class="block" src="../../images/address_icon.png"></image>
+            <view class="ft-28 color-999" wx:if="{{item.km == 0}}">未知距离</view>
+            <view class="ft-28 color-999" wx:if="{{item.km != 0}}">{{item.km}}km</view>
+          </view>
+        </view>
+      <!-- </router-link> -->
+      <view class="moreMenu h70 line-h70 flex flex-ac">
+        <view class="lookStore h70 line-h70 flex flex-ac flex-jc" bindtap="lookStore" data-index="{{index}}">
+          <image class="block mg-rt10" src="../../images/lookStore.png" ></image>
+          <view class="ft-24 color-333">查看</view>
+        </view>
+        <view bindtap="toService" data-index2="{{index}}" class="lookStore h70 line-h70 flex flex-ac flex-jc " :to="{name:'storeService',params:{id:item.id}}">
+          <image class="block mg-rt10" src="../../images//nearStore_kf.png"></image>
+          <view class="ft-24 color-333">客服</view>
+        </view>
+        <view class="lookStore h70 line-h70 flex flex-ac flex-jc" bindtap="collect" data-index="{{index}}">
+          <image wx:if="{{item.isCheck}}" class="block mg-rt10" src="../../images/collect.png" ></image>
+          <image wx:else class="block mg-rt10" src="../../images/collect_false.png"></image>
+          <view class="ft-24 color-333">关注</view>
+        </view>
+      </view>
+      </view>
+  </view>
+  <!--没有更多-->
+      <view class="loadMore text-center">
+          <image class="block" src="/images/common/icon2.png"></image>
+          <view class="ft-20 mg-tp10 color-999">没有更多了，看看其他的吧~</view>
+      </view>
+</view>

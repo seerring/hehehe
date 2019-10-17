@@ -1,0 +1,311 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.8.0",
+	"appid": "wx6b8e8854140331e6",
+	"projectname": "%E6%A8%A1%E6%9D%BF%E4%B8%89",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 35,
+			"list": [
+				{
+					"id": 0,
+					"name": "B2C商家版本",
+					"pathName": "pages/tabBar/index/index",
+					"query": "oid=7",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "B2C商家分享模式",
+					"pathName": "pages/idxSubpackage/pages/proDetails/proDetails",
+					"query": "oid=7&shareuid=412&from=share&id=249",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "pages/tabBar/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "proDetails",
+					"pathName": "pages/idxSubpackage/pages/proDetails/proDetails",
+					"query": "id=419",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "mgLocation",
+					"pathName": "pages/idxSubpackage/pages/mgLocation/mgLocation",
+					"query": "id=419",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "userMessage",
+					"pathName": "pages/idxSubpackage/pages/userMessage/userMessage",
+					"query": "id=419",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "subOrder",
+					"pathName": "pages/cartSubpackage/pages/subOrder/subOrder",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "subOrder",
+					"pathName": "pages/cartSubpackage/pages/subOrder/subOrder",
+					"query": "type=1",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "activity",
+					"pathName": "pages/tabBar/activity/activity",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "specialDes",
+					"pathName": "pages/idxSubpackage/pages/specialDes/specialDes",
+					"query": "id=115",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "groupDetails",
+					"pathName": "pages/idxSubpackage/pages/groupDetails/groupDetails",
+					"query": "sid=10&id=162",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "groupOrder",
+					"pathName": "pages/cartSubpackage/pages/groupOrder/groupOrder",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "groupOrder",
+					"pathName": "pages/cartSubpackage/pages/groupOrder/groupOrder",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "address",
+					"pathName": "pages/cartSubpackage/pages/address/address",
+					"query": "way=1  type=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "address",
+					"pathName": "pages/cartSubpackage/pages/address/address",
+					"query": "way=1&type=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "addAds",
+					"pathName": "pages/cartSubpackage/pages/addAds/addAds",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "verGoods",
+					"pathName": "pages/mySubpackage/pages/verGoods/verGoods",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "refundList",
+					"pathName": "pages/mySubpackage/pages/refundList/refundList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "orderDes",
+					"pathName": "pages/mySubpackage/pages/orderDes/orderDes",
+					"query": "id=2297",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "order",
+					"pathName": "pages/mySubpackage/pages/order/order",
+					"query": "id=2297",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "refundDes",
+					"pathName": "pages/mySubpackage/pages/refundDes/refundDes",
+					"query": "id=2126",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "refund",
+					"pathName": "pages/mySubpackage/pages/refund/refund",
+					"query": "id=2363",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "bindMobile",
+					"pathName": "pages/mySubpackage/pages/bindMobile/bindMobile",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "会员",
+					"pathName": "pages/mySubpackage/pages/memberCharge/memberCharge",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/tabBar/my/my",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "钱包",
+					"pathName": "pages/mySubpackage/pages/wallet/wallet",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "明细",
+					"pathName": "pages/mySubpackage/pages/paymentList/paymentList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "明细详情",
+					"pathName": "pages/mySubpackage/pages/paymentDes/paymentDes",
+					"query": "id=7",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "授权付款",
+					"pathName": "pages/cartSubpackage/pages/codePayment/codePayment",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/mySubpackage/pages/order/order",
+					"pathName": "pages/mySubpackage/pages/order/order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "order",
+					"pathName": "pages/mySubpackage/pages/order/order",
+					"query": "name=\"待付款\"",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/mySubpackage/pages/order/order",
+					"pathName": "pages/mySubpackage/pages/order/order",
+					"query": "name=待付款",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/mySubpackage/pages/groupOrderDes/groupOrderDes",
+					"pathName": "pages/mySubpackage/pages/groupOrderDes/groupOrderDes",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "设置",
+					"pathName": "pages/mySubpackage/pages/setting/setting",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "系统更新",
+					"pathName": "pages/mySubpackage/pages/systemUpdate/systemUpdate",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "分类",
+					"pathName": "pages/tabBar/category/category",
+					"scene": null
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,39 @@
+<!--pages/mySubpackage/pages/refundAfterSale/refundAfterSale.wxml-->
+<view class="container">
+    <!--退款售后列表-->
+    <view class="lists">
+        <view class="list-item mg-tp20 bg-fff" wx:for="{{lists}}" wx:key="item">
+            <view class="status clearfix">
+                <view class="pull-left ft-28 color-333">{{item.date}}</view>
+                <view class="pull-right ft-28 color-ff5400">{{item.status}}</view>
+            </view>
+            <view class="proInfo pd30 clearfix border2">
+                <view class="leftCont pull-left mg-rt25">
+                    <image src="/images/goodsImg1.png"></image>
+                </view>
+                <view class="pull-right rightCont">
+                    <view class="proDesc ft-28 color-333 overflow-ellipsis">{{item.proDesc1}}</view>
+                    <view class="mg-tp20 ft-26 color-999">{{item.proDesc2}}</view>
+                    <view class="clearfix mg-tp30">
+                        <view class="pull-left ft-30 color-333">￥{{item.price}}</view>
+                        <view class="pull-right ft-28 color-999">×{{item.num}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="lookDetails clearfix pd-lr30">
+                <view class="pull-left leftCont flex flex-vc">
+                    <image src='../../images/icon-refund.png'></image>
+                    <text class="ft-28 mg-lt20 color-333">{{item.refundType}}</text>
+                    <text class="ft-28 mg-lt20 color-333">{{item.refundStatus}}</text>
+                </view>
+                <view class="pull-right rightCont">
+                    <navigator hover-class='none' url='../refundDes/refundDes?name={{item.status}}'>
+                        <view class="goDetails ft-30 color-ff5400 text-center">查看详情</view>
+                    </navigator>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!--没有更多了-->
+    <view class="h100 line-h100 text-center ft-22 color-999">没有更多了</view>
+</view>

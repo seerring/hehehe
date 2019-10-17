@@ -1,0 +1,292 @@
+/* pages/tabBar/my/my.wxss */
+
+.container{
+  background:  -webkit-linear-gradient(top,#1ccfcf,#fff);
+}
+.topInfo{
+     width:690rpx;
+     position: relative;
+     background: #fff;
+     border-radius: 24rpx;
+}
+/* 头像的背景 */
+.headBg{
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAYAAAAZtYVBAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo2RjYxMzBEM0Q4NkMxMUU5OUM1QzkzQjJFMThGNDdFMCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo2RjYxMzBENEQ4NkMxMUU5OUM1QzkzQjJFMThGNDdFMCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjZGNjEzMEQxRDg2QzExRTk5QzVDOTNCMkUxOEY0N0UwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjZGNjEzMEQyRDg2QzExRTk5QzVDOTNCMkUxOEY0N0UwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+JwHlMwAAC/NJREFUeNrsnet24joS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);
+  background-repeat: no-repeat;
+  background-size: 164rpx 164rpx;
+}
+/* 附近店铺标题样式 */
+.shopTitle{
+  width: 690rpx;
+  position: relative;
+  z-index: 10;
+  padding-bottom: 30rpx;
+}
+/* 地图小图标 */
+.mapIcon{
+  height: 88rpx;
+  line-height: 88rpx;
+  display: flex;
+  align-items: center;
+}
+
+/* vip图片样式 */
+.bg{
+  width: 690rpx;
+  height: 120rpx;
+}
+
+.topInfo .head .avatar{
+     /* margin-left:70rpx; */
+     width:120rpx;
+     height:120rpx;
+     border-radius:50%;
+}
+
+.topInfo .rightCont {
+    width: 10%;
+    right:38rpx;
+    top:24rpx;
+}
+.topInfo .rightCont .m_icon {
+    margin-top: 5rpx;
+}
+.topInfo .rightCont .m_icon image {
+    margin: 0 auto;
+    width: 40rpx;
+    height: 36rpx;
+}
+.topInfo .rightCont .m_icon .dian {
+    top: 0;
+    right: 0;
+    width: 12rpx;
+    height: 12rpx;
+}
+.topInfo .rightCont .mg-tp8 {
+    margin-top: 8rpx;
+}
+
+
+.allOrder{
+     border-bottom:1rpx solid #eeeeee;
+     width: 690rpx;
+     border-top-left-radius: 8rpx;
+     border-top-right-radius: 8rpx;
+}
+.allOrder image{
+     width:11rpx;
+     height:22rpx;
+}
+/* 核销订单 */
+.cancelOrder{
+    additive-symbols:1rpx solid #eeeeee;
+    margin-top: 12rpx;
+    border: none;
+    border-radius: 8rpx;
+}
+.hxNavigator{
+  width: 100%;
+  height: 100rpx;
+}
+.orderInfo{
+     padding:32rpx 0 38rpx 0;
+     width: 690rpx;
+     border-bottom-right-radius: 8rpx;
+     border-bottom-left-radius: 8rpx;
+}
+.orderInfo .list{
+  padding: 0;
+}
+.orderInfo .list navigator{
+     text-align:center;
+     flex:1;
+}
+.flex_1 {
+  text-align:center;
+     flex:1;
+}
+.orderInfo .list .list-item .icon1,
+.orderInfo .list .list-item .icon1 image{
+     width:60rpx;
+     height:60rpx;
+}
+.comtools{
+     padding-bottom:50rpx;
+}
+.comtools button{
+  display: inline-block;
+  width:110rpx;
+  margin-right:83rpx;
+  text-align:center;
+  margin-top:40rpx;
+  background: #fff;
+  line-height:28rpx;
+}
+.comtools button::after{
+  border:none
+}
+.mg-bt {
+  margin-bottom: 12rpx;
+}
+.mg-tp{
+  margin-top:6rpx;
+}
+.comtools .list2{
+     width:690rpx;
+}
+.comtools .list2 .list2-item{
+     width:110rpx;
+     margin-right:83rpx;
+     text-align:center;
+}
+.comtools .list2 .list2-item:nth-child(4n){
+     margin-right:0;
+}
+.comtools .list2 .list2-item .icon1 image{
+  box-shadow: 4rpx 4rpx 20rpx 0 rgba(55, 138, 138, 0.2);
+}
+.comtools .list2 .list2-item .icon1,
+.comtools .list2 .list2-item .icon1 image{
+     width:80rpx;
+     height:80rpx;
+     border-radius: 50%;
+}
+.contentBox{
+     position:fixed;
+     width:100%;
+     height:677rpx;
+     bottom:0rpx;
+     /* top:200rpx; */
+}
+.contentBox .head{
+     padding:45rpx 0; 
+}
+.contentBox .head .closeModal{
+     width:100rpx;
+     height:100rpx;
+     right:34rpx;
+     top:30rpx;
+}
+.contentBox .head .closeModal image{
+     margin-left:60rpx;
+     width:26rpx;
+     height:26rpx;
+}
+.contentBox .disBox .list-item,
+.contentBox .disBox .list-item image{
+     /* width:690rpx; */
+     left:calc(50% - 115rpx);
+     width:234rpx;
+     height:234rpx;
+}
+.contentBox .disBox .list-item .disMoney{
+     left:40rpx;
+     top:40rpx;
+}
+.contentBox .disBox .list-item .disMoney text{
+     font-size:64rpx;
+}
+.contentBox .disBox .list-item .discout{
+     top:38rpx;
+     left:224rpx;
+}
+.contentBox .disBox .list-item .discout .type{
+     width:82rpx;
+     height:33rpx;
+     line-height:33rpx;
+     background:#ff8786;
+     border-radius:2rpx;
+}
+.contentBox .disBox .list-item .dixian{
+     top:101rpx;
+     left:224rpx;
+}
+.contentBox .disBox .list-item .dixian text{
+     color:#ff8786;
+}
+.contentBox .disBox .list-item .vaildDate{
+     bottom:20rpx;
+     left:50rpx;
+}
+.contentBox .shareReward{
+     margin:28rpx 0 50rpx 0;
+}
+.contentBox .shareReward .forCash{
+     margin-right:54rpx;
+     color:#fc2628;
+}
+.contentBox .toShare{
+     width:690rpx;
+}
+.radioButton{
+    position:absolute;
+    right:33rpx;
+    top:-10rpx;
+}
+
+.radioButton1{
+    position:absolute;
+    right:8rpx;
+    top:-10rpx;
+}
+.orderlist{
+  position: absolute;
+}
+.orderInfo .storeImg{
+  width: 20%;
+}
+.storeImg image {
+  width:80rpx;
+  height:80rpx;
+}
+.orderInfo .storeName{
+  width: 80%;
+  padding-left:25rpx;
+
+}
+.lookMember {
+  right:65rpx;
+  top: 597rpx;
+  width:170rpx;
+  height:80rpx;
+}
+/* 名字下的会员标识 */
+.vipIdentifier{
+  font-style: italic;
+  color: #fff1db;
+  width: 112rpx;
+  height: 35rpx;
+  border-radius: 18rpx;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* 我的资金 */
+.myBalance {
+  margin: 0 auto;
+  width: 100%;
+}
+.myBalance .order .leftCont {
+  font-family: 'PingFang-Medium';
+}
+/* .myBalance .order .leftCont image {
+  width: 50rpx;
+  height: 50rpx;
+}
+.myBalance .order .rightCont image {
+  margin-top: -5rpx;
+  width: 16rpx;
+  height: 30rpx;
+} */
+.myBalance .list .list-item {
+  font-family: 'PingFang-Medium';
+  width: 33%;
+}
+.myBalance .list .list-item image {
+  margin: 0 auto;
+  width: 50rpx;
+  height: 50rpx;
+}
+/* 我的订单标题 */
+.orderTitle{
+  
+}

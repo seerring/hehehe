@@ -1,0 +1,88 @@
+<!--pages/mySubpackage/pages/refundDetails/refundDetails.wxml-->
+<view class="container">
+    <!--仅退款-->
+    <view class="onlayRefund">
+        <!--商品信息-->
+        <view class="proInfo clearfix bg-fff">
+            <view class="pull-left leftCont mg-rt30">
+                <image src='/images/goodsImg1.png'></image>
+            </view>
+            <view class="pull-right rightCont">
+                <view class="ft-28 color-333 overflow-ellipsis">
+                    丝柔扎染男女家居北欧风拖鞋丝柔扎染男女家居北欧风拖鞋
+                </view>
+                <view class="mg-tp20 ft-26 color-999">扎染粉丝</view>
+                <view class="mg-tp40 clearfix">
+                    <view class="pull-left ft-26 color-333">实付总额：<text class="ft-30">￥50.00</text></view>
+                    <view class="pull-right ft-28 color-999">×1</view>
+                </view>
+            </view>
+        </view>
+        <!--收货状态-->
+        <view class="status clearfix mg-tp20 pd-lr30 bg-fff h100 line-h100 border2" wx:if="{{refundWay == '仅退款'}}">
+            <view class="pull-left ft-28 color-333"><text class="color-ff5400">*</text>收货状态</view>
+            <view class="pull-right rightCont">
+                <radio-group class="flex flex-vc" bindchange="radioChange">
+                    <label class="ft-26 inline-block color-666" wx:for="{{statusList}}" wx:key="item">
+                        <radio class="mg-rt20" value="{{item}}" color="#1ccfcf"></radio>{{item}}
+                    </label>
+                </radio-group>
+            </view>
+        </view>
+        <!--退款原因-->
+        <view class="clearfix reason bg-fff h100 line-h100 pd-lr30 border2" bindtap='chooseReason'>
+            <view class="pull-left ft-28 color-333"><text class="color-ff5400">*</text>退款原因</view>
+            <view class="pull-right h100">
+                <text class="ft-28 mg-rt20 color-999" wx:if="{{currIndex != -1}}">{{list1[currIndex].title}}</text>
+                <image src='/pages/common/images/icon-right.png'></image>
+            </view>
+        </view>
+        <!--退款金额-->
+        <view class="clearfix price bg-fff h100 line-h100 pd-lr30">
+            <view class="pull-left mg-lt15 ft-28 color-333">退款金额</view>
+            <view class="pull-right ft-30 color-333">￥50.00</view>
+        </view>
+        <!--退款原因描述-->
+        <view class="mg-tp20 bg-fff describe pd-lr30">
+            <view class="title ft-28 color-333">退款原因描述</view>
+            <view class="textarea pd-bt30 relative border2">
+                <textarea class="bg-f4f4f4 ft-26 color-333 radius8" maxlength='200' bindinput='maxSize' placeholder='请在此处描述退款的原因' placeholder-class='ft-26 color-999'></textarea>
+                <text class="absolute maxSize ft-26 color-999">{{maxLen}}</text>
+            </view>
+        </view>
+        <!--上传凭证-->
+        <view class="bg-fff uploadImg pd-lr30">
+            <view class="title ft-28 color-333">上传凭证<text class="ft-26 mg-lt30 color-999">(最多上传3张)</text></view>
+            <view class="clearfix pd-bt30">
+               <view class="pull-left lists"  wx:if="{{imgLists.length > 0}}">
+                    <view class="relative inline-block mg-rt30" wx:for="{{imgLists}}" wx:key="item">
+                         <image class="absolute delete" data-index="{{index}}" bindtap='clickDel' src='/pages/common/images/deleteImg.png' ></image>
+                         <image class="radius8" src='{{item}}'></image>
+                    </view>
+               </view>
+               <view class="imgList pull-left" wx:if="{{imgLists.length < 3}}">
+                    <view class="upload radius8 text-center" bindtap='addImg'>
+                         <image class="uploadImg1 mg-tp40" src="../../images/icon-upload.png"></image>
+                         <view class="ft-20 color-999">添加图片</view>
+                    </view>
+               </view>
+            </view>
+        </view>
+        <!--提交按钮-->
+        <button class="submitBtn h100 line-h100 bg-ff5400 text-center color-fff ft-32">提交</button>
+    </view>
+</view>
+
+
+<!--退款原因弹窗-->
+<view class="maskLayer" wx:if="{{isShowModal}}">
+    <view class="content1 bg-fff">
+        <view class="head border2">
+            <view class="title ft-30 color-333">退款原因</view>
+            <image class="absolute" src='/pages/common/images/close.png' bindtap='closeModal'></image>
+        </view>
+        <view class="lists pd-bt30">
+            <view class="list-item pd-lr30 h80 line-h80 ft-28 color-333 border2" data-index="{{index}}" bindtap='bindRefund' wx:for="{{list1}}" wx:key="item">{{item.title}}</view>
+        </view>
+    </view>
+</view>

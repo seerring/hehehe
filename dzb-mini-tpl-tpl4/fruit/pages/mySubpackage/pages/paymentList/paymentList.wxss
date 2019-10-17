@@ -1,0 +1,49 @@
+/* pages/mySubpackage/pages/paymentList/paymentList.wxss */
+.tab_item {
+  width: 33%;
+}
+.color-red {
+  color: red;
+}
+.paymentList {
+  min-height: calc(99.12vh);
+}
+.paymentList .tabList {
+  font-family: 'PingFang-Medium';
+  background: #fff;
+}
+.paymentList .tabList .line {
+  border-right: 2rpx solid #eee;
+}
+.paymentList .tabList .rentOut,
+.paymentList .tabList .sell {
+  width: 40%;
+}
+ .list-item .item_1 {
+  padding: 42rpx 0 40rpx 0;
+}
+.paymentList .payList .list .list-item .item_1 .leftCont {
+  width: 70%;
+}
+.paymentList .payList .list .list-item .item_1 .rightCont {
+  width: 30%;
+}
+.paymentList .loadMore {
+  padding-bottom: 20rpx;
+}
+.paymentList .loadMore image {
+  width: 60rpx;
+  height:40rpx;
+  margin: 0 auto;
+}
+.paymentList .styleNull {
+  padding-top: 270rpx;
+}
+.paymentList .styleNull image {
+  margin: 0 auto;
+  width: 253rpx;
+  height: 177rpx;
+}
+.active{
+  color: rgb(28, 207, 207);
+}

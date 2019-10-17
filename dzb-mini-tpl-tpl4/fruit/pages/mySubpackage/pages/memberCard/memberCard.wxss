@@ -1,0 +1,77 @@
+/* pages/mySubpackage/pages/memberCard/memberCard.wxss */
+.memberBg,
+.memberBg image{
+     width:100%;
+     height:326rpx;
+}
+.memberBg .memberInfo{
+     width:510rpx;
+     height:231rpx;
+     background:#f37b25;
+     bottom:30rpx;
+     left:120rpx;
+}
+.memberInfo .avatar image{
+     width:90rpx;
+     height:90rpx;
+     border:4rpx solid #fff;
+     border-radius:50%;
+}
+.memberInfo .money{
+     color:#F6A172;
+}
+.memberInfo .money view:first-child{
+     margin-top:6rpx;
+}
+.validDate view:first-child{
+     margin-top:8rpx;
+}
+.validDate .commonCard{
+     margin-top:5rpx;
+     border:1rpx solid #FDB16E;
+     color:#FCE4CF;
+     padding:0 10rpx;
+}
+.memberImg1,
+.memberImg1 image{
+     width:690rpx;
+     height:180rpx;
+}
+.upgradePrompt .title{
+     padding:30rpx 0 54rpx 0;
+}
+.upgradePrompt .title .line{
+     width:90rpx;
+     height:2rpx;
+     background:#f4d77a;
+}
+.upgradePrompt .list{
+     padding:0rpx 30rpx 30rpx 30rpx;
+}
+.upgradePrompt .cardType{
+     margin-right:40rpx;
+}
+.upgradePrompt .cardType,
+.upgradePrompt .cardType image{
+     width:99rpx;
+     height:103rpx;
+}
+.upgradePrompt .text{
+     padding:25rpx 0;
+     width:500rpx;
+}
+.upgradePrompt .text .border{
+     border: 10px solid transparent;
+     border-right: 10px solid #eee;
+     width: 0;
+     height: 0px;
+     left:-35rpx;
+}
+.memberSys .leftCont image{
+     width:30rpx;
+     height:28rpx;
+}
+.memberSys .rightCont{
+     width:16rpx;
+     height:30rpx;
+}

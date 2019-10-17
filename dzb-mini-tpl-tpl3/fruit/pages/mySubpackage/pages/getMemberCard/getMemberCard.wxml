@@ -1,0 +1,34 @@
+<!--pages/mySubpackage/pages/getMemberCard/getMemberCard.wxml-->
+<view class="container">
+     <!--领取会员卡-->
+     <view class="formBox">
+          <form class="form inline-block" bindsubmit='submitBtn'>
+               <!--姓名-->
+               <view class="name h60 line-h60 clearfix">
+                    <input name='name' class="inline-block pd-lt20 pull-right  ft-28 color-333"></input>
+                    <text class="pull-right ft-28 color-333">姓名：</text>
+               </view>
+               <!--手机号-->
+               <view class="name h60 line-h60 clearfix">
+                    <input type='number' bindinput='inpVal' maxlength='11' name='phone' class="inline-block pd-lt20 pull-right  ft-28 color-333"></input>
+                    <text class="pull-left ft-28 color-333">手机号：</text>
+               </view>
+               <!--验证码-->
+               <view class="name h60 line-h60 clearfix">
+                    <view class="pull-right rightCont relative">
+                         <input type='number' name='code' class="inline-block pd-lt20 ft-28 color-333"></input>
+                         <button class="getCode inline-block absolute h40 line-h40 radius8 ft-20 color-fff bg-ccc" disabled='{{isClick}}' bindtap='getCode'>{{time}}</button>
+                    </view>
+                    <text class="pull-left ft-28 color-333">验证码：</text>
+               </view>
+
+               <!--提交按钮-->
+               <button class="submit h90 line-h90 text-center ft-32 color-fff radius8" hover-class='none' form-type='submit'>提交</button>
+          </form>
+          <!--提示-->
+          <view class="hint">
+               <text class="color-ff5400 ft-24">温馨提示：</text>
+               <text class="color-333 ft-24">请确保填写的手机号与注册号码一致，如未绑定，请先绑定手机号，再来领取哦！</text>
+          </view>
+     </view>
+</view>

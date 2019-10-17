@@ -1,0 +1,63 @@
+/* pages/mySubpackage/pages/myCenter/myCenter.wxss */
+.head{
+     height:155rpx;
+     line-height:155rpx;
+     border-bottom:2rpx solid #f8f8f8;
+}
+.head .rightCont .defHead{
+     width:104rpx;
+     height:104rpx;
+     border-radius:50%;
+}
+.head .rightCont .icon-right,
+.birthday .icon-right,
+.mobile .icon-right{
+     width:15rpx;
+     height:28rpx;
+}
+.name,
+.gender,
+.birthday{
+     border-bottom:2rpx solid #f8f8f8;
+}
+.name input{
+     width:200rpx;
+}
+radio-group text:nth-of-type(1){
+     margin-right:50rpx;
+}
+.signature input{
+     width:300rpx;
+}
+.saveBtn{
+     position:fixed;
+     width:100%;
+     bottom:0;
+}
+.birthdayModal{
+     position:fixed;
+     width:580rpx;
+     height:554rpx;
+     left:85rpx;
+     top:270rpx;
+}
+.birthdayModal .title{
+     padding-left:40rpx;
+}
+.birthdayModal picker-view,
+.birthdayModal picker-view picker-view-column{
+     height:360rpx;
+}
+.h120{
+     height:120rpx;
+     line-height:120rpx;
+}
+.birthdayModal .btnBox{
+     border-top:2rpx solid #eee;
+}
+.birthdayModal .btnBox view{
+     width:50%;
+}
+.birthdayModal .btnBox view:nth-child(1){
+     border-right:2rpx solid #eee;
+}

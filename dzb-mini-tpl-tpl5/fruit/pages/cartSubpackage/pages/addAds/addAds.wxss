@@ -1,0 +1,46 @@
+/* pages/cartSubpackage/pages/addAds/addAds.wxss */
+.addAds {
+  /* min-height: calc(99.12vh); */
+  /* background-color: #fff;
+  height:100%; */
+}
+.addAds .address .leftCont {
+  width: 100%;
+}
+.addAds .address .leftCont .width {
+  width: 100%;
+}
+.addAds .address .rightCont {
+  top: 35rpx;
+  right: 0;
+}
+.addAds .address .rightCont image {
+  width: 16rpx;
+  height: 30rpx;
+}
+.address_now{
+  padding: 18rpx 30rpx;
+  /* border-top: 1px solid #f4f4f4; */
+  border-bottom: 1px solid #ccc;
+}
+.weui-cells {
+  font-size: 25rpx;
+  padding: 18rpx 30rpx;
+  border-bottom: 1px solid #ccc;
+}
+.weui-cells image {
+  width: 22rpx;
+  height:22rpx;
+  margin-top:4rpx;
+}
+.selectIcon{
+     position:absolute;
+     top:32rpx;
+     right:30rpx;
+     /* width:100rpx;
+     height:70rpx; */
+     z-index:99;
+}
+.btn {
+  background-color: #1ccfcf;
+}

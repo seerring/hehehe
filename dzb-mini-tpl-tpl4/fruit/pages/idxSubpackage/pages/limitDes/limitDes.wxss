@@ -1,0 +1,211 @@
+/* pages/idxSubpackage/pages/limitDes/limitDes.wxss */
+.swiper,
+.swiper swiper,
+.swiper swiper image{
+     width:750rpx;
+     height:750rpx;
+}
+.swiper .indicator{
+     bottom:20rpx;
+     left:339rpx;
+}
+.swiper .indicator,
+.swiper .indicator image,
+.swiper .indicator text{
+     width:72rpx;
+     height:36rpx;
+     line-height:36rpx;
+}
+.swiper .indicator text{
+     z-index:1;
+     box-sizing:border-box;
+}
+.swiper .message{
+     right:42rpx;
+     top:240rpx;
+}
+.swiper .message image{
+     width:80rpx;
+     height:80rpx;
+}
+.proInfo .price{
+     padding:0 36rpx;
+     height:115rpx;
+     background:#ff2f0a;
+}
+.proInfo .price .leftCont{
+     line-height:115rpx;
+}
+.proInfo .price .leftCont .pro_text{
+     font-size:48rpx;
+}
+.proInfo .price .leftCont .pro_text1{
+     width:90rpx;
+     height:30rpx;
+     line-height:30rpx;
+     color:#ff2f0a;
+     border-radius:15rpx;
+}
+.proInfo .price .rightCont,
+.proInfo .price .rightCont .timeBox{
+     height:115rpx;
+}
+.proInfo .price .rightCont .timeBox .hour{
+     width:42rpx;
+     height:42rpx;
+     line-height:42rpx;
+     background:rgba(0,0,0,.5);
+     border-radius:50%;
+}
+.proInfo .price .rightCont .timeBox .dian{
+     margin:0 10rpx;
+}
+.proInfo .price .rightCont .icon-right{
+     width:12rpx;
+     height:21rpx;
+}
+.proInfo .text1{
+    padding:40rpx 36rpx;
+} 
+.proInfo .text1 .pull-right{
+    border-left:2rpx dotted #ccc;
+}
+.proInfo .price{
+    font-size:48rpx;
+}
+.commentLen image,
+.prosp image{
+    width:16rpx;
+    height:30rpx;
+}
+.comList .head{
+    padding:32rpx 30rpx 0 30rpx;
+}
+.comList .head .avatar{
+    width:62rpx;
+    height:62rpx;
+}
+.comList .head .lv{
+    width:27rpx;
+    height:27rpx;
+}
+.comList .comImg image{
+    width:130rpx;
+    height:130rpx;
+}
+.selectGood .head,
+.forRecommend .head{
+     padding:40rpx 0;
+}
+.selectGood .head image,
+.forRecommend .head image{
+     width:33rpx;
+     height:14rpx;
+     vertical-align:middle;
+}
+.selectGood .swiperList3{
+     white-space:nowrap;
+     padding-bottom:50rpx;
+}
+.selectGood .swiperList3 .goodLists,
+.selectGood .swiperList3 .proDesc{
+     width:188rpx;
+}
+.selectGood .swiperList3 .proDesc{
+     display:inline-block;
+}
+.selectGood .swiperList3 .proImg{
+     height:188rpx;
+}
+.selectGood .swiperList3 image{
+     width:188rpx;
+     height:188rpx;
+}
+.proDetails{
+    margin-bottom:150rpx;
+}
+.footFixed{
+    border-top:2rpx solid #eaeaea;
+    position:fixed;
+    bottom:0;
+    width:100%;
+    z-index:999;
+}
+.footFixed .toIndex,
+.footFixed .kf,
+.footFixed .cart{
+    width:100rpx;
+    border-right:2rpx solid #eaeaea;
+    box-sizing:border-box;
+}
+.footFixed .cart .cartNum{
+    width:26rpx;
+    height:26rpx;
+    line-height:26rpx;
+    background:#b62529;
+    top:20rpx;
+    right:15rpx;
+    border-radius:50%;
+}
+.footFixed .toIndex image,
+.footFixed .kf image,
+.footFixed .cart image{
+    width:42rpx;
+    height:42rpx;
+}
+.footFixed .joinCart,
+.footFixed .buy{
+    width:225rpx;
+}
+.contentBox{
+     position:fixed;
+     width:100%;
+     height:760rpx;
+     bottom:0;
+     z-index:0;
+}
+.contentBox .topProImg{
+     padding:30rpx 40rpx 53rpx 30rpx;
+}
+.contentBox .topProImg .proImg{
+     width:170rpx;
+     height:170rpx;
+}
+.contentBox .topProImg .choosesx{
+     margin-top:85rpx;
+}
+.contentBox .topProImg .closeModel{
+     width:33rpx;
+     height:33rpx;
+     top:30rpx;
+     right:40rpx;
+}
+.contentBox .specifications .list-item{
+     width:180rpx;
+     height:65rpx;
+     line-height:65rpx;
+     border:2rpx solid #999;
+}
+.contentBox .proNum .countBox{
+     width:230rpx;
+     height:65rpx;
+     line-height:61rpx;
+     box-sizing:border-box;
+     border:2rpx solid #999;
+}
+.contentBox .proNum .countBox text{
+     font-size:44rpx;
+     flex:1;
+     border-right:2rpx solid #999;
+}
+.contentBox .proNum .countBox text:nth-child(2){
+     font-size:32rpx;
+}
+.contentBox .proNum .countBox text:last-child{
+     border-right:none;
+}
+.active{
+     background:#1ccfcf;
+     color:#fff;
+     border:2rpx solid #1ccfcf!important;
+}

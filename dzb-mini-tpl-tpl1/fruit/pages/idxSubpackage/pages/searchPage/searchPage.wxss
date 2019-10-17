@@ -1,0 +1,152 @@
+/* pages/idxSubpackage/pages/searchPage/searchPage.wxss */
+
+page {
+      background: #fff;
+}
+
+.top-search {
+      padding: 15rpx 30rpx;
+      box-sizing: border-box;
+}
+
+.top-search image {
+      top: 16rpx;
+      left: 20rpx;
+      width: 35rpx;
+      height: 29rpx;
+}
+
+.top-search input {
+      padding-left: 65rpx;
+      width: 580rpx;
+      box-sizing: border-box;
+}
+
+.top-search .btn {
+      width: 94rpx;
+}
+
+.hot-list .title {
+      padding: 40rpx 0 30rpx 0;
+}
+
+.hot-list .list {
+      padding-bottom: 15rpx;
+}
+
+.hot-list .list-item {
+      line-height: 58rpx;
+      margin-bottom: 25rpx;
+      max-width:600rpx;
+}
+
+.his-list .clearHis {
+      margin-top: 140rpx;
+      width: 332rpx;
+      height: 65rpx;
+      line-height: 63rpx;
+      border-radius: 10rpx;
+}
+
+.his-list .clearHis image {
+      width: 26rpx;
+      height: 26rpx;
+      vertical-align: middle;
+}
+
+.tabList .list-item {
+      padding: 0 55rpx;
+}
+
+.tabList .list-item:first-child{
+     padding-left:0rpx;
+}
+.tabList .list-item:last-child{
+     padding-right:0rpx;
+}
+
+.tabList .list-item:last-child text {
+      margin-right: 10rpx;
+}
+
+.tabList .list-item image {
+      width: 17rpx;
+      height: 26rpx;
+}
+
+.proList .list-item {
+      padding: 25rpx 30rpx;
+}
+
+.proList .list-item .leftCont, .proList .list-item .leftCont image {
+      width: 230rpx;
+      height: 230rpx;
+}
+
+.proList .list-item .rightCont {
+      width: 430rpx;
+}
+
+.proList .list-item .rightCont .discount1 {
+      padding: 0 20rpx;
+      height: 30rpx;
+      line-height: 30rpx;
+      background: rgba(251, 169, 129, 0.2);
+      border-radius: 15rpx;
+}
+
+.proList .list-item .rightCont .discount2 {
+      padding: 0 20rpx;
+      height: 30rpx;
+      line-height: 28rpx;
+      border: 1rpx solid #1ccfcf;
+      border-radius: 15rpx;
+      box-sizing: border-box;
+}
+
+.proList .list-item .rightCont  .price {
+      bottom: 35rpx;
+}
+
+/* .proList .list-item .rightCont .oPrice{
+    font-size:36rpx;
+} */
+
+.proList .list-item .joinCart {
+      width: 45rpx;
+      height: 45rpx;
+      bottom: 35rpx;
+      right: 30rpx;
+}
+.proDes .proNullStyle{
+      margin-top: 200rpx;
+}
+.proDes .proNullStyle image {
+      width: 335rpx;
+      height: 304rpx;
+}
+
+.active {
+      color: #1ccfcf;
+}
+
+.tabList .arrowBox .sx-arrow-down{
+     border-top:10rpx solid #999; 
+     border-left:10rpx solid  transparent; 
+     border-right:10rpx solid transparent;
+     width:0rpx;
+     height:0rpx; 
+}
+.sx-arrow-down1{
+     border-bottom:10rpx solid #1ccfcf !important;
+}
+.tabList .arrowBox .sx-arrow-up{
+     border-bottom:10rpx solid #999; 
+     border-left:10rpx solid  transparent; 
+     border-right:10rpx solid transparent;
+     width:0rpx;
+     height:0rpx;
+}
+.sx-arrow-up1{
+     border-top:10rpx solid #1ccfcf !important;
+}

@@ -1,0 +1,58 @@
+/* indexPackage/pages/changeStore/changeStore.wxss */
+.changeStore {
+  /* min-height: calc(99.12vh); */
+}
+.changeStore .storeList .list-item.list-item:first-child {
+  margin-top: 0;
+}
+.changeStore .storeList .list-item .storeName {
+  position: relative;
+  padding: 40rpx 30rpx 20rpx 30rpx;
+}
+.changeStore .storeList .list-item .storeName .selectSt {
+  width: 60rpx;
+  height:60rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.changeStore .storeList .list-item .storeName .leftCont {
+  width: 75%;
+}
+.changeStore .storeList .list-item .storeName .leftCont .name {
+  font-family: 'PingFang-Medium';
+}
+.storeName .leftCont .name image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.changeStore .storeList .list-item .storeName .rightCont {
+  width: 25%;
+}
+.changeStore .storeList .list-item .storeName .rightCont image {
+  width: 20rpx;
+  height: 28rpx;
+  margin-right: 10rpx;
+}
+.changeStore .storeList .list-item .storeName .rightCont p {
+  color: #1ccfcf;
+}
+.changeStore .storeList .list-item .moreMenu .lookStore {
+  border-right: 4rpx solid #f4f4f4;
+  width: 33%;
+}
+.changeStore .storeList .list-item .moreMenu .lookStore.lookStore:last-child {
+  border-right: none;
+}
+.changeStore .storeList .list-item .moreMenu .lookStore image {
+  width: 30rpx;
+  height: 30rpx;
+}
+.changeStore .loadMore {
+  padding: 30rpx 0 10rpx 0;
+}
+.changeStore .loadMore image {
+  width: 100rpx;
+  height:70rpx;
+  margin: 0 auto;
+}

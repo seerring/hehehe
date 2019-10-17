@@ -1,0 +1,254 @@
+<!--pages/mySubpackage/pages/order/order.wxml-->
+<include src="../../../common/header.wxml" />
+<view class="container">
+    <!--订单-->
+    <view class="tabList h100 line-h100 bg-fff">
+        <view class="list-item inline-block text-center pd-lr25 ft-30 color-333" wx:for="{{tabList}}" data-index='{{index}}' wx:key="item" bindtap='tabFun'>
+            <view class="{{index == curIndex ? 'active' : ''}}">{{item}}</view>
+        </view>
+    </view>
+    <!--订单状态-->
+    <view class="mg-tp20 lists" wx:if="{{orderList.length > 0}}">
+        <view class="list-item mg-tp20 bg-fff" wx:for="{{orderList}}" wx:key="item">
+            <view class="pd-lr30 h90 line-h90 clearfix border2">
+                <view class="pull-left ft-28 color-333">{{item.create_time}}</view>
+                <view class="pull-right ft-28 color-ff5400" wx:if="{{(item.status==1&&item.type==1)||(item.status==1&&item.type==2)||(item.status==1&&item.type==3)}}">待付款</view>
+                <view class="pull-right ft-28 color-ff5400" wx:if="{{item.type == 1 && item.status == 2}}">等待商家配送</view>
+                <view class="pull-right ft-28 color-ff5400" wx:if="{{item.type == 1 && item.status == 3}}">配送中</view>
+                <view class="pull-right ft-28 color-ff5400" wx:if="{{item.type == 1 && item.status == 4}}">已完成</view>
+                <view class="pull-right ft-28 color-ff5400" wx:if="{{item.type == 1 && item.status == 6}}">已取消</view>
+                <view class="pull-right ft-28 color-ff5400" wx:if="{{item.status == 7}}">已拒绝</view>
+                <view class="pull-right ft-28 color-ff5400" wx:if="{{item.status == 9}}">已退款</view>
+                <view class="pull-right ft-28 color-ff5400" wx:if="{{item.status == 10}}">退款中</view>
+                <view class="pull-right ft-28 color-ff5400" wx:if="{{item.type == 2 && item.status == 3}}">等待到店核销</view>
+                <view class="pull-right ft-28 color-ff5400" wx:if="{{item.type == 2 && item.status == 4}}">到店核销完成</view>
+                <view class="pull-right ft-28 color-ff5400" wx:if="{{item.type == 2 && item.status == 6}}">已取消</view>
+                <view class="pull-right ft-28 color-ff5400" wx:if="{{item.type == 3 && item.status == 2}}">已参团，等待成团</view>
+                <view class="pull-right ft-28 color-ff5400" wx:if="{{item.type == 3 && item.status == 3}}">拼团成功！等待到店核销</view>
+                <view class="pull-right ft-28 color-ff5400" wx:if="{{item.type == 3 && item.status == 4}}">拼团成功！到店核销完成</view>
+                <view class="pull-right ft-28 color-ff5400" wx:if="{{item.type == 3 && item.status == 6}}">取消拼团</view>
+                <view class="pull-right ft-28 color-ff5400" wx:if="{{item.type == 3 && item.status == 8}}">拼团失败</view>
+                
+                <!-- <view class="pull-right ft-28 color-ff5400" wx:if="{{item.status == 1}}">待付款</view>
+                <view class="pull-right ft-28 color-ff5400" wx:if="{{item.status == 2}}">待配送</view>
+                <view class="pull-right ft-28 color-ff5400" wx:if="{{item.status == 3}}">配送中</view>
+                <view class="pull-right ft-28 color-ff5400" wx:if="{{item.status == 4}}">已完成</view>
+                <view class="pull-right ft-28 color-ff5400" wx:if="{{item.status == 6}}">已取消</view>
+                <view class="pull-right ft-28 color-ff5400" wx:if="{{item.status == 7}}">已拒绝</view>
+                <view class="pull-right ft-28 color-ff5400" wx:if="{{item.status == 9}}">已退款</view>
+                <view class="pull-right ft-28 color-ff5400" wx:if="{{item.status == 10}}">退款中</view> -->
+            </view>
+            <view class="proDes pd-lr30 clearfix" wx:if="{{item.type == 1 || item.type == 2}}">
+                <navigator class="inline-block border2" hover-class='none' url='../orderDes/orderDes?id={{item.id}}' wx:for="{{item.order_info}}" wx:key="idx" wx:for-item="pro">
+
+                    <view class="proImg pull-left">
+                        <image mode="aspectFit" src='{{pro.product_images}}'></image>
+                    </view>
+                    <view class="rightCont mg-lt30 pull-left">
+                        <block>
+                            <view class="clearfix">
+                                <view class="pull-left desc color-333 ft-28 line-h40 overflow-ellipsis2">
+                                    {{pro.product_name}}
+                                </view>
+                                <view class="pull-right ft-28 color-999">￥{{pro.product_fact_price}}</view>
+                            </view>
+                            <view class="clearfix mg-tp20">
+                                <!-- <view class="pull-left color-999 ft-28">{{pro.cartid}}</view> -->
+                                <view class="pull-right color-999 ft-28">×{{pro.num}}</view>
+                            </view>
+                        </block>
+                    </view>
+                </navigator>
+                <block>
+                    <view class="h90 line-h90 clearfix border2" wx:if="{{item.coupon_price}}">
+                        <view class="pull-right ft-28 color-999">已优惠：¥{{item.coupon_price}}</view>
+                    </view>
+                    <view class="clearfix h100 line-h100">
+                        <view class="pull-right ft-26 color-333">
+                            <text class="mg-rt30">共{{item.procount}}件</text> 应付总额：
+                            <text class="ft-30 color-fc5920">￥{{item.totalPrice}}</text>
+                        </view>
+                    </view>
+                </block>
+            </view>
+            <view class="proDes pd-lr30 clearfix" wx:else>
+               <navigator class="inline-block border2" hover-class='none' url='../groupOrderDes/groupOrderDes?id={{item.id}}'  wx:for="{{item.order_info}}" wx:key="idx" wx:for-item="pro">
+                  <view class="proImg pull-left">
+                        <image mode="aspectFit" src='{{pro.product_images}}'></image>
+                    </view>
+                    <view class="rightCont mg-lt30 pull-left">
+                        <block>
+                            <view class="clearfix">
+                                <view class="pull-left desc color-333 ft-28 line-h40 overflow-ellipsis2">
+                                    {{pro.product_name}}
+                                </view>
+                                <view class="pull-right ft-28 color-999">￥{{pro.product_fact_price}}</view>
+                            </view>
+                            <view class="clearfix mg-tp20">
+                                <!-- <view class="pull-left color-999 ft-28">{{pro.cartid}}</view> -->
+                                <view class="pull-right color-999 ft-28">×{{pro.num}}</view>
+                            </view>
+                        </block>
+                    </view>
+               </navigator>
+               <block>
+                    <view class="h90 line-h90 clearfix border2" wx:if="{{item.coupon_price}}">
+                        <view class="pull-right ft-28 color-999">已优惠：¥{{item.coupon_price}}</view>
+                    </view>
+                    <view class="clearfix h100 line-h100">
+                        <view class="pull-right ft-26 color-333">
+                            <text class="mg-rt30">共{{item.procount}}件</text> 应付总额：
+                            <text class="ft-30 color-fc5920">￥{{item.totalPrice}}</text>
+                        </view>
+                    </view>
+                </block>
+            </view>
+
+
+
+            <view class="btnBox pd-tb30 bd-tp-f4f4f4">
+              <view wx:if="{{index01 == 0}}" class="ft-28 h60 text-center flex flex-ac flex-je">
+                <view wx:if="{{item.status == 1}}" class="flex flex-ac flex-je">
+                  <view class="qxOrder color-999 mg-rt30" bindtap='qxOrder'  data-id='{{item.id}}'>取消订单</view>
+                  <navigator open-type="redirect" class="payment color-1ccfcf" url='/pages/mySubpackage/pages/groupOrderDes/groupOrderDes?oid={{item.oid}}&sid={{item.sid}}&id={{item.id}}'>付款</navigator>
+                </view>
+                <view wx:if="{{item.status==7||item.status == 2}}" class="flex flex-ac flex-je">
+                  <view wx:if="{{item.type == 3}}" class="flex flex-ac flex-je">
+                    <view class="qxOrder color-999 mg-rt30 ft-28" bindtap='refund'  data-id='{{item.id}}'>退款</view>
+                    <!-- <view class="qxOrder"> -->
+                    <navigator class="block qxOrder color-999" hover-class='none' url='../groupOrderDes/groupOrderDes?id={{item.id}}'>查看详情</navigator>
+                    <!-- </view> -->
+                  </view>
+                  <view wx:else class="width-full flex flex-ac flex-je">
+                    <view class="qxOrder color-999 mg-rt30">
+                      <navigator class="block color-999 ft-28" hover-class='none' url='../refund/refund?id={{item.id}}'>退款</navigator>
+                    </view>
+                    <view class="payment color-1ccfcf" bindtap='hint_ps'  data-id='{{item.id}}' data-sid="{{item.sid}}" >提醒配送</view>
+                  </view>
+                </view>
+                <view wx:if="{{item.status == 3}}" class="flex flex-ac flex-je">
+                  <view class="payment color-1ccfcf" bindtap='comReceipt'  data-id='{{item.id}}' wx:if="item.type == 1">确认收货</view>
+                  <!-- <view class="payment" wx:if="item.type == 2"> -->
+                  <navigator class="block color-1ccfcf payment" wx:if="{{item.type == 2}}" hover-class='none' url='../orderDes/orderDes?id={{item.id}}'>查看详情</navigator>
+                  <!-- </view> -->
+                  <!-- <view class="payment" wx:if="item.type == 3"> -->
+                  <navigator class="block color-1ccfcf payment" wx:if="{{item.type == 3}}" hover-class='none' url='../groupOrderDes/groupOrderDes?id={{item.id}}'>查看详情</navigator>
+                  <!-- </view> -->
+                </view>
+                <view wx:if="{{item.status == 8}}" class="flex flex-ac flex-je">
+                  <view class="payment">
+                    <navigator class="block color-1ccfcf" hover-class='none' url='../groupOrderDes/groupOrderDes?id={{item.id}}'>查看详情</navigator>
+                  </view>
+                </view>
+                <view class="qxOrder color-999" wx:if="{{item.status == 6}}" bindtap='delOrder'  data-id='{{item.id}}'>删除订单</view>
+                <view class="flex flex-ac flex-je" wx:if="{{item.status == 4}}">
+                <view class="payment color-1ccfcf" wx:if="{{item.type == 1&&item.order_info[0].shop_type == 1}}" bindtap='buyAgain'>再次购买</view>
+                  <!-- <view class="payment" wx:if="{{item.type == 1&&item.order_info[0].shop_type == 2}}"> -->
+                  <navigator class="block color-1ccfcf payment" wx:if="{{item.type == 1&&item.order_info[0].shop_type == 2}}" hover-class='none' url='../orderDes/orderDes?id={{item.id}}'>查看详情</navigator>
+                    <!-- </view> -->
+                  <!-- <view class="payment" wx:if="{{item.type == 2}}"> -->
+                  <navigator class="block color-1ccfcf payment" wx:if="{{item.type == 2}}" hover-class='none' url='../orderDes/orderDes?id={{item.id}}'>查看详情</navigator>
+                  <!-- </view> -->
+                  <!-- <view class="payment" wx:if="{{item.type == 3}}"> -->
+                    <navigator class="block color-1ccfcf payment" wx:if="{{item.type == 3}}" hover-class='none' url='../groupOrderDes/groupOrderDes?id={{item.id}}'>查看详情</navigator>
+                  <!-- </view> -->
+                </view>
+                <view class="payment color-1ccfcf" wx:if="{{item.status==9||item.status==10}}">
+                    <navigator class="block color-1ccfcf payment" wx:if="{{item.status==9||item.status==10}}" hover-class='none' url='../groupOrderDes/groupOrderDes?id={{item.id}}'>查看详情</navigator>
+                  <navigator class="block color-999 ft-28 " hover-class='none' url='../refundDes/refundDes?id={{item.id}}'>查看详情</navigator>
+                </view>
+              </view>
+              <view wx:elif="{{index01 == 1}}" class="ft-28 h60 text-center flex flex-ac flex-je">
+                <view class="qxOrder color-999 mg-rt30" bindtap='qxOrder'  data-id='{{item.id}}'>取消订单</view>
+                <navigator open-type="redirect" class="payment color-1ccfcf" url='/pages/mySubpackage/pages/groupOrderDes/groupOrderDes?oid={{item.oid}}&sid={{item.sid}}&id={{item.id}}' data-orsid='{{orsid}}'>付款</navigator>
+              </view>
+              <view wx:elif="{{index01 == 2}}" class="ft-28 h60 text-center flex flex-ac flex-je">
+                <!-- <view class="qxOrder color-999 mg-rt30"> -->
+                  <navigator class="block color-999 ft-28 qxOrder mg-rt30" hover-class='none' url='../refund/refund?id={{item.id}}'>退款</navigator>
+                <!-- </view> -->
+                <view class="payment color-1ccfcf" bindtap='hint_ps'  data-id='{{item.id}}' data-sid="{{item.sid}}">提醒配送</view>
+              </view>
+              <view wx:elif="{{index01 == 3}}" class="ft-28 h60 text-center flex flex-ac flex-je">
+                <view class="payment color-1ccfcf" bindtap='comReceipt'  data-id='{{item.id}}'>确认收货</view>
+              </view>
+              <view wx:else class="ft-28 h60 text-center flex flex-ac flex-je">
+                <view wx:if="{{item.type == 1&&item.order_info[0].shop_type == 1}}" class="payment color-1ccfcf" bindtap='buyAgain'  data-index='{{index}}'>再次购买</view>
+                <view class="payment" wx:if="{{item.type == 1&&item.order_info[0].shop_type == 2}}">
+                  <navigator class="block color-1ccfcf" hover-class='none' url='pages/idxSubpackage/pages/specialDes/specialDes?id={{item.order_info[0].id}}'>再次购买</navigator>
+                </view>
+                <navigator wx:if="{{item.type == 2}}" class="block color-1ccfcf payment" hover-class='none' url='../orderDes/orderDes?id={{item.id}}'>查看详情</navigator>
+                <navigator  wx:if="{{item.type == 3}}" class="block color-1ccfcf payment" hover-class='none' url='../groupOrderDes/groupOrderDes?id={{item.id}}'>查看详情</navigator>
+              </view>
+            </view>
+
+
+
+            <view class="bg-fff btnBox clearfix pd30" wx:if="{{item.orderStatus == '待付款'}}">
+                <navigator hover-class='none' url='../orderDes/orderDes?id={{item.id}}' class="ft-28 pull-right btn1 text-center bg-fff color-ff5400">去付款</navigator>
+                <button hover-class='none' wx:if="{{item.id == orderid}}" class="ft-28 pull-right btn2 mg-rt25 text-center bg-fff color-999" disabled>已取消</button>
+                <button hover-class='none' wx:else bindtap='qxOrder' class="ft-28 pull-right btn2 mg-rt25 text-center bg-fff color-999" bindtap='qxOrder' data-id="{{item.id}}" data-index="{{index}}">取消订单</button>
+            </view>
+            <view class="bg-fff btnBox clearfix pd30" wx:if="{{item.orderStatus == '待收货'}}">
+                <button bindtap='confirmOrder' data-id="{{item.id}}" data-index="{{index}}" hover-class='none' class="ft-28 pull-right btn1 text-center bg-fff color-ff5400">确认收货</button>
+                <navigator hover-class='none' class="inline-block pull-right" url='../logistics/logistics?orderid={{item.id}}'>
+                    <button hover-class='none' class="pull-right ft-28 btn2 mg-rt25 text-center bg-fff color-999">查看物流</button>
+                </navigator>
+            </view>
+            <view class="bg-fff btnBox clearfix pd30" wx:if="{{item.orderStatus == '已完成' || item.orderStatus == '已取消'}}">
+            <block wx:if="{{curIndex == 4}}">
+                <navigator hover-class='none' class="inline-block pull-right" url='../comments/comments?orderid={{item.id}}&pid={{item.pid}}&image={{item.image}}&attr1={{item.attr1}}&attr2={{item.attr2}}'>
+                    <button wx:if="{{item.orderStatus == '已完成'}}" hover-class='none' class="ft-28 pull-right btn1 text-center bg-fff color-ff5400">去评价</button>
+                </navigator>
+             </block>    
+                <button bindtap='delOrder' data-id="{{item.id}}" wx:if="{{item.orderStatus == '已取消'}}" hover-class='none' data-index="{{index}}" class="ft-28 pull-right btn2 text-center bg-fff color-999">删除订单</button>
+                <navigator hover-class='none' class="inline-block pull-right" url='../orderDes/orderDes?id={{item.id}}'>
+                    <block wx:if="{{curIndex != 4}}">
+                    <button hover-class='none' class="mg-rt25 ft-28 pull-right btn2 text-center bg-fff color-999">订单详情</button>
+                    </block>
+                </navigator>
+            </view>
+        </view>
+        <!--没有更多了-->
+        <view wx:if="{{isempty}}" class="ft-22 color-999 h100 line-h100 text-center">--别拉了，实在没有了--</view>
+    </view>
+    <!--订单为空的样式-->
+    <view class="orderNull" wx:else>
+        <view class="orderStyle text-center">
+            <image src='../../images/orderNull.png'></image>
+            <view class="hint ft-30 color-666">亲，目前没有任何订单~</view>
+        </view>
+    </view>
+</view>
+
+<!--取消订单弹窗-->
+<view class="maskLayer" wx:if="{{isShowModal1}}">
+    <view class="orderModal-1 bg-fff">
+        <view class="content text-center ft-34 color-333 border2">您确定要取消订单吗？</view>
+        <view class="btn">
+            <button class="btn1 bg-ff5400 color-fff ft-32 text-center inline-block" bindtap='comOrder'>确定</button>
+            <button class="btn2 inline-block bg-fff text-center color-333 ft-32" bindtap='cancleOrder'>取消</button>
+        </view>
+    </view>
+</view>
+
+<!--删除订单弹窗-->
+<view class="maskLayer" wx:if="{{isShowModal2}}">
+    <view class="orderModal-1 bg-fff">
+        <view class="content text-center ft-34 color-333 border2">您确定要删除订单吗？</view>
+        <view class="btn">
+            <button class="btn1 bg-ff5400 color-fff ft-32 text-center inline-block" bindtap='delSubmitOrder'>确定</button>
+            <button class="btn2 inline-block bg-fff text-center color-333 ft-32" bindtap='cancleOrder'>取消</button>
+        </view>
+    </view>
+</view>
+
+<!--确认订单弹窗-->
+<view class="maskLayer" wx:if="{{isShowModal3}}">
+    <view class="orderModal-1 bg-fff">
+        <view class="content text-center ft-34 color-333 border2">请确定您已收到货？</view>
+        <view class="btn">
+            <button class="btn1 bg-ff5400 color-fff ft-32 text-center inline-block" bindtap='confirmSubmitOrder'>确定</button>
+            <button class="btn2 inline-block bg-fff text-center color-333 ft-32" bindtap='cancleOrder'>取消</button>
+        </view>
+    </view>
+</view>

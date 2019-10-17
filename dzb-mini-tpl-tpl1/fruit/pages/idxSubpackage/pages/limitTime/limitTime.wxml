@@ -1,0 +1,63 @@
+<!--pages/idxSubpackage/pages/limitTime/limitTime.wxml-->
+<view class="container">
+    <!--限时购-->
+     <view class="tabList h100">
+          <scroll-view scroll-x class="h100 list">
+               <view class="list-item h100 inline-block color-666 text-center {{index == curIndex ? 'active' : ''}}" wx:for="{{tabList}}" wx:key="item" bindtap='tabFun' data-index="{{index}}" data-status="{{item.status}}">
+                    <view class="ft-26 mg-tp20">{{item.time}}</view>
+                    <view class="ft-22">{{item.status}}</view>
+               </view>
+          </scroll-view>
+     </view>
+     <view wx:if="{{status == '已结束'}}" class="h90 line-h90 bg-fff remain_time ft-24 color-666 text-center bold">
+          已结束
+     </view>
+     <view wx:if="{{status == '今日抢'}}" class="h90 line-h90 bg-fff remain_time ft-24 color-666 text-center bold">
+          本场还剩 04：43：29
+     </view>
+     <view wx:if="{{status == '未开始'}}" class="h90 line-h90 bg-fff remain_time ft-26 color-666 clearfix pd-lr30">
+          <view class="pull-left">明天10点开枪 先下单先得</view>
+          <view class="pull-right endTime color-999">
+               距开始
+               <text class="inline-block ft-22 color-fff mg-lt20 text-center">02</text> :
+               <text class="inline-block ft-22 color-fff text-center">51</text> :
+               <text class="inline-block ft-22 color-fff text-center">14</text>
+          </view>
+     </view>
+    <!--商品列表-->
+    <view class="proLists bg-fff">
+        <view class="list-item pd-lr30 clearfix border2" wx:for="{{proLists}}" wx:key="item">
+            <view class="pull-left mg-tp30 leftCont radius8">
+                <image src="{{item.proImg}}"></image>
+            </view>
+            <view class="pull-left mg-tp30 mg-lt30 rightCont">
+                <view class="proDesc ft-28 color-333 line-h40 overflow-ellipsis2">{{item.proDesc}}</view>
+                <view wx:if="{{item.status == 0}}" class="mg-tp30 ft-22 color-999">超值优惠哦！</view>
+                <view wx:else class="mg-tp30 ft-22 color-999 relative">
+                    <progress percent='{{item.progress}}' backgroundColor='#fff' stroke-width='32rpx' border-radius='16rpx' activeColor='#fdddcd'></progress>
+                    <text class="absolute progressText color-ff5400 ft-20">已售{{item.progress}}%</text>
+                </view>
+                <view class="clearfix h50 mg-tp40" wx:if="{{status != '未开始'}}">
+                    <view class="ft-26 line-h50 pull-left color-ff5400">￥{{item.ysPrice}}<text class="mg-lt15 ft-24 color-999 line-through">￥{{item.orPrice}}</text></view>
+                    <view wx:if="{{item.status == 0}}" class="h50 pull-right look color-ff5400 ft-26 text-center">
+                         <navigator hover-class='none' url='../limitDes/limitDes'>
+                              去看看
+                         </navigator>
+                    </view>
+                    <view wx:else class="h50 pull-right look look2 color-ff5400 ft-26 text-center">抢购</view>
+                </view>
+                <view class="clearfix h50 mg-tp40" wx:else>
+                    <view class="ft-26 line-h50 pull-left color-ff5400">￥{{item.ysPrice}}<text class="mg-lt15 ft-24 color-999 line-through">￥{{item.orPrice}}</text></view>
+                    <view class="h50 pull-right look look2 remind color-ff5400 ft-26 text-center" wx:if="{{item.isHint}}" data-index="{{index}}" bindtap='hintMe'>提醒我</view>
+                    <view class="h50 pull-right look color-ff5400 ft-26 text-center active1" wx:else data-index="{{index}}" bindtap='hintMe'>取消提醒</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!--没有更多-->
+    <view class="h100 line-h100 text-center ft-22 color-999">没有更多了</view>
+    <!--返回顶部-->
+     <view class="backTop" bindtap='backTop' wx:if="{{backTopVal}}">
+          <image src="/images/backTop.png"></image>
+     </view>
+</view>

@@ -1,0 +1,24 @@
+/* pages/mySubpackage/pages/saleService/saleService.wxss */
+.proInfo{
+    padding:40rpx 30rpx 25rpx 30rpx;
+}
+.proInfo .leftCont,
+.proInfo .leftCont image{
+    width:170rpx;
+    height:170rpx;
+}
+.proInfo .rightCont{
+    width:490rpx;
+}
+.returnRefund{
+    padding:36rpx 30rpx;
+}
+.returnRefund .text1 image{
+    width:36rpx;
+    height:36rpx;
+    vertical-align:middle;
+}
+.returnRefund .rightCont image{
+    width:19rpx;
+    height:35rpx;
+}

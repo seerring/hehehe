@@ -1,0 +1,345 @@
+/* pages/idxSubpackage/pages/proDetails/proDetails.wxss */
+.swiper,
+.swiper swiper,
+.swiper swiper image{
+     width:750rpx;
+     height:350rpx;
+}
+swiper-item>image{
+  width: 750rpx;
+  height: 550rpx;
+}
+.swiper .indicator{
+     bottom:20rpx;
+     left:339rpx;
+}
+.swiper .indicator,
+.swiper .indicator image,
+.swiper .indicator text{
+     width:72rpx;
+     height:36rpx;
+     line-height:36rpx;
+}
+.swiper .indicator text{
+     z-index:1;
+     box-sizing:border-box;
+}
+.swiper .message{
+     right:42rpx;
+     top:240rpx;
+}
+.swiper .message image{
+     width:80rpx;
+     height:80rpx;
+}
+.proInfo{
+    padding:48rpx;
+} 
+.proInfo .text1 .pull-right{
+    border-left:2rpx dotted #ccc;
+}
+.proInfo .price{
+    font-size:48rpx;
+}
+.commentLen image,
+.prosp image{
+    width:16rpx;
+    height:30rpx;
+}
+.comList .head{
+    padding:32rpx 30rpx 0 30rpx;
+}
+.comList .head .avatar{
+    width:62rpx;
+    height:62rpx;
+}
+.comList .head .lv{
+    width:27rpx;
+    height:27rpx;
+}
+.comList .comImg image{
+    width:130rpx;
+    height:130rpx;
+}
+.selectGood .head,
+.forRecommend .head{
+     padding:40rpx 0;
+}
+.selectGood .head image,
+.forRecommend .head image{
+     width:33rpx;
+     height:14rpx;
+     vertical-align:middle;
+}
+.selectGood .swiperList3{
+     white-space:nowrap;
+     padding-bottom:50rpx;
+}
+.selectGood .swiperList3 .goodLists,
+.selectGood .swiperList3 .proDesc{
+     width:188rpx;
+}
+.selectGood .swiperList3 .proDesc{
+     display:inline-block;
+}
+.selectGood .swiperList3 .proImg{
+     height:188rpx;
+}
+.selectGood .swiperList3 image{
+     width:188rpx;
+     height:188rpx;
+}
+.proDetails{
+    margin-bottom:150rpx;
+}
+.proDetails .info .text1{
+     border-bottom:3rpx dashed #999;
+}
+.proDetails .info .text1 text:nth-child(1),
+.proDetails .info .text2 text:nth-child(1){
+     width:200rpx;
+}
+.footFixed{
+    border-top:2rpx solid #eaeaea;
+    position:fixed;
+    bottom:0;
+    width:100%;
+    z-index:99;
+}
+.footFixed .toIndex,
+.footFixed .kf,
+.footFixed .cart{
+    width:100rpx;
+    border-right:2rpx solid #eaeaea;
+    box-sizing:border-box;
+}
+.footFixed .kf .kfBtn{
+     opacity:0;
+}
+.footFixed .cart .cartNum{
+    width:26rpx;
+    height:26rpx;
+    line-height:26rpx;
+    background:#b62529;
+    top:20rpx;
+    right:15rpx;
+    border-radius:50%;
+}
+.footFixed .toIndex image,
+.footFixed .kf image,
+.footFixed .cart image{
+    width:42rpx;
+    height:42rpx;
+}
+.footFixed .joinCart,
+.footFixed .buy{
+    width:225rpx;
+}
+.contentBox{
+     position:fixed;
+     width:100%;
+     /* height:760rpx; */
+     bottom:0;
+     z-index:999;
+}
+.contentBox .topProImg{
+     padding:30rpx 40rpx 53rpx 30rpx;
+}
+.contentBox .topProImg .proImg{
+     width:170rpx;
+     height:170rpx;
+}
+.contentBox .topProImg .choosesx{
+     margin-top:85rpx;
+}
+.contentBox .topProImg .closeModel{
+     width:33rpx;
+     height:33rpx;
+     top:30rpx;
+     right:40rpx;
+}
+.contentBox .scrollBox{
+     overflow:scroll;
+     height:500rpx;
+}
+.contentBox .specifications .list-item{
+     width:180rpx;
+     height:65rpx;
+     line-height:65rpx;
+     border:2rpx solid #e0e0e0;
+     border-radius: 8rpx;
+}
+.contentBox .proNum{
+     margin-bottom:30rpx;
+}
+.contentBox .proNum .countBox{
+     width:230rpx;
+     height:65rpx;
+     line-height:61rpx;
+     box-sizing:border-box;
+     border:2rpx solid #999;
+}
+.contentBox .proNum .countBox text{
+     font-size:44rpx;
+     flex:1;
+     border-right:2rpx solid #999;
+}
+.contentBox .proNum .countBox text:nth-child(2){
+     font-size:32rpx;
+}
+.contentBox .proNum .countBox text:last-child{
+     border-right:none;
+}
+.joinShopCart{
+     width:690rpx;
+}
+.active{
+     background:#1ccfcf;
+     color:#fff;
+     border:2rpx solid #1ccfcf!important;
+}
+
+.pro_desc1 .title {
+  /* height: 40rpx; */
+  color: #333;
+  /* display: flex; */
+  align-items: center;
+}
+.pro_desc1 .title text {
+  display: inline-block;
+  height: 30rpx;
+  line-height: 30rpx;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}
+.pro_desc1 .pro_xl_kc text.dian {
+  width: 10rpx;
+  height: 10rpx;
+  background: #ccc;
+}
+.pro_desc1 .pro_price text {
+  font-family: 'PingFang-Medium';
+}
+.limitNum .chooseNum {
+  width: 175rpx;
+  border: 2rpx solid #ccc;
+  height:60rpx;
+  line-height:60rpx;
+}
+.nowprice {
+  font-weight: 700;
+}
+.limitNum .chooseNum view {
+  width: 33.333%;
+  height:56rpx;
+  line-height:56rpx;
+}
+.limitNum .chooseNum view:nth-child(1) {
+  border-right: 2rpx solid #ccc;
+  height:56rpx;
+  line-height:46rpx;
+}
+.limitNum .chooseNum view:nth-child(2) {
+  border-right: 2rpx solid #ccc;
+  height:56rpx;
+  line-height:56rpx;
+}
+.limitNum .chooseNum view:nth-child(3) {
+  /* border-right: 2rpx solid #ccc; */
+  height:56rpx;
+  line-height:46rpx;
+}
+.he_goods .title {
+  font-family: 'PingFang-Medium';
+  border-left: 6rpx solid #1CCFCF;
+}
+.he_goods .storeInfo .storeImg {
+  width: 20%;
+}
+.he_goods .storeInfo .storeImg image {
+  width: 100rpx;
+  height: 100rpx;
+}
+.he_goods .storeInfo .storeName {
+  width: 80%;
+}
+.he_goods .storeInfo .storeName .ads {
+  width: 8%;
+}
+.he_goods .storeInfo .storeName .ads image {
+  width: 30rpx;
+  height: 38rpx;
+}
+.he_goods .storeInfo .storeName .ads_text {
+  width: 92%;
+}
+.proInfo {
+  padding: 30rpx 30rpx 130rpx 30rpx;
+}
+.proInfo .title {
+  font-family: 'PingFang-Medium';
+  border-left: 6rpx solid #1CCFCF;
+}
+.proInfo image {
+  width: 100%;
+  height: 300rpx;
+}
+.storeAdvantage {
+  flex-wrap: nowrap;
+}
+.storeAdvantage .list-item {
+  padding-right: 10rpx;
+  flex-wrap: nowrap;
+  flex-grow: 1;
+}
+.storeAdvantage .list-item image {
+  margin-right: 2%;
+  width: 25rpx;
+  height:25rpx;
+  /* height: auto; */
+}
+/* //轮播图 */
+.mainImgBox{
+  height: 550rpx;
+  width: 100%;
+}
+.swiperBox {
+  height: 550rpx;
+  width: 100%;
+}
+.mainImgBox .indexSwiper .video {
+  width: 100%;
+  height: 550rpx;
+}
+.mainImgBox .indexSwiper .video image {
+  position: absolute;
+  top: 37%;
+  left: 41%;
+  width: 160rpx;
+  height: 150rpx;
+}
+.mainImgBox .indexSwiper .video .poster {
+  position: static;
+  width: 100%;
+  height: 550rpx;
+}
+.mainImgBox .indexSwiper video {
+  height: 550rpx;
+  width: 100%;
+}
+.mainImgBox .indexSwiper .bottomBox {
+  bottom: 20rpx;
+  right: 30rpx;
+}
+.mainImgBox .indexSwiper .bottomBox .dots {
+  line-height: 36rpx;
+}
+.mainImgBox .indexSwiper .bottomBox .dots text {
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+.mainImgBox .indexSwiper .bottomBox .dots image {
+  width: 72rpx;
+  height: 36rpx;
+}

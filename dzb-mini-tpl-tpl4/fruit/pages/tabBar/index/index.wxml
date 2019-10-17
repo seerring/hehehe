@@ -1,0 +1,233 @@
+<!--pages/tabBar/index/index.wxml-->
+<include src="../../common/header.wxml" />
+<wxs module="filter" src="../../../common.wxs"></wxs>
+<!-- navBar组件 -->
+<view class="container bg-f4f4f4">
+  <!--search-->
+  <view class="bg-1ccfcf header flex flex-ac pd-lr30" style='height:{{sysbutton.bottom+10}}px;'>
+    <view class="leftCont flex flex-ac" bindtap="jumpUserLocation" style='margin-top:{{sysbutton.top-10}}px;'>
+      <image class="img1 mg-rt10" src="/images/common/address.jpg"></image>
+      <text class="ft-24 color-fff">{{myLocate}}</text>
+      <image class="img2" src="/images/common/openMenu.png"></image>
+    </view>
+    <view style="margin-top:{{sysbutton.top-10}}px; width:60%; text-align:center; margin-right:{{sysbutton.width}}rpx;">
+      <text class="ft-30 color-fff bold">{{homeTitle}}</text>
+    </view>
+  </view>
+
+  <view class='headernav bg-1ccfcf' style='margin-top:{{sysbutton.bottom+10}}px;'>
+    <view class="flex">
+      <navigator class="block searchLink" hover-class='none' url="../../idxSubpackage/pages/searchPage/searchPage">
+        <view class="searchBox flex flex-ac bg-fff relative">
+          <view class="s_icon flex flex-ac">
+            <image src="/images/common/search.png"></image>
+          </view>
+          <input type="search" disabled class="text-center ft-30 color-666" placeholder="搜索店铺商品" />
+        </view>
+      </navigator>
+      <view class="rightCont flex flex-je">
+        <view class="block" hover-class='none' bindtap='jumpUserMsg'>
+          <view class="m_icon flex flex-je">
+            <view class="messageBox flex flex-ac felx-jc relative">
+              <text wx:if="{{isShowMsg}}" class="dian inline-block absolute bd-rd50 bg-fc5920"></text>
+              <image class="block" src="/images/common/news.png"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="tab_list bg-fff mg-tp20 flex flex-direction-row">
+      <view class="list ft-28 color-666 mg-lt30 text-center allGoodsTab {{curIndex == -1 ? 'active':''}}" bindtap="allGoodsTab">全部商品</view>
+      <view class="list pd-lr30 clearfix tabItem flex-vc" style="width:580rpx">
+        <view class="ft-28 color-666 mg-rt40 text-center pull-left list-item {{curIndex == index ? 'active':''}}" wx:for="{{tab_list}}" wx:key="item" bindtap="tabFun" data-index="{{index}}">{{item.category_name}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="scrollHeight">
+    <view wx:if="{{curIndex == -1}}">
+      <!--banner-->
+      <view class="indexSwiper" style='padding:{{sysbutton.bottom+125}}px 30rpx 30rpx;'>
+        <swiper indicator-dots="true" indicator-color="#fff" indicator-active-color="#000" autoplay="true" circular="true">
+          <block wx:for="{{swiperList}}" wx:key="item">
+            <swiper-item>
+              <image class="block border_radius" src="{{item.banner}}" bindtap="clickBanner" data-id="{{item.id}}"></image>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+      <!--list-->
+      <view class="t_list flex flex-ac flex-jc bd-bt-f4f4f4">
+        <view class="list-item" wx:for="{{shopwindowList}}" wx:key="item">
+          <block>
+            <navigator class="block" hover-class='none' url="../../idxSubpackage/pages/newDaily/newDaily?id={{item.id}}&name={{item.name}}">
+              <image class="block" src="{{item.img}}"></image>
+              <text class="ft-26 color-333 text-center block">{{item.name}}</text>
+            </navigator>
+          </block>
+        </view>
+
+        <view class="relative bigBg mg-bt20 mg-tp40">
+          <image src="/images/common/preferential-bg.png" class="bigBg"></image>
+          <view class="leftBenefit">
+            <view class="ft-34 color-ff4d36 bold mg-bt10">特惠专区</view>
+            <view class="ft-26 color-ff4d36">特惠活动，让您一省到底</view>
+          </view>
+          <navigator hover-class='none' url='../../mySubpackage/pages/memberCharge/memberCharge' class="rightBgBox1 relative">
+            <image src="/images/common/vip-bg.png" class="rightBg1"></image>
+            <view class="color-fff righText1">
+              <view class="ft-32 mg-bt5">会员折扣</view>
+              <view class="ft-24">开通会员</view>
+              <view class="ft-24">领超大礼包</view>
+            </view>
+          </navigator>
+          <navigator hover-class='none' url='../../mySubpackage/pages/wallet/wallet' class="rightBgBox2 relative">
+            <image src="/images/common/recharge-bg.png" class="rightBg1"></image>
+            <view class="color-fff righText1">
+              <view class="ft-32 mg-bt5">充值有礼</view>
+              <view class="ft-24">来就送</view>
+              <view class="ft-24">好礼送不停</view>
+            </view>
+          </navigator>
+        </view>
+        <view class="relative bigBg">
+          <image src="/images/common/special-offer-bg.png" class="bigBg"></image>
+          <view class="rightBenefit">
+            <view class="ft-34 color-ff4d36 bold mg-bt10">拼团特价</view>
+            <view class="ft-26 color-ff4d36">超低特价，还在等什么</view>
+          </view>
+          <view class="leftBgBox1 relative" bindtap="lookpt">
+            <image src="/images/common/assemble-bg.png" class="rightBg1"></image>
+            <view class="color-fff righText1">
+              <view class="ft-32 mg-bt5">限时拼团</view>
+              <view class="ft-24">超值拼团</view>
+              <view class="ft-24">不容错过</view>
+            </view>
+          </view>
+          <view class="leftBgBox2 relative" bindtap="lookpt_re">
+            <image src="/images/common/bargain-price-bg.png" class="rightBg1"></image>
+            <view class="color-fff righText1">
+              <view class="ft-32 mg-bt5">限量特惠</view>
+              <view class="ft-24">好吃不贵</view>
+              <view class="ft-24">送上门</view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+
+      <!--店长推荐-->
+      <view class="mg-lt30 mg-rt30 mg-tp40">
+        <view class="text-left ft-34 color-333 mg-bt30 bold">店长推荐</view>
+        <view class="relative">
+          <image src="/images/common/bg-dz.png" class="dzImg"></image>
+          <view class="flex dzContent">
+            <image src="{{storeLogo}}" class="storeLogo bloxk"></image>
+            <view class="mg-lt20 ">
+              <view class="text-left ft-34 color-fff one-line-ellipsis block width-300">{{myStore.name}}</view>
+              <view class=" text-left ft-26 mg-tp10 color-eee one-line-ellipsis block width-300">{{location}}</view>
+            </view>
+          </view>
+          <view class="flex flex-ac flex-jc changeStore" bindtap="changeSt">
+            <view class="ft-28 mg-rt10 color-eee">切换门店</view>
+            <image class="rightImg" src="/images/common/arrow_right_f.png"></image>
+          </view>
+        </view>
+      </view>
+      <view class="proList clearfix">
+        <view class="list-item pull-left relative" wx:for="{{BambooList}}" wx:key="item">
+          <navigator class="block bg-fff" hover-class='none' url="../../idxSubpackage/pages/proDetails/proDetails?id={{item.id}}">
+            <image class="proImg block bd-rdTp10" src="{{item.product_images}}"></image>
+            <view class="pd-lt15 pd-rt15 pd-bt20">
+              <view class="title mult_line-ellipsis ft-26 color-333 mg-tp20 h80">
+                <text wx:if="{{item.product_tag}}" class="bg-fc5920 bd-rd8 ft-20 color-fff pd-lr10 h30 line-h30">{{item.product_tag}}</text>
+                <text wx:else class="bg-fc5920 bd-rd8 ft-20 color-fff pd-lr10 h30 line-h30">优选</text>
+                <text class="mg-lt10">{{item.product_name}}</text>
+              </view>
+              <view class="color-fc5920 ft-26 mg-tp15">
+                <text class="ft-20">￥</text>
+                <text class="bold ft-30">{{item.product_fact_price}}</text>
+                <text class="mg-lt10 ft-26 color-999 line-through">￥{{item.product_price}}</text>
+              </view>
+            </view>
+
+          </navigator>
+          <image bindtap='touchOnGoods' data-index="{{index}}" class="joinCart absolute" src="/images/common/add-cart.png"></image>
+          <!-- 飞入图标 -->
+          <view class="good_box" hidden="{{hide_good_box}}" style="left: {{bus_x}}px; top: {{bus_y}}px;">
+            <image src="{{item.product_images}}"></image>
+          </view>
+        </view>
+      </view>
+
+      <view class="ft-34 color-333 bold" style="width:100%; height:114rpx;padding-left:30rpx">精品好物</view>
+    </view>
+
+    <view wx:else style='padding:{{sysbutton.bottom+125}}px 30rpx 30rpx;'></view>
+    <!--精品好物-->
+    <view class="goodShops">
+      <!-- <view class="text-left ft-34 color-333 mg-lt30 bold">优质精选</view> -->
+      <view class="proList clearfix" wx:if="{{goodShop.length > 0}}">
+        <view class="list-item pull-left relative" wx:for="{{goodShop}}" wx:key="item">
+          <navigator class="block bg-fff" hover-class='none' url="../../idxSubpackage/pages/proDetails/proDetails?id={{item.id}}">
+            <image class="proImg block bd-rdTp10" src="{{item.product_images}}"></image>
+            <view class="pd-lt15 pd-rt15 pd-bt20">
+              <view class="title mult_line-ellipsis ft-26 color-333 mg-tp20 h80">
+                <text wx:if="{{item.product_tag}}" class="bg-fc5920 bd-rd8 ft-20 color-fff pd-lr10 h30 line-h30">{{item.product_tag}}</text>
+                <text wx:else class="bg-fc5920 bd-rd8 ft-20 color-fff pd-lr10 h30 line-h30">优选</text>
+                <text class="mg-lt10">{{item.product_name}}</text>
+              </view>
+              <view class="color-fc5920 ft-26 mg-tp15">
+                <text class="ft-20">￥</text>
+                <text class="bold ft-30">{{item.product_fact_price}}</text>
+                <text class="mg-lt10 ft-26 color-999 line-through">￥{{item.product_price}}</text>
+              </view>
+            </view>
+
+          </navigator>
+          <image bindtap='touchOnGoods' data-index="{{index}}" class="joinCart absolute" src="/images/common/add-cart.png"></image>
+          <!-- 飞入图标 -->
+          <view class="good_box" hidden="{{hide_good_box}}" style="left: {{bus_x}}px; top: {{bus_y}}px;">
+            <image src="{{item.product_images}}"></image>
+          </view>
+        </view>
+      </view>
+       <view wx:else class="loadMore text-center">
+        <image class="block" src="/images/common/icon4.png"></image>
+        <view class="ft-20 mg-tp20 color-999">没有更多了，看看其他的吧~</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 优惠券弹窗 -->
+  <view class="black_cover" wx:if="{{isShowModal}}">
+    <view class="couponModal relative">
+      <image bindtap="closeModal" class="block closeModal absolute" src="/images/couponModalClose.png"></image>
+      <image mode='widthFix' class="block couponBg" src="/images/couponBg.png"></image>
+      <text wx:if="{{!isCheck && couponDetail}}" class="firstCp color-fff absolute text-center title line-h55">
+                {{couponDetail.name}}送您一张优惠券，快来看看吧~
+            </text>
+      <text wx:if="{{isCheck}}" class="firstCp color-fff absolute text-center title line-h55">
+                hi，初次见面送您一张优惠券，快点领取吧~
+            </text>
+      <text class="ft-28 color-333 absolute content flex flex-ac flex-jc">
+                可在<text class="color-fc5920"> 我的-优惠券 </text>中查看
+      </text>
+      <text class="price absolute color-fff">{{couponPrice}}元</text>
+      <!-- <text class="price absolute color-fff">70元</text> -->
+
+      <view class="text absolute ft-32 color-fff">
+        <text><strong>优惠券</strong> </text>
+        <text class="mg-tp10 ft-26">{{couponDetail.type_name}}</text>
+        <!-- <text>优惠券</text>
+                <text class="mg-tp10 ft-26">关谷商店</text> -->
+      </view>
+      <image bindtap='getNow' class="block getCou absolute" src="/images/get.png"></image>
+    </view>
+  </view>
+
+
+
+
+</view>

@@ -1,0 +1,68 @@
+<!--pages/idxSubpackage/pages/searchPage/searchPage.wxml-->
+<include src="../../../common/header.wxml" />
+<view class="container">
+      <!--搜索框-->
+      <navigator hover-class='none' url='../searchPage/searchPage'>
+        <view class="top-search h90 line-h90 bg-f4f4f4">
+                <view class="clearfix relative">
+                    <image class="absolute" src='/images/icon-search.png'></image>
+                    <input class="inline-block radius8 ft-24 color-333 h60 line-h60 bg-fff pull-left" placeholder='请输入商品名称' placeholder-class='ft-24 color-999'></input>
+                    <view class="inline-block radius8 pull-right h60 line-h60 btn bg-fff text-center ft-24 color-666">搜索</view>
+                </view>
+        </view>
+      </navigator>
+        <!--排序-->
+        <view class="tabList h90 line-h90 bg-fff pd-lr30 border2">
+                <view class="list-item ft-28 color-666 pull-left flex flex-vc {{index == curIndex ? 'active' : ''}}" data-index="{{index}}" bindtap='tabFun' wx:for="{{tabList}}" wx:key="item">
+                    <view class="inline-block mg-rt10">{{item.name}}</view>
+                    <!-- <view class="arrowBox">
+                            <view class="sx-arrow-up mg-bt10  {{curIndex == index && item.sort != isSort ? 'sx-arrow-down1' : ''}}"></view>
+                            <view class="sx-arrow-down mg-tp10 {{curIndex == index && item.sort == isSort ? 'sx-arrow-up1' : ''}}"></view>
+                    </view> -->
+                    <image class="block mg-lt10" wx:if="{{index != curIndex}}" src="../../images/sortPrice.png" ></image>
+                    <image class="block mg-lt10" wx:if="{{index == curIndex && isPrice}}" src="../../images/price1.png" ></image>
+                    <image class="block mg-lt10" wx:if="{{index == curIndex &&!isPrice}}" src="../../images/price2.png" ></image>
+                </view>
+        </view>
+        <!--商品列表-->
+        <view class="proDes bg-fff">
+            <view class="proList" wx:if="{{proList1.length > 0}}">
+                <view class="list-item clearfix relative" wx:for="{{proList1}}" wx:key="item">
+                        <navigator hover-class='none' url='../proDetails/proDetails?id={{item.id}}'>
+                            <view class="radius8 pull-left leftCont mg-rt30">
+                                    <image class="radius" src='{{item.product_images}}'></image>
+                            </view>
+                            <view class="pull-right rightCont">
+                                    <view class="ft-28 color-333 line-h40 overflow-ellipsis2 "> <view class="bg-fc5920 discount1 inline-block mg-rt10 text-center {{item.product_tag == null ? 'hide' : ''}}">{{item.product_tag}}</view>{{item.product_name}}</view>
+                                    <view class="mg-tp20 discount ft-20 color-666">
+                                        <text>销量：{{item.ordercount}}</text>
+                                    </view>
+                                    <view class="price absolute mg-tp40">
+                                        <view class="color-ff5400">
+                                                <text class="ft-26 color-fc5920">￥{{item.product_fact_price}}</text>
+                                                <text class="ft-20 line-through color-999 mg-lt15">￥{{item.product_price}}</text>
+                                        </view>
+                                    </view>
+                            </view>
+                        </navigator>
+                        <image  bindtap='addCart' data-index="{{index}}" class="joinCart absolute" src='/images/joinCart.png'></image>
+                </view>
+                <!--没有更多了-->
+                <!-- <view wx:if="{{isempty}}" class="h100 line-h100 text-center ft-22 color-999 bg-f4f4f4">没有更多了</view> -->
+                <!-- <view class="loadMore text-center" wx:if="{{isLoadMore}}">
+                    <view class="ft-26 color-666">正在加载更多</view>
+                </view> -->
+                <view class="loadMore text-center">
+                    <image class="block" src="../../images/icon1.png" ></image>
+                    <view class="ft-20 mg-tp20 color-999">没有更多了，看看其他的吧~</view>
+                </view>
+
+            </view>
+            <view wx:else>
+                <view class="text-center proNullStyle">
+                        <image src="/images/proNull.png"></image>
+                        <view class="ft-26 color-999 mg-tp30">未搜到任何商品~</view>
+                </view>
+            </view>
+        </view>
+</view>

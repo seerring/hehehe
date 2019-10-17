@@ -1,0 +1,31 @@
+/* pages/mySubpackage/pages/withdraw/withdraw.wxss */
+page{
+     background:#fff;
+}
+.head .text{
+     margin-top:96rpx;
+}
+.head .money{
+     font-size:46rpx;
+}
+.withdrawAmount{
+     margin:80rpx 0 0 40rpx;
+}
+.inputMoney,
+.wxChat{
+     padding:0 40rpx;
+}
+.inputMoney .text{
+     font-size:42rpx;
+}
+.inputMoney input{
+     width:500rpx;
+}
+.wxChat .withdrawWay image{
+     width:35rpx;
+     height:29rpx;
+}
+.withdrawBtn{
+     width:690rpx;
+     margin-top:100rpx;
+}

@@ -1,0 +1,39 @@
+/* indexPackage/pages/storeDes/storeDes.wxss */
+
+.storeDes .mainImgBox .indexSwiper .bottomBox {
+  bottom: 20rpx;
+  right: 30rpx;
+}
+.indexSwiper swiper-item image {
+  width:100%;
+  height:375rpx;
+}
+.storeDes .mainImgBox .indexSwiper .bottomBox .dots {
+  line-height: 36rpx;
+}
+.storeDes .mainImgBox .indexSwiper .bottomBox .dots span {
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+.storeDes .mainImgBox .indexSwiper .bottomBox .dots image {
+  width: 72rpx;
+  height: 36rpx;
+}
+.storeDes .storeAds > div {
+  width: 60%;
+}
+.storeDes .storeAds > div image {
+  width: 5%;
+}
+.address_img {
+  width: 20rpx;
+  height:25rpx;
+}
+.storeDes .imgArr image {
+  width: 200rpx;
+  height: 280rpx;
+}
+.storeDes .imgArr image:last-child {
+  margin-right: 0;
+}

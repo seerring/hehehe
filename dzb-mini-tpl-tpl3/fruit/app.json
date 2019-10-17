@@ -1,0 +1,153 @@
+{
+    "pages": [
+        "pages/tabBar/index/index",
+        "pages/common/pages/login/login",
+        "pages/common/pages/register/register",
+        "pages/tabBar/shopCart/shopCart",
+        "pages/tabBar/my/my",
+        "pages/tabBar/category/category",
+        "pages/common/pages/forgetPassword/forgetPassword",
+        "pages/tabBar/activity/activity"
+    ],
+    "subPackages": [
+        {
+            "root": "pages/idxSubpackage/",
+            "pages": [
+                "pages/limitTime/limitTime",
+                "pages/commissionList/commissionList",
+                "pages/proDetails/proDetails",
+                "pages/comments/comments",
+                "pages/assemble/assemble",
+                "pages/newDaily/newDaily",
+                "pages/topRanking/topRanking",
+                "pages/searchPage/searchPage",
+                "pages/limitDes/limitDes",
+                "pages/assembleDes/assembleDes",
+                "pages/changeStore/changeStore",
+                "pages/storeDes/storeDes",
+                "pages/mgLocation/mgLocation",
+                "pages/userMessage/userMessage",
+                "pages/specialDes/specialDes",
+                "pages/groupDetails/groupDetails"
+            ]
+        },
+        {
+            "root": "pages/cartSubpackage/",
+            "pages": [
+                "pages/confirmOrder/confirmOrder",
+                "pages/subOrder/subOrder",
+                "pages/groupOrder/groupOrder",
+                "pages/address/address",
+                "pages/addAds/addAds",
+                "pages/codePayment/codePayment"
+            ]
+        },
+        {
+            "root": "pages/map/",
+            "pages": [
+                "location/location"
+            ]
+        },
+        {
+            "root": "pages/mySubpackage",
+            "pages": [
+                "pages/myCenter/myCenter",
+                "pages/bindMobile/bindMobile",
+                "pages/setting/setting",
+                "pages/msgCenter/msgCenter",
+                "pages/msgDetails/msgDetails",
+                "pages/feedback/feedback",
+                "pages/address/address",
+                "pages/helpCenter/helpCenter",
+                "pages/memberCard/memberCard",
+                "pages/memberSys/memberSys",
+                "pages/disCoupon/disCoupon",
+                "pages/InviteRules/InviteRules",
+                "pages/wallet/wallet",
+                "pages/payDetails/payDetails",
+                "pages/withdraw/withdraw",
+                "pages/comments/comments",
+                "pages/order/order",
+                "pages/orderDetails/orderDetails",
+                "pages/saleService/saleService",
+                "pages/refundDetails/refundDetails",
+                "pages/refundAfterSale/refundAfterSale",
+                "pages/refundDes/refundDes",
+                "pages/logistics/logistics",
+                "pages/getMemberCard/getMemberCard",
+                "pages/verGoods/verGoods",
+                "pages/refundList/refundList",
+                "pages/orderDes/orderDes",
+                "pages/groupOrderDes/groupOrderDes",
+                "pages/refund/refund",
+                "pages/memberCharge/memberCharge",
+                "pages/memberExplain/memberExplain",
+                "pages/paymentList/paymentList",
+                "pages/paymentDes/paymentDes",
+                "pages/communicate/communicate",
+                "pages/memberRecord/memberRecord",
+                "pages/systemUpdate/systemUpdate"
+            ]
+        }
+    ],
+    "tabBar": {
+        "color": "#999999",
+        "selectedColor": "#1ccfcf",
+        "backgroundColor": "#ffffff",
+        "borderStyle": "black",
+        "position": "bottom",
+        "list": [
+            {
+                "pagePath": "pages/tabBar/index/index",
+                "text": "首页",
+                "iconPath": "images/footer/home-gray.png",
+                "selectedIconPath": "images/footer/home-blue.png"
+            },
+            {
+                "pagePath": "pages/tabBar/category/category",
+                "text": "分类",
+                "iconPath": "images/footer/classify-gray.png",
+                "selectedIconPath": "images/footer/classify-blue.png"
+            },
+            {
+                "pagePath": "pages/tabBar/activity/activity",
+                "text": "来拼",
+                "iconPath": "images/footer/assemble-gray.png",
+                "selectedIconPath": "images/footer/assemble-blue.png"
+            },
+            {
+                "pagePath": "pages/tabBar/shopCart/shopCart",
+                "text": "购物车",
+                "iconPath": "images/footer/cart-gray.png",
+                "selectedIconPath": "images/footer/cart-blue.png"
+            },
+            {
+                "pagePath": "pages/tabBar/my/my",
+                "text": "我的",
+                "iconPath": "images/footer/my-gray.png",
+                "selectedIconPath": "images/footer/my-blue.png"
+            }
+        ]
+    },
+    "usingComponents": {},
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#1CCFCF",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "white"
+    },
+    "networkTimeout": {
+        "request": 10000,
+        "connectSocket": 10000,
+        "uploadFile": 10000,
+        "downloadFile": 10000
+    },
+    "permission": {
+        "scope.userLocation": {
+            "desc": "为您检索附近门店"
+        }
+    },
+    "navigateToMiniProgramAppIdList": [],
+    "debug": false,
+    "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,99 @@
+<!--pages/mySubpackage/pages/wallet/wallet.wxml-->
+<view class="wallet">
+  <view class="myBalance">
+    <view class="headCont flex flex-ac">
+      <view class="flex flex-ac flex-js leftCont">
+        <image class="block mg-rt10" src="../../images/balance.png"></image>
+        <view class="ft-30 color-333 bold">我的余额</view>
+      </view>
+      <view class="rightCont flex flex-ac flex-je">
+        <navigator hover-class='none' url='../paymentList/paymentList' class="block ft-28 color-333 bold">
+        <!-- <router-link class="block ft-28 color-333 bold" :to="{name:'paymentList'}"> -->
+          明细
+        </navigator>
+      </view>
+    </view>
+    <view class="contentBox bd-rd20 mg-tp20">
+      <view class="title flex flex-ac flex-jc">
+        <view class="ft-28 color-fff bold mg-rt15">我的余额</view>
+        <image class="block" src="../../images/prompt-white.png"  bindtap='useExplain'></image>
+      </view>
+      <view class="money color-fff bold flex flex-jc">￥{{list.amount}}</view>
+    </view>
+  </view>
+  <!--<view class="recharge">
+    <view class="headCont flex flex-ac mg-bt30">
+      <view class="flex flex-ac flex-js leftCont">
+        <image class="block mg-rt10" src="../../images/charge.png"></image>
+        <view class="ft-30 color-333 bold">在线充值</view>
+      </view>
+    </view>
+    <view class="contentBox">
+      <view class="list">
+        <view class="{{curIndex == index ? 'activeColor2 list-item flex flex-ac mg-tp15' : 'list-item flex flex-ac mg-tp15'}}" wx:for="{{list.recharge_list}}" bindtap='ChooseRecharge' data-index="{{index}}" data-id="{{item.id}}" data-price="{{item.recharge_amount}}">
+          <view class="relative leftCont pd-lt20 flex flex-ac flex-jc">
+            <image class="block" src="../../images/wallet-img1.png"></image>
+            <text class="ft-32 color-fff bold absolute">￥{{item.recharge_amount}}</text>
+          </view>
+          <view class="ft-32 bold rightCont color-333" >充值￥{{item.recharge_amount}}送￥{{item.give_amount}}</view>
+        </view>
+      </view>
+      <view class="chooseMoney mg-tp15" bindtap='customRecharge' data-index="{{6}}">
+        <view class="{{curIndex == 6 ? 'activeColor2 flex flex-ac content' : 'flex flex-ac content'}}">
+          <view class="relative leftCont pd-lt20 flex flex-ac flex-jc">
+            <image class="block" src="../../images/wallet-img1.png"></image>
+            <text class="ft-32 color-fff bold absolute">自主充值</text>
+          </view>
+          <view class="rightCont flex flex-ac color-333">
+            <view class="ft-32 mg-rt10">其他金额</view>
+            <image wx:if="{{curIndex != 6}}" class="block" src="../../images/down.png"></image>
+            <image wx:else class="block" src="../../images/upward.png"></image>
+          </view>
+        </view>
+      </view>
+      <view class="otherMoneyBox mg-tp10" wx:if="{{curIndex == 6}}">
+        <view class="inputBox flex flex-ac">
+          <input type="number" bindinput="inputValue" class="ft-28 color-333 h70 line-h70 pd-lt30" placeholder="请输入充值金额，最低1元" />
+          <view class="ft-32 color-fff bg-1ccfcf text-center h70 line-h70" bindtap='otherPay'>立即充值</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--余额使用说明-->
+  <view >
+    <view wx:if="{{showLogin}}" class="explain">
+            <view class="modalContent bg-fff bd-rd10">
+              <view class="modalTop color-333 ft-30 pd-bt30 bd-bt-eee bold text-center">余额使用规则</view>
+              <view class="modalMiddle mg-tp30">
+                <view class="ft-28 color-333">1、使用APP充值，门店亦可消费使用，钱包余额不可提现。</view>
+                <view class="ft-28 color-333">2、发生退货或退款时使用钱包支付的金额将退回到“我的余额”账户中，不支持现金退款。</view>
+              </view>
+            </view>
+            <view class="closeModal">
+              <image class="block" src="../../images/closeModal.png" bindtap='closeModal' ></image>
+            </view>
+            <!-- <image class="block closeModal" src="../../images/closeModal.png" bindtap='closeModal' ></image> -->
+        </view>
+      </view>
+      <!--支付方式-->
+    <view class="black_cover" wx:if="{{isCloseModal2}}" bindtap='closeModal'>
+    <view class="payList bg-fff">
+      <view class="clearfix head pd-lr30 bd-bt-f4f4f4 h100 line-h100">
+          <!-- <view class="pull-left ft-28 color-333">选择支付方式</view> -->
+          <image class="block pull-right" bindtap='closeModal'  src="../../images/closeModal.png"></image>
+        </view>
+        <view class="list pd-lr30">
+          <view class="list-item bd-bt-f4f4f4 pd-tb30 clearfix" wx:for="{{payList}}"  bindtap='choosePay' data-index="{{index}}">
+            <view class="leftCont flex flex-ac pull-left">
+              <image class="block mg-rt20" src="{{item.img}}"></image>
+              <view class="ft-28 color-333">{{item.name}}</view>
+            </view>
+            <view class="rightCont pull-right" wx:if="{{curIndex2 == index}}">
+              <image class="block" src="../../images/payWay.png"></image>
+            </view>
+          </view>
+        </view>
+        <button open-type="getUserInfo" bindgetphonenumber="wxLogin" bindgetuserinfo='wxLogin' class="h100 line-h100 payment bg-1ccfcf text-center ft-28 color-fff"  data-index="{{index}}" >去支付</button>
+    </view>
+  </view>
+</view>

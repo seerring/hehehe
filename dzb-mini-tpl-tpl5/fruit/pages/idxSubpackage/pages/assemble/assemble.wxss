@@ -1,0 +1,34 @@
+/* pages/idxSubpackage/pages/assemble/assemble.wxss */
+.list{
+     padding:20rpx 30rpx 0 30rpx;
+}
+.list .list-items{
+     width:340rpx;
+}
+.list .list-items:nth-child(2n-1){
+     margin-right:10rpx;
+}
+.list .list-items:nth-child(1),
+.list .list-items:nth-child(2){
+     margin-top:0rpx;
+}
+.list .list-items .proImg,
+.list .list-items .proImg image{
+     width:340rpx;
+     height:340rpx;
+}
+.list .list-items .toGroup{
+     width:300rpx;
+     background:#FBA981;
+     border-radius:25rpx;
+}
+.backTop{
+     position:fixed;
+     right:30rpx;
+     bottom:66rpx;
+}
+.backTop,
+.backTop image{
+     width:54rpx;
+     height:54rpx;
+}

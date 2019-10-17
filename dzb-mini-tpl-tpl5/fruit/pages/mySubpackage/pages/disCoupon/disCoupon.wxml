@@ -1,0 +1,43 @@
+<!--pages/mySubpackage/pages/disCoupon/disCoupon.wxml-->
+<include src="../../../common/header.wxml" />
+<view class="container">
+  <view wx:if="{{list.length > 0}}">
+    <!--优惠券列表-->
+    <view class="list pd-lr30">
+      <view class="list-item mg-tp20 relative" wx:for="{{list}}" wx:key="item">
+        <image class="absolute" src="/pages/common/images/couponBg.png"></image>
+        <view class="coor-333 bold absolute ft-26 disMoney">￥
+          <text>{{item.coupon_price}}</text>
+        </view>
+        <view class="discout absolute">
+          <view class="type ft-24 color-fff text-center inline-block">优惠券</view>
+          <view class="ft-26 color-333 mg-lt20 inline-block">{{item.name}}</view>
+        </view>
+
+        <view class="dixian absolute">
+
+          <view class="ft-26 color-333 inline-block">
+            <text class="mg-lt10">{{item.type_name}}</text>
+          </view>
+
+          <view class="ft-26 color-333 inline-block">
+            <text class="mg-lt10">满{{item.coupon_condition}}减{{item.coupon_price}}</text>
+          </view>
+        </view>
+        <view class="vaildDate absolute ft-24 color-333">有效期：{{item.coupon_start_time}}至{{item.coupon_left_time}}</view>
+        <image wx:if="{{item.coupon_status == 2}}" class="absolute status" src='../../images/used.png'></image>
+        <image wx:if="{{item.coupon_status == 3}}" class="absolute status" src='../../images/vaildDated.png'></image>
+      </view>
+    </view>
+    <view v-else class="loadMore text-center">
+      <image class="block" src="/images/common/icon4.png"></image>
+      <view class="ft-20 mg-tp20 color-999">没有更多了，看看其他的吧~</view>
+    </view>
+  </view>
+  <view wx:else>
+    <view class="text-center couponNullStyle">
+      <image src='/images/couponNull.png'></image>
+      <view class="ft-26 mg-tp30 color-999">您还没有优惠券~</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,30 @@
+<include src="../../../common/header.wxml" />
+<view class="container">
+    <!--商品列表-->
+    <view class="proLists bg-fff">
+        <view class="list-item pd-lr30 clearfix border2" wx:for="{{proLists}}" wx:key="item">
+            <view class="pull-left mg-tp30 leftCont radius8">
+                <image src="{{item.product_images}}"></image>
+            </view>
+            <view class="pull-left mg-tp30 mg-lt30 rightCont">
+                <view class="proDesc ft-28 color-333 line-h40 overflow-ellipsis2">{{item.product_name}}</view>
+                <view class="mg-tp30 ft-22 color-999 relative">
+                    <progress percent='{{item.commission}}' backgroundColor='#fff' stroke-width='32rpx' border-radius='16rpx' activeColor='#fdddcd'></progress>
+                    <text class="absolute progressText color-ff5400 ft-20">佣金: ¥ {{item.commission}}</text>
+                </view>
+                <view class="clearfix h50 mg-tp40">
+                    <view class="ft-26 line-h50 pull-left color-ff5400">￥{{item.product_fact_price}}</view>
+                    <button class="h50 pull-right look look2 remind color-ff5400 ft-26 text-center" hover-class="none" data-item='{{item}}' open-type="share">
+                    去分享
+                    </button> 
+                </view>
+            </view>
+        </view>
+    </view>
+    <!--没有更多-->
+    <view wx:if="{{isempty}}" class="h100 line-h100 text-center ft-22 color-999">没有更多了</view>
+    <!--返回顶部-->
+     <view class="backTop" bindtap='backTop' wx:if="{{backTopVal}}">
+          <image src="/images/backTop.png"></image>
+     </view>
+</view>

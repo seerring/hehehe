@@ -1,0 +1,7 @@
+/* pages/mySubpackage/pages/InviteRules/InviteRules.wxss */
+.container{
+     border-top:2rpx solid #f8f8f8;
+}
+.other{
+     margin-top:86rpx;
+}

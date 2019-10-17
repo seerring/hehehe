@@ -1,0 +1,262 @@
+<!--pages/mySubpackage/pages/groupOrderDes/groupOrderDes.wxml-->
+<!-- <text>pages/mySubpackage/pages/groupOrderDes/groupOrderDes.wxml</text> -->
+<view class="orderDes bg-f4f4f4">
+		<view class="headBox relative">
+			<view class="absolute bd-rd10 hx_status bg-fff flex flex-ac" wx:if="{{orderDes.status == 1}}">
+				<view class="leftCont">
+					<image class="block" src="../../images/waitPayment.jpg" ></image>
+				</view>
+				<view class="rightCont">
+					<view class="ft-32 color-333 status">订单待付款</view>
+					<view class="ft-26 color-333 mg-tp10 line-h40">商品数量有限，赶快去付款吧！</view>
+					<view class="btn ft-28 color-1ccfcf text-center flex flex-je pd-tp20" bindtap='payOn'>
+						<text class="h50 inline-block">付款</text>
+					</view>
+				</view>
+			</view>
+			<view class="absolute bd-rd10 hx_status bg-fff flex flex-ac" wx:if="{{orderDes.status == 2}}">
+				<view class="leftCont">
+					<image class="block" src="../../images/order_wait.jpg" ></image>
+				</view>
+				<view class="rightCont">
+					<view class="ft-32 color-333 status">已参团，等待成团</view>
+					<view class="ft-26 color-333 mg-tp10 line-h40">本次拼团为{{orderDes.quorum}}人团，邀请好友一起团哦！</view>
+				</view>
+			</view>
+			<view class="absolute bd-rd10 hx_status bg-fff flex flex-ac" wx:if="{{orderDes.status == 3}}">
+				<view class="leftCont">
+					<image class="block" src="../../images/order_wait.jpg" ></image>
+				</view>
+				<view class="rightCont">
+					<view class="ft-32 color-333 status">拼团成功！等待到店核销</view>
+					<view class="ft-26 color-333 mg-tp10 line-h40">感谢您的信任，欢迎下次光临~</view>
+				</view>
+			</view>
+			<view class="absolute bd-rd10 hx_status bg-fff flex flex-ac" wx:if="{{orderDes.status == 4}}">
+				<view class="leftCont">
+					<image class="block" src="../../images/order_com.jpg" ></image>
+				</view>
+				<view class="rightCont">
+					<view class="ft-32 color-333 status">拼团成功！到店核销完成</view>
+					<view class="ft-26 color-333 mg-tp10 line-h40">感谢您的信任，欢迎下次光临~</view>
+				</view>
+			</view>
+			<view class="absolute bd-rd10 hx_status bg-fff flex flex-ac" wx:if="{{orderDes.status == 6}}">
+				<view class="leftCont">
+					<image class="block" src="../../images/order_close.jpg" ></image>
+				</view>
+				<view class="rightCont">
+					<view class="ft-32 color-333 status">交易关闭</view>
+					<view class="ft-26 color-333 mg-tp10 line-h40">已取消订单</view>
+					<view class="btn ft-28 color-1ccfcf text-center flex flex-je pd-tp20">
+						<text class="h50 inline-block" bindtap='buyAgain'>重新购买</text>
+					</view>
+				</view>
+			</view>
+			<view class="absolute bd-rd10 hx_status bg-fff flex flex-ac" wx:if="{{orderDes.status == 8}}">
+				<view class="leftCont">
+					<image class="block" src="../../images/order_close.jpg" ></image>
+				</view>
+				<view class="rightCont">
+					<view class="ft-32 color-333 status">拼团失败</view>
+					<view class="ft-26 color-333 mg-tp10 line-h40">您支付的订单金额已原路返回您的账户</view>
+					<view class="btn ft-28 color-1ccfcf text-center flex flex-je pd-tp20">
+						<text class="h50 inline-block" bindtap='buyAgain'>重新购买</text>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="finish_time pd30 bg-fff mg-tp30" wx:if="{{orderDes.groupId}}">
+			<view wx:if="{{orderDes.status == 1||orderDes.status == 2}}">
+				<view class="ft-28 end_time flex flex-ac" wx:if="{{timeObj.countDown > 0}}">
+					<text class="h30 line-h30 pd-lt10 line">距结束：</text>
+					<text class="bg-1ccfcf times bd-rd8 color-fff h35 line-h35 text-center">{{timeObj.hourStr}}</text>
+					<text class="dian h35 line-h35">:</text>
+					<text class="bg-1ccfcf times bd-rd8 color-fff h35 line-h35 text-center">{{timeObj.minStr}}</text>
+					<text class="dian h35 line-h35">:</text>
+					<text class="bg-1ccfcf times bd-rd8 color-fff h35 line-h35 text-center">{{timeObj.secStr}}</text>
+				</view>
+				<view class="ft-24 end_time flex flex-ac mg-tp10" wx:else>
+					<text class="h30 line-h30 pd-lt10 line">距结束：</text>
+            <text class="bg-999 times bd-rd8 color-fff h35 line-h35 text-center">00</text>
+            <text class="dian">:</text>
+            <text class="bg-999 times bd-rd8 color-fff h35 line-h35 text-center">00</text>
+            <text class="dian">:</text>
+            <text class="bg-999 times bd-rd8 color-fff h35 line-h35 text-center">00</text>
+        </view>
+			</view>
+			<view class="ft-28 end_time flex flex-ac" wx:if="{{orderDes.status == 3||orderDes.status == 4}}">
+				<text class="h30 line-h30 pd-lt10 line">拼团成功</text>
+			</view>
+			<view class="ft-28 end_time flex flex-ac" wx:if="{{orderDes.status == 6}}">
+				<text class="h30 line-h30 pd-lt10 line">订单已取消</text>
+			</view>
+			<view class="ft-28 end_time flex flex-ac" wx:if="{{orderDes.status == 8}}">
+				<text class="h30 line-h30 pd-lt10 line">拼团失败</text>
+			</view>
+			<view class="flex flex-ac joined mg-tp20" wx:if="{{orderDes.status == 1||orderDes.status == 2}}">
+                <image class="block mg-rt10 bd-rd8" wx:for="{{orderDes.avatar}}" wx:key="{{item}}" wx:if="{{item != '' && item != null}}" src="{{item}}" ></image>
+                <image class="block mg-rt10 bd-rd8" wx:for="{{orderDes.avatar}}" wx:key="{{item}}" wx:if="{{item == '' || item == null}}" src="../../images/default.png" ></image>
+                
+				<image class="block mg-rt10" wx:for="{{orderDes.group_num}}" wx:key="{{item}}" wx:if="{{index < 6}}" src="../../images/groupNum.png" ></image>
+				<view class="mg-lt20 ft-24 color-333">还差<text class="color-fc5920">{{orderDes.group_num}}人</text>成团</view>
+			</view>
+			<view class="flex flex-ac joined mg-tp20" wx:if="{{orderDes.status == 3||orderDes.status == 4}}">
+				<image class="block mg-rt10 bd-rd8" wx:for="{{orderDes.avatar}}" wx:key="{{item}}" wx:if="{{item != '' && item != null}}" src="{{item}}" ></image>
+				<image class="block mg-rt10 bd-rd8" wx:for="{{orderDes.avatar}}" wx:key="{{item}}" wx:if="{{item == '' || item == null}}" src="../../images/default.png" ></image>
+				<image class="block mg-rt10" wx:for="{{orderDes.group_num}}" wx:key="{{item}}" wx:if="{{index < 6}}" src="../../images/groupNum.png" ></image>
+				<view class="mg-lt20 ft-24 color-333">总共<text class="color-fc5920">{{orderDes.quorum}}人</text>成团</view>
+			</view>
+			<view class="flex flex-ac joined mg-tp20" wx:if="{{orderDes.status == 8}}">
+				<image class="block mg-rt10 bd-rd8" wx:for="{{orderDes.avatar}}" wx:key="{{item}}" wx:if="{{item != '' && item != null}}" src="{{item}}" ></image>
+				<image class="block mg-rt10 bd-rd8" wx:for="{{orderDes.avatar}}" wx:key="{{item}}" wx:if="{{item == '' || item == null}}" src="../../images/default.png" ></image>
+				<image class="block mg-rt10" wx:for="{{orderDes.group_num}}" wx:key="{{item}}" wx:if="{{index < 6}}" src="../../images/groupNum.png" ></image>
+				<view class="mg-lt20 ft-24 color-333">只有<text class="color-fc5920">{{orderDes.quorum - orderDes.group_num}}人</text>成团</view>
+			</view>
+		</view>
+		<view class="proDes bg-fff mg-tp20">
+			<view class="list-item" wx:for="{{orderDes.order_info}}" wx:key="{{item}}">
+				<router-link class="block" :to="{name:'groupDetails',params:{id:item.id,sid:sid}}">
+					<view class="flex flex-ac proInfo bd-bt-f4f4f4">
+						<view class="leftCont">
+							<image class="block bd-rd8" src="{{item.product_images}}" ></image>
+						</view>
+						<view class="rightCont">
+							<view class="ft-28 color-333 mult_line-ellipsis line-h35">{{item.product_name}}</view>
+							<view class="clearfix mg-tp30">
+								<view class="ft-28 color-333 pull-left">
+									单价：<text class="ft-24">￥</text><text>{{item.product_fact_price}}</text>
+								</view>
+								<view class="pull-right ft-24 color-999 line-h35">×{{item.num}}</view>
+							</view>
+						</view>
+					</view>
+				</router-link>
+			</view>
+			<view class="totalPrice h90 line-h90 flex flex-ac flex-je pd-lr30">
+				<view class="ft-26 color-333 mg-rt30">共{{orderDes.order_info[0].num}}件</view>
+				<view class="ft-26 color-333">实付总额：<text class="price color-fc5920">￥{{orderDes.order_info[0].num * orderDes.order_info[0].product_fact_price}}</text></view>
+			</view>
+		</view>
+		<view class="hx_info bg-fff mg-tp20">
+			<view class="pd-lr30 h90 flex flex-ac bd-bt-f4f4f4">
+				<view class="title h30 line-h30 pd-lt10 ft-28">核销信息</view>
+			</view>
+			<view class="pd30">
+				<view class="clearfix">
+					<view class="color-666 ft-26 pull-left">核销商家</view>
+					<view class="color-333 ft-26 pull-right">{{orderDes.name}}</view>
+				</view>
+				<view class="clearfix mg-tp20">
+					<view class="color-333 ft-26 text-right">{{orderDes.store_address}}</view>
+				</view>
+				<view class="clearfix mg-tp20">
+					<view class="color-666 ft-26 pull-left">核销时间</view>
+					<view class="color-333 ft-26 pull-right">{{orderDes.receivingtime}}</view>
+				</view>
+				<view class="clearfix mg-tp20">
+					<view class="color-666 ft-26 pull-left">核销手机</view>
+					<view class="color-333 ft-26 pull-right">{{orderDes.address_info}}</view>
+				</view>
+			</view>
+		</view>
+		<view class="hx_info bg-fff mg-tp20 ft-28">
+			<view class="pd-lr30 h90 flex flex-ac bd-bt-f4f4f4">
+				<view class="title h30 line-h30 pd-lt10 ft-28">订单信息</view>
+			</view>
+			<view class="pd30">
+				<view class="clearfix">
+					<view class="color-666 ft-26 pull-left">订单编号</view>
+					<view class="color-333 ft-26 pull-right">{{orderDes.order_num}}</view>
+				</view>
+				<view class="clearfix mg-tp20" wx:if="{{orderDes.status == 2||orderDes.status == 3||orderDes.status == 4||orderDes.status == 8}}">
+					<view class="color-666 ft-26 pull-left">交易流水号</view>
+					<view class="color-333 ft-26 pull-right">{{orderDes.paynumber}}</view>
+				</view>
+				<view class="clearfix mg-tp20">
+					<view class="color-666 ft-26 pull-left">下单时间</view>
+					<view class="color-333 ft-26 pull-right">{{orderDes.create_time}}</view>
+				</view>
+				<view class="clearfix mg-tp20" wx:if="{{orderDes.status == 2||orderDes.status == 3||orderDes.status == 4||orderDes.status == 8}}">
+					<view class="color-666 ft-26 pull-left">付款时间</view>
+					<view class="color-333 ft-26 pull-right">{{orderDes.paytime}}</view>
+				</view>
+				<view class="clearfix mg-tp20" wx:if="{{orderDes.status == 3||orderDes.status == 4}}">
+					<view class="color-666 ft-26 pull-left">拼团时间</view>
+					<view class="color-333 ft-26 pull-right">{{orderDes.group_time}}</view>
+				</view>
+				<view class="clearfix mg-tp20">
+					<view class="color-666 ft-26 pull-left">备注</view>
+					<view class="color-333 ft-26 pull-right">{{orderDes.note}}</view>
+				</view>
+			</view>
+		</view>
+    <!-- <view class="black_cover" wx:if="isCloseModal2">
+			<view class="payList bg-fff">
+				<view class="clearfix head h100 line-h100 pd-lr30 bd-bt-f4f4f4">
+		    		<p class="pull-left ft-28 color-333">选择支付方式</p>
+		    		<image class="block pull-right" @click="closeModal" src="../../images/closeModal.png" alt="" />
+		    	</view>
+		    	<view class="list pd-lr30">
+		    		<view class="list-item bd-bt-f4f4f4 pd-tb30 clearfix" wx:for="(item,index) in payList" @click="choosePay(index)">
+		    			<view class="leftCont flex flex-ac pull-left">
+		    				<image class="block mg-rt20" :src="item.image" alt="" />
+		    				<p class="ft-28 color-333">{{item.name}}</p>
+		    			</view>
+		    			<view class="rightCont pull-right" wx:if="curIndex == index">
+		    				<image class="block" src="../../images/payWay.png" alt="" />
+		    			</view>
+		    		</view>
+		    	</view>
+		    	<view class="h100 line-h100 payment bg-1ccfcf text-center ft-28 color-fff" @click="payment(curIndex)">去支付</view>
+			</view>
+		</view> -->
+  <!-- 支付方式 -->
+  <view class="black_cover" wx:if="{{isCloseModal2}}">
+  <view class="holder2" bindtap="closeModal"></view> 
+    <view class="payList bg-fff">
+      <view class="clearfix head h100 line-h100 pd-lr30 bd-bt-f4f4f4">
+          <view class="pull-left ft-28 color-333">选择支付方式</view>
+          <image class="block pull-right" bindtap="closeModal" src="../../images/closeModal.png"></image>
+        </view>
+        <view class="list pd-lr30">
+          <view class="list-item bd-bt-f4f4f4 pd-tb30 clearfix  flex flex-ac" wx:for="{{payList}}" wx:key="item" bindtap="choosePay" data-index="{{index}}">
+            <view class="leftCont flex flex-ac pull-left" style="margin-right:auto">
+              <image class="block mg-rt20" src="{{item.img}}" alt="" />
+              <view class="ft-28 color-333">{{item.name}}</view>
+            </view>
+            <view class="rightCont pull-right" wx:if="{{curIndex == index}}">
+              <image class="block" src="../../images/payWay.png"></image>
+            </view>
+          </view>
+        </view>
+        <!--<button open-type="getUserInfo" bindgetphonenumber="wxLogin" bindgetuserinfo='wxLogin' class="h100 line-h100 payment bg-1ccfcf text-center ft-28 color-fff">去支付</button>-->
+         <view class="h100 line-h100 payment bg-1ccfcf text-center ft-32 color-fff" bindtap="payWay"  data-index="{{index}}">去支付</view> 
+    </view>
+  </view>
+
+  <!--钱包支付-->
+		<view class="black_cover" wx:if="{{isShowModal2}}">
+			<view class="payList bg-fff">
+				<view class="clearfix head h100 line-h100 pd-lr30 bd-bt-f4f4f4 relative">
+		    		<view class="pull-left ft-32 color-333 text-center width-full">请输入支付密码</view>
+		    		<image class="block pull-right absolute" bindtap='closeModal'  src="../../images/closeModal.png" ></image>
+		    	</view>
+		    	<view class="list2 pd-lr30">
+		    		<view class="pd-tb30 ft-28 color-333 text-center">{{payInfo.name}}</view>
+		    		<view class="color-333 bold price text-center">￥{{payInfo.price}}</view>
+		    		<view class="passwordBox bd-bt-eee">
+		    			<view class="h60 line-h60 flex flex-ac">
+			    			<view class="leftCont color-333 ft-32">密码</view>
+			    			<view class="rightCont flex flex-ac">
+			    				<input  bindinput="inputValue" type="password" v-model="password" maxlength="16" class="ft-36" />
+			    			</view>
+			    		</view>
+		    		</view>
+		    		<view class="h80 line-h80 payment bg-1ccfcf text-center ft-32 color-fff block bd-rd8" bindtap='payment2'>立即支付</view>
+		    		<view class="mg-tp30 color-666 ft-28 text-center pd-bt40">支付密码为手机号登录密码</view>
+		    	</view>
+			</view>
+		</view> 
+
+	</view>	

@@ -1,0 +1,319 @@
+
+/* pages/tabBar/my/my.wxss */
+.topInfo{
+     width:100%;
+     height:362rpx;
+     position: relative;
+}
+/* 附近店铺标题样式 */
+.shopTitle{
+  width: 100%;
+  border-top-left-radius: 40rpx;
+  border-top-right-radius: 40rpx;
+  z-index: 10;
+  top: 300rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  /* overflow: hidden; */
+}
+/* 地图小图标 */
+.mapIcon{
+  height: 88rpx;
+  line-height: 88rpx;
+  display: flex;
+  align-items: center;
+}
+/* 店铺名样式 */
+.storeNameTitle{
+  position: absolute;
+  top: 0;
+  left: 70rpx;
+}
+/* 头像 */
+.infoImg{
+  right: 30rpx;
+}
+/* vip图片样式 */
+.vipBg{
+  width: 690rpx;
+  height: 120rpx;
+  /* display: flex;
+  justify-content: center; */
+  position:absolute; 
+  left: 50%;
+  transform: translateX(-50%);
+  top: 392rpx;
+}
+.topInfo .head{
+     top:30rpx;
+     width: 100%;
+}
+.topInfo .head .avatar{
+     /* margin-left:70rpx; */
+     width:120rpx;
+     height:120rpx;
+     border-radius:50%;
+}
+
+.topInfo .rightCont {
+    width: 10%;
+    right:38rpx;
+    top:24rpx;
+}
+.topInfo .rightCont .m_icon {
+    margin-top: 5rpx;
+}
+.topInfo .rightCont .m_icon image {
+    margin: 0 auto;
+    width: 40rpx;
+    height: 36rpx;
+}
+.topInfo .rightCont .m_icon .dian {
+    top: 0;
+    right: 0;
+    width: 12rpx;
+    height: 12rpx;
+}
+.topInfo .rightCont .mg-tp8 {
+    margin-top: 8rpx;
+}
+
+/* 查看订单 */
+.allOrder{
+     margin-top: 170rpx;
+     border-top-left-radius: 10rpx;
+     border-top-right-radius: 10rpx;
+}
+.allOrder image{
+     width:11rpx;
+     height:22rpx;
+}
+.orderInfo{
+     padding:32rpx 0 38rpx 0;
+}
+.orderInfo .list{
+  padding: 0;
+}
+.orderInfo .list navigator{
+     text-align:center;
+     flex:1;
+}
+/* 核销订单 */
+.cancelOrder{
+    additive-symbols:1rpx solid #eeeeee;
+    margin-top: 12rpx;
+}
+.flex_1 {
+  text-align:center;
+     flex:1;
+}
+.orderInfo .list .list-item .icon1,
+.orderInfo .list .list-item .icon1 image{
+     width:60rpx;
+     height:60rpx;
+}
+.comtools{
+     padding-bottom:50rpx;
+}
+.comtools button{
+  display: inline-block;
+  width:110rpx;
+  margin-right:83rpx;
+  text-align:center;
+  margin-top:40rpx;
+  background: #fff;
+  line-height:28rpx;
+}
+.comtools button::after{
+  border:none
+}
+.mg-bt {
+  margin-bottom: 12rpx;
+}
+.mg-tp{
+  margin-top:6rpx;
+}
+.comtools .list2{
+     width:690rpx;
+}
+.comtools .list2 .list2-item{
+     width:110rpx;
+     margin-right:83rpx;
+     text-align:center;
+}
+.comtools .list2 .list2-item:nth-child(4n){
+     margin-right:0;
+}
+.comtools .list2 .list2-item .icon1,
+.comtools .list2 .list2-item .icon1 image{
+     width:50rpx;
+     height:50rpx;
+}
+.contentBox{
+     position:fixed;
+     width:100%;
+     height:677rpx;
+     bottom:0rpx;
+     /* top:200rpx; */
+}
+.contentBox .head{
+     padding:45rpx 0; 
+}
+.contentBox .head .closeModal{
+     width:100rpx;
+     height:100rpx;
+     right:34rpx;
+     top:30rpx;
+}
+.contentBox .head .closeModal image{
+     margin-left:60rpx;
+     width:26rpx;
+     height:26rpx;
+}
+.contentBox .disBox .list-item,
+.contentBox .disBox .list-item image{
+     /* width:690rpx; */
+     left:calc(50% - 115rpx);
+     width:234rpx;
+     height:234rpx;
+}
+.contentBox .disBox .list-item .disMoney{
+     left:40rpx;
+     top:40rpx;
+}
+.contentBox .disBox .list-item .disMoney text{
+     font-size:64rpx;
+}
+.contentBox .disBox .list-item .discout{
+     top:38rpx;
+     left:224rpx;
+}
+.contentBox .disBox .list-item .discout .type{
+     width:82rpx;
+     height:33rpx;
+     line-height:33rpx;
+     background:#ff8786;
+     border-radius:2rpx;
+}
+.contentBox .disBox .list-item .dixian{
+     top:101rpx;
+     left:224rpx;
+}
+.contentBox .disBox .list-item .dixian text{
+     color:#ff8786;
+}
+.contentBox .disBox .list-item .vaildDate{
+     bottom:20rpx;
+     left:50rpx;
+}
+.contentBox .shareReward{
+     margin:28rpx 0 50rpx 0;
+}
+.contentBox .shareReward .forCash{
+     margin-right:54rpx;
+     color:#fc2628;
+}
+.contentBox .toShare{
+     width:690rpx;
+}
+.radioButton{
+    position:absolute;
+    right:33rpx;
+    top:-10rpx;
+}
+
+.radioButton1{
+    position:absolute;
+    right:67rpx;
+    top:34rpx;
+}
+.infoImg{
+
+}
+.orderlist{
+  position: absolute;
+}
+.orderInfo{
+  border-bottom-left-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+}
+.orderInfo .storeImg{
+  width: 20%;
+}
+.storeImg image {
+  width:80rpx;
+  height:80rpx;
+}
+.orderInfo .storeName{
+  width: 80%;
+  padding-left:25rpx;
+}
+.lookMember {
+  right:65rpx;
+  width:170rpx;
+  height:81rpx;
+  top: 413rpx;
+}
+/* 名字下的会员标识 */
+.vipIdentifier{
+  font-style: italic;
+  color: #fff1db;
+  width: 112rpx;
+  height: 35rpx;
+  border-radius: 18rpx;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* 未登录显示的登录/注册 */
+.loginRegisterText{
+  margin-top: 36rpx;
+}
+/* 头像旁边的图标 */
+.moreIcon{
+  width: 16rpx;
+  height: 30rpx;
+  margin-right: 28rpx;
+}
+/* 我的资金 */
+.myBalance {
+  margin: 0 auto;
+  width: 100%;
+  height: 150rpx;
+  top: 150rpx;
+}
+.myBalance .order .leftCont {
+  font-family: 'PingFang-Medium';
+}
+/* .myBalance .order .leftCont image {
+  width: 50rpx;
+  height: 50rpx;
+}
+.myBalance .order .rightCont image {
+  margin-top: -5rpx;
+  width: 16rpx;
+  height: 30rpx;
+} */
+.myBalance .list .list-item {
+  font-family: 'PingFang-Medium';
+  width: 33%;
+}
+.myBalance .list .list-item image {
+  margin: 0 auto;
+  width: 50rpx;
+  height: 50rpx;
+}
+/* 我的订单标题 */
+.orderTitle{
+  
+}
+.sameItem{
+  margin-top: 2rpx;
+  border-radius: 0;
+}
+.setItem{
+  border-bottom-left-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+}
+.naviFull{
+  height: 100%;
+  width: 100%;
+}

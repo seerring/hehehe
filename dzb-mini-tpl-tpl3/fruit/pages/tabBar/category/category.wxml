@@ -1,0 +1,114 @@
+<!--pages/tabBar/category/category.wxml-->
+<include src="../../common/header.wxml" />
+<!-- <view class="container"> -->
+<view>
+  <!--搜索-->
+  <view class="headbox bg-1ccfcf">
+      <view class="headSearch pd-lr30 relative">
+          <navigator hover-class='none' url='../../idxSubpackage/pages/searchPage/searchPage'>
+              <image class="icon-search absolute" src="/images/common/search.png"></image>
+              <input class="h80 line-h80 ft-30 color-333 bg-fff radius40" placeholder='搜索店铺商品' placeholder-class='ft-30 color-999' disabled></input>
+          </navigator>
+      </view>
+  </view>
+
+
+   <view class="fixedScroll">
+      <view class="topListBox">
+        <view class="topList flex mg-lt30">
+            <view class="ft-28 color-333  topListItem {{curIndex == item.id ? 'active':''}}" wx:for="{{tabList}}" wx:key="item" bindtap="tabFun"  data-id="{{item.id}}" data-index="{{index}}">
+            <!-- <view class="topTitle w66" wx:if="{{index == 0}}">{{item}}</view> -->
+            <view class="topTitle">{{item.category_name}}</view>
+            </view>
+          </view>
+      </view>
+
+      <!--排序-->
+      <view class="tabListSort pd-lr30">
+        <view class="list-item ft-28 color-333 pull-left flex flex-vc {{index == curIndexSort ? 'active' : ''}}" data-index="{{index}}" bindtap='tabFunSort' wx:for="{{tabListSort}}" wx:key="item">
+          <view class="inline-block">{{item.name}}</view>
+        </view>
+      </view>
+  
+  </view>
+  
+
+<scroll-view scroll-y="true" bindscrolltolower="bindscroll">
+  <view class="rightProList">
+    <view wx:if="{{proList.goodslist.length > 0}}" class="list-items text-center inline-block relative" wx:for="{{proList.goodslist}}" wx:key="item">
+        <navigator class="block mg-bt15" hover-class='none' url="../../idxSubpackage/pages/proDetails/proDetails?id={{item.id}}">
+          <view class="proImg flex flex-ac">
+            <image class="block bd-rd8" src="{{item.product_images}}"></image>
+            <view class="title mult_line-ellipsis ft-26 mg-tp15 line-h40" style="text-align: left">
+                <text wx:if="{{item.product_tag}}" class="bg-fc5920 bd-rd8 ft-20 color-fff pd-lr10 h30 line-h30">{{item.product_tag}}</text>
+                <text wx:else class="bg-fc5920 bd-rd8 ft-20 color-fff pd-lr10 h30 line-h30">优选</text>
+                <text class="mult_line-ellipsis mg-lt10">{{item.product_name}}</text>
+            </view>
+          </view>
+            <view class="color-fc5920 ft-26 pd-bt15  pull-left">
+              <view>
+                  <text class="mg-lt10 ft-22">¥</text>
+                  <text class="bold">{{item.product_fact_price}}</text>
+              </view>
+                
+                <text class="mg-lt10 ft-24 color-999 line-through">￥{{item.product_price}}</text>
+            </view>
+        </navigator>
+        <image bindtap='touchOnGoods'  data-index="{{index}}" class="joinCart absolute" src="/images/common/add-cart.png"></image>
+        <!-- 飞入图标 -->
+        <view class="good_box" hidden="{{hide_good_box}}"  style="left: {{bus_x}}px; top: {{bus_y}}px;"> 
+          <image src="{{item.product_images}}"></image>
+        </view>
+    </view>
+    <view wx:if="{{proList.goodslist.length <= 0}}">
+        <view class="proNullStyle mg-tp50 text-center">
+            <image src='/images/proNull.png'></image>
+            <view class="ft-26 mg-tp30 color-333">暂无任何商品~</view>
+        </view>
+    </view>
+  </view>
+</scroll-view>
+
+</view>
+
+
+<!--分类-->
+<!-- <view class="bg-fff contentBox">
+    <scroll-view scroll-y="true" class="tabList pd-lr30 pull-left">
+        <view class="pd-tp30"></view>
+        <view class="pd-tb30" wx:for="{{tabList}}" wx:key="item" data-id="{{item.id}}" data-index="{{index}}" bindtap='tabFun'>
+            <view class="ft-24 color-333 bold list-item text-center {{curIndex == item.id ? 'active' : ''}}">{{item.category_name}}</view>
+        </view>
+        <view class="pd-bt30"></view>
+    </scroll-view> -->
+    <!--右边商品-->
+    <!-- <scroll-view scroll-y="true" bindscrolltolower="bindscroll" class="rightContent pull-right pd-lt20">
+        <view class="typeBanner mg-tp30">
+            <image src="{{banner}}"></image>
+        </view>
+        <view class="rightProList">
+            <view wx:if="{{proList.goodslist.length > 0}}" class="list-items text-center mg-rt25 inline-block" wx:for="{{proList.goodslist}}" wx:key="item">
+                <navigator class="block mg-bt15" hover-class='none' url="../../idxSubpackage/pages/proDetails/proDetails?id={{item.id}}">
+                    <image class="proImg block bd-rd8" src="{{item.product_images}}"></image>
+                    <view class="title one-line-ellipsis ft-26 color-333 mg-tp20 line-h40">
+                        <text wx:if="{{item.product_tag}}" class="bg-fc5920 bd-rd8 ft-20 color-fff pd-lr10 h30 line-h30">{{item.product_tag}}</text>
+                        <text wx:else class="bg-fc5920 bd-rd8 ft-20 color-fff pd-lr10 h30 line-h30">优选</text>
+                        <text class="mg-lt10">{{item.product_name}}</text>
+                    </view>
+                    <view class="color-fc5920 ft-26 flex flex-je">
+                        <text class="ft-22">¥</text>
+                        <text class="bold">{{item.product_fact_price}}</text>
+                        <text class="mg-lt10 ft-24 color-999 line-through">￥{{item.product_price}}</text>
+                    </view>
+                </navigator>
+            </view>
+            <view wx:if="{{proList.goodslist.length <= 0}}">
+                <view class="proNullStyle mg-tp50 text-center">
+                    <image src='/images/proNull.png'></image>
+                    <view class="ft-26 mg-tp30 color-333">暂无任何商品~</view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</view> -->
+<!-- </view> -->

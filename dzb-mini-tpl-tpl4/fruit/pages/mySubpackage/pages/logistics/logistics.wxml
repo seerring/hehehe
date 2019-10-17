@@ -1,0 +1,44 @@
+<!--pages/mySubpackage/pages/logistics/logistics.wxml-->
+<include src="../../../common/header.wxml" />
+<view class="container">
+     <view wx:if="{{nums > 0}}">
+          <!--物流详情-->
+          <view class="logisticsDes bg-fff pd-lr30 flex flex-vc">
+               <view class="inline-block mg-rt20 icon">
+                    <image src='../../images/logistics.png'></image>
+               </view>
+               <view class="inline-block">
+                    <view class="ft-30 ft-333"><text class="color-999">物流公司：</text>{{logcname}}</view>
+                    <view class="ft-30 ft-333"><text class="color-999">物流单号：</text>{{logcnumber}}</view>
+               </view>
+          </view>
+          <view class="mg-tp20 bg-fff">
+               <view class="lists">
+                    <view class="list-item relative" wx:for="{{lists}}">
+                         <view class="ft-28">
+                              <view class="mg-rt20 color-333" wx:if="{{index == 0}}">
+                              {{item.title}}
+                              </view>
+                              <view wx:else class="mg-rt20 color-999">{{item.title}}</view>
+                            
+                         </view>
+                         <view class="mg-tp10 ft-24 color-999">{{item.time}}</view>
+                         <view wx:if="{{index == 0}}" class="absolute nowAds">
+                              <image src='../../images/nowAddress.png'></image>
+                              <view class="nowAds1 absolute"></view>
+                         </view>
+                         <view wx:else class="absolute dian">
+                              <view></view>
+                         </view>
+                    </view>
+               </view>
+          </view>
+     </view>
+     <!--暂无物流信息-->
+     <view wx:else>
+          <view class="nullStyle text-center">
+               <image src='../../images/logisticsNull.png'></image>
+               <view class="title ft-30 color-666">暂无物流信息</view>
+          </view>
+     </view>
+</view>

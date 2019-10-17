@@ -1,0 +1,279 @@
+/* pages/cartSubpackage/pages/groupOrder/groupOrder.wxss */
+.groupOrder {
+  min-height: calc(99.12vh);
+  padding-bottom:140rpx;
+}
+.scrollHeight {
+  height: calc(96.8vh);
+  overflow-y: scroll;
+  padding-bottom: 50rpx;
+}
+.scrollHeight .takeStore {
+  width: 690rpx;
+  margin: 0 auto;
+}
+.scrollHeight .takeStore .headBox .storeIcon {
+  width: 10%;
+}
+.scrollHeight .takeStore .headBox .storeIcon image {
+  width: 38rpx;
+  height: 38rpx;
+}
+.scrollHeight .takeStore .headBox .storeInfo {
+  width: 90%;
+}
+.scrollHeight .takeStore .headBox .storeInfo .name {
+  font-family: 'PingFang-Medium';
+}
+.scrollHeight .takeStore .footBox .storePhone {
+  width: 10%;
+}
+.scrollHeight .takeStore .footBox .storePhone image {
+  width: 34rpx;
+  height: 44rpx;
+}
+.scrollHeight .proDes {
+  width: 690rpx;
+  margin: 0 auto;
+  margin-top: 20rpx;
+}
+.scrollHeight .proDes .orderStatus {
+  font-family: 'PingFang-Medium';
+}
+.scrollHeight .proDes .orderStatus .leftCont image {
+  width: 60rpx;
+  height: 60rpx;
+}
+.scrollHeight .proDes .prolist .list-item .leftCont {
+  width: 30%;
+}
+.scrollHeight .proDes .prolist .list-item .leftCont image {
+  width: 168rpx;
+  height: 168rpx;
+}
+.scrollHeight .proDes .prolist .list-item .rightCont {
+  width: 70%;
+}
+.scrollHeight .remark {
+  width: 690rpx;
+  margin: 0 auto;
+  margin-top: 20rpx;
+}
+.scrollHeight .remark .leftCont {
+  width: 20%;
+}
+.scrollHeight .remark .rightCont {
+  width: 80%;
+}
+.scrollHeight .agreement {
+  margin: 50rpx 0 0 30rpx;
+}
+.scrollHeight .agreement image {
+  width: 30rpx;
+  height: 30rpx;
+}
+.fixdBtn {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.fixdBtn .hint {
+  background: #DAEFF0;
+}
+.fixdBtn .leftCont {
+  width: 70%;
+}
+.fixdBtn .leftCont .yh_price {
+  padding: 5rpx 10rpx;
+  background: #E5F9F8;
+}
+.fixdBtn .rightCont {
+  width: 30%;
+}
+.fixdBtn .rightCont .payMent {
+  width: 200rpx;
+  background: #ccc;
+}
+.toPay {
+  background: #1CCFCF !important;
+}
+.black_cover {
+width: 100%;
+height: 100%;
+position: fixed;
+top: 0;
+left: 0;
+background: rgb(0, 0, 0, .3);
+overflow: hidden;
+z-index: 9999;
+
+}
+
+ .payList {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+ .payList .head {
+  font-family: 'PingFang-Medium';
+}
+ .payList .head image {
+  margin-top: 36rpx;
+  width: 28rpx;
+  height: 28rpx;
+}
+ .payList .list .list-item .leftCont image {
+  width: 60rpx;
+  height: 60rpx;
+}
+ .payList .list .list-item .rightCont image {
+  width: 36rpx;
+  height: 25rpx;
+}
+ .payList .list .list-item:last-child {
+  padding-bottom: 40rpx;
+  border-bottom: none;
+}
+ .payList .payment {
+  font-family: 'PingFang-Medium';
+}
+ .toPay {
+  background: #1CCFCF !important;
+}
+.tabBox{
+  width:100%;
+  background: #fff;
+  height:100rpx;
+  line-height:100rpx;
+}
+.tabBox text {
+  display: inline-block;
+  width:50%;
+  text-align:center;
+}
+.selected {
+  color: rgb(28, 207, 207);
+  border-bottom:2rpx solid rgb(28, 207, 207);
+}
+.dateTime{
+  width:690rpx;
+  margin:0 auto;
+  margin-top:20rpx;
+  padding:40rpx 20rpx;
+}
+.dateTime  .leftCont{
+  width:50%;
+}
+.dateTime  .rightCont{
+  width:50%;
+}
+.dateTime .rightCont  img{
+  width:0.16rpx;
+  height:0.3rpx;
+}
+.ModalBox{
+			position:fixed;
+			bottom:0;
+			width:100%;
+			height:450rpx;
+			z-index:1027;
+}
+.headcontent{
+  text-align: center;
+}
+.ModalBox	.headcontent image{				
+  top:31rpx;
+  right:30rpx;
+  width:28rpx;
+  height:28rpx;		
+}
+.ModalBox	.screenBox{
+	height:270rpx;
+}
+.screenBox .leftCont{
+  width:50%;
+  height:270rpx;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.screenBox .rightCont{
+  width:50%;
+  height:270rpx;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.ModalBox .footBtn{
+  background:#1CCFCF;
+  color:#fff;
+  font-size: 32rpx;
+  border-radius: 0;
+} 
+		
+.active{
+  color:#1CCFCF;
+}
+
+.rightCont2{
+  text-align: right;
+  width: 570rpx;
+
+}
+
+#remark{
+  margin: 20rpx 30rpx;
+}
+	
+.newArrow{
+  width: 16rpx;
+  height: 30rpx;
+}
+
+.holder{
+  height:100%;
+  background: rgba(0, 0, 0, 0.301)!important;
+}
+.holder2{
+  height:100%;
+  background: rgba(0, 0, 0, 0.301)!important;
+}
+
+.myBtn{
+    display: flex;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 32rpx;
+    height: 90rpx;
+    align-items: center;
+    border-radius:0rpx!important;
+    justify-content: center;
+}
+
+/* 钱包支付 */
+.list2 .price {
+  font-size: 60rpx;
+  padding-bottom: 60rpx;
+}
+.list2 .passwordBox {
+  margin: 0 auto;
+  width: 580rpx;
+}
+.list2 .passwordBox .leftCont {
+  width: 15%;
+}
+.list2 .passwordBox .rightCont {
+  font-family: 'PingFang-Medium';
+  width: 85%;
+}
+.list2 .passwordBox .rightCont input {
+  width: 100%;
+  overflow: inherit;
+}
+.list2 .payment {
+  margin: 0 auto;
+  width: 580rpx;
+  margin-top: 40rpx;
+  font-family: 'PingFang-Medium';
+}
+

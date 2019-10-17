@@ -1,0 +1,55 @@
+<!--pages/mySubpackage/pages/helpCenter/helpCenter.wxml-->
+<include src="../../../common/header.wxml" />
+<view class="container">
+     <!--头部信息-->
+     <view class="head-img mg-tp30 text-center">
+          <image src='../../images/icon-help.png'></image>
+          <view class="box h80 line-h80 text-center relative">
+               <view class="box1 h80 line-h80 inline-block absolute"></view>
+               <view class="box2 h60 line-h60 inline-block absolute"></view>
+               <text class="text-center h80 inline-block ft-22 color-333">100%正品推荐,假一赔十</text>
+          </view>
+     </view>
+     <!--服务优势-->
+     <view class="mg-tp30 advService">
+          <view class="mg-lt30 title">
+               <view class="mg-lt10 ft-30 color-333">服务优势</view>
+          </view>
+          <view class="lists mg-tp20">
+               <view class="list-item bg-fff inline-block text-center">
+                    <image src='../../images/helpImg1.png'></image>
+                    <view class="ft-26 color-333">快速发货</view>
+               </view>
+               <view class="list-item bg-fff inline-block text-center">
+                    <image src='../../images/helpImg2.png'></image>
+                    <view class="ft-26 color-333">好评如潮</view>
+               </view>
+               <view class="list-item bg-fff inline-block text-center">
+                    <image src='../../images/helpImg3.png'></image>
+                    <view class="ft-26 color-333">售后无忧</view>
+               </view>
+          </view>
+     </view>
+     <!--热点问题-->
+     <view class="hotIssue mg-tp30">
+          <view class="mg-lt30 title">
+               <view class="mg-lt10 ft-30 color-333">热点问题</view>
+          </view>
+          <view class="lists mg-tp20">
+               <view class="list-item bg-fff mg-bt20" wx:for="{{hotList}}" wx:key="item">
+                    <view class="clearfix h90 line-h90" bindtap='showContent' data-index="{{index}}">
+                         <view class="ft-26 color-333 pull-left">{{item.name}}</view>
+                         <view class="inline-block h90 flex flex-vc pull-right" >
+                              <image class="mg-rt10" src='../../images/helpMore.png'></image>
+                         </view>
+                    </view>
+                    <view wx:if="{{item.isContent}}" class="ft-24 color-666 pd-tp20 pd-bt30 line-h40">{{item.description}}</view>
+               </view>
+          </view>
+     </view>
+     <!--联系在线客服-->
+     <view class="contactkf h90 line-h90 bg-ff5400 radius8 color-fff text-center ft-32 flex flex-ac flex-hc" bindtap="call">
+          <image src="../../images/phone.png"></image>
+          联系门店
+     </view>
+</view>

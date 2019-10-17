@@ -1,0 +1,21 @@
+<!--pages/mySubpackage/pages/InviteRules/InviteRules.wxml-->
+<view class="container">
+     <view class="list pd-lr30">
+          <view class="list-item mg-tp40 color-666 ft-26">
+               1、邀请人每天每次分享邀请链接后，好友注册成功，邀请人立即获得15元直减现金抵用券，可在优惠券中查看。
+          </view>
+          <view class="list-item mg-tp40 color-666 ft-26">
+               2、优惠券使用时间需是在被邀请人完成整个订单交易过程后，方可使用。
+          </view>
+          <view class="list-item mg-tp40 color-666 ft-26">
+               3、当优惠券处于冻结期内，好友发生部分退款，邀请人优惠券将不能使用。
+          </view>
+          <view class="list-item mg-tp40 color-666 ft-26">
+               4、通过不正当手段获得奖励，包括但不仅限于邀请无效手机号等，商城有权在不提前通知用户的前提下撤销其所获得的奖励优惠券及相关交易订单，同时保留追究其法律责任的权利。
+          </view>
+           <view class="list-item mg-tp40 color-666 ft-26">
+               5、如对本活动规则有任何疑问，请联系在线客服。
+          </view>
+     </view>
+     <view class="other pd-lr30 color-666 ft-26">以上规则，商城保留最终解释权。</view>
+</view>

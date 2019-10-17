@@ -1,0 +1,116 @@
+/* pages/cartSubpackage/pages/confirmOrder/confirmOrder.wxss */
+.addAds{
+  height:160rpx;
+}
+.addAds .leftCont{
+    width:650rpx;
+}
+.addAds .styleAds{
+    line-height:160rpx;
+}
+.addAds .rightCont{
+    line-height:160rpx;
+}
+.addAds .rightCont image{
+    width:16rpx;
+    height:30rpx;
+}
+.addAds .bgNav{
+    bottom:0;
+    width:100%;
+    height:6rpx;
+}
+.proInfo{
+    padding:35rpx 30rpx;
+    height:230rpx;
+    box-sizing:border-box;
+}
+.proInfo .leftCont,
+.proInfo .leftCont image{
+    width:160rpx;
+    height:160rpx;
+}
+.proInfo .rightCont{
+    width:500rpx;
+}
+.proInfo .rightCont .proNum{
+    margin-top:45rpx;
+}
+.yhCard .arrow-r{
+    width:16rpx;
+    height:30rpx;
+    vertical-align:middle;
+}
+.argee {
+     margin-bottom: 150rpx;
+}
+.message input{
+    width:550rpx;
+}
+.payMent{
+    position:fixed;
+    width:100%;
+    bottom:0;
+}
+.payMent .btn{
+    width:200rpx;
+    border-radius:0;
+}
+.contentBox{
+     position:fixed;
+     bottom:0;
+     width:100%;
+     height:680rpx;
+}
+.contentBox .title{
+     padding:40rpx 30rpx 35rpx 30rpx;
+}
+.contentBox .title image{
+     margin-top:6rpx;
+     width:28rpx;
+     height:28rpx;
+}
+.contentBox .couponBox{
+     height:520rpx;
+     overflow:scroll;
+} 
+.list .list-item,
+.list .list-item image{
+     width:690rpx;
+     height:234rpx;
+}
+.list .list-item .checked{
+     width:85rpx;
+     height:85rpx;
+     top:0;
+     right:0;
+}
+.list .list-item .disMoney{
+     left:40rpx;
+     top:40rpx;
+}
+.list .list-item .disMoney text{
+     font-size:64rpx;
+}
+.list .list-item .discout{
+     top:38rpx;
+     left:224rpx;
+}
+.list .list-item .discout .type{
+     width:82rpx;
+     height:33rpx;
+     line-height:33rpx;
+     background:#ff8786;
+     border-radius:2rpx;
+}
+.list .list-item .dixian{
+     top:101rpx;
+     left:224rpx;
+}
+.list .list-item .dixian text{
+     color:#ff8786;
+}
+.list .list-item .vaildDate{
+     bottom:20rpx;
+     left:50rpx;
+}

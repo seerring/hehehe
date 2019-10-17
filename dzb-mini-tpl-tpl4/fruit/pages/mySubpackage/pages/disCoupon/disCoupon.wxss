@@ -1,0 +1,64 @@
+/* pages/mySubpackage/pages/disCoupon/disCoupon.wxss */
+.list{
+     margin-bottom:40rpx;
+}
+.list .list-item,
+.list .list-item image{
+     width:690rpx;
+     height:234rpx;
+}
+.list .list-item .disMoney{
+     left:40rpx;
+     top:40rpx;
+}
+.list .list-item .disMoney text{
+     font-size:64rpx;
+}
+.list .list-item .discout{
+     top:38rpx;
+     left:224rpx;
+}
+.list .list-item .discout .type{
+     width:82rpx;
+     height:33rpx;
+     line-height:33rpx;
+     background:#ff8786;
+     border-radius:2rpx;
+}
+.list .list-item .dixian{
+     top:101rpx;
+     left:224rpx;
+}
+.list .list-item .dixian text{
+     color:#ff8786;
+}
+.list .list-item .vaildDate{
+     bottom:20rpx;
+     left:50rpx;
+}
+.list .list-item .status{
+     right:0;
+     bottom:0;
+     width:152rpx;
+     height:107rpx;
+}
+.moreBtn{
+     position:fixed;
+     width:690rpx;
+     bottom:50rpx;
+}
+.couponNullStyle{
+     margin-top:calc(50% - 100rpx);
+}
+.couponNullStyle image{
+     width:355rpx;
+     height:304rpx;     
+}
+ .loadMore {
+  padding: 10rpx 0 40rpx 0;
+}
+.loadMore image {
+  width: 80rpx;
+  height:54rpx;
+  margin: 0 auto;
+}

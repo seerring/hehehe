@@ -1,0 +1,36 @@
+/* pages/common/register/register.wxss */
+page{
+     background:#fff;
+}
+.mainImg{
+     margin-top:70rpx;
+     height:150rpx;
+}
+.mainImg image{
+     width:150rpx;
+     height:150rpx;
+}
+.formBox{
+     margin-top:120rpx;
+     padding:0 40rpx;
+}
+.formBox input{
+     width:450rpx;
+}
+.formBox .codeBtn{
+     width:180rpx;
+     height:60rpx;
+     line-height:60rpx;
+     border:2rpx solid #eee;
+     border-radius:8rpx;
+     background:#fff;
+
+}
+.formBox .loginWay{
+     padding:50rpx 0;
+     text-align:right;
+}
+.formBox .loginBtn{
+     margin-top:100rpx;
+     background:#1ccfcf;
+}

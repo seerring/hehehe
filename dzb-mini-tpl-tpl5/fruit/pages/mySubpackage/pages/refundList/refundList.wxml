@@ -1,0 +1,71 @@
+<!--pages/mySubpackage/pages/refundList/refundList.wxml-->
+<!-- <text>pages/mySubpackage/pages/refundList/refundList.wxml</text> -->
+
+<view class="refundList bg-f4f4f4">
+  <view class="refundLists" wx:if="{{list.length > 0}}">
+    <view class="list-item mg-tp20 bd-rd10 pd-lr30 bg-fff" wx:for="{{list}}" wx:key="item">
+        <view class="orderStatus bd-bt-f4f4f4 pd-tb30 clearfix">
+          <view class="leftCont flex flex-ac pull-left">
+            <image class="block mg-rt20" src="../../images/orderTime.png"></image>
+            <view class="ft-28 color-333">{{item.create_time}}</view>
+          </view>
+          <view class="color-1ccfcf ft-28 pull-right mg-tp5" wx:if="{{item.status == 7}}">已拒绝</view>
+          <view class="color-1ccfcf ft-28 pull-right mg-tp5" wx:if="{{item.status == 9}}">已退款</view>
+          <view class="color-1ccfcf ft-28 pull-right mg-tp5" wx:if="{{item.status == 10}}">退款中</view>
+          
+        </view>
+        <view class="proDes">
+          <view class="list-item pd-tb30 bd-bt-f4f4f4 flex flex-as" wx:for="{{item.order_info}}" wx:for-item="item2">
+            <view class="leftCont">
+              <image class="block" src="{{item2.product_images}}"></image>
+            </view>
+            <view class="rightCont mg-tp15">
+              <view class="ft-28 color-333 mult_line-ellipsis line-h35">{{item2.product_name}}</view>
+              <view class="clearfix mg-tp30">
+                <view class="ft-28 color-333 pull-left">
+                  单价：<text class="ft-24">￥</text><text>{{item2.product_fact_price}}</text>
+                </view>
+                <view class="pull-right ft-24 color-999 line-h35">×{{item2.num}}</view>
+              </view>
+            </view>
+        </view>
+        </view>
+        <view class="footBox ft-24 pd-tb30">
+        <view class="rightCont text-right flex flex-ac flex-je">
+          <view class="color-1ccfcf inline-block ft-24 disPrice bd-rd5 mg-rt30" wx:if="{{item.coupon_price}}">已优惠￥{{item.coupon_price}}</view>
+          <view class="color-333 ft-28 mg-rt35">共{{item.totalSum}}件</view>
+          <view class="color-333 ft-28">合计：</view>
+          <view class="color-fc5920 ft-28">￥{{item.totalPrice}}</view>
+        </view>
+      </view>
+      <view class="btnBox pd-tb30 bd-tp-f4f4f4">
+        <view class="ft-28 text-center flex flex-ac flex-je">
+            <view class="payment h60 mg-rt30" wx:if="{{item.status == 7}}" style="border-color:#999">
+            <router-link :to="{name:'refund',params:{id:item.id}}" class="block color-999">退款</router-link>
+          </view>
+          <view class="payment h60">
+          <navigator class="block color-1ccfcf" hover-class='none' url='../refundDes/refundDes?id={{item.id}}'>查看详情</navigator>
+            <!-- <router-link :to="{name:'refundDes',params:{id:item.id}}" class="block color-1ccfcf">查看详情</router-link> -->
+          </view>
+        </view>
+      </view>
+      </view>
+      <view wx:if="{{isLoadMore && list.length > 4}}">
+        <group>
+            <view class="ft-26 color-999 text-center pd-tp20">正在加载更多</view>
+        </group>
+      </view>
+      <view wx:else>
+        <view class="loadMore pd-tb30 text-center">
+            <image class="block" src="../../images/icon3.png"></image>
+            <view class="ft-20 mg-tp20 color-999">没有更多了，看看其他的吧~</view>
+        </view>
+      </view>
+  </view>
+  <view wx:else>
+      <view class="nullStyle">
+        <image class="block" src="../../images/orderNull.png"></image>
+      <view class="text-center ft-28 color-999 mg-tp30">暂无退款订单，看看其他订单吧~</view>
+      </view>
+    </view>
+</view> 

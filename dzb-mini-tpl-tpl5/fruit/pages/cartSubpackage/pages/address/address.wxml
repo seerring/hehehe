@@ -1,0 +1,60 @@
+<include src="../../../common/header.wxml" />
+<view class="address bg-f4f4f4">
+    <view class="addressInfo" wx:if="{{way == 1}}">
+        <view class="headBox flex flex-ac bd-bt-f4f4f4 bg-fff bd-rd10 bd-rd10">
+            <view class="storeIcon">
+                <image class="block" src="../../images/storeIcon.png"></image>
+            </view>
+            <view class="storeInfo">
+                <view class="name color-333 ft-28">{{addressInfo.name}}
+                    <text class="ft-24 color-999 inline-block">（当前门店）</text>
+                </view>
+                <view class="addressDes ft-24 color-333 mg-tp15 one-line-ellipsis">{{addressInfo.area}}{{addressInfo.address}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="hintBox">
+        <view class="hint ft-24 color-1ccfcf bd-rd10">
+            配送地址为商家方圆内{{addressInfo.km}}km，请注意选择的收货地址为商家配送范围之内！
+        </view>
+    </view>
+    <view class="adsList pd-lr30 mg-tp20">
+        <view class="list-item pd30 mg-bt20 bg-fff" wx:for="{{adsList}}" wx:key="item" bindtap="selectAds" data-id="{{item.id}}">
+            <view class="name_phone clearfix">
+                <view class="ft-28 color-333 pull-left">{{item.l_name}}</view>
+                <view class="ft-28 color-333 pull-right">{{item.l_phone}}</view>
+            </view>
+            <view class="mg-tp20 color-999 ft-24 pd-bt30 bd-bt-f4f4f4">{{item.l_province}}{{item.l_city}}{{item.l_district}}{{item.l_address}}</view>
+
+            <view class="clearfix pd-tp20">
+                <view class="leftCont pull-left flex flex-ac flex-js" bindtap="setDefaultAds" data-index="{{index}}" data-id="{{item.id}}">
+                    <image wx:if="{{item.l_is_default}}" class="block mg-rt10" src="../../images/delete.png"></image>
+                    <image wx:else class="block mg-rt10" src="../../images/delete_false.png"></image>
+                    <view class="ft-28 color-333">默认地址</view>
+                </view>
+                <!-- bindtap="deleteAds" -->
+                <view class="rightCont pull-right flex flex-ac flex-je"  data-index="{{index}}">
+                    <!-- <image class="block mg-rt10" src="../../images/del_ads.png"></image> -->
+                    <view class="ft-26 color-333"></view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="add_ads bg-1ccfcf h90 line-h90">
+        <navigator class="flex flex-ac flex-jc" hover-class='none' url="../../../mySubpackage/pages/address/address">
+            <image class="mg-rt20 block" src="../../images/add_ads.png"></image>
+            <p class="ft-32 color-fff">添加新地址</p>
+        </navigator>
+
+    </view>
+    <view wx:if="{{way==1&&outList.length>0}}" class="outAds pd30">
+        <view class="ft-30 pd30 mg-bt10 mg-tp40">以下地址超出配送范围:</view>
+        <view wx:for="{{outList}}" class="outSide pd30" wx:key="item">
+            <view class="name_phone clearfix">
+                <view class="ft-28 color-999 pull-left">{{item.l_name}}</view>
+                <view class="ft-28 color-999 pull-right">{{item.l_phone}}</view>
+            </view>
+            <view class="mg-tp20 color-999 ft-24 pd-bt30 bd-bt-f4f4f4">{{item.l_province}}{{item.l_city}}{{item.l_district}}{{item.l_address}}</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,54 @@
+/* pages/mySubpackage/pages/verGoods/verGoods.wxss */
+.verGoods {
+  min-height: calc(99.12vh);
+}
+.verGoods .list .list-item.list-item:first-child {
+  margin-top: 0;
+}
+.verGoods .list .list-item .headBox {
+  font-family: 'PingFang-Medium';
+}
+.verGoods .list .list-item .headBox .leftCont image {
+  width: 60rpx;
+  height: 60rpx;
+}
+.verGoods .list .list-item .contentBox {
+  padding: 30rpx 30rpx 0 30rpx;
+}
+.verGoods .list .list-item .contentBox .hint text {
+  border: 2rpx solid #1CCFCF;
+  padding: 0 5rpx;
+  line-height: 28rpx;
+}
+.verGoods .list .list-item .contentBox .shopList .list-item .leftCont {
+  width: 30%;
+}
+.verGoods .list .list-item .contentBox .shopList .list-item .leftCont image {
+  width: 168rpx;
+  height: 168rpx;
+}
+.verGoods .list .list-item .contentBox .shopList .list-item .rightCont {
+  width: 70%;
+}
+.verGoods .list .list-item .footBox {
+  width: 100%;
+}
+.verGoods .list .list-item .footBox .rightCont {
+  width: 100%;
+}
+.verGoods .list .list-item .footBox .rightCont .disPrice {
+  font-family: 'PingFang-Medium';
+  padding: 5rpx 10rpx;
+  background: #E3F8F9;
+}
+.verGoods .list .list-item .footBox .rightCont p:last-child {
+  font-family: 'PingFang-Medium';
+}
+.verGoods .loadMore {
+  padding: 30rpx 0 20rpx 0;
+}
+.verGoods .loadMore image {
+  width: 60rpx;
+  height:64rpx;
+  margin: 0 auto;
+}

@@ -1,0 +1,80 @@
+/* pages/idxSubpackage/pages/login/login.wxss */
+page{
+     background:#fff;
+}
+.mainImg{
+     margin-top:70rpx;
+     width:100%;
+     height:150rpx;
+}
+.mainImg image{
+     width:150rpx;
+     height:150rpx;
+}
+.formBox{
+     margin-top:120rpx;
+     padding:0 40rpx;
+}
+.formBox .rightDel{
+     width:30rpx;
+     height:30rpx;
+     right:0;
+     top:35rpx;
+}
+.formBox input{
+     width:450rpx;
+}
+.formBox .codeBtn{
+     width:180rpx;
+     height:60rpx;
+     line-height:60rpx;
+     border:2rpx solid #eee;
+     border-radius:8rpx;
+     background:#fff;
+
+}
+.formBox .loginWay{
+     padding:50rpx 0;
+     text-align:right;
+}
+.formBox .loginBtn{
+     background:#1ccfcf;
+}
+.register .leftText{
+     color:#1ccfcf;
+}
+.otherLogin{
+     padding:0 98rpx;
+     margin-top:190rpx;
+}
+.otherLogin .leftLine,
+.otherLogin .rightLine{
+     width:170rpx;
+     border-bottom:1rpx solid #eee;
+}
+.otherLogin .text{
+     padding:0 29rpx;
+}
+.otherLogin .wxLogo{
+     margin-top:75rpx;
+}
+.otherLogin image{
+     width:100rpx;
+     height:100rpx;
+}
+.formBox .passwordIcon1{
+     width:34rpx;
+     height:17rpx;
+     right:0;
+     top:42rpx;
+}
+.formBox .passwordIcon2{
+     width:32rpx;
+     height:27rpx;
+     right:0;
+     top:37rpx;
+}
+
+button.wechat {
+  background-color: transparent;
+}

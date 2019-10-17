@@ -1,0 +1,67 @@
+<!--pages/mySubpackage/pages/verGoods/verGoods.wxml-->
+<!-- <text>pages/mySubpackage/pages/verGoods/verGoods.wxml</text> -->
+<view class="verGoods bg-f4f4f4">
+  <view class="list pd30">
+    <view class="list-item mg-tp20 bg-fff bd-rd10" wx:for="{{list}}" wx:key="item">
+      <view class="headBox pd30 bd-bt-f4f4f4 clearfix">
+        <view class="flex flex-ac leftCont pull-left">
+          <image class="block bd-rd50 mg-rt20" src="{{item.img}}"></image>
+          <view class="ft-28 color-333">{{item.name}}</view>
+        </view>
+        <view class="ft-28 color-1ccfcf pull-right mg-tp15" wx:if="{{item.status == 3}}">等待到店核销</view>
+      </view>
+      <view class="contentBox">
+        <view class="hint flex flex-ac">
+          <text class="inline-block mg-rt10 color-1ccfcf ft-24 h30 bd-rd5">温馨提示</text>
+          <view class="color-333 ft-24">请于{{item.takeTime}}之前到店核销商品</view>
+        </view>
+        <view class="shopList">
+          <view class="list-item bd-bt-f4f4f4 pd-tb30" wx:for="{{item.order_info}}"  wx:for-item="item2">
+            <navigator class="flex flex-as" hover-class='none'  url="../orderDes/orderDes?id={{item.id}}" wx:if="{{item.type == 2}}">
+            
+              <view class="leftCont">
+                <image class="block" src="{{item2.product_images}}"></image>
+              </view>
+              <view class="rightCont mg-tp15">
+                <view class="ft-28 color-333 mult_line-ellipsis line-h35">{{item2.product_name}}</view>
+                <view class="clearfix mg-tp30">
+                  <view class="ft-28 color-333 pull-left">
+                    单价：<text class="ft-24">￥</text><text>{{item2.product_fact_price}}</text>
+                  </view>
+                  <view class="pull-right ft-24 color-999 line-h35">×{{item2.num}}</view>
+                </view>
+              </view>
+            </navigator>
+            <navigator class="flex flex-as" hover-class='none' url="../groupOrderDes/groupOrderDes?id={{item.id}}" wx:if="{{item.type == 3}}">
+              <view class="leftCont">
+                <image class="block" src="{{item2.product_images}}" ></image>
+              </view>
+              <view class="rightCont mg-tp15">
+                <view class="ft-28 color-333 mult_line-ellipsis line-h35">{{item2.product_name}}</view>
+                <view class="clearfix mg-tp30">
+                  <view class="ft-28 color-333 pull-left">
+                    单价：<text class="ft-24">￥</text><text>{{item2.product_fact_price}}</text>
+                  </view>
+                  <view class="pull-right ft-24 color-999 line-h35">×{{item2.num}}</view>
+                </view>
+              </view>
+            </navigator>
+          </view>
+        </view>
+      </view>
+      <view class="footBox ft-24 pd30">
+        <view class="rightCont text-right flex flex-ac flex-je">
+          <view class="color-1ccfcf inline-block ft-24 disPrice bd-rd5 mg-rt30" wx:if="{{item.coupon_price}}">已优惠￥{{item.coupon_price}}</view>
+          <view class="color-333 ft-28 mg-rt35">共{{item.totalSum}}件</view>
+          <view class="color-333 ft-28">实付总额：</view>
+          <view class="color-fc5920 ft-28">￥{{item.totalPrice}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--没有更多-->
+      <view class="loadMore text-center">
+          <image class="block" src="../../images/icon3.png" ></image>
+          <view class="ft-20 mg-tp20 color-999">没有更多了，看看其他的吧~</view>
+      </view>
+</view>

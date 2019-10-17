@@ -1,0 +1,21 @@
+/* pages/mySubpackage/pages/memberExplain/memberExplain.wxss */
+
+.memberExplain {
+  min-height: calc(99.12vh);
+}
+.memberExplain .explainList {
+  padding: 40rpx 30rpx 0 30rpx;
+}
+.memberExplain .explainList .list-item .title {
+  font-family: 'PingFang-Medium';
+}
+.memberExplain .explainList .list-item .title image {
+  width: 22rpx;
+  height: 22rpx;
+}
+.memberExplain .explainList .list-item .content {
+  padding-left: 37rpx;
+}
+.memberExplain .explainList .list-item:nth-child(1) {
+  margin-top: 0;
+}

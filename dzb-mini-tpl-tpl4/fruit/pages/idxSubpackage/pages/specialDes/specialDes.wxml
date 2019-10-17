@@ -1,0 +1,143 @@
+<!--pages/idxSubpackage/pages/specialDes/specialDes.wxml-->
+<!-- <text>pages/idxSubpackage/pages/specialDes/specialDes.wxml</text> -->
+
+
+<!-- <include src="../../../common/header.wxml" /> -->
+<view class="container">
+    <!--商品详情-->
+    <view class="mainImgBox">
+        <view class="indexSwiper relative">
+            <swiper indicator-dots="true" indicator-color="#fff" indicator-active-color="#000" circular="true" bindchange="indexSwiperChange" class="swiperBox">
+                <block wx:for="{{swiperList}}" wx:key="item">
+                    <swiper-item>
+                        <view wx:if="{{index==0&&proDes.video}}" class="video relative">
+                            <video wx:if="{{showVideo}}" id="myVd" src="{{proDes.video}}" controls="true" poster="{{item[0]}}"></video>
+                            <image class="poster" wx:if="{{!showVideo}}" src="{{swiperList[1]}}"></image>
+                            <image wx:if="{{!isPlay}}" src="../../images/video-play.png" bindtap="playVd"></image>
+                        </view>
+                        <image class="banner_img" wx:else mode='scaleToFill' src="{{item}}"></image>
+                    </swiper-item>
+                </block>
+            </swiper>
+            <view class="absolute bottomBox">
+                <view class="relative dots ft-24 color-fff" wx:if="{{swiperList.length > 0}}">
+                    <image class="block" src="/images/indicator-dots.png"></image>
+                    <text class="absolute text-center inline-block">{{indexSwiper+1}} / {{swiperList.length}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <!--商品信息-->
+    <!-- <view class="pro_desc1 pd30 bg-fff bd-bt-f4f4f4">
+        <view class="title ft-28 one-line-ellipsis line-h40">
+            <text class="h30 line-h30 bg-fc5920 ft-20 color-fff pd-lr10 bd-rd8">限量</text>
+            <text class='color-333'>{{proDes.product_name}}</text>
+        </view> -->
+    <view class="pro_desc1 pd30 bg-fff bd-bt-f4f4f4">
+        <view class="title ft-28 line-h40">
+            <span class="h30 line-h30 bg-fc5920 color-fff pd-lr10 bd-rd8">
+            限量</span>
+            <span class='color-333'> {{proDes.product_name}}</span>
+        </view>
+        <view class="pro_xl_kc ft-26 mg-tp20 flex flex-ac">
+            <text class="mg-rt10 dian inline-block bd-rd50"></text>
+            <text class="mg-rt20 color-333">销量</text>
+            <text class="mg-rt50 color-666">{{proDes.ordercount}}</text>
+            <text class="mg-rt10 mg-lt20 dian inline-block bd-rd50"></text>
+            <text class="mg-rt20 color-333">库存</text>
+            <text class="color-666">{{proDes.total}}</text>
+        </view>
+        <view class="mg-tp30 pro_price ft-22">
+            <text class="color-fc5920 nowprice">￥<text class="ft-30">{{proDes.present_price}}</text></text>
+            <text class="ft-26 color-999 line-through">￥{{proDes.original_price}}</text>
+        </view>
+    </view>
+    <!--数量-->
+    <view class="limitNum h100 bg-fff pd-lr30 clearfix">
+    <view class="ft-28 color-666 line-h100 pull-left">数量<text class="ft-26 color-999 mg-lt10">每个用户限购{{proDes.limit}}份</text></view>
+        <view class="chooseNum h50 pull-right flex flex-jc flex-ac bd-rd8 mg-tp25">
+            <view class="ft-34 color-999 text-center" bindtap="reduce">-</view>
+            <view class="ft-28 color-333 text-center">{{buyNum}}</view>
+            <view class="ft-34 color-fc5920 text-center" bindtap="add">+</view>
+        </view>
+    </view>
+    <!--核销商品门店-->
+    <view class="he_goods bg-fff bd-bt-f4f4f4 mg-tp10 pd30">
+        <view class="h35 line-h35 pd-lt15 title ft-30 color-333">核销商品门店</view>
+        <view class="storeInfo flex flex-ac mg-tp40">
+            <view class="storeImg">
+                <image class="block bd-rd50" src="{{proDes.logo}}"></image>
+            </view>
+            <view class="storeName">
+                <view class="ft-28 color-333">
+                    <b>{{proDes.name}}</b>
+                </view>
+                <view class="flex flex-ac ft-24 mg-tp15">
+                    <view class="ads">
+                        <image class="block" src="../../images/address_icon.png"></image>
+                    </view>
+                    <view class="color-333 ads_text one-line-ellipsis">{{proDes.address}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="h100 line-h100 flex flex-ac pd-lr30 storeAdvantage bg-fff">
+        <view class="list-item flex flex-ac flex-jc" wx:if="{{ask.slogan1}}">
+            <image class="block" src="../../images/advantage.png"></image>
+            <view class="ft-24 color-333 rightCont">{{ask.slogan1}}</view>
+        </view>
+        <view class="list-item flex flex-ac flex-jc" wx:if="{{ask.slogan2}}">
+            <image class="block" src="../../images/advantage.png"></image>
+            <view class="ft-24 color-333 rightCont">{{ask.slogan2}}</view>
+        </view>
+        <view class="list-item flex flex-ac flex-jc" wx:if="{{ask.slogan3}}">
+            <image class="block" src="../../images/advantage.png"></image>
+            <view class="ft-24 color-333 rightCont">{{ask.slogan3}}</view>
+        </view>
+    </view>
+    <!--商品信息-->
+    <view class="mg-tp10 bg-fff proInfo">
+        <view class="h35 line-h35 pd-lt15 title ft-30 color-333">商品信息</view>
+        <view class="mg-tp40 bg-fff">
+            <view class="mg-tp20 ft-28 color-333">
+                <text class="color-666">重量：</text>{{attribute[0]}}</view>
+            <view class="mg-tp20 ft-28 color-333">
+                <text class="color-666">产地：</text>{{attribute[1]}}</view>
+            <view class="mg-tp20 ft-28 color-333">
+                <text class="color-666">储存：</text>{{attribute[2]}}</view>
+        </view>
+        <view class="proContent mg-tp40 ft26">
+            <block wx:for="{{proDes.product_mini_content}}" wx:key="item">
+                <image mode='widthFix' src="{{item}}"></image>
+            </block>
+        </view>
+    </view>
+
+    <!--底部-->
+    <view class="h100 line-h100 bg-fff footFixed">
+        <view class="toIndex pull-left">
+            <navigator class="h100 flex flex-vc flex-hc" hover-class='none' open-type='switchTab' url="/pages/tabBar/index/index">
+                <image src='../../images/toIndex.png'></image>
+            </navigator>
+        </view>
+        <view class="kf pull-left h100 flex flex-vc flex-hc relative">
+            <button class="absolute kfBtn" open-type="share" bindtap="onShareAppMessage">
+                <!-- <contact-button></contact-button>
+                    <contact-button></contact-button> -->
+                <image src='../../images/shareBtn.png'></image>
+            </button>
+            <image src='../../images/shareBtn.png'></image>
+        </view>
+        <view class="cart pull-left relative">
+            <navigator class="h100 flex flex-vc flex-hc" hover-class='none' open-type='switchTab' url='/pages/tabBar/shopCart/shopCart'>
+                <image src='../../images/cart.png'></image>
+                <view wx:if="{{cartList.length>0}}" class="absolute cartNum color-fff text-center ft-20">{{cartList.length}}</view>
+            </navigator>
+        </view>
+        <!-- <view class="joinCart text-center ft-30 color-333 pull-left" bindtap='addCart>加入购物车</view> -->
+        <view class="buy text-center bg-ff5400 ft-30 color-fff pull-left" bindtap='payMent'  wx:if="proDes.total > 0 &&myLimit>0">立即购买</view>
+        <view class="buy text-center bg-ccc ft-30 color-fff pull-left" wx:if="proDes.total==0">已售完</view>
+        <view class="buy text-center bg-ccc ft-30 color-fff pull-left" wx:if="myLimit<1">达到限购数量</view>
+    </view>
+</view>

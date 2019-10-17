@@ -1,0 +1,80 @@
+<!--pages/cartSubpackage/pages/codePayment/codePayment.wxml-->
+<!-- <text>pages/cartSubpackage/pages/codePayment/codePayment.wxml</text> -->
+<view class="codePayment">
+  <view class="pay1">
+    <view class="payContent1 flex flex-ac flex-jc flex-jsb relative">
+      <view class="content1 relative">
+        <image class="headerImg" src="../../images/offline-icon1.png"></image>
+        <view class="ft-30 color-333 mg-tp30 mg-bt20">暂未授权</view>
+        <view class="ft-24 color-333 mg-bt55">授权了解更多优惠活动</view>
+        <image class="empowerImg" src="../../images/offline-label.png"></image>
+      </view>
+      <view class="pay_middle">
+        <view class="pay_line">
+          付款给商家
+          <image src="../../images/arrow.png" class="block"></image>
+        </view>
+      </view>
+      <view class="content2">
+        <image src="../../images/APPlogo.png"></image>
+        <view class="ft-30 color-333 mg-tp30 mg-bt20">鲜果动</view>
+        <view class="ft-24 color-333  mg-bt55">鲜果动商城有限公司</view>
+      </view>
+    </view>
+    <view class="payContent2">
+      <view class="mg-bt40 ft-26 color-333">金额</view>
+      <view class="flex flex-ac line">
+        <view class="ft-60 color-333 bold mg-rt40">￥</view>
+        <input class="ft-60 color-333 bold" bindinput="inputValue" value='{{inputvalues}}'></input>
+      </view>
+      <view class="ft-30 color-fc5920 bold mg-bt75">折后价￥90.00</view>
+    </view>
+    <view class="flex flex-jc">
+      <view class="pay_btn">去支付</view>
+    </view>
+  </view>
+  <view class="pay2">
+    <view class="flex flex-ac flex-jc mg-bt35">
+      <image src="../../images/decoration-left.png" class="pay2_img1"></image>
+      <view class="ft-30 color-fc5920">充值有礼抢先看</view>
+      <image src="../../images/decoration-right.png" class="pay2_img2"></image>
+    </view>
+    <view class="flex flex-ac flex-jc mg-bt65">
+      <view class="recharge mg-rt25" wx:for="{{rechargeList}}">
+        <view class="ft-28 color-fff text-center mg-tp40">充￥{{item.price1}}</view>
+        <view class="ft-32 bold color-fff text-center mg-tp25">送￥{{item.price2}}</view>
+      </view>
+    </view>
+    <view class="flex flex-jc">
+      <navigator hover-class='none' class="activety" url='../../../mySubpackage/pages/wallet/wallet'>查看充值有礼活动</navigator>
+      <image src="../../images/click1.png" class="seeImg"></image>
+    </view>
+  </view>
+  <view class="pay3">
+    <view class="flex flex-ac flex-jc mg-bt35">
+      <image src="../../images/decoration-left.png" class="pay2_img1"></image>
+      <view class="ft-30 color-fc5920">会员折旧优惠多</view>
+      <image src="../../images/decoration-right.png" class="pay2_img2"></image>
+    </view>
+    <view class="flex flex-jc mg-bt20" wx:for="{{memberList}}">
+      <view class="Member flex flex-jc">
+        <view class=" Member_left ">{{item.name}}</view>
+        <view class="flex-jsb flex-ac Member_right">
+           <view class="Member_right1">
+              <image src="../../images/members-icon1.png"></image>
+              <view class="ft-26 color-666">{{item.member1}}</view>
+           </view>
+           <view class="Member_right1">
+              <image src="../../images/members-icon2.png"></image>
+              <view class="ft-26 color-666">{{item.member2}}</view>
+           </view>
+        </view>
+      </view>
+    
+    </view>
+    <view class="flex flex-jc bot_title">
+      <navigator hover-class='none' url='../../../mySubpackage/pages/memberCharge/memberCharge' class="activety2">查看更多会员活动</navigator>
+      <image src="../../images/click2.png" class="seeImg"></image>
+    </view>
+  </view>
+</view>

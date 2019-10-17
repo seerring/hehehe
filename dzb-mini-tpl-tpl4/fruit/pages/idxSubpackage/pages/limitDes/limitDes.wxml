@@ -1,0 +1,184 @@
+<!--pages/idxSubpackage/pages/limitDes/limitDes.wxml-->
+<view class="container">
+    <!--商品详情-->
+    <!--轮播-->
+     <view class="swiper relative">
+          <swiper circular="true" bindchange="swiperFun">
+               <block wx:for="{{swiperList}}" wx:key="item">
+                    <swiper-item>
+                         <image src="{{item.images}}"></image>
+                    </swiper-item>
+               </block>
+          </swiper>
+          <view class="absolute indicator">
+               <text class="absolute inline-block ft-20 color-fff text-center">{{swpierIndex + 1}} / {{swiperList.length}}</text>
+               <image class="absolute" src="/images/indicator-dots.png"></image>
+          </view>
+          <view class="message absolute">
+               <image src="/pages/common/images/share.png"></image>
+          </view>
+     </view>
+     <!--商品信息-->
+     <view class="bg-fff">
+          <view class="proInfo">
+               <view class="price clearfix">
+                    <view class="pull-left leftCont color-fff flex flex-vc">
+                         <text class="ft-30 bold">￥</text>
+                         <text class="pro_text bold">268</text>
+                         <text class="pro_text1 ft-22 bg-fff inline-block text-center mg-lt15 bold">限时购</text>
+                    </view>
+                    <view class="pull-right rightCont color-fff flex flex-vc">
+                         <view class="timeBox mg-rt15">
+                              <view class="ft-26 bold text-center mg-tp15">距结束</view>
+                              <view class="time ft-24 mg-tp10 flex fle-vc">
+                                   <text class="inline-block hour text-center">23</text>
+                                   <text class="dian inline-block">:</text>
+                                   <text class="inline-block hour text-center">16</text>
+                                   <text class="dian inline-block">:</text>
+                                   <text class="inline-block hour text-center">16</text>
+                              </view>
+                         </view>
+                         <image class="icon-right" src='/pages/common/images/icon-right.png'></image>
+                    </view>
+               </view>
+               <view class="clearfix text1">
+                    <view class="pull-left">
+                         <view class="ft-30 color-333 bold">活颜水乳套装</view>
+                         <view class="ft-28 color-666 bold mg-tp10">水乳搭配，补水锁水一套到位</view>
+                    </view>
+                    <view class="pull-right pd-lt30">
+                         <view class="ft-32 color-ff5400 bold">98.1%</view>
+                         <view class="ft-22 color-999">好评率></view>
+                    </view>
+               </view>
+          </view>
+     </view>
+     <!--商品规格-->
+     <view class="prosp h90 line-h90 clearfix bg-fff pd-lr30 mg-tp20 border2" bindtap='chooseAttr'>
+        <view class="pull-left ft-28 color-333 bold">商品规格选择</view>
+        <view class="pull-right">
+            <image class="inline-block" src='/pages/common/images/icon-right.png'></image>
+        </view>
+     </view>
+     <view class="prosp h90 line-h90 clearfix bg-fff pd-lr30 border2">
+        <view class="pull-left ft-28 color-333 bold">
+            <text class="mg-rt30">促销</text>
+            <text class="mg-lt20 ft-28 color-ff5400">[满件减]</text>
+            <text class="mg-lt20">满两件减30</text>
+        </view>
+        <view class="pull-right">
+            <image class="inline-block" src='/pages/common/images/icon-right.png'></image>
+        </view>
+     </view>
+     <view class="prosp h90 line-h90 clearfix bg-fff pd-lr30">
+        <view class="pull-left ft-28 color-333 bold">
+            <text class="mg-rt30">运费</text>
+            <text class="mg-lt20">满88免运费</text>
+        </view>
+        <view class="pull-right">
+            <image class="inline-block" src='/pages/common/images/icon-right.png'></image>
+        </view>
+     </view>
+     <!--评论-->
+     <view class="comments bg-fff mg-tp20">
+        <view class="clearfix h100 line-h100 border2 pd-lr30 commentLen">
+            <view class="pull-left bold">商品评价 (2)</view>
+            <navigator hover-class='none' url='/pages/idxSubpackage/pages/comments/comments'>
+                <view class="pull-right flex flex-vc">
+                    <view class="ft-26 color-666 bold mg-rt20">98.1% 好评</view>
+                    <image class="inline-block" src='/pages/common/images/icon-right.png'></image>
+                </view>
+            </navigator>
+        </view>
+        <view class="comList pd-bt30">
+            <view class="head flex flex-vc">
+                <image class="avatar" src='/images/userAvatar.png'></image>
+                <text class="ft-30 color-333 bold mg-lt20 mg-rt15">朱小明</text>
+                <image class="lv mg-rt10" wx:for='{{lvList}}' wx:key="item" src='{{item}}'></image>
+            </view>
+            <view class="comDate ft-24 color-666 pd-lr30 mg-tp20">2018-11-28 13:47 195ml</view>
+            <view class="comText mg-tp25 overflow-ellipsis2 ft-28 color-333 line-h40 pd-lr30">
+                无限回购!之前用的亦博的神仙水，感觉很浪费，这个性价比很高了!已经囤了好几瓶了！
+            </view>
+            <view class="mg-tp20 comImg">
+                <image wx:for="{{comImgList}}" src="{{item}}" wx:key="item"></image>
+            </view>
+        </view>
+     </view>
+     <!--为你推荐-->
+      <view class="selectGood mg-tp20 bg-fff">
+          <view class="head text-center">
+               <image class="mg-rt20" src="/images/decorateImg1.png"></image>
+               <text class="ft-32 color-333 bold">为你推荐</text>
+               <image class="mg-lt20" src="/images/decorateImg2.png"></image>
+          </view>
+          <scroll-view scroll-x class="swiperList3">
+               <view class="goodLists mg-lt30 inline-block" wx:for="{{swiperList3}}" wx:key="item">
+                    <navigator hover-class='none' url='../../idxSubpackage/pages/proDetails/proDetails?id={{item.id}}'>
+                        <view class="proImg">
+                            <image src="{{item.images}}"></image>
+                        </view>
+                        <view class="mg-tp10 proDesc overflow-ellipsis ft-28 color-333">{{item.proName}}</view>
+                        <view>
+                            <text class="ft-28 color-ff5400 bold mg-rt10">￥{{item.disPrice}}</text>
+                            <text class="ft-20 color-999 bold line-through">￥{{item.yPrice}}</text>
+                        </view>
+                    </navigator>
+               </view>
+          </scroll-view>
+      </view>
+      <!--商品信息-->
+      <view class="mg-tp20 bg-fff pd-lr30 proDetails">
+        <view class="pd-tb30 ft-32 color-333">商品信息</view>
+      </view>
+      <!--底部-->
+      <view class="h100 line-h100 bg-fff footFixed">
+            <view class="toIndex pull-left">
+                <navigator class="h100 flex flex-vc flex-hc" hover-class='none' open-type='switchTab' url="/pages/tabBar/index/index">
+                    <image src='../../images/toIndex.png'></image>
+                </navigator>
+            </view>
+            <view class="kf pull-left h100 flex flex-vc flex-hc">
+                <image src='../../images/contactkf.png'></image>
+            </view>
+            <view class="cart pull-left relative">
+                <navigator class="h100 flex flex-vc flex-hc" hover-class='none' open-type='switchTab' url='/pages/tabBar/shopCart/shopCart'>
+                    <image src='../../images/cart.png'></image>
+                    <view class="absolute cartNum color-fff text-center ft-20">2</view>
+                </navigator>
+            </view>
+            <view class="joinCart text-center ft-30 color-333 pull-left">加入购物车</view>
+            <view class="buy text-center bg-ff5400 ft-30 color-fff pull-left">立即购买</view>
+      </view>
+</view>
+
+<!--详情页弹窗-->
+<view class="maskLayer" wx:if="{{isShowModal}}">
+     <view class="contentBox bg-fff">
+          <view class="topProImg flex flex-vc relative">
+               <image class="proImg mg-rt20" src='/images/goodsImg1.png'></image>
+               <view class="choosesx">
+                    <view class="color-ff5400 ft-26">价格:<text class="ft-30">￥268</text></view>
+                    <view class="mg-tp10 ft-28 color-999">请选择规格属性</view>
+               </view>
+               <image class="closeModel absolute" bindtap='closeModal' src='/pages/common/images/close.png'></image>
+          </view>
+          <!--规格-->
+          <view class="specifications">
+               <view class="title ft-26 color-333 pd-lr30">规格</view>
+               <view class="list pd-lr30">
+                    <view class="list-item ft-28 color-333 mg-tp20 text-center inline-block mg-rt20 {{currIndex == item.id ? 'active' :''}}" wx:for="{{speclist}}" wx:key="item" bindtap='chooseSX' data-id="{{item.id}}">{{item.name}}</view>
+               </view>
+          </view>
+          <!--数量-->
+          <view class="proNum mg-tp40 pd-lr30">
+               <view class="title ft-26 color-333">数量</view>
+               <view class="flex flex-vc countBox mg-tp20">
+                    <text class="text-center color-999" bindtap='subtract'>-</text>
+                    <text class="text-center color-333">{{proNum}}</text>
+                    <text class="text-center color-999" bindtap='add'>+</text>
+               </view>
+          </view>
+     </view>
+</view>
+

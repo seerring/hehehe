@@ -1,0 +1,36 @@
+/* pages/mySubpackage/pages/systemUpdate/systemUpdate.wxss */
+.wx-switch-input{
+     width:82rpx !important;
+     height:40rpx !important;
+}
+.wx-switch-input::before{
+     width:80rpx !important;
+     height:37rpx !important;
+     background:#ccc!important;
+}
+.wx-switch-input::after{
+     width:42rpx !important;
+     height:37rpx !important;
+}
+.content {
+  /* height: 200rpx; */
+  padding:0rpx 30rpx;
+}
+
+.mg-tp18 {
+  margin-top:18rpx;
+}
+.exitLogin{
+     position:fixed;
+     bottom:40rpx;
+     width:100%;
+}
+.exitLogin1 {
+  position:fixed;
+     bottom:0;
+     width:100%;
+}
+.border2 {
+  /* margin: 0 30rpx; */
+  border-bottom: 2rpx solid #f4f4f4;
+}

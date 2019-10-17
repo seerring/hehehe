@@ -1,0 +1,88 @@
+<!--pages/idxSubpackage/pages/searchPage/searchPage.wxml-->
+<include src="../../../common/header.wxml" />
+<view class="container">
+      <!--商品搜索-->
+      <!--搜索框-->
+      <navigator hover-class='none' url='../searchPage/searchPage'>
+        <view class="top-search h90 line-h90 bg-f4f4f4">
+            <view class="clearfix relative">
+                <image class="absolute" src='/images/icon-search.png'></image>
+                <input class="inline-block radius8 ft-24 color-333 h60 line-h60 bg-fff pull-left" placeholder='请输入商品名称' placeholder-class='ft-24 color-999'></input>
+                <view class="inline-block radius8 pull-right h60 line-h60 btn bg-fff text-center ft-24 color-666">搜索</view>
+            </view>
+        </view>
+      </navigator>
+      <view wx:if="{{newDaliy == 'ok'}}">
+            <!--热门列表-->
+            <view class="hot-list pd-lr30 bg-fff">
+                  <view class="title ft-24 color-999 bold">热门搜索</view>
+                  <view class="list border2">
+                        <view class="list-item radius8 h60 pd-lr30 mg-rt20 border-eee inline-block ft-28 color-666 bold" wx:for="{{hotList}}" wx:key="item">
+                              <navigator hover-class='none' url='../topRanking/topRanking?sname={{item.sname}}'> {{item.sname}}</navigator>
+                        </view>
+                  </view>
+            </view>
+            <!--历史搜索-->
+            <view class="hot-list his-list pd-lr30 bg-fff">
+                  <view class="title ft-24 color-999 bold">历史搜索</view>
+                  <view class="list">
+                        <view class="list-item radius8 h60 pd-lr30 mg-rt20 border-eee inline-block ft-28 color-666 bold" wx:for="{{hisList}}" wx:key="item">
+                              <navigator hover-class='none' url='../topRanking/topRanking?sname={{item.sname}}'> {{item.sname}}</navigator>
+                        </view>
+                  </view>
+                  <view class="text-center">
+                        <view class="clearHis border-eee inline-block" bindtap='clearhisbtn'>
+                              <image class="mg-rt10" src='/pages/common/images/icon-delete.png'></image>
+                              <text class="ft-28 color-999">清除历史搜索</text>
+                        </view>
+                  </view>
+            </view>
+      </view>
+      <view wx:elif="{{prostatus == 'ok'}}">
+            <!--排序-->
+            <view class="tabList h90 line-h90 bg-fff pd-lr30 border2">
+                  <view class="list-item ft-28 color-666 pull-left flex flex-vc {{index == curIndex ? 'active' : ''}}" data-index="{{index}}" bindtap='tabFun' wx:for="{{tabList}}" wx:key="item">
+                        <view class="inline-block mg-rt10">{{item.name}}</view>
+                        <view class="arrowBox">
+                              <view class="sx-arrow-up mg-bt10  {{curIndex == index && item.sort != isSort ? 'sx-arrow-down1' : ''}}"></view>
+                              <view class="sx-arrow-down mg-tp10 {{curIndex == index && item.sort == isSort ? 'sx-arrow-up1' : ''}}"></view>
+                        </view>
+                  </view>
+            </view>
+            <!--商品列表-->
+            <view class="proDes bg-fff">
+                  <view class="proList" wx:if="{{proList.length > 0}}">
+                        <view class="list-item clearfix relative" wx:for="{{proList}}" wx:key="item">
+                              <navigator hover-class='none' url='../proDetails/proDetails'>
+                                    <view class="radius8 pull-left leftCont mg-rt30">
+                                          <image class="radius" src='{{item.product_images}}'></image>
+                                    </view>
+                                    <view class="pull-right rightCont">
+                                          <view class="ft-28 color-333 line-h40 bold overflow-ellipsis2">{{item.product_name}}</view>
+                                          <view class="mg-tp20 discount ft-20 color-ff5400">
+                                          <view wx:for="{{item.product_tag}}" wx:key="item" class="discount1 inline-block mg-rt10 text-center {{item == null ? 'hide' : ''}}">{{item}}</view>
+                                <!-- <view class="discount2 inline-block">{{item.disc2}}</view> -->
+                                          </view>
+                                          <view class="price absolute mg-tp40">
+                                                <view class="color-ff5400">
+                                                      <text class="ft-26">￥{{item.product_fact_price}}</text>
+                                                      <!-- <text class="oPrice"></text> -->
+                                                      <text class="ft-20 line-through color-999 mg-lt15">￥{{item.product_price}}</text>
+                                                </view>
+                                          </view>
+                                    </view>
+                              </navigator>
+                              <image class="joinCart absolute" src='/images/joinCart.png'></image>
+                        </view>
+                        <!--没有更多了-->
+                        <view wx:if="{{isempty}}" class="h100 line-h100 text-center ft-22 color-999 bg-f4f4f4">没有更多了</view>
+                  </view>
+                  <view wx:else>
+                        <view class="text-center proNullStyle">
+                              <image src="/images/proNull.png"></image>
+                              <view class="ft-26 color-999 mg-tp30">未搜到任何商品~</view>
+                        </view>
+                  </view>
+            </view>
+      </view>
+</view>

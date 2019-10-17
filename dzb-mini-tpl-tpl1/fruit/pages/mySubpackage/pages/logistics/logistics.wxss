@@ -1,0 +1,58 @@
+/* pages/mySubpackage/pages/logistics/logistics.wxss */
+.logisticsDes{
+     height:170rpx;
+}
+.logisticsDes .icon,
+.logisticsDes image{
+     width:110rpx;
+     height:110rpx;
+}
+.lists .list-item{
+     margin-left:60rpx;
+     width:630rpx;
+     padding:40rpx 30rpx;
+     box-sizing:border-box;
+}
+.lists .list-item .dian{
+     top:50rpx;
+     left:-20rpx;
+     width:10rpx;
+     height:100%;
+     border-right:1rpx solid #999;
+}
+.lists .list-item .dian view{
+     width:20rpx;
+     height:20rpx;
+     background:#999;
+     border-radius:50%;
+}
+.lists .list-item:last-child .dian{
+     border-right:none;
+}
+.lists .list-item .nowAds{
+     top:40rpx;
+     left:-30rpx;
+     width:20rpx;
+     height:calc(100% - 20rpx);
+}
+.lists .list-item .nowAds1{
+     top:40rpx;
+     left:0rpx;
+     width:20rpx;
+     height:100%;
+     border-right:1rpx solid #999;
+}
+.lists .list-item .nowAds image{
+     width:40rpx;
+     height:40rpx;
+}
+.nullStyle{
+     margin-top:200rpx;
+}
+.nullStyle image{
+     width:335rpx;
+     height:304rpx;
+}
+.nullStyle .title{
+     margin-top:60rpx;
+}

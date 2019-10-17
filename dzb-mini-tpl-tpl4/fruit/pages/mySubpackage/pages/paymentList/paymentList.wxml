@@ -1,0 +1,53 @@
+<!--pages/mySubpackage/pages/paymentList/paymentList.wxml-->
+<!-- <text>pages/mySubpackage/pages/paymentList/paymentList.wxml</text> -->
+
+<view class="paymentList bg-f4f4f4">
+  <view class="tabList h100 line-h100 flex flex-jc">
+    <view class="tab_item line h50 line-h50 mg-tp25 flex flex-jc" bindtap="switchTabItem" data-index="0" data-paged="1">  
+        <view class="{{curIndex == 0 ? 'rentOut ft-30 active': 'rentOut ft-30'}}">全部</view>
+    </view>
+    <view class="tab_item line h50 line-h50 mg-tp25 flex flex-jc" bindtap="switchTabItem" data-index="1" data-paged="1">
+        <view class="{{curIndex == 1 ? 'rentOut ft-30 active': 'rentOut ft-30'}}">收入</view>
+    </view>
+    <view class="tab_item line h50 line-h50 mg-tp25 flex flex-jc" bindtap="switchTabItem" data-index="2" data-paged="1">
+        <view class="{{curIndex == 2 ? 'rentOut ft-30 active': 'rentOut ft-30'}}">支出</view>
+    </view>
+  </view>
+
+  <view class="mg-tp10 payList">
+    <view class="list" wx:if="{{list.length > 0}}">
+      <view class="list-item bg-fff pd-lr30" wx:for="{{list}}">
+        <!-- <view :to="{name:'paymentDes',params:{id:item.id}}" class="flex flex-ac bd-bt-eee item_1"> -->
+        <navigator hover-class='none' url="../paymentDes/paymentDes?id={{item.id}}" class="flex flex-ac bd-bt-eee item_1">
+          <view class="leftCont flex flex-js">
+            <view>
+              <view class="ft-28 color-333">{{item.note}}</view>
+              <view class="ft-24 color-999 mg-tp20">{{item.create_time}}</view>
+            </view>
+          </view>
+          <view class="rightCont flex flex-je">
+            <view class="ft-32 color-333 bold color-red" wx:if="{{item.type == 1}}">+{{item.amount}}</view>
+            <view class="ft-32 color-333 bold" wx:else>-{{item.amount}}</view>
+          </view>
+        </navigator>
+        <!-- </view> -->
+      </view>
+      <view class="loadMore text-center" wx:if="{{isLoadMore}}">
+    <view>
+          <cell wx:for="{{types}}" >
+            <view class="ft-26 color-666">正在加载更多</view>
+          </cell>
+      </view>
+  </view>
+  <view class="loadMore text-center" wx:else>
+          <image class="block" src="../../images/icon2.png"></image>
+          <view class="ft-20 mg-tp20 color-999">没有更多了，看看其他的吧~</view>
+      </view>
+    </view>
+    <view wx:else class="loadMore text-center">
+          <image class="block" src="../../images/icon4.png"></image>
+          <view class="ft-20 mg-tp20 color-999">暂无明细~</view>
+      </view>
+  </view>
+
+</view>

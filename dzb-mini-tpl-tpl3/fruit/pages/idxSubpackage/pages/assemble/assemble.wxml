@@ -1,0 +1,26 @@
+<!--pages/idxSubpackage/pages/assemble/assemble.wxml-->
+<view class="container">
+     <!--0元拼团-->
+     <view class="list">
+          <view class="list-items mg-tp10 radius8 bg-fff pd-bt30 inline-block" wx:for="{{lists}}" wx:key="{{item}}">
+               <view class="relative proImg">
+                    <image class="radius8" src='{{item.proImg}}'></image>
+               </view>
+               <view class="mg-lt20 mg-tp20 overflow-ellipsis ft-28 color-333 bold">{{item.proName}}</view>
+               <view class="color-ff5400 mg-lt20"><text class="ft-22 mg-rt20">{{item.proNum}}人团</text><text class="ft-26">￥{{item.pt_price}}</text></view>
+               <view class="ft-22 color-999 mg-lt20">
+                    <text class="mg-rt20">单买价</text><text class="line-through">￥{{item.dj_price}}</text>
+               </view>
+               <view class="mg-lt20 mg-tp20 toGroup h50 line-h50 text-center ft-26 color-fff">
+                    <navigator hover-class='none' url='../assembleDes/assembleDes'>
+                         去拼团
+                    </navigator>
+               </view>
+          </view>
+     </view>
+     <view class="h100 line-h100 text-center ft-22 color-999">没有更多了</view>
+     <!--返回顶部-->
+     <view class="backTop" bindtap='backTop' wx:if="{{backTopVal}}">
+          <image src="/images/backTop.png"></image>
+     </view>
+</view>

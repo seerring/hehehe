@@ -1,0 +1,24 @@
+/* pages/mySubpackage/pages/memberSys/memberSys.wxss */
+page{
+     background:#fff;
+}
+.grade{
+     padding:40rpx 30rpx 30rpx 30rpx;
+}
+.tableBox .list-item view{
+     flex:1;
+}
+.bd-bteee{
+     border-bottom:1rpx solid #eee;
+}
+.memberExp .title{
+     width:156rpx;
+     height:50rpx;
+     line-height:50rpx;
+}
+.memberExp .list .list-item:first-child{
+     margin-top:15rpx;
+}
+.memberExp .other{
+     margin-top:85rpx;
+}

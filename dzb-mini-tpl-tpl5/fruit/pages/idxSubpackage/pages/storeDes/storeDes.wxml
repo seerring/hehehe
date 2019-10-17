@@ -1,0 +1,49 @@
+<!--indexPackage/pages/storeDes/storeDes.wxml-->
+<!-- <text>indexPackage/pages/storeDes/storeDes.wxml</text> -->
+<include src="/components/common/loading.wxml" />
+
+<view class="storeDes">
+		<!--商品主图-->
+  <view class="mainImgBox">
+		<view class="indexSwiper relative">
+        <swiper indicator-dots="true" indicator-color="#fff" indicator-active-color="#000" autoplay="true" circular="true">
+          <block wx:for="{{swiperList}}" wx:key="item">
+              <swiper-item>
+                  <image class="block" src="{{item}}"></image>
+              </swiper-item>
+          </block>
+        </swiper>
+    </view>
+  </view>
+  <!--店铺名称-->
+  <view class="storeName h100 line-h100 pd-lr30 bd-bt-f4f4f4 clearfix">
+    <view class="pull-left ft-28 color-333">门店名称</view>
+    <view class="pull-right ft-26 color-999">{{storeInfo.name}}</view>
+  </view>
+  <!--店铺地区-->
+  <view class="storeArea h100 line-h100 pd-lr30 bd-bt-f4f4f4 clearfix">
+    <view class="pull-left ft-28 color-333">店铺地区</view>
+    <view class="pull-right ft-26 color-999">{{storeInfo.area}}</view>
+  </view>
+  <!--详细地址-->
+  <view class="storeAds h100 line-h100 pd-lr30 bd-bt-f4f4f4 clearfix">
+    <view class="pull-left ft-28 color-333">详细地址</view>
+    <view class="pull-right ft-26 color-999 flex flex-ac flex-je" bindtap="storePosition">
+      <image class="block mg-rt10 address_img" src="../../images/address_icon.png"></image>
+      <view class="one-line-ellipsis text-right">{{storeInfo.address}}</view>
+    </view>
+  </view>
+  <!--营业时间-->
+  <view class="storeAds h100 line-h100 pd-lr30 bd-bt-f4f4f4 clearfix">
+    <view class="pull-left ft-28 color-333">营业时间</view>
+    <view class="pull-right ft-26 color-999">{{storeInfo.workTime}}</view>
+  </view>
+  <!--营业执照-->
+  <view class="storeAds h100 line-h100 pd-lr30 clearfix">
+    <view class="pull-left ft-28 color-333">营业执照</view>
+    <view class="pull-right ft-26 color-999">上传已认证</view>
+  </view>
+  <view class="imgArr pd-lr30 flex flex-ac">
+    <image wx:for="{{imgArr}}" wx:key="item" class="block mg-rt50" src="{{item}}"></image>
+  </view>
+</view>

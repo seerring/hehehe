@@ -1,0 +1,9 @@
+var filter = {
+    numberToFix: function (value) {
+        var data = JSON.parse(value);
+        return data[0]
+    }
+}
+module.exports = {
+    numberToFix: filter.numberToFix
+}

@@ -1,0 +1,23 @@
+<!--pages/mySubpackage/pages/setting/setting.wxml-->
+<include src="../../../common/header.wxml" />
+<view class="container">
+     <!--关于-->
+     <navigator class="h100 line-h100 bg-fff pd-lr30 border2" hover-class='none' url='../systemUpdate/systemUpdate'>
+          <view class="pull-left ft-28 color-333">关于</view>
+          <view class="pull-right ft-24 color-999">版本号:2.1.2</view>
+     </navigator>
+     <!--清除缓存-->
+     <!-- <view class="h100 line-h100 bg-fff pd-lr30 border2">
+          <view class="pull-left ft-28 color-333">清除缓存</view>
+          <view class="pull-right ft-24 color-999">50MB</view>
+     </view> -->
+     <!--推送消息设置-->
+     <!-- <view class="h100 line-h100 bg-fff pd-lr30 border2">
+          <view class="pull-left ft-28 color-333">推送消息设置</view>
+          <view class="pull-right ft-24 color-999 flex flex-vc">
+               <switch class="inline-block" color='#1ccfcf'></switch>
+          </view>
+     </view> -->
+     <!--退出登录-->
+     <button class="h90 line-h90 text-center ft-32 color-fff bg-ff5400 exitLogin" bindtap='logout'>退出登录</button>
+</view>

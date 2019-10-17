@@ -1,0 +1,88 @@
+/* pages/mySubpackage/pages/refundDetails/refundDetails.wxss */
+.proInfo{
+    padding:40rpx 30rpx 25rpx 30rpx;
+}
+.proInfo .leftCont,
+.proInfo .leftCont image{
+    width:170rpx;
+    height:170rpx;
+}
+.proInfo .rightCont{
+    width:490rpx;
+}
+.status .rightCont radio:last-child{
+    margin-left:60rpx;
+}
+.reason image{
+    width:19rpx;
+    height:35rpx;
+    vertical-align:middle;
+}
+.describe .title{
+    padding:30rpx 0 25rpx 0;
+}
+.describe .textarea,
+.describe .textarea textarea{
+    width:690rpx;
+    height:180rpx;
+}
+.describe .textarea textarea{
+    padding:25rpx;
+    box-sizing:border-box;
+}
+.describe .textarea .maxSize{
+    right:10rpx;
+    bottom:30rpx;
+}
+.uploadImg{
+    margin-bottom:150rpx;
+}
+.uploadImg .title{
+    padding:30rpx 0 25rpx 0;
+}
+.uploadImg .lists{
+     height:130rpx;
+}
+.uploadImg .lists .delete {
+     width:24rpx;
+     height:24rpx;
+     right:-15rpx;
+     top:-20rpx;
+}
+.uploadImg .lists image{
+     width:130rpx;
+     height:130rpx;
+}
+.uploadImg .imgList .upload{
+     width:130rpx;
+     height:130rpx;
+     border:1rpx dashed #ccc;
+}
+.uploadImg .imgList .uploadImg1{
+     width:42rpx;
+     height:32rpx;
+}
+.submitBtn{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    border-radius:0;
+}
+.content1{
+    position:fixed;
+    bottom:0;
+    width:100%;
+}
+.content1 .title{
+    padding:40rpx 30rpx;
+}
+.content1 .head image{
+    width:28rpx;
+    height:28rpx;
+    top:40rpx;
+    right:30rpx;
+}
+.content1 .lists{
+     overflow:scroll;
+     height:600rpx;
+}

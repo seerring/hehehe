@@ -1,0 +1,14 @@
+<!--pages/mySubpackage/pages/memberExplain/memberExplain.wxml-->
+<!-- <text>pages/mySubpackage/pages/memberExplain/memberExplain.wxml</text> -->
+
+<view class="memberExplain bg-fff">
+		<view class="explainList">
+			<view class="list-item mg-tp30" wx:for="{{list}}">
+				<view class="title flex flex-ac">
+					<image class="block mg-rt10" src="../../images/members-icon8.png" ></image>
+					<view class="ft-30 color-333">{{item.title}}</view>
+				</view>
+				<view class="content mg-tp20 ft-28 color-333">{{item.content}}</view>
+			</view>
+		</view>
+	</view>

@@ -1,0 +1,381 @@
+/* pages/cartSubpackage/pages/subOrder/subOrder.wxss */
+
+.subOrder {
+  min-height: calc(99.12vh);
+  padding-bottom:140rpx;
+}
+.subOrder .scrollHeight {
+  height: calc(96.8vh);
+  overflow-y: scroll;
+  padding-bottom: 50rpx;
+}
+.subOrder .scrollHeight .addAddress {
+  width: 690rpx;
+  margin: 0 auto;
+  margin-top: 20rpx;
+  padding: 40rpx 20rpx;
+}
+.subOrder .scrollHeight .addAddress .addBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.subOrder .scrollHeight .addAddress .leftCont {
+  width: 85%;
+}
+.subOrder .scrollHeight .addAddress .leftCont .left {
+  width: 10%;
+}
+.subOrder .scrollHeight .addAddress .leftCont .left image {
+  width: 34rpx;
+  height: 44rpx;
+}
+.subOrder .scrollHeight .addAddress .leftCont .right {
+  width: 90%;
+}
+.subOrder .scrollHeight .addAddress .rightCont {
+  text-align: right;
+}
+.subOrder .scrollHeight .addAddress .rightCont image {
+  width: 16rpx;
+  height: 30rpx;
+}
+.subOrder .scrollHeight .takeStore {
+  width: 690rpx;
+  margin: 0 auto;
+  margin-top: 20rpx
+}
+.subOrder .scrollHeight .takeStore .headBox .storeIcon {
+  width: 10%;
+}
+.subOrder .scrollHeight .takeStore .headBox .storeIcon image {
+  width: 38rpx;
+  height: 38rpx;
+}
+.subOrder .scrollHeight .takeStore .headBox .storeInfo {
+  width: 90%;
+}
+.subOrder .scrollHeight .takeStore .headBox .storeInfo .name {
+  font-family: 'PingFang-Medium';
+}
+.subOrder .scrollHeight .takeStore .footBox .storePhone {
+  width: 10%;
+}
+.subOrder .scrollHeight .takeStore .footBox .storePhone image {
+  width: 34rpx;
+  height: 44rpx;
+}
+.subOrder .scrollHeight .proDes {
+  width: 690rpx;
+  margin: 0 auto;
+  margin-top: 20rpx;
+}
+.subOrder .scrollHeight .proDes .orderStatus {
+  font-family: 'PingFang-Medium';
+}
+.subOrder .scrollHeight .proDes .orderStatus .leftCont image {
+  width: 60rpx;
+  height: 60rpx;
+}
+.subOrder .scrollHeight .proDes .prolist .list-item .leftCont {
+  width: 30%;
+}
+.subOrder .scrollHeight .proDes .prolist .list-item .leftCont image {
+  width: 168rpx;
+  height: 168rpx;
+}
+.subOrder .scrollHeight .proDes .prolist .list-item .rightCont {
+  width: 70%;
+}
+.subOrder .scrollHeight .proDes .coupons .rightCont image {
+  width: 16rpx;
+  height: 30rpx;
+}
+.subOrder .scrollHeight .rpxark {
+  width: 690rpx;
+  margin: 0 auto;
+  margin-top: 20rpx;
+}
+.subOrder .scrollHeight .rpxark .leftCont {
+  width: 20%;
+}
+.subOrder .scrollHeight .rpxark .rightCont {
+  width: 80%;
+}
+.subOrder .scrollHeight .agreement {
+  margin: 20rpx 0 0 30rpx
+}
+.subOrder .scrollHeight .agreement image {
+  width: 30rpx;
+  height: 30rpx;
+}
+.subOrder .scrollHeight .modalContent .modalTop {
+  font-family: 'PingFang-Medium';
+  padding: 100rpx 60rpx 50rpx 60rpx;
+  border-bottom: 2rpx solid #eeeeee;
+}
+.subOrder .scrollHeight .modalContent .btnBox p {
+  width: 50%;
+}
+.subOrder .scrollHeight .modalContent .btnBox p:first-child {
+  border-right: 2rpx solid #eeeeee;
+}
+.subOrder .fixdBtn {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height:140rpx;
+  z-index: 500;
+}
+.bottom{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left:0;
+}
+.subOrder .fixdBtn .hint {
+  background: #DAEFF0;
+}
+.subOrder .fixdBtn .leftCont {
+  width: 70%;
+}
+.subOrder .fixdBtn .leftCont .yh_price {
+  padding: 5rpx 10rpx;
+  background: #E5F9F8;
+}
+.subOrder .fixdBtn .rightCont {
+  width: 30%;
+}
+.subOrder .fixdBtn .rightCont .payMent {
+  width: 200rpx;
+  background: #ccc;
+}
+.subOrder .fixdBtn .rightCont .payment2 {
+  background: #1CCFCF !important;
+}
+.subOrder .couponList {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 650rpx;
+  overflow: hidden;
+}
+.subOrder .couponList .head {
+  font-family: 'PingFang-Medium';
+}
+.subOrder .couponList .head image {
+  margin-top: 36rpx;
+  width: 28rpx;
+  height: 28rpx;
+}
+.subOrder .couponList .list {
+  height: 550rpx;
+  overflow-y: scroll;
+}
+.subOrder .couponList .list .list-item .couponBg {
+  /* background: url('../../images/couponBg_1.png'); */
+  width: 690rpx;
+  height: 234rpx;
+  background-size: cover;
+  z-index: -99;
+}
+.subOrder .couponList .list .list-item .topBox {
+  height: 170rpx;
+}
+.subOrder .couponList .list .list-item .topBox .price {
+  font-family: 'PingFang-Medium';
+  width: 28%;
+}
+.subOrder .couponList .list .list-item .topBox .price text {
+  font-size: 60rpx;
+}
+.subOrder .couponList .list .list-item .topBox .discount {
+  width: 72%;
+}
+.subOrder .couponList .list .list-item .topBox .discount div p:nth-child(1) {
+  padding: 5rpx 8rpx;
+}
+.subOrder .couponList .list .list-item .topBox .discount div p:nth-child(2) {
+  font-family: 'PingFang-Medium';
+}
+.subOrder .couponList .list .list-item .topBox .discount .disNum text {
+  font-family: 'PingFang-Medium';
+}
+.subOrder .couponList .list .list-item .fotBox {
+  height: 64rpx;
+}
+.subOrder .couponList .list .list-item > image {
+  right: 0;
+  top: 0;
+  width: 90rpx;
+  height: 90rpx;
+}
+.subOrder .payList {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.subOrder .payList .head {
+  font-family: 'PingFang-Medium';
+}
+.subOrder .payList .head image {
+  margin-top: 36rpx;
+  width: 28rpx;
+  height: 28rpx;
+}
+.subOrder .payList .list .list-item .leftCont image {
+  width: 60rpx;
+  height: 60rpx;
+}
+.subOrder .payList .list .list-item .rightCont image {
+  width: 36rpx;
+  height: 25rpx;
+}
+.subOrder .payList .list .list-item:last-child {
+  padding-bottom: 40rpx;
+  border-bottom: none;
+}
+.subOrder .payList .payment {
+  font-family: 'PingFang-Medium';
+}
+.subOrder .toPay {
+  background: #1CCFCF !important;
+}
+.tabBox{
+  width:100%;
+  background: #fff;
+  height:100rpx;
+  line-height:100rpx;
+}
+.tabBox text {
+  display: inline-block;
+  width:50%;
+  text-align:center;
+}
+.selected {
+  color: rgb(28, 207, 207);
+  border-bottom:2rpx solid rgb(28, 207, 207);
+}
+.dateTime{
+  width:690rpx;
+  margin:0 auto;
+  margin-top:20rpx;
+  padding:40rpx 20rpx;
+}
+.dateTime  .leftCont{
+  width:50%;
+}
+.dateTime  .rightCont{
+  width:50%;
+}
+.dateTime .rightCont  img{
+  width:0.16rpx;
+  height:0.3rpx;
+}
+.ModalBox{
+			position:fixed;
+			bottom:0;
+			width:100%;
+			height:450rpx;
+			z-index:1027;
+}
+.headcontent{
+  text-align: center;
+}
+.ModalBox	.headcontent image{				
+  top:31rpx;
+  right:30rpx;
+  width:28rpx;
+  height:28rpx;		
+}
+.ModalBox	.screenBox{
+	height:270rpx;
+}
+.screenBox .leftCont{
+  width:50%;
+  height:270rpx;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.screenBox .rightCont{
+  width:50%;
+  height:270rpx;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.ModalBox .footBtn{
+  background:#1CCFCF;
+  color:#fff;
+  font-size: 32rpx;
+  border-radius: 0;
+} 
+		
+.active{
+  color:#1CCFCF;
+}
+
+.rightCont2{
+  text-align: right;
+  width: 570rpx;
+
+}
+
+#remark{
+  margin: 20rpx 30rpx;
+}
+	
+.newArrow{
+  width: 16rpx;
+  height: 30rpx;
+}
+
+.holder{
+  height:100%;
+  background: rgba(0, 0, 0, 0.301)!important;
+}
+.holder2{
+  height:100%;
+  background: rgba(0, 0, 0, 0.301)!important;
+}
+
+.myBtn{
+    display: flex;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 32rpx;
+    height: 90rpx;
+    align-items: center;
+    border-radius:0rpx!important;
+    justify-content: center;
+}
+
+/* 钱包支付 */
+.list2 .price {
+  font-size: 60rpx;
+  padding-bottom: 60rpx;
+}
+.list2 .passwordBox {
+  margin: 0 auto;
+  width: 580rpx;
+}
+.list2 .passwordBox .leftCont {
+  width: 15%;
+}
+.list2 .passwordBox .rightCont {
+  font-family: 'PingFang-Medium';
+  width: 85%;
+}
+.list2 .passwordBox .rightCont input {
+  width: 100%;
+  overflow: inherit;
+}
+.list2 .payment {
+  margin: 0 auto;
+  width: 580rpx;
+  margin-top: 40rpx;
+  font-family: 'PingFang-Medium';
+}
+
+
